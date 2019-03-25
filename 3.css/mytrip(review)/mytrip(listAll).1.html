@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homepage</title>
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Gaegu|Nanum+Pen+Script" rel="stylesheet">
+    
+    <link href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc.5/angular-material.css" rel="stylesheet">
+    <style>
+    /* 전체 */
+    *{
+        padding: 0;
+        margin: 0 auto;
+        width:1200px;
+        position: relative;
+        font-family: 'Do Hyeon', sans-serif;
+    }
+
+    /* 헤더파트 ===================================== */
+
+    /* 로그인 부분 */
+    .top{
+        border: 1px solid orange;
+        height:30px;
+        background : orange;
+        margin: 0 auto;  
+    }
+    .top > .login{
+        height:30px;
+        border: 1px solid orange;
+        font-size:15px;
+        text-align: right;
+        line-height: 25px;
+        color: white;
+    }
+    .top > .login > a:link{
+        text-decoration: none;
+        color: white;
+    }
+    .top > .login > a:visited{
+        text-decoration: none;
+        color: white;
+    }
+
+    /* 타이틀 */
+    .title{
+        height:100px;
+        margin: 0 auto;
+        font-size:55px;
+        text-align: center;
+        line-height: 100px;
+    }
+
+    /* 메뉴 파트 */
+    :root {
+        --nav-length: 6;
+        --nav-width: calc(100% / var(--nav-length));
+    }
+
+    ul{
+        list-style:none;
+    }
+
+    .search{
+        border-top: 1px solid gainsboro;
+        border-bottom: 1px solid gainsboro;
+        height:60px; 
+        margin:0 auto;
+        background: white;
+    }
+
+    .search > .menu > li {
+        display:inline-block;
+        text-align: center;
+        font-size:25px;
+        width: calc(100% / 6);
+        height:60px;
+        margin-right: -6px;      
+        font-weight: bold;
+        color: black;
+        line-height: 60px;
+    }
+
+    /* 메뉴바 애니메이션 */
+    .search > .menu > li:hover {
+        background: orange;
+        transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        -webkit-transition-duration: 0.5s;
+    }
+
+    .search > .menu > li:hover > a:link {
+        color: white;
+        transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        -webkit-transition-duration: 0.5s;
+    }
+    .search > .menu > li:hover > a:visited {
+        color: white;
+        transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        -webkit-transition-duration: 0.5s;
+    }
+
+    .search > .menu > li > a:link{
+        text-decoration: none;
+        color: black;
+    }
+    .search > .menu > li > a:visited{
+        text-decoration: none;
+        color: black;
+    }
+    .search > .menu > li > a:hover{
+        font-weight: bold;
+       color: white;
+    }
+    .search > .menu > .nav-underline {
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: var(--nav-width);
+        height: 5px;
+        background: orange;
+        transition: all 0.7s ease-in-out;
+    }
+    ul > li:nth-child(1).is-current ~ .nav-underline {
+        left: calc(var(--nav-width) * 0);
+    }
+    ul > li:nth-child(2).is-current ~ .nav-underline {
+        left: calc(var(--nav-width) * 1);
+    }
+    ul > li:nth-child(3).is-current ~ .nav-underline {
+        left: calc(var(--nav-width) * 2);
+    }
+    ul > li:nth-child(4).is-current ~ .nav-underline {
+        left: calc(var(--nav-width) * 3);
+    }
+    ul > li:nth-child(5).is-current ~ .nav-underline {
+        left: calc(var(--nav-width) * 4);
+    }
+    ul > li:nth-child(6).is-current ~ .nav-underline {
+        left: calc(var(--nav-width) * 5);
+    }
+    ul > li:nth-child(1):hover ~ .nav-underline {
+        left: calc(var(--nav-width) * 0);
+    }
+    ul > li:nth-child(2):hover ~ .nav-underline {
+        left: calc(var(--nav-width) * 1);
+    }
+    ul > li:nth-child(3):hover ~ .nav-underline {
+        left: calc(var(--nav-width) * 2);
+    }
+    ul > li:nth-child(4):hover ~ .nav-underline {
+        left: calc(var(--nav-width) * 3);
+    }
+    ul > li:nth-child(5):hover ~ .nav-underline {
+        left: calc(var(--nav-width) * 4);
+    }
+    ul > li:nth-child(6):hover ~ .nav-underline {
+        left: calc(var(--nav-width) * 5);
+    } 
+    /*바디 부분 */
+    
+    
+    #img{
+        background: url(flower.png) no-repeat;
+        background-size: 1200px 250px;
+        width:100%;
+        margin-top: 15px;
+       
+       
+    }
+    #img > #contents {
+        background-color:rgba(255,255,255,0.5);
+    }
+    /* 소제목 */
+    .title-area{
+        display: inline-block;
+        height: 130px;
+    }
+    .title-area2{
+        height: 100px;   
+    }
+    .title-area >.mytrip {
+        font-family: 'Nanum Pen Script', cursive;
+        padding :25px;
+        font-size:70px;
+        font-weight: bold;   
+        float:left;
+     
+    }
+    /*검색 내용 선택*/
+    .choice1 {        
+        position: relative;
+        width: 150px;
+        height: 100px;
+        left: -149px;
+        top:-2px;
+        line-height: 100px;
+        
+      
+    }
+    /*검색내용입력*/
+    .search1{
+        position: relative;
+        width: 350px;
+        top:-79px;
+        right:-100px;
+    }
+    .search1 > #search1 {
+        font-size:25px; 
+        width:350px; 
+        height:50px;
+        font-family: 'Gaegu', cursive;
+        border:none;
+        border-bottom: 1px solid gray;
+    }
+    /*검색버튼*/
+    div.searchButton {
+        position: relative;
+        width: 35px;
+        bottom:129px;
+        left:291px;
+    }
+    .searchButton > #searchButton {
+    height: 50px; 
+    width:60px; 
+    font-size:30px;
+    font-weight: bold;
+    font-family: 'Gaegu', cursive;
+    border:none;
+    background: orange;
+    border-radius:10px;
+
+    }
+    /*글쓰기*/
+    .write {
+        position: relative;
+        width: 80px;
+        bottom:180px;
+        left:450px;
+    }
+    .write>#write {
+        width:150px;
+        height: 50px; 
+        background: orange;
+        border:none;
+        border-radius:20px;
+    }
+    .write > #write > a{
+        font-family: 'Gaegu', cursive;
+        font-weight: bold;
+        font-size:30px;
+        color:black;
+        text-decoration: none;
+    }
+
+    /* 전체목록 테이블 */
+    .list{
+        margin:10px;
+        display: inline;
+    }
+    table{
+        position: relative;
+        border-collapse:collapse;
+    }
+    tr:hover {
+
+        background: rgb(250, 221, 210);
+    }
+    th{
+        height:70px;
+        border-bottom: 3px solid lightgray;
+        border-top: 3px solid lightgray;
+        line-height: 60px;
+        font-family: 'Gaegu', cursive;
+        font-size:35px; 
+    }
+    td {
+        height:70px;
+        border-bottom: 3px solid lightgray;
+        line-height: 60px;
+        font-family: 'Gaegu', cursive;
+        font-size:35px; 
+    }
+
+  
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="top">
+            <div class="login">
+                    <a href="">로그인</a>
+                    &nbsp;&nbsp;
+            </div>
+        </div>
+        <div class="title">
+            제주도 어디까지 가봤니?
+        </div>
+        <div class="search">
+            <ul class="menu">
+                <li><a href="#" class="is-current" >Home</a></li>
+                <li><a href="#" >관광지</a></li>
+                <li><a href="#" >맛집</a></li>
+                <li><a href="#" >숙소</a></li>
+                <li><a href="#" >나의여행</a></li>
+                <li><a href="#" >마이페이지</a></li>
+                <div class="nav-underline"></div>
+            </ul>
+        </div>
+    </div>
+
+    <div class="body">
+        <div id="img">
+            <div id="contents">
+                <div class="title-area">
+                    <div class="mytrip" >나의여행</div>
+                </div>
+                <div class="title-area2">
+                    <div class="choice1">
+                        <select style="width:150px; height:50px; font-size:25px; border:none; font-family: 'Gaegu', cursive; font-weight: bold">
+                                <option>제목+내용</option>
+                                <option>제목</option>
+                                <option>작성자</option>
+                            </select>
+                        </div>
+                        <div class="search1">
+                        <input id="search1" type="search" name="search" placeholder="검색할 내용을 입력하세요"/>
+                    </div>
+                    <div class="searchButton">
+                        <button id="searchButton" >검색</button>
+                    </div>
+                    <div class="write">
+                        <button id="write"><a href="#">글쓰기</a></button>
+                    </div>
+                </div>
+            </div>            
+        </div>
+        <div class="list">
+                <table summary="나의여행 전체목록">
+                <tr>
+                    <th style="width:8%">번호</th>
+                    <th style="width:10%">
+                        <select class="chice2" 
+                        style=" width:100px; height:50px; font-size:35px; border:none; border-bottom: 1px solid gray; font-family: 'Gaegu', cursive; font-weight: bold"
+                        >
+                            <option>선택</option>
+                            <option>관광</option>
+                            <option>맛집</option>
+                            <option>숙박</option>
+                        </select>
+                    </th>
+                    <th style="width:40%">제목</th>
+                    <th style="width:10%">작성자</th>
+                    <th style="width:15%">작성일</th>
+                    <th>조회수</th>
+                    <th>좋아요</th>
+                </tr>
+                <tr>
+                    <td style="width:8%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:40%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:15%"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width:8%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:40%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:15%"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width:8%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:40%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:15%"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width:8%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:40%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:15%"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width:8%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:40%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:15%"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width:8%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:40%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:15%"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width:8%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:40%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:15%"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width:8%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:40%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:15%"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width:8%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:40%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:15%"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width:8%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:40%"></td>
+                    <td style="width:10%"></td>
+                    <td style="width:15%"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table> 
+        </div>
+        <div ng-app="DemoApp" flex layout="column">
+            <div flex ng-controller="MainController" layout="column">
+                <section flex>
+                    <md-content layout-padding="">
+              
+                    </md-content>
+                </section>
+              
+                <section layout="row" layout-padding="">
+              
+                    <cl-paging flex cl-pages="paging.total" , cl-steps="6" , cl-page-changed="paging.onPageChanged()" , cl-align="center center" , cl-current-page="paging.current"></cl-paging>
+              
+                </section>
+              
+            </div>
+        </div>
+              
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc.5/angular-material.js"></script>
+    <script src="https://rawgit.com/Crawlink/material-angular-paging/master/build/dist.min.js"></script>
+    
+
+
+
+
+    <script>
+    var app = angular.module("DemoApp", ['ngMaterial', 'cl.paging']);
+              app.controller("MainController", ['$scope', function($scope) {
+              
+                $scope.currentPage = 0;
+              
+                $scope.paging = {
+                  total: 100,
+                  current: 1,
+                  onPageChanged: loadPages,
+                };
+              
+                function loadPages() {
+                  console.log('Current page is : ' + $scope.paging.current);
+              
+                  // TODO : Load current page Data here
+              
+                  $scope.currentPage = $scope.paging.current;
+                }
+              
+              }]);
+    </script>
+
+    <div class="footer">
+
+
+    </div>
+</body>
+
+
+</html>
