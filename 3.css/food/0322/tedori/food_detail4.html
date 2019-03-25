@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+        <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homepage</title>
+    <style>
+    /* 전체 */
+    *{
+        margin: 0 auto;
+        position: relative;
+        padding: 0;
+        font-family: 'Do Hyeon', sans-serif;
+
+    }
+    body{
+        width:1200px;
+        
+    }
+
+    /* 헤더파트 ===================================== */
+    .header {
+      
+     
+    }
+    /* 로그인 부분 */
+    .top{
+        border: 1px solid orange;
+        height:30px;
+        background : orange;
+        margin: 0 auto;
+        
+    }
+    .top > .login{
+        height:30px;
+        border: 1px solid orange;
+        font-size:15px;
+        text-align: right;
+        padding-right: 15px;
+        line-height: 25px;
+        color: white;
+    }
+    .top > .login > a:link{
+        text-decoration: none;
+        color: white;
+    }
+    .top > .login > a:visited{
+        text-decoration: none;
+        color: white;
+    }
+
+
+    /* 타이틀 */
+    .title{
+        height:100px;
+        margin: 0 auto;
+        font-size:40px;
+        text-align: center;
+        line-height: 100px;
+    }
+
+
+    /* 메뉴 파트 */
+    :root {
+        --nav-length: 6;
+        --nav-width: calc(100% / var(--nav-length));
+    }
+    ul{
+        list-style:none;
+    }
+
+    .search{
+        border-top: 1px solid gainsboro;
+        border-bottom: 1px solid gainsboro;
+        height:60px; 
+        margin:0 auto;
+        background: white;
+    }
+
+    .search > .menu > li {
+        display:inline-block;
+        text-align: center;
+        font-size:25px;
+        width: calc(100% / 6);
+        height:60px;
+        margin-right: -6px;      
+        font-weight: bold;
+	    color: black;
+        line-height: 60px;
+    }
+
+    
+
+
+    .search > .menu > li:hover {
+        background: orange;
+        transition-duration: 0.3s;
+        -moz-transition-duration: 0.3s;
+        -webkit-transition-duration: 0.3s;
+    }
+
+
+    .search > .menu > li > a:link{
+        text-decoration: none;
+        color: black;
+    }
+    .search > .menu > li > a:visited{
+        text-decoration: none;
+        color: black;
+    }
+    .search > .menu > li > a:hover{
+        font-weight: bold;
+	    color: white;
+    }
+    .search > .nav-underline {
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: var(--nav-width);
+        height: 2px;
+        background: #333;
+        transition: all .3s ease-in-out;
+    }
+    ul > li:nth-child(1).is-current ~ .nav-underline {
+        left: calc(var(--nav-width) * 0);
+    }
+    ul > li:nth-child(2).is-current ~ .nav-underline {
+        left: calc(var(--nav-width) * 1);
+    }
+    ul > li:nth-child(3).is-current ~ .nav-underline {
+        left: calc(var(--nav-width) * 2);
+    }
+    ul > li:nth-child(4).is-current ~ .nav-underline {
+        left: calc(var(--nav-width) * 3);
+    }
+    ul > li:nth-child(5).is-current ~ .nav-underline {
+        left: calc(var(--nav-width) * 4);
+    }
+    ul > li:nth-child(1):hover ~ .nav-underline {
+        left: calc(var(--nav-width) * 0);
+    }
+    ul > li:nth-child(2):hover ~ .nav-underline {
+        left: calc(var(--nav-width) * 1);
+    }
+    ul > li:nth-child(3):hover ~ .nav-underline {
+        left: calc(var(--nav-width) * 2);
+    }
+    ul > li:nth-child(4):hover ~ .nav-underline {
+        left: calc(var(--nav-width) * 3);
+    }
+    ul > li:nth-child(5):hover ~ .nav-underline {
+        left: calc(var(--nav-width) * 4);
+    }
+     
+   /*   footer 
+     .footer {
+    width: 1200px; height: 150px;
+    background: orange;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    grid-column-gap: 30px;       
+    }   */
+
+     /* 맛집 부분 */
+     .container{
+        width:1200px;
+        border: 1px solid black;
+     }
+     .subtitle{
+        border: 1px solid black;
+         width:100%;
+         height:300px;
+         line-height:300px;
+         text-align:center;
+     }
+     .subMenu{
+        width:100%;
+        height : 8%p;
+        border: 1px solid black;
+
+     }
+     .subMenu > li{
+        border: 0px solid black;
+        display:inline-block;
+        text-align: center;
+        font-size:25px;
+        width: calc(100% / 4);
+        height:60px;
+        margin-right: -6px;      
+        font-weight: bold;
+	    color: black;
+        line-height: 60px;
+     }
+     
+     .subMenu  > li:hover {
+        background: orange;
+        transition-duration: 0.3s;
+        -moz-transition-duration: 0.3s;
+        -webkit-transition-duration: 0.3s;
+    }
+    .subMenu  > li > a:link{
+        text-decoration: none;
+        color: black;
+    }
+    .subMenu  > li > a:visited{
+        text-decoration: none;
+        color: black;
+    }
+    .subMenu  > li > a:hover{
+        font-weight: bold;
+	    color: white;
+    }
+    .review{
+        display:grid;
+        grid-template-columns : 5% 65% 10% 10% 10%;
+        box-sizing:border-box;
+        text-align:left;
+        height:100%;
+        border:1px solid black;
+        font-size:20px;
+        text-align:center;
+    }
+    .review > div{
+        height:40px;
+        box-sizing:border-box;
+        border:1px solid black;
+        width:100%;
+        line-height:40px;
+    }
+    .ex{
+        padding:15px;
+        box-sizing:border-box;
+        border:1px solid black;
+        height:200px;
+        font-size:20px;
+    }
+    .page {
+        box-sizing:border-box;
+        border: 1px solid black;
+        height:8%;
+        display:grid;
+        grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-column-gap: 30px;
+        padding-left: 200px;
+        padding-right:200px;
+        padding-top:20px;
+        padding-bottom:20px;
+        line-height:35px;
+    }
+    .page > div {
+        box-sizing:border-box;
+        border: 1px solid black;
+        height:100%;
+        width:100%;
+        text-align:center;
+    }
+    
+   
+    </style>
+
+
+</head>
+<body>
+    <div class="header">
+        <div class="top">
+            <div class="login">
+                    <a href="">로그인</a>
+            </div>
+        </div>
+        <div class="title">
+        제주도 어디까지 가봤니?
+        </div>
+        <div class="search">
+            <ul class="menu">
+                <li><a href="#" class="is-current" >Home</a></li>
+                <li><a href="#" >관광지</a></li>
+                <li><a href="food_main.html" >맛집</a></li>
+                <li><a href="#" >숙소</a></li>
+                <li><a href="#" >나의여행</a></li>
+                <li><a href="#" >마이페이지</a></li>
+            </ul>
+            <div class="nav-underline"></div>
+        </div>
+    </div>
+
+    <div class="body">
+        <div class="container">
+            <div class="subtitle">
+                <h1>카페공작소</h1>               
+            </div>
+            <div class="subMenu">
+                    <li><a href="food_detail1.html" >상세보기</a></li>
+                    <li><a href="food_detail2.html" >이용안내</a></li>
+                    <li><a href="food_detail3.html" >지도</a></li>
+                    <li><a href="food_detail4.html" >리뷰</a></li>
+                </ul>
+            </div>
+            <div class="review">
+                <div>글번호</div>
+                <div>제목</div>
+                <div>작성자</div>
+                <div>평점</div>
+                <div>날짜</div>
+                <div>1</div>
+                <div>제목</div>
+                <div>이수안</div>
+                <div>★★★★★</div>
+                <div>2019.03.02</div>
+                <div>2</div>
+                <div>제목</div>
+                <div>이후승</div>
+                <div>★★★★★</div>
+                <div>2019.03.02</div>
+                <div>3</div>
+                <div>제목</div>
+                <div>최주희</div>
+                <div>★★★★★</div>
+                <div>2019.03.02</div>
+                <div>4</div>
+                <div>제목</div>
+                <div>김정래</div>
+                <div>★★★★★</div>
+                <div>2019.03.02</div>
+                <div>5</div>
+                <div>제목</div>
+                <div>구본영</div>
+                <div>★★★★★</div>
+                <div>2019.03.02</div>
+                <div>6</div>
+                <div>제목</div>
+                <div>이규종</div>
+                <div>★★★★★</div>
+                <div>2019.03.02</div>
+                <div>7</div>
+                <div>제목</div>
+                <div>박지현</div>
+                <div>★★★★★</div>
+                <div>2019.03.02</div>
+                <div>8</div>
+                <div>제목</div>
+                <div>최주희</div>
+                <div>★★★★★</div>
+                <div>2019.03.02</div>
+                <div>9</div>
+                <div>제목</div>
+                <div>최주희</div>
+                <div>★★★★★</div>
+                <div>2019.03.02</div>
+                <div>10</div>
+                <div>제목</div>
+                <div>김정래</div>
+                <div>★★★★★</div>
+                <div>2019.03.02</div>
+            </div>
+            <div class="page">
+                    <div>이전</div>
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                    <div>10</div>
+                    <div>다음</div>
+                </div>
+           
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="footer">
+    </div>
+</body>
+</html>
