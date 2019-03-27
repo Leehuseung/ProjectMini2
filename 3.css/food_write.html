@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+        <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homepage</title>
+    <style>
+    /* 전체 */
+   /* 전체 */
+*{
+    padding: 0;
+    margin: 0 auto;
+    font-family: 'Do Hyeon', sans-serif;
+    position: relative;
+}
+body {
+    width: 1200px;
+}
+
+
+
+.footer {
+    margin-top: 100px;
+    width: 1200px; height: 150px;
+    background: orange;
+    display:grid;
+    grid-template-columns:1fr 2fr ;
+    grid-column-gap: 30px;       
+}
+.footer a {
+    text-decoration: none;
+    color: black;
+}
+.phone {
+    width: 100%; height: 100%;
+    background: orange;
+    text-align: center;   
+}
+.center {
+    font-size: 20px;
+    margin-top: 57px;
+}
+.center img {
+    width: 40px; height: 40px;
+}
+.icon {
+    grid-template-columns:1fr 1fr 1fr ;
+    width: 100%; height: 100%;    
+    display: grid;
+}
+.icon img {
+    width: 50px; height: 50px;
+    margin-top: 40px;
+    margin-left: 35px;
+}
+.icon p {
+    margin-left: 20px;
+}
+.info1{
+    width: 100%;     
+}
+.info2 {
+    width: 100%;     
+} 
+.info3 {
+    width: 100%;     
+} 
+
+/* 헤더파트 ========================================================= */
+
+/* 로그인 부분 */
+.top{
+    border: 1px solid orange;
+    height:30px;
+    background : orange;
+    margin: 0 auto;
+}
+.top > .login{
+    height:30px;
+    border: 1px solid orange;
+    font-size:15px;
+    text-align: right;
+    line-height: 25px;
+    color: white;
+}
+.top > .login > a:link{
+    text-decoration: none;
+    color: white;
+}
+.top > .login > a:visited{
+    text-decoration: none;
+    color: white;
+}
+
+
+/* 타이틀 */
+.title{
+    height:100px;
+    margin: 0 auto;
+    font-size: 55px;
+    text-align: center;
+    line-height: 100px;
+}
+
+
+/* 메뉴 파트 */
+:root {
+    --nav-length: 7;
+    --nav-width: calc(100% / var(--nav-length));
+}
+
+ul{
+    list-style:none;
+}
+
+.search{
+    border-top: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+    height:60px; 
+    margin:0 auto;
+    background: white;
+}
+
+.search > .menu > li {
+    display:inline-block;
+    text-align: center;
+    font-size:25px;
+    width: calc(100% / 7);
+    height:60px;
+    margin-right: -6px;      
+    font-weight: bold;
+    color: black;
+    line-height: 60px;
+}
+
+.search > .menu > li > a {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display:inline-block;
+   
+}
+
+
+
+/* 메뉴바 애니메이션 */
+.search > .menu > li:hover {
+    background: orange;
+    transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+}
+
+.search > .menu > li:hover > a:link {
+    color: white;
+    transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+}
+.search > .menu > li:hover > a:visited {
+    color: white;
+    transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+}
+
+.search > .menu > li > a:link, a:visited{
+    text-decoration: none;
+    color: black;
+}
+
+.search > .menu > li > a:hover{
+    font-weight: bold;
+    color: white;
+}
+.search > .menu > .nav-underline {
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: var(--nav-width);
+    height: 5px;
+    background: orange;
+    transition: all 0.7s ease-in-out;
+}
+
+ul > li:nth-child(1).is-current ~ .nav-underline {
+    left: calc(var(--nav-width) * 0);
+}
+ul > li:nth-child(2).is-current ~ .nav-underline {
+    left: calc(var(--nav-width) * 1);
+}
+ul > li:nth-child(3).is-current ~ .nav-underline {
+    left: calc(var(--nav-width) * 2);
+}
+ul > li:nth-child(4).is-current ~ .nav-underline {
+    left: calc(var(--nav-width) * 3);
+}
+ul > li:nth-child(5).is-current ~ .nav-underline {
+    left: calc(var(--nav-width) * 4);
+}
+ul > li:nth-child(6).is-current ~ .nav-underline {
+    left: calc(var(--nav-width) * 5);
+}
+ul > li:nth-child(7).is-current ~ .nav-underline {
+    left: calc(var(--nav-width) * 6);
+}
+ul > li:nth-child(1):hover ~ .nav-underline {
+    left: calc(var(--nav-width) * 0);
+}
+ul > li:nth-child(2):hover ~ .nav-underline {
+    left: calc(var(--nav-width) * 1);
+}
+ul > li:nth-child(3):hover ~ .nav-underline {
+    left: calc(var(--nav-width) * 2);
+}
+ul > li:nth-child(4):hover ~ .nav-underline {
+    left: calc(var(--nav-width) * 3);
+}
+ul > li:nth-child(5):hover ~ .nav-underline {
+    left: calc(var(--nav-width) * 4);
+}
+ul > li:nth-child(6):hover ~ .nav-underline {
+    left: calc(var(--nav-width) * 5);
+} 
+ul > li:nth-child(7):hover ~ .nav-underline {
+    left: calc(var(--nav-width) * 6);
+} 
+     
+   /*   footer 
+     .footer {
+    width: 1200px; height: 150px;
+    background: orange;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    grid-column-gap: 30px;       
+    }   */
+
+     /* 맛집 부분 */
+     .container{
+        width:1200px;
+        text-align:center;
+     }
+     .subtitle{
+         box-sizing: border-box;
+         width:100%;
+         line-height:100px;
+         text-align:center;
+     }
+     .write{
+         padding-right:100px;
+         padding-left:100px;
+         display:grid;
+         grid-template-columns:20% 80%;
+         text-align:center;
+         line-height:50px;
+     }
+     .write > div{
+         height: 50px;
+         box-sizing: border-box;
+         width:100%;
+     }
+     .write > div > input{
+         width:100%;
+         height:20px;
+     }
+     .name{
+         text-align: center;
+     }
+     button{
+        height:30px;
+        width:100px;
+        font-size:18px;
+        border-style:none;
+        background-color:orange;
+        color:white;margin:10px;
+        border-radius: 10px;
+         
+     }
+     .adrress{
+         text-align:center;
+         height:30px;
+         width:100px;
+         font-size:15px;
+     }
+     textarea{
+         height:100%;
+         width:100%;
+     }
+     .selecta{
+         text-align:left;
+     }
+    .photo{
+        width:83.35%;
+        height:100%;
+        box-sizing: border-box;
+        display:grid;
+        grid-template-columns:20% 80%;
+        margin-bottom:20px;
+    }
+    .photo > div{
+        box-sizing:border-box;
+        height:150px;
+        width:100%;
+        line-height:150px;
+    }
+    .photoDetail{
+        display:grid;
+        grid-gap:20px;
+        grid-template-columns : 1fr 1fr 1fr 1fr;
+        padding-right:20px;
+        padding-left:20px;
+    }
+    .photoDetail > div{
+        width:100%;
+        height:100%;
+        border:1px solid black;
+        box-sizing:border-box;
+    }
+    .sub{
+        margin-top:20px;
+    }
+    /*      하단      */
+.footer {
+    margin-top: 100px;
+    width: 1200px; height: 150px;
+    background: orange;
+    display:grid;
+    grid-template-columns:1fr 2fr ;
+    grid-column-gap: 30px;       
+}
+.phone {
+    width: 100%; height: 100%;
+    background: orange;
+    text-align: center;   
+}
+.center {
+    font-size: 20px;
+    margin-top: 57px;
+}
+.center img {
+    width: 40px; height: 40px;
+}
+.icon_f {
+    grid-template-columns:1fr 1fr 1fr ;
+    width: 100%; height: 100%;    
+    display: grid;
+}
+.icon_f img {
+    width: 50px; height: 50px;
+    margin-top: 40px;
+    margin-left: 35px;
+}
+.icon_f p {
+    margin-left: 20px;
+}
+.info1{
+    width: 100%;     
+}
+.info2 {
+    width: 100%;     
+}
+.info3 {
+    width: 100%;
+}
+.footer a {
+    text-decoration: none;
+    color: black;
+}
+    
+   
+    </style>
+
+
+</head>
+<body>
+    <div class="header">
+        <div class="top">
+            <div class="login">
+                    <a href="">로그인</a>
+            </div>
+        </div>
+        <div class="title">
+        제주도 어디까지 가봤니?
+        </div>
+        <div class="search">
+                <ul class="menu">
+                    <li><a href="#" class="is-current" >Home</a></li>
+                    <li><a href="#" >관광지</a></li>
+                    <li><a href="food_main.html" >맛집</a></li>
+                    <li><a href="#" >숙소</a></li>
+                    <li><a href="#" >나의여행</a></li>
+                    <li><a href="#" >마이페이지</a></li>
+                    <li><a href="#" >관리페이지</a></li>
+                    <div class="nav-underline"></div>
+                </ul>
+            </div>
+    </div>
+
+    <div class="body">
+        <div class="container">
+            <div class="subtitle">
+                <h1>글쓰기</h1>               
+            </div>
+            <div class="write">    
+                <div class="name">음식점 이름 </div>
+                <div><input type=text /></div>
+                <div class="name">지역선택 </div>
+                <div class="selecta">
+                    <select class="adrress" name="area">
+                        <option value="0">제주시</option>
+                        <option value="1">서귀포시</option>
+                    </select>
+                    <select class="adrress" name="area">
+                        <option value="1">우도</option>
+                        <option value="2">애월읍</option>
+                        <option value="3">조천읍</option>
+                        <option value="4">구좌읍</option>
+                        <option value="5">성산읍</option>
+                        <option value="6">표선면</option>
+                        <option value="7">남원읍</option>
+                        <option value="8">중문</option>
+                        <option value="9">안덕면</option>
+                        <option value="10">대정읍</option>
+                        <option value="11">한경면</option>
+                    </select>
+
+                </div>
+                <div class="name">상세정보 입력 </div>
+                <div>  
+                    <textarea name="content" rows="8" cals="70">
+                    </textarea>
+                </div>
+            </div>
+            <h2 class="sub">이용안내 입력</h2>
+            <div class="write">
+                <div class="name">소개 </div>
+                <div><input type=text /></div>
+                <div class="name">상세정보 </div>
+                <div><input type=text /></div>
+                <div class="name">이용시간 </div>
+                <div><input type=text /></div>
+                <div class="name">편의시설 </div>
+                <div><input type=text /></div>
+            </div>
+            <div class="photo">
+                <div>사진</div>
+                <div class="photoDetail">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+                <div>
+                    <button onclick="location.href='food_main.html'">글등록</button>
+                </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="footer">
+            <div class="phone">
+                    <div class="center">                
+                        제주관광정보센터<br> 064) 740-6000               
+                    </div>
+                </div>
+                
+                <div class="icon_f">  
+                    <div class="info1">   
+                    <a href="https://www.visitjeju.net/kr/tourInfo/able?tap=one&menuId=DOM_000001703002012001#">
+                        <img src="icon/icon1.png"><p>장애인 관광정보 </p>           
+                    </a>
+                    </div>
+                    <div class="info2">
+                        <a href="https://www.visitjeju.net/kr/bbs/list?bbsid=tripperCenter-book&menuId=DOM_000001724002000000#">
+                            <img src="icon/book.png"><p>제주 안내책자</p>
+                        </a>
+                    </div>
+                    <div class="info3">
+                        <a href="https://www.visitjeju.net/kr/tourInfo/guide?tap=two&menuId=DOM_000002000000000051#">
+                            <img src="icon/map.png"><p>제주 관광지도</p>
+                        </a>
+                    </div>
+    </div>
+</body>
+</html>

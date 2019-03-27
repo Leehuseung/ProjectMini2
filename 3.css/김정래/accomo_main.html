@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homepage</title>
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet">
+    <style>
+    /* 전체 */
+    *{
+        padding: 0;
+        margin: 0 auto;
+        
+        position: relative;
+        font-family: 'Do Hyeon', sans-serif;
+    }
+    .top{
+        width:1200px;
+    }
+    /* 헤더파트 ===================================== */
+
+    /* 로그인 부분 */
+    .top{
+        border: 1px solid orange;
+        height:30px;
+        background : orange;
+        margin: 0 auto;
+        
+    }
+    .top > .login{
+        height:30px;
+        border: 1px solid orange;
+        font-size:15px;
+        text-align: right;
+        line-height: 25px;
+        color: white;
+    }
+    .top > .login > a:link{
+        text-decoration: none;
+        color: white;
+    }
+    .top > .login > a:visited{
+        text-decoration: none;
+        color: white;
+    }
+
+
+    /* 타이틀 */
+    .title{
+        height:100px;
+        margin: 0 auto;
+        font-size:40px;
+        text-align: center;
+        line-height: 100px;
+    }
+
+
+    /* 메뉴 파트 */
+    :root {
+        --nav-length: 6;
+        --nav-width: calc(100% / var(--nav-length));
+    }
+
+    ul{
+        list-style:none;
+    }
+
+    .search{
+        border-top: 1px solid gainsboro;
+        border-bottom: 1px solid gainsboro;
+        height:60px; 
+        margin:0 auto;
+        background: white;
+    }
+
+    .search > .menu > li {
+        display:inline-block;
+        text-align: center;
+        font-size:25px;
+        width: calc(100% / 6);
+        height:60px;
+        margin-right: -6px;      
+        font-weight: bold;
+       color: black;
+        line-height: 60px;
+    }
+
+    
+
+    /* 메뉴바 애니메이션 */
+    .search > .menu > li:hover {
+        background: orange;
+        transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        -webkit-transition-duration: 0.5s;
+    }
+
+    .search > .menu > li:hover > a:link {
+        color: white;
+        transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        -webkit-transition-duration: 0.5s;
+    }
+    .search > .menu > li:hover > a:visited {
+        color: white;
+        transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        -webkit-transition-duration: 0.5s;
+    }
+
+    .search > .menu > li > a:link{
+        text-decoration: none;
+        color: black;
+    }
+    .search > .menu > li > a:visited{
+        text-decoration: none;
+        color: black;
+    }
+    .search > .menu > li > a:hover{
+        font-weight: bold;
+       color: white;
+    }
+    .search > .menu > .nav-underline {
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: var(--nav-width);
+        height: 5px;
+        background: orange;
+        transition: all 0.7s ease-in-out;
+    }
+    ul > li:nth-child(1).is-current ~ .nav-underline {
+        left: calc(var(--nav-width) * 0);
+    }
+    ul > li:nth-child(2).is-current ~ .nav-underline {
+        left: calc(var(--nav-width) * 1);
+    }
+    ul > li:nth-child(3).is-current ~ .nav-underline {
+        left: calc(var(--nav-width) * 2);
+    }
+    ul > li:nth-child(4).is-current ~ .nav-underline {
+        left: calc(var(--nav-width) * 3);
+    }
+    ul > li:nth-child(5).is-current ~ .nav-underline {
+        left: calc(var(--nav-width) * 4);
+    }
+    ul > li:nth-child(6).is-current ~ .nav-underline {
+        left: calc(var(--nav-width) * 5);
+    }
+    ul > li:nth-child(1):hover ~ .nav-underline {
+        left: calc(var(--nav-width) * 0);
+    }
+    ul > li:nth-child(2):hover ~ .nav-underline {
+        left: calc(var(--nav-width) * 1);
+    }
+    ul > li:nth-child(3):hover ~ .nav-underline {
+        left: calc(var(--nav-width) * 2);
+    }
+    ul > li:nth-child(4):hover ~ .nav-underline {
+        left: calc(var(--nav-width) * 3);
+    }
+    ul > li:nth-child(5):hover ~ .nav-underline {
+        left: calc(var(--nav-width) * 4);
+    }
+    ul > li:nth-child(6):hover ~ .nav-underline {
+        left: calc(var(--nav-width) * 5);
+    } 
+    .body > .introduction {
+        background-image: url("nighsky.jpg");
+        
+        
+  
+ 
+       background-repeat: no-repeat;
+        background-size: 1200px 300px;
+        background-position: top left;
+        border: 1px solid black;
+        width:1200px;
+            height:300px;
+            margin: 25px auto;
+            
+    }
+    .body > .search-city{
+        
+        border: 1px solid black;
+        width:700px;
+            height:550px;
+            margin: 25px auto;
+    }
+    
+    
+    
+    .body >.introduction >.title{
+        font-size:70px;
+        color:white;
+        font-family: 'Black Han Sans', sans-serif;
+        text-decoration: none;
+        border: 1px solid black;
+        width:60%;
+        height:80px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:2%;
+        display: block;
+    }
+    .body >.introduction >.title2{
+        color:white;
+        text-decoration: none;
+        font-size: 35px;
+        border: 1px solid black;
+        width:60%;
+        height:70px;
+        margin-left:auto;
+        margin-right:auto;
+        
+        display: block;
+        text-align: center;
+        padding-top:20px;
+        box-sizing: border-box
+    }
+    .body >.introduction >.title3{
+     
+       font-size: 20px;
+       color:white;
+        text-align: center;
+        text-decoration: none;
+        border: 1px solid black;
+        width:80%;
+        height:70px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:2%;
+        display: block;
+    }
+   
+    .search-city >form{
+       border: 1px solid black;
+        display: block;
+       
+        width:700px;
+        height: 550px;
+    }
+
+    .body >.search-city >form >.type{
+        
+        text-decoration: none;
+        border: 1px solid black;
+        width:80%;
+        height:200px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:1%;
+        display: block;
+       
+    }
+
+     input[type=radio] {
+  display: none;
+
+    }
+  
+     input[type=radio] + label {
+  display: inline;
+  background-color: darkblue;
+  border-color: black;
+  color: white;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: .5em;
+  padding:1px 3px;
+  
+  font-size: 35px;
+}
+
+
+
+input[type=radio]:checked + label.type{
+  background-color: orange;
+  border-color: orange;
+  color:    white
+}
+
+input[type=radio]:checked + label.city{
+    background-color: orange;
+  border-color: orange;
+  color:    white
+}
+
+    
+    .body >.search-city >form >.type  >.subtype1{
+        
+        text-decoration: none;
+        border: 1px solid black;
+        width:60%;
+        height:70px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:1%;
+        display: block;
+        font-size: 50px;
+        text-align:center;
+        padding-top:10px;
+        box-sizing: border-box
+    }
+   
+    .body >.search-city >form >.type >.subtype2{
+    
+
+        text-decoration: none;
+        border: 1px solid black;
+        width:70%;
+        height:70px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:5%;
+        display: block;
+    }
+    .body >.search-city >form >.city{
+        
+        text-decoration: none;
+        border: 1px solid black;
+        width:60%;
+        height:200px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:1%;
+        display: block;
+    }
+    .body >.search-city >form >.city >.subcity1{
+        
+        text-decoration: none;
+        border: 1px solid black;
+        width:60%;
+        height:70px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:1%;
+        display: block;
+        font-size:50px;
+        text-align: center;
+    }
+    .body >.search-city >form >.city >.subcity2{
+        
+        text-decoration: none;
+        border: 1px solid black;
+        width:90%;
+        height:45px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:2%;
+        display: block;
+    }
+    .body >.search-city >form >.city >.subcity3{
+        
+        text-decoration: none;
+        border: 1px solid black;
+        width:90%;
+        height:70px;
+        margin-left:60px;
+        margin-right:auto;
+        margin-top:1%;
+        display: block;
+    }
+    .body >.search-city >form >.select{
+        
+        text-decoration: none;
+        border: 1px solid black;
+        width:40%;
+        height:90px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:5%;
+        display: block;
+        font-size:40px;
+        text-align: center;
+        padding-top:12px;
+        box-sizing: border-box;
+    }
+    ul> #button{
+        width:60%;
+        height: 100%;
+        
+        border-color: black;
+        background-color:white;
+        font-size:40px;
+        color:black;
+    }
+    #button:hover{
+        border-color: black;
+        background-color:black;
+        color:white;
+    }
+    .thumbnail-info{
+        margin-top:70px;
+        width:1000px;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        
+        grid-column-gap: 1px;
+        grid-row-gap: 5em;
+        
+        
+    }    
+   
+     .info_block{
+        border:1px solid black;
+        background: #f3f3f3;
+        grid-row-gap: 1px;
+        display:grid;
+        
+        
+        grid-auto-columns: 450px;
+        height:330px;
+        grid-template-rows: 1fr 5fr 1fr 1fr;
+    }
+    
+    .info_block > div {
+       width:430px;
+       
+        display:grid;
+       
+    } 
+    .info_block > .info_header{
+    padding-top:10px;
+    }
+    .info_block > .info_pic{
+       background-image: url("oceansweet.gif")
+    }
+    .info_block > .info_line{
+        
+        align-items: center;
+      text-align: center;
+       
+    }
+    .info_bottom{
+        border-top: 1px solid black;
+        display: grid;
+        grid-template-columns: 1fr 1fr  1fr;
+        align-items: center;
+       
+    }
+    .bottom_detail{
+    border:1px solid black;
+    }
+    
+    .bottom_detail >a{
+    text-decoration: none;
+    color:black;
+    padding:1px;
+    }
+    .body > .select-page{
+       
+        border: 1px solid black;
+        width:600px;
+        height:70px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top: 10%;
+       text-align: center;
+       
+    }
+    .select-page > div{
+      
+        display: inline-block;
+       
+    }
+    .write_view{
+        margin-left:40px;       
+        border:1px solid black;
+        width:300px;
+        display: inline-block;
+      
+        
+    }
+    .write_view >  div{
+        display: inline-block;
+        width:100px;
+        height:30px;
+        border:1px solid black;
+        font-he
+      
+    }
+    
+    .write_view  a{
+        text-decoration: none;
+      
+    }
+    .page_num{
+        width:20px;
+        border: 1px solid black;
+        margin:10px 10px;
+    }
+    .arrow >img{
+       top:7px;
+    }
+    </style>
+</head>
+<body>
+        <script src="//use.edgefonts.net/montserrat.js"></script>
+    <div class="header">
+        <div class="top">
+            <div class="login">
+                    <a href="">로그인</a>
+                    &nbsp;&nbsp;
+            </div>
+        </div>
+        <div class="title">
+            제주도 어디까지 가봤니?
+        </div>
+        <div class="search">
+            <ul class="menu">
+                <li><a href="#" class="is-current" >Home</a></li>
+                <li><a href="#" >관광지</a></li>
+                <li><a href="#" >맛집</a></li>
+                <li><a href="#" >숙소</a></li>
+                <li><a href="#" >나의여행</a></li>
+                <li><a href="#" >마이페이지</a></li>
+                <div class="nav-underline"></div>
+            </ul>
+        </div>
+    </div>
+
+    <div class="body">
+
+        <div class="introduction">
+          
+          <ul class="title">숙소</ul>
+          <ul class="title2">호텔에서 게스트 하우스까지 다양한 제주의 숙소</ul>
+          <ul class="title3">한라산과 에메랄드 빛 바다가 보이는 럭셔리한 호텔 부터 주머니 가벼운 대학생을위한 게스트 하우스까지!<br> 당신의 여정에 마침표를 찍어줄 제주의 다양한 숙소를 찾아보자.</ul>
+        </div>
+        <div class="search-city">
+            <form action="main.do" method="get">
+             
+            <ul class="type">
+                <li class="subtype1">숙소 종류</li>
+    
+                <li class="subtype2">
+                        <input type="radio" id="radio_total"  name="type" value="total"  />
+                        <label for ="radio_total" class="type">전체</label>
+                        <input type="radio" id="radio_hotel"  name="type" value="hotel"  />
+                        <label for ="radio_hotel"  class="type">호텔</label>
+                        <input type="radio" id="radio_pension"  name="type" value="pension"  />
+                        <label for ="radio_pension"  class="type">펜션</label>
+                        <input type="radio" id="radio_gusetHouse"  name="type" value="gusestHouse"  />
+                        <label for ="radio_gusetHouse"   class="type">게스트 하우스</label>
+                </li>
+            </ul>
+            <ul class="city">
+                <li class="subcity1">지역</li>
+                <li class="subcity2">  
+                        <input type="radio" id="radio_totalcity"  name="city" value="total"  />
+                        <label for ="radio_totalcity" class="city" >전체</label>
+                        <input type="radio" id="radio_jeju"  name="city" value="jeju"  />
+                        <label for ="radio_jeju"  class="city">제주시</label>
+                        <input type="radio" id="radio_seogwipo"  name="city" value="seogwipo"  />
+                        <label for ="radio_seogwipo"  class="city">서귀포</label>
+                        <input type="radio" id="radio_aewol"  name="city" value="aewol"  />
+                        <label for ="radio_aewol"   class="city">애월읍</label>
+                    
+
+                </li>
+                <li class="subcity3">  
+                        <input type="radio" id="radio_hanlim"  name="city" value="hanlim"  />
+                        <label for ="radio_hanlim" class="city">한림</label>
+                        <input type="radio" id="radio_seongsan"  name="city" value="seongsan"  />
+                        <label for ="radio_seongsan"  class="city">성산</label>
+                        <input type="radio" id="radio_udo"  name="city" value="udo"  />
+                        <label for ="radio_udo"  class="city">우도</label>
+                        <input type="radio" id="radio_chuza"  name="city" value="chuza"  />
+                        <label for ="radio_chuza"   class="city">추자도</label>        
+                    </li>
+
+                </ul>
+                <ul class="select"><button id="button">검색<button/>
+                    
+                </ul>
+                </form>
+        </div>
+    <div class="thumbnail-info">
+        <div class="info_block">
+                <div class="info_header"header>위치: 제주시</div>
+                <div class="info_pic">pic</div>
+                <div class="info_line">5성급 호텔의 럭셔리함을 즐길 수 있는 곳</div>
+                <div class="info_bottom">
+                    <div class="bottom_title">오션스위츠 제주</div>
+                    <div></div>
+                    <div class="bottom_detail"><a href="#">자세히 보기</a></div>
+                </div>
+        </div>
+    
+        <div class="info_block">
+            <div class="info_header"header>위치: 제주시</div>
+            <div class="info_pic">pic</div>
+            <div class="info_line">5성급 호텔의 럭셔리함을 즐길 수 있는 곳</div>
+            <div class="info_bottom">
+                <div class="bottom_title">오션스위츠 제주</div>
+                <div></div>
+                <div class="bottom_detail"><a href="#">자세히 보기</a></div>
+            </div>
+    </div>
+    
+    
+    
+    </div>
+           
+
+        <div class="select-page">
+          <div></div>
+          <div class =arrow id ="left_arrow"><img src="left.png" width="25px"> </div>
+          <div class="page_num">1</div>
+          <div class="page_num">2</div>
+          <div class="page_num">3</div>
+          <div class =arrow id = "right_arrow"><img src="right.png" width="25px"></div>
+            <div class=write_view>
+                <div><a href="#">등록</a></div>
+                <div><a href="#">내 글 보기</a></div>
+            </div>
+
+        
+
+    </div>
+
+    <div class="footer">
+
+
+    </div>
+
+
+
+</body>
+
+
+</html>

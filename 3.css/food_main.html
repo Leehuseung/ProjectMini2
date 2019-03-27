@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-        <link href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc.5/angular-material.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
@@ -9,155 +8,248 @@
     <title>Homepage</title>
     <style>
     /* 전체 */
-    *{
-        margin: 0 auto;
-        position: relative;
-        padding: 0;
-        font-family: 'Do Hyeon', sans-serif;
-
-    }
-    body{
-        width:1200px;
-        margin: 0 auto;
-        position: relative;
-        padding: 0;
-        font-family: 'Do Hyeon', sans-serif;
-        
-    }
-
-    /* 헤더파트 ===================================== */
-    .header {
-      
-     
-    }
-    /* 로그인 부분 */
-    .top{
-        border: 1px solid orange;
-        height:30px;
-        background : orange;
-        margin: 0 auto;
-        
-    }
-    .top > .login{
-        height:30px;
-        border: 1px solid orange;
-        font-size:15px;
-        text-align: right;
-        padding-right: 15px;
-        line-height: 25px;
-        color: white;
-    }
-    .top > .login > a:link{
-        text-decoration: none;
-        color: white;
-    }
-    .top > .login > a:visited{
-        text-decoration: none;
-        color: white;
-    }
+   /* 전체 */
+*{
+    padding: 0;
+    margin: 0 auto;
+    font-family: 'Do Hyeon', sans-serif;
+    position: relative;
+}
+body {
+    width: 1200px;
+}
 
 
-    /* 타이틀 */
-    .title{
-        height:100px;
-        margin: 0 auto;
-        font-size:40px;
-        text-align: center;
-        line-height: 100px;
-    }
+
+.footer {
+    margin-top: 100px;
+    width: 1200px; height: 150px;
+    background: orange;
+    display:grid;
+    grid-template-columns:1fr 2fr ;
+    grid-column-gap: 30px;       
+}
+.footer a {
+    text-decoration: none;
+    color: black;
+}
+.phone {
+    width: 100%; height: 100%;
+    background: orange;
+    text-align: center;   
+}
+.center {
+    font-size: 20px;
+    margin-top: 57px;
+}
+.center img {
+    width: 40px; height: 40px;
+}
+.icon {
+    grid-template-columns:1fr 1fr 1fr ;
+    width: 100%; height: 100%;    
+    display: grid;
+}
+.icon img {
+    width: 50px; height: 50px;
+}
+.icon p {
+    margin-left: 20px;
+}
+.info1{
+    width: 100%;     
+}
+.info2 {
+    width: 100%;     
+} 
+.info3 {
+    width: 100%;     
+} 
+
+/* 헤더파트 ========================================================= */
+
+/* 로그인 부분 */
+.top{
+    border: 1px solid orange;
+    height:30px;
+    background : orange;
+    margin: 0 auto;
+}
+.top > .login{
+    height:30px;
+    border: 1px solid orange;
+    font-size:15px;
+    text-align: right;
+    line-height: 25px;
+    color: white;
+}
+.top > .login > a:link{
+    text-decoration: none;
+    color: white;
+}
+.top > .login > a:visited{
+    text-decoration: none;
+    color: white;
+}
 
 
-    /* 메뉴 파트 */
-    :root {
-        --nav-length: 6;
-        --nav-width: calc(100% / var(--nav-length));
-    }
-    ul{
-        list-style:none;
-    }
-
-    .search{
-        border-top: 1px solid gainsboro;
-        border-bottom: 1px solid gainsboro;
-        height:60px; 
-        margin:0 auto;
-        background: white;
-    }
-
-    .search > .menu > li {
-        display:inline-block;
-        text-align: center;
-        font-size:25px;
-        width: calc(100% / 6);
-        height:60px;
-        margin-right: -6px;      
-        font-weight: bold;
-	    color: black;
-        line-height: 60px;
-    }
-
-    
+/* 타이틀 */
+.title{
+    height:100px;
+    margin: 0 auto;
+    font-size: 55px;
+    text-align: center;
+    line-height: 100px;
+}
 
 
-    .search > .menu > li:hover {
-        background: orange;
-        transition-duration: 0.3s;
-        -moz-transition-duration: 0.3s;
-        -webkit-transition-duration: 0.3s;
-    }
+/* 메뉴 파트 */
+:root {
+    --nav-length: 7;
+    --nav-width: calc(100% / var(--nav-length));
+}
+
+ul{
+    list-style:none;
+}
+
+.search{
+    border-top: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+    height:60px; 
+    margin:0 auto;
+    background: white;
+}
+
+.search > .menu > li {
+    display:inline-block;
+    text-align: center;
+    font-size:25px;
+    width: calc(100% / 7);
+    height:60px;
+    margin-right: -6px;      
+    font-weight: bold;
+    color: black;
+    line-height: 60px;
+}
+
+.search > .menu > li > a {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display:inline-block;
+   
+}
 
 
-    .search > .menu > li > a:link{
-        text-decoration: none;
-        color: black;
-    }
-    .search > .menu > li > a:visited{
-        text-decoration: none;
-        color: black;
-    }
-    .search > .menu > li > a:hover{
-        font-weight: bold;
-	    color: white;
-    }
-    .search > .nav-underline {
-        position: absolute;
-        left: 0;
-        bottom: -2px;
-        width: var(--nav-width);
-        height: 2px;
-        background: #333;
-        transition: all .3s ease-in-out;
-    }
-    ul > li:nth-child(1).is-current ~ .nav-underline {
-        left: calc(var(--nav-width) * 0);
-    }
-    ul > li:nth-child(2).is-current ~ .nav-underline {
-        left: calc(var(--nav-width) * 1);
-    }
-    ul > li:nth-child(3).is-current ~ .nav-underline {
-        left: calc(var(--nav-width) * 2);
-    }
-    ul > li:nth-child(4).is-current ~ .nav-underline {
-        left: calc(var(--nav-width) * 3);
-    }
-    ul > li:nth-child(5).is-current ~ .nav-underline {
-        left: calc(var(--nav-width) * 4);
-    }
-    ul > li:nth-child(1):hover ~ .nav-underline {
-        left: calc(var(--nav-width) * 0);
-    }
-    ul > li:nth-child(2):hover ~ .nav-underline {
-        left: calc(var(--nav-width) * 1);
-    }
-    ul > li:nth-child(3):hover ~ .nav-underline {
-        left: calc(var(--nav-width) * 2);
-    }
-    ul > li:nth-child(4):hover ~ .nav-underline {
-        left: calc(var(--nav-width) * 3);
-    }
-    ul > li:nth-child(5):hover ~ .nav-underline {
-        left: calc(var(--nav-width) * 4);
-    }
+
+/* 메뉴바 애니메이션 */
+.search > .menu > li:hover {
+    background: orange;
+    transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+}
+
+.search > .menu > li:hover > a:link {
+    color: white;
+    transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+}
+.search > .menu > li:hover > a:visited {
+    color: white;
+    transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+}
+
+.search > .menu > li > a:link, a:visited{
+    text-decoration: none;
+    color: black;
+}
+
+.search > .menu > li > a:hover{
+    font-weight: bold;
+    color: white;
+}
+.search > .menu > .nav-underline {
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: var(--nav-width);
+    height: 5px;
+    background: orange;
+    transition: all 0.7s ease-in-out;
+}
+
+ul > li:nth-child(1).is-current ~ .nav-underline {
+    left: calc(var(--nav-width) * 0);
+}
+ul > li:nth-child(2).is-current ~ .nav-underline {
+    left: calc(var(--nav-width) * 1);
+}
+ul > li:nth-child(3).is-current ~ .nav-underline {
+    left: calc(var(--nav-width) * 2);
+}
+ul > li:nth-child(4).is-current ~ .nav-underline {
+    left: calc(var(--nav-width) * 3);
+}
+ul > li:nth-child(5).is-current ~ .nav-underline {
+    left: calc(var(--nav-width) * 4);
+}
+ul > li:nth-child(6).is-current ~ .nav-underline {
+    left: calc(var(--nav-width) * 5);
+}
+ul > li:nth-child(7).is-current ~ .nav-underline {
+    left: calc(var(--nav-width) * 6);
+}
+ul > li:nth-child(1):hover ~ .nav-underline {
+    left: calc(var(--nav-width) * 0);
+}
+ul > li:nth-child(2):hover ~ .nav-underline {
+    left: calc(var(--nav-width) * 1);
+}
+ul > li:nth-child(3):hover ~ .nav-underline {
+    left: calc(var(--nav-width) * 2);
+}
+ul > li:nth-child(4):hover ~ .nav-underline {
+    left: calc(var(--nav-width) * 3);
+}
+ul > li:nth-child(5):hover ~ .nav-underline {
+    left: calc(var(--nav-width) * 4);
+}
+ul > li:nth-child(6):hover ~ .nav-underline {
+    left: calc(var(--nav-width) * 5);
+} 
+ul > li:nth-child(7):hover ~ .nav-underline {
+    left: calc(var(--nav-width) * 6);
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      
      /* footer */
      .footer {
@@ -198,8 +290,14 @@
 	    color: black;
         line-height: 60px;
      }
-     
+     .subMenu > li > a {
+         width:100%;
+         height:100%;
+         cursor:pointer;
+         display:inline-block;
+     }
      .subMenu  > li:hover {
+   
         background: orange;
         transition-duration: 0.3s;
         -moz-transition-duration: 0.3s;
@@ -207,7 +305,6 @@
     }
     .subMenu  > li > a:link{
         text-decoration: none;
-        color: black;
     }
     .subMenu  > li > a:visited{
         text-decoration: none;
@@ -236,9 +333,13 @@
         padding-left:80px;
     }
     .write button{
+        border-radius:10px;
         height:30px;
         width:100px;
         font-size:18px;
+        border-style:none;
+        background-color:orange;
+        color:white;
         
     }
     .select{
@@ -336,8 +437,77 @@
         height:100%;
         width:100%;
         text-align:center;
+        border-radius: 50%;
+        border: 1px solid orange;
+        box-shadow: 3px 3px  gray;
+        
     }
-   
+    .page > div > a{
+         text-decoration: none;
+    color: black;
+    }
+    .page > div:hover{
+        background-color:orange;
+        color:white;
+    }
+     .orangered{
+         background:orange;
+     }
+    
+    #hr {
+    border: 1px solid orange;
+}
+/*      하단      */
+.footer {
+    margin-top: 100px;
+    width: 1200px; height: 150px;
+    background: orange;
+    display:grid;
+    grid-template-columns:1fr 2fr ;
+    grid-column-gap: 30px;       
+}
+.phone {
+    width: 100%; height: 100%;
+    background: orange;
+    text-align: center;   
+}
+.center {
+    font-size: 20px;
+    margin-top: 57px;
+}
+.center img {
+    width: 40px; height: 40px;
+}
+.icon_f {
+    grid-template-columns:1fr 1fr 1fr ;
+    width: 100%; height: 100%;    
+    display: grid;
+}
+.icon_f img {
+    width: 50px; height: 50px;
+    margin-top: 40px;
+    margin-left: 35px;
+}
+.icon_f p {
+    margin-left: 20px;
+}
+.info1{
+    width: 100%;     
+}
+.info2 {
+    width: 100%;     
+}
+.info3 {
+    width: 100%;
+}
+.footer a {
+    text-decoration: none;
+    color: black;
+}
+.footer a {
+    text-decoration: none;
+    color: black;
+}
     
     </style>
 </head>
@@ -352,16 +522,17 @@
         <div class="title">
         제주도 어디까지 가봤니?
         </div>
-        <div class="search">
+      <div class="search">
             <ul class="menu">
                 <li><a href="#" class="is-current" >Home</a></li>
                 <li><a href="#" >관광지</a></li>
-                <li><a href="#" >맛집</a></li>
+                <li><a href="food_main.html" >맛집</a></li>
                 <li><a href="#" >숙소</a></li>
                 <li><a href="#" >나의여행</a></li>
                 <li><a href="#" >마이페이지</a></li>
+                <li><a href="#" >관리페이지</a></li>
+                <div class="nav-underline"></div>
             </ul>
-            <div class="nav-underline"></div>
         </div>
     </div>
 
@@ -405,10 +576,10 @@
                         </div>
                         <div class="icon">
                             <div class="iconDetail"><img src="icon/like.jpg"></div>
-                            <div class="iconDetail"><img src="icon/jjim.jpg"></div>
+                            <div class="iconDetail"></div>
                             <div class="iconDetail"><img src="icon/review.jpg"></div>
                             <div>좋아요<br>5</div>
-                            <div>찜하기<br>7</div>
+                            <div></div>
                             <div>리뷰<br>7</div>
                         </div>
                     </div>
@@ -424,10 +595,10 @@
                         </div>
                         <div class="icon">
                             <div class="iconDetail"><img src="icon/like.jpg"></div>
-                            <div class="iconDetail"><img src="icon/jjim.jpg"></div>
+                            <div class="iconDetail"></div>
                             <div class="iconDetail"><img src="icon/review.jpg"></div>
                             <div>좋아요<br>5</div>
-                            <div>찜하기<br>7</div>
+                            <div></div>
                             <div>리뷰<br>7</div>
                         </div>
                     </div>
@@ -442,10 +613,10 @@
                         </div>
                         <div class="icon">
                             <div class="iconDetail"><img src="icon/like.jpg"></div>
-                            <div class="iconDetail"><img src="icon/jjim.jpg"></div>
+                            <div class="iconDetail"></div>
                             <div class="iconDetail"><img src="icon/review.jpg"></div>
                             <div>좋아요<br>5</div>
-                            <div>찜하기<br>7</div>
+                            <div></div>
                             <div>리뷰<br>7</div>
                         </div>
                     </div>
@@ -453,59 +624,19 @@
             </div>
 
 
-            <div>
-                    <div ng-app="DemoApp" flex layout="column">
-                            <div flex ng-controller="MainController" layout="column">
-                                <section flex>
-                                    <md-content layout-padding="">
-                              
-                                    </md-content>
-                                </section>
-                              
-                                <section layout="row" layout-padding="">
-                              
-                                    <cl-paging flex cl-pages="paging.total" , cl-steps="6" , cl-page-changed="paging.onPageChanged()" , cl-align="center center" , cl-current-page="paging.current"></cl-paging>
-                              
-                                </section>
-                              
-                            </div>
-                        </div>
-                              
-                    </div>
-                
-                    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
-                    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-                    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-                    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-                    <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc.5/angular-material.js"></script>
-                    <script src="https://rawgit.com/Crawlink/material-angular-paging/master/build/dist.min.js"></script>
-                    
-                
-                
-                
-                
-                    <script>
-                    var app = angular.module("DemoApp", ['ngMaterial', 'cl.paging']);
-                              app.controller("MainController", ['$scope', function($scope) {
-                              
-                                $scope.currentPage = 0;
-                              
-                                $scope.paging = {
-                                  total: 100,
-                                  current: 1,
-                                  onPageChanged: loadPages,
-                                };
-                              
-                                function loadPages() {
-                                  console.log('Current page is : ' + $scope.paging.current);
-                              
-                                  // TODO : Load current page Data here
-                              
-                                  $scope.currentPage = $scope.paging.current;
-                                }
-                              
-                              }]);
-                    </script>
+                   <div class="page">
+                <div class="prev"><a href="#">이전</a></div>
+                <div><a href="#">1</a></div>
+                <div><a href="#">2</a></div>
+                <div><a href="#">3</a></div>
+                <div><a href="#">4</a></div>
+                <div><a href="#">5</a></div>
+                <div><a href="#">6</a></div>
+                <div><a href="#">7</a></div>
+                <div><a href="#">8</a></div>
+                <div><a href="#">9</a></div>
+                <div><a href="#">10</a></div>
+                <div class="next"><a href="#">다음</a></div>
             </div>
         </div>
     </div>
@@ -532,7 +663,29 @@
 
 
 
-    <div class="footer">
-    </div>
+            <div class="footer">
+                <div class="phone">
+                    <div class="center">                
+                        제주관광정보센터<br> 064) 740-6000               
+                    </div>
+                </div>
+                
+                <div class="icon_f">  
+                    <div class="info1">   
+                    <a href="https://www.visitjeju.net/kr/tourInfo/able?tap=one&menuId=DOM_000001703002012001#">
+                        <img src="icon/icon1.png"><p>장애인 관광정보 </p>           
+                    </a>
+                    </div>
+                    <div class="info2">
+                        <a href="https://www.visitjeju.net/kr/bbs/list?bbsid=tripperCenter-book&menuId=DOM_000001724002000000#">
+                            <img src="icon/book.png"><p>제주 안내책자</p>
+                        </a>
+                    </div>
+                    <div class="info3">
+                        <a href="https://www.visitjeju.net/kr/tourInfo/guide?tap=two&menuId=DOM_000002000000000051#">
+                            <img src="icon/map.png"><p>제주 관광지도</p>
+                        </a>
+                    </div>
+              </div>
 </body>
 </html>
