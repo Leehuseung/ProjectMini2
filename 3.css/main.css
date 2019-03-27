@@ -1,12 +1,13 @@
-/* 전체 */
+
 /* 전체 */
 *{
     padding: 0;
-    margin: 0 auto;
+   
     font-family: 'Do Hyeon', sans-serif;
     position: relative;
 }
 body {
+    margin: 0 auto;
     width: 1200px;
 }
 
