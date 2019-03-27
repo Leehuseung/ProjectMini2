@@ -380,29 +380,19 @@ ul > li:nth-child(7):hover ~ .nav-underline {
 
 
 </head>
+<!-- include -->
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
+<script type="text/javascript">   
+$(document).ready( function() { 
+
+$("#headers").load("header.html");  // 원하는 파일 경로를 삽입하면 된다
+$("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 된다
+}); 
+</script>
+
 <body>
-    <div class="header">
-        <div class="top">
-            <div class="login">
-                    <a href="">로그인</a>
-            </div>
-        </div>
-        <div class="title">
-        제주도 어디까지 가봤니?
-        </div>
-        <div class="search">
-                <ul class="menu">
-                    <li><a href="#" class="is-current" >Home</a></li>
-                    <li><a href="#" >관광지</a></li>
-                    <li><a href="food_main.html" >맛집</a></li>
-                    <li><a href="#" >숙소</a></li>
-                    <li><a href="#" >나의여행</a></li>
-                    <li><a href="#" >마이페이지</a></li>
-                    <li><a href="#" >관리페이지</a></li>
-                    <div class="nav-underline"></div>
-                </ul>
-            </div>
-    </div>
+    <div id="headers"></div>
+
 
     <div class="body">
         <div class="container">
@@ -427,14 +417,9 @@ ul > li:nth-child(7):hover ~ .nav-underline {
                     <div class="start">
                         출발지 : <input type="text"></input>
                         도착지 : <input type="text"></input>
-                        
-
                     </div>
                 </div>
-               
             </div>
-           
-
         </div>
     </div>
 
@@ -450,39 +435,6 @@ ul > li:nth-child(7):hover ~ .nav-underline {
 
 
 
-
-
-
-
-
-
-
-
-
-
-    <div class="footer">
-            <div class="phone">
-                    <div class="center">                
-                        제주관광정보센터<br> 064) 740-6000               
-                    </div>
-                </div>
-                
-                <div class="icon_f">  
-                    <div class="info1">   
-                    <a href="https://www.visitjeju.net/kr/tourInfo/able?tap=one&menuId=DOM_000001703002012001#">
-                        <img src="pic/food/icon1.png"><p>장애인 관광정보 </p>           
-                    </a>
-                    </div>
-                    <div class="info2">
-                        <a href="https://www.visitjeju.net/kr/bbs/list?bbsid=tripperCenter-book&menuId=DOM_000001724002000000#">
-                            <img src="pic/food/book.png"><p>제주 안내책자</p>
-                        </a>
-                    </div>
-                    <div class="info3">
-                        <a href="https://www.visitjeju.net/kr/tourInfo/guide?tap=two&menuId=DOM_000002000000000051#">
-                            <img src="pic/food/map.png"><p>제주 관광지도</p>
-                        </a>
-                    </div>
-    </div>
+    <div id="footer"></div>
 </body>
 </html>
