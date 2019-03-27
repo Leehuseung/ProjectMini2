@@ -40,6 +40,6 @@
 .page > div > a:hover {
     color:white;
 }
- .prev , .next{
-     background:orange;
- }
+.prev , .next{
+    background:orange;
+}
