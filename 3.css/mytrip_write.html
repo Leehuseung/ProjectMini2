@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Homepage</title>
-    <link rel="stylesheet" type="text/html" href="header.html"/>
-    <link rel="stylesheet" type="text/html" href="footer.html"/>
     <link rel="stylesheet" type="text/css" href="main.css" />
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Gaegu|Nanum+Pen+Script" rel="stylesheet">
     <style>
     
     /*바디 부분 */
     #img{
-        background: url(flower.png) no-repeat;
+        background: url("pic/main/flower.png") no-repeat;
         background-size: 1200px 250px;
         width:100%;
         margin-top: 15px;
@@ -168,14 +166,6 @@
 
     </style>
 </head>
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
-<script type="text/javascript">   
-$(document).ready( function() { 
-
-$("#headers").load("header.html");  // 원하는 파일 경로를 삽입하면 된다
-$("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 된다
-}); 
-</script>
 <body>
     <div id="headers"></div>
 
@@ -244,8 +234,17 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
         <span class="list1">        
             <button id="list1"><a href="mytrip_listAll..html">목록보기</a></button>
         </span>    
-        
+
         <div id="footer"></div>
+    
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
+        <script type="text/javascript">   
+        $(document).ready( function() { 
+    
+        $("#headers").load("header.html");  // 원하는 파일 경로를 삽입하면 된다
+        $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 된다
+        }); 
+        </script>
     </body>
 
 
