@@ -5,10 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>tourist-update</title>
-    <link rel="stylesheet" type="text/css" href="main.css" />
     <link rel="stylesheet" type="text/css" href="tourist-wirte.css" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
 </head>
+<script type="text/javascript">   
+    $(document).ready( function() { 
+    
+    $("#headers").load("header.html");  // 원하는 파일 경로를 삽입하면 된다
+    $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 된다
+    }); 
+</script>
 <body>
     <div id="headers"></div>
     <div class="body">
@@ -35,7 +42,9 @@
             <div class="content-title">
                 제목 : <input type="text" class="text" placeholder="ex)성산일출봉"/>
                 <div>
-                    <button>목록으로</button> 
+                    <a href="/tourist-main.html" >
+                        <button>목록으로</button> 
+                    </a>
                 </div>
             </div>
             <div class="picture">
@@ -85,10 +94,10 @@
                 <textarea class="info-content" placeholder="본문 내용을 적어주세요"></textarea>
                 <br><br><br>
                 <div>    
-                    <a href="/project/tourist-main.html">
+                    <a href="/tourist-main.html">
                         <input type="submit" value="등록하기" />
                     </a>
-                    <a href="/project/tourist-main.html">
+                    <a href="/tourist-main.html">
                         <input type="submit" value="취소" />                
                     </a>
                 </div>
