@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Gaegu|Nanum+Pen+Script" rel="stylesheet">
+    <style>
+   
+    /*바디 부분 */
+    #img{
+        background: url("pic/flower.png") no-repeat;
+        background-size: 1200px 250px;
+        width:100%;
+        margin-top: 15px;
+       
+    }
+  
+    #img > #contents {
+        background-color:rgba(255,255,255,0.5);
+    }
+    /* 소제목 */
+    .title-area{
+        display: inline-block;
+        height: 130px;
+    }
+    .title-area2{
+        height: 100px;   
+    }
+    .title-area >.mytrip {
+        font-family: 'Nanum Pen Script', cursive;
+        padding :25px;
+        font-size:70px;
+        font-weight: bold;   
+        float:left;
+     
+    }
+    /* 버튼 */
+    .buttonList a{
+        font-family: 'Gaegu', cursive;
+        font-weight: bold;
+        font-size:30px;
+        color:black;
+        text-decoration: none;
+        
+    }
+    /*목록보기버튼*/
+    .list1 {
+        position: relative;
+        left:1000px;
+      
+    }
+    .list1>#list1 {
+        width:150px;
+        height: 50px; 
+        background: orange;
+        border:none;
+        border-radius:20px;
+    }
+
+    /*수정*/
+    .modify{
+        position: relative;
+        left:465px;
+    }
+    .modify > #modify {
+        width:150px;
+        height: 50px; 
+        background: orange;
+        border:none;
+        border-radius:20px;
+  
+    }
+   
+    /*삭제*/
+    .delete{
+        position: relative;
+        left:500px;
+    }
+    .delete > #delete {
+        width:150px;
+        height: 50px; 
+        background: orange;
+        border:none;
+        border-radius:20px;
+  
+    }
+   a{
+        font-weight: bold;
+        font-size:30px;
+        color:black;
+        text-decoration: none;
+        
+    }
+
+    /* 상세보기 테이블 */
+    .list{
+        margin: 10px;
+        display: inline;
+    }
+    table{
+        position: relative;
+        border-collapse:collapse;
+    }
+   
+    th{
+       
+        height:70px;
+        border-bottom: 3px solid lightgray;
+        border-top: 3px solid lightgray;
+        line-height: 60px;
+        font-family: 'Gaegu', cursive;
+        font-size:35px; 
+    }
+    td {
+        
+        height:70px;
+        border-top: 3px solid lightgray;
+        border-bottom: 3px solid lightgray;
+        line-height: 60px;
+        font-family: 'Gaegu', cursive;
+        font-size:35px; 
+    }
+  
+    /*작성된 내용!!*/
+    .content {
+        padding:15px;
+        font-size:50px;
+        font-family: 'Gaegu', cursive;
+    }
+  
+    /* 댓글 */
+    .comment  {
+        padding:50px;
+        display: inline;
+    
+    }
+    table{
+        width:100%;
+    }
+    .comment > th,td{
+        font-family: 'Gaegu', cursive;
+        border-top: 3px solid lightgray;
+        border-bottom: 3px solid lightgray;
+        
+    }
+     /*댓글등록 */
+    textarea{
+        font-family: 'Gaegu', cursive;
+        font-size:30px;
+        border:3px solid lightgray;
+        width:1000px;
+        height:150px;
+        position: relative;
+       
+        
+    }
+  
+   #commentWrite1 {
+        width:182px;
+        height:152px;
+        font-family: 'Gaegu', cursive;
+        font-size: 40px;
+        position: relative;
+        bottom:70px;
+        left:-10px;
+    }
+ 
+  
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="top">
+            <div class="login">
+                    <a href="">로그인</a>
+                    &nbsp;&nbsp;
+            </div>
+        </div>
+        <div class="title">
+            제주도 어디까지 가봤니?
+        </div>
+        <div class="search">
+            <ul class="menu">
+                <li><a href="#" class="is-current" >Home</a></li>
+                <li><a href="#" >관광지</a></li>
+                <li><a href="#" >맛집</a></li>
+                <li><a href="#" >숙소</a></li>
+                <li><a href="#" >나의여행</a></li>
+                <li><a href="#" >마이페이지</a></li>
+                <div class="nav-underline"></div>
+            </ul>
+        </div>
+    </div>
+
+    <div class="body">
+        <div id="img">
+            <div id="contents">
+                <div class="title-area">
+                    <div class="mytrip" >나의여행기록</div>
+                </div>
+                <div class="title-area2">
+                   
+                </div>
+            </div>            
+        </div>
+            <div class="list">
+                <table summary="나의여행 글등록">
+                <tr>
+                    <!-- 선택한 옵션 db에서 가져오게끔 -->
+                    <th style="width:15%">맛집</th>
+                    <!-- 제목  -->
+                    <td colspan="7">[추천해준곳] 맛있어요</td>
+                </tr>
+                <tr>
+                    <th style="width:10%;">작성자</th>
+                    <td>김정래</td>
+                    <th>평점</th>
+                    <td style="color:rgb(241, 159, 50)">★★★★☆</td>
+                    <th>조회수</th>
+                    <!--클릭할때마다 늘어나게!!-->
+                    <td>2</td>
+                    <th style="width:10%">작성일</th>
+                    <!-- 날짜 db가져오게 설정 -->
+                    <td>2019.3.14</td>
+                </tr>
+                <tr>
+                    <td class="content" colspan="8" rowspan="40">
+                        재밌었어요
+                        제주도에 대한 정보가 잘 정리되어있습니다.
+                    </td>
+                    
+                </tr>
+            </table> 
+                
+                
+        </div>
+        <div class ="buttonList">
+            <span class="list1">
+                <button id="list1"><a href="mytrip_listAll..html">목록보기</a></button>
+            </span>
+            <span class="modify">
+                <button id="modify"><a href="mytrip_modify.html">수정</a></button>
+            </span>
+            <span class="delete">
+                <button id="delete"><a href="javascript:aaa()">삭제</a></button>
+            </span>
+        </div>
+            
+        <script>
+            function aaa() {
+                var result = confirm("삭제??");
+                if (result) {
+                    alert("삭제진행해야함...");
+                }
+            }
+        </script>
+        <!--댓글 파트-->
+        <div class="comment">
+            <form action="#">
+                <table>
+                    <tr>
+                        <th style="width:200px">댓글</th>
+                        <td> 0개</td>
+                    </tr>
+                </table>
+        </div>
+        <div class="commentWrite">
+            <form>
+                <span><textarea rows="3"></textarea></span>
+                <span ><input id="commentWrite1" type="submit" value="등록" /></span>
+            </form>        
+        </div>
+    </div>
+    <div class="footer">
+            <div class="phone">
+                <div class="center">                
+                    제주관광정보센터<br> 064) 740-6000               
+                </div>
+            </div>
+                
+            <div class="icon">  
+                <div class="info1">   
+                <a href="https://www.visitjeju.net/kr/tourInfo/able?tap=one&menuId=DOM_000001703002012001#">
+                    <img src="aa.png"><p>장애인 관광정보 </p>           
+                </a>
+                </div>
+                <div class="info2">
+                    <a href="https://www.visitjeju.net/kr/bbs/list?bbsid=tripperCenter-book&menuId=DOM_000001724002000000#">
+                        <img src="book.png"><p>제주 안내책자</p>
+                    </a>
+                </div>
+                <div class="info3">
+                    <a href="https://www.visitjeju.net/kr/tourInfo/guide?tap=two&menuId=DOM_000002000000000051#">
+                        <img src="map.png"><p>제주 관광지도</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+ 
+</body>
+
+
+</html>
