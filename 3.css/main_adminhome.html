@@ -109,6 +109,22 @@ body {
 
 
 /* 메뉴 파트 */
+.text > a{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display:inline-block;
+    text-decoration:none;
+    color:black;
+}
+.information_1 > a {
+    color:black;
+    text-decoration:none;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display:inline-block;
+}
 :root {
     --nav-length: 7;
     --nav-width: calc(100% / var(--nav-length));
@@ -278,6 +294,9 @@ ul > li:nth-child(7):hover ~ .nav-underline {
     text-decoration: none;
     font-size: 18px;
 }
+.text > a > p {
+    text-align:left; 
+}
 .pic {
     width: 70%; height: 250px;  
 }
@@ -309,6 +328,7 @@ ul > li:nth-child(7):hover ~ .nav-underline {
     grid-template-rows: 1fr;
     height: 20%;
     width: 100%;
+    text-align:center;
 }
 .tourimg {
     width: 100%; height: 100%;
@@ -433,55 +453,99 @@ ul > li:nth-child(7):hover ~ .nav-underline {
         <div class="pic">
             <div class="information">
                 <div class="information_1">
-                    <div class="img"><a href=""><img class="tourimg" src="pic/main/hanra.jpg"></a></div>
-                    <div class="content"><a href=""></a>한라산</a></div>
+                    <a hef="#">                      <!--  수정해주세요 페이지 경로   -->
+                        <div class="img"></div>      <!--  이미지 경로  -->
+                        <div class="content">
+                            내용을 적어주세요
+                        </div>
+                    </a>
                 </div>
                 <div class="information_1">
-                    <div class="img"><a href=""><img class="tourimg" src="pic/main/sea.jpg"></a></div>
-                    <div class="content"></div>
+                    <a hef="#">                      <!--  수정해주세요 페이지 경로   -->
+                        <div class="img"></div>      <!--  이미지 경로  -->
+                        <div class="content">
+                            내용을 적어주세요
+                        </div>
+                    </a>
                 </div>
                 <div class="information_1">
-                    <div class="img"></div>
-                    <div class="content"></div>
+                    <a hef="#">                      <!--  수정해주세요 페이지 경로   -->
+                        <div class="img"></div>      <!--  이미지 경로  -->
+                        <div class="content">
+                            내용을 적어주세요
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
     
     <div class="mainmenu">
-        <div class="text"><a href="">맛집 게시판<br>게시판 내용내용내용</a></div>
+        <div class="text"><a href="food_main.html">맛집 게시판<br><br>
+            <p>
+            무엇을 먹을까? 행복한 고민에 빠지게 하는 제주의 한식
+            칼칼한 갈치조림, 고소한 고등어 구이, 담백한 전복뚝배기, 성게미역국, 제주 흑돼지 구이 등 다양한 제주의 음식은 행복한 고민에 빠지게 한다. </p>
+            <p>
+            다양하고 싱싱한 식재료를 이용한 담백하고 맛깔스러운 제주도 음식은 먹는 즐거움을 풍요롭게 한다.</p></a></div>
         <div class="pic">
             <div class="information">
                 <div class="information_1">
-                    <div class="img"></div>
-                    <div class="content"></div>
+                    <a href="food_detail1.html">
+                        <div class="img"><img class="tourimg" src="pic/food/black.jpg"></div>
+                        <div class="content">
+                            <h6>산방식당(모슬포 본점)</h6>
+                            <h6>서귀포시>안덕</h6>
+                        </div>
+                    </a>
                 </div>
                 <div class="information_1">
-                    <div class="img"></div>
-                    <div class="content"></div>
+                    <a href="food_detail1.html">
+                        <div class="img"><img class="tourimg" src="pic/food/fish.jpg"></div>
+                        <div class="content">
+                            <h6>로뎀</h6>
+                            <h6>제주시>구착</h6>
+                        </div>
+                    </a>
                 </div>
                 <div class="information_1">
-                    <div class="img"></div>
-                    <div class="content"></div>
+                    <a href="food_detail1.html">
+                        <div class="img"><img class="tourimg" src="pic/food/guk.jpg"></div>
+                        <div class="content">
+                            <h6>오라숲소리</h6>
+                            <h6>제주시>제주시내</h6>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
     <div class="mainmenu">
-        <div class="text"><a href="">숙소 게시판<br>게시판 내용내용내용</a></div>
+        <div class="text"><a href="">숙소 게시판<br>게시판 내용내용내용</a></div>      <!-- 숙소 메인페이지 디테일-->
         <div class="pic">
             <div class="information">
                 <div class="information_1">
-                    <div class="img"></div>
-                    <div class="content"></div>
+                    <a hef="#">                      <!--  페이지 경로   -->
+                        <div class="img"></div>      <!--  이미지 경로  -->
+                        <div class="content">
+                            내용을 적어주세요
+                        </div>
+                    </a>
                 </div>
                 <div class="information_1">
-                    <div class="img"></div>
-                    <div class="content"></div>
+                    <a hef="#">                      <!--  페이지 경로   -->
+                        <div class="img"></div>      <!--  이미지 경로  -->
+                        <div class="content">
+                            내용을 적어주세요
+                        </div>
+                    </a>
                 </div>
                 <div class="information_1">
-                    <div class="img"></div>
-                    <div class="content"></div>
+                    <a hef="#">                      <!--  페이지 경로   -->
+                        <div class="img"></div>      <!--  이미지 경로  -->
+                        <div class="content">
+                            내용을 적어주세요
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
