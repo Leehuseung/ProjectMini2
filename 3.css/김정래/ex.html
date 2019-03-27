@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body {
+  background-color: #FFFFFF;
+  color: #CCCCCC;
+  font-family: montserrat, sans-serif;
+}
+
+h2 {
+  color: #444444;
+}
+
+form {
+  margin: 0 auto;
+  width: 400px;
+}
+form div {
+  margin-bottom: 3em;
+}
+
+input[type=radio], input[type=checkbox] {
+  display: none;
+}
+input[type=radio] + label, input[type=checkbox] + label {
+  display: inline-block;
+  background-color: #CCCCCC;
+  border-color: gray;
+  color: #4d4d4d;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: .5em;
+  padding: .5em 1em;
+}
+input[type=radio]:checked + label.vanilla, input[type=checkbox]:checked + label.vanilla {
+  background-color: #F5F1DA;
+  border-color: #d4c362;
+  color: #a4922c;
+}
+input[type=radio]:checked + label.chocolate, input[type=checkbox]:checked + label.chocolate {
+  background-color: #9E7E68;
+  border-color: #42342b;
+  color: #040303;
+}
+input[type=radio]:checked + label.strawberry, input[type=checkbox]:checked + label.strawberry {
+  background-color: #E5969A;
+  border-color: #b52d34;
+  color: #63191c;
+}
+input[type=radio]:checked + label.caramel, input[type=checkbox]:checked + label.caramel {
+  background-color: #E6B398;
+  border-color: #b85d2d;
+  color: #663419;
+}
+input[type=radio]:checked + label.coconut, input[type=checkbox]:checked + label.coconut {
+  background-color: #F7F7F7;
+  border-color: #ababab;
+  color: #787878;
+}
+input[type=radio]:checked + label.sprinkles, input[type=checkbox]:checked + label.sprinkles {
+  background-color: #98D2E6;
+  border-color: #2d94b8;
+  color: #195266;
+}
+
+    
+    </style>
+</head>
+<body>
+    <script src="//use.edgefonts.net/montserrat.js"></script>
+
+<form action="/edwardloveall/pen/hKfnI" method="get" name="toggle_boxes">
+  <h2>What's you're favorite flavor?</h2>
+  
+  <div class="flavor">
+    <input type="radio" id="radio_vanilla" name="flavor" value="vanilla" />
+    <label for="radio_vanilla" class="vanilla">Vanilla</label>
+    
+    <input type="radio" id="radio_chocolate" name="flavor" value="chocolate" />
+    <label for="radio_chocolate" class="chocolate">Chocolate</label>
+    
+    <input type="radio" id="radio_strawberry" name="flavor" value="strawberry" />
+    <label for="radio_strawberry" class="strawberry">Strawberry</label>
+  </div>
+  
+  <h2>How about toppings?</h2>
+  <div class="toppings">
+    <input type="checkbox" id="check_caramel" name="toppings" value="caramel" />
+    <label for="check_caramel" class="caramel">Caramel</label>
+    
+    <input type="checkbox" id="check_coconut" name="toppings" value="coconut" />
+    <label for="check_coconut" class="coconut">Coconut</label>
+    
+    <input type="checkbox" id="check_sprinkles" name="toppings" value="sprinkles" />
+    <label for="check_sprinkles" class="sprinkles">Sprinkles</label>
+  </div>
+</form>
+
+</body>
+</html>

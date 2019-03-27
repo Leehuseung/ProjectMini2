@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+  .wrapper{
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 1em;
+        grid-row-gap: 1em;
+        grid-template-columns: repeat(2,30%);
+        grid-auto-rows: minmax(100px,auto);
+       justify-items: stretch;
+        align-items: strech;
+
+    }
+    .wrapper > div{
+        background-color: purple;
+        padding:1em;
+    }
+    .wrapper > div:nth-child(odd){
+        background-color:pink;
+    }
+    .nested{
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+
+    }
+  
+  </style>
+
+</head>
+<body>
+  
+
+  <div class="wrapper">
+    <div class ="nested">
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+        odd<br>
+        odd<br>
+    </div>
+    <div>
+        even<br>
+        even<br>
+    </div>
+    <div>
+        odd<br>
+        odd<br>
+    </div>
+    <div>
+        even<br>
+        even<br>
+    </div>
+    <div>
+      odd<br>
+      odd<br>
+  </div>
+  <div>
+      even<br>
+      even<br>
+  </div>
+  <div>
+      odd<br>
+      odd<br>
+  </div>
+  <div>
+      even<br>
+      even<br>
+  </div>
+</div>
+</body>
+</html>
