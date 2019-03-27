@@ -1,0 +1,224 @@
+/* 바디 파트 ====================================================== */
+
+/* 왼쪽 서브 메뉴 파트 */
+.sub-title {
+    height:100px;
+    margin: 0 auto;
+    font-size: 40px;
+    text-align: center;
+    line-height: 100px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.side {
+    float: left;
+    
+    width: 160px;
+    height: 1600px;
+    border-right: 1px solid gainsboro;
+    
+}
+
+
+.side-menu {
+    padding: 5px;
+    display: inline-block;
+    width: 80%;
+    height: 350px;
+    position: sticky;
+    top: 50px; 
+}
+
+.side-menu > h2 {
+    width: 100%;
+    display: block;
+    min-height: 26px;
+    /*line-height: 120%;*/
+    color: #232323;
+    font-size: 26px;
+    margin: 0 0 15px;
+}
+
+.side-menu-list {
+    width: 100%;
+    display: block;
+    margin: 0 0 20px;
+}
+
+.side-menu-list > li {
+    display: block;
+    width: 100%;
+    min-height: 36px;
+}
+
+.side-menu-list li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 36px;
+    font-size: 16px;
+    color: #555;
+    line-height: 36px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-decoration: none;
+    color: #232323;
+    cursor: pointer;
+}
+.side-menu-list li a span{
+    position:absolute;
+    bottom:7px;left:0;width:0;height:1px;
+    background:#ff4f02;
+    transition:all 0.3s;
+}
+
+.side-menu-list li:hover, li a:hover {
+    color: orange;
+}
+
+.side-menu-list li a:hover span {
+    width: 100%;
+}
+
+/* 본문쪽 파트 wrapper  ==================================== */
+.wrapper {
+    display: inline-block;
+    width: 1000px;
+    
+}
+
+
+.wrapper > div{
+    padding: 15px;
+}
+
+.content-title {
+    font-size: 30px;
+}
+
+.content-title > div {
+    float: right;
+    text-align: right;
+    width: 50%;
+    margin: 0;
+}
+
+.content-title > div > a > button {
+    width: 15%;
+    height: 100%;
+}
+
+.content-title > div > a {
+    text-decoration: none;
+}
+
+#slider{
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow:hidden;
+}
+
+.slide {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    left:100%;
+}
+
+.slide > img {
+    width: 80%;
+    height: 400px;
+}
+
+#slide1{    
+    left:0;
+}
+
+.button{
+    position: absolute;
+    z-index: 10;
+    background: rgb(0, 0, 0, 0.8);
+    text-decoration: none;
+    color: white;
+    padding:10px;
+    top:45%;
+    cursor: pointer;
+}
+
+.button:hover {
+    transition: ease-in-out 0.5s;
+    background: rgb(255, 165, 0, 0.8);
+}
+
+#prev.button {
+    text-align: center;
+    width: 20px;
+}
+
+#next.button {
+    text-align: center;
+    width: 20px;
+    right: 20px;
+}
+
+.detail-icon > div {
+    display: inline-block;
+    width: 19%;
+    margin: 0;
+}
+
+.detail-title {
+    border-bottom: 1px solid gainsboro;
+}
+
+.detail-title > .pay {
+    width: 50%;
+    float: right;
+    margin: 0;
+}
+
+.location {
+    border-bottom: 1px solid gainsboro;
+}
+
+.location > div {
+    width: 50%;
+    float: right;
+    margin: 0;
+}
+
+.time {
+    border-bottom: 1px solid gainsboro;
+}
+
+.phone-num > .update-date {
+    width: 50%;
+    float: right;
+    text-align: right;
+    margin: 0;
+    color: #555;
+}
+
+.up-del {
+    text-align: right;
+    margin: 0;
+    border-bottom: 1px solid gainsboro;
+}
+
+.up-del > a {
+    text-decoration: none;
+}
+
+.up-del > a > button {
+    width: 10%;
+}
+
+.detail-info > .info-title {
+    font-size: 25px;
+}
+
+.detail-info > .info-content {
+    font-size: 15px;
+}
