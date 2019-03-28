@@ -7,6 +7,7 @@
     <title>Homepage</title>
     <link rel="stylesheet" type="text/css" href="main.css" />
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Gaegu|Nanum+Pen+Script" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <style>
     
     /*바디 부분 */
@@ -128,39 +129,50 @@
         font-family: 'Gaegu', cursive;
         border:none;
     }
-    /* 파일첨부 */
+
+ 
    
-.filebox {
-    width: 250px; height: 15px;
-    position: relative;
-    top:-25px;
-}
+    /* 파일첨부 */
+    
+    .filebox {
+        width: 250px; height: 15px;
+        position: relative;
+        top:-25px;
+        left:150px;
+    }
 
-.filebox label {
-  /* display: inline-block; */
-  padding: 0.5em .6em;
-  color: white;
-  font-size: 25px;
-  background-color: rgb(241, 159, 50);
-  /* cursor: pointer; */
-  border-radius: .25em;
-}
+    .filebox label {
+    /* display: inline-block; */
+    padding: 0.5em .6em;
+    color: white;
+    font-size: 25px;
+    background-color: rgb(241, 159, 50);
+    /* cursor: pointer; */
+    border-radius: .25em;
+    }
 
-.filebox label:hover {
-  background-color: rgb(255, 81, 0);
-}
-.filebox label:active {
-  background-color:red;
-}
-.filebox input[type="file"] {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-  }
+    .filebox label:hover {
+    background-color: rgb(255, 81, 0);
+    }
+    .filebox label:active {
+    background-color:red;
+    }
+    .filebox input[type="file"] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+    /* 파일첨부 이미지 */
+    #contentimg {
+        font-size:25px;
+        font-family: 'Gaegu', cursive;
+        width:500px;
+    }
+  
     </style>
 </head>
 
@@ -213,7 +225,8 @@
                 </tr>
                 <tr>
                     <th>파일첨부</th>
-                    <td colspan="3"> <div class="filebox">  
+                    <td colspan="2"><span id="contentimg">pic/review/food1.png</span></td>
+                    <td > <div class="filebox">  
                             <label for="ex_file">파일 선택</label>
                             <input type="file" id="ex_file">
                           </div></td>
@@ -222,20 +235,21 @@
             </table> 
                 <div class="contentWrite">
                     <textarea id="contentWrite1"rows="30" cols="4"   > 
-                        제주도 맛집 정보를 보고 맛있어 보여서 간 곳입니다. 
-                        정말 맛있게 먹었습니다~~!
-                        또 제주도 가면 갈거에요.
-                        갈치조림의 맛에 감동했습니다!!!</textarea>
+ 제주도 맛집 정보를 보고 맛있어 보여서 간 곳입니다. 
+ 정말 맛있게 먹었습니다~~!
+ 또 제주도 가면 갈거에요.
+ 갈치조림의 맛에 감동했습니다!!!</textarea>
                 </div>
                 <span class="save">
                         <button id="save" type="submit"><a href="mytrip_detail+comment.html">저장</a></button>
                 </span>
         </form>
-                
+     
+
     </div>
-      
+        
         <span class="list1">        
-            <button id="list1"><a href="mytrip_listAll..html">목록보기</a></button>
+            <button id="list1"><a href="mytrip_listAll.html">목록보기</a></button>
         </span>    
     <div id="footer"></div>
     
@@ -247,6 +261,7 @@
     $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 된다
     }); 
     </script>
+    
 </body>
 
 
