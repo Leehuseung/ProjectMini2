@@ -239,7 +239,7 @@ ul > li:nth-child(7):hover ~ .nav-underline {
     cursor: pointer;
 }
 #position1 > a > .fas {
-    color:rgb(236, 115, 16);
+    color:rgb(236, 78, 16);
 }
 #position2 {
     position:fixed;
@@ -253,5 +253,5 @@ ul > li:nth-child(7):hover ~ .nav-underline {
     cursor: pointer;
 }
 #position2 > a > .fas {
-    color:rgb(236, 115, 16);
+    color:rgb(236, 78, 16);
 }
