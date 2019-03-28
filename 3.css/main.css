@@ -225,6 +225,9 @@ ul > li:nth-child(7):hover ~ .nav-underline {
 
   
   /* 누르면 맨위로 올라가기 */
+  html {
+    scroll-behavior: smooth;
+  }
 #position1 {
     position:fixed;
     bottom:70px;
@@ -242,6 +245,7 @@ ul > li:nth-child(7):hover ~ .nav-underline {
     position:fixed;
     bottom:30px;
     right:30px;
+ 
 }
 #position2 > a{
     font-size:35px;
