@@ -93,24 +93,31 @@
     padding: 15px;
 }
 
+.content-title > .content-tag {
+    font-size: 20px;
+}
+
+.content-title > .content-tag > input {
+    font-size: 20px;
+}
 
 .content-title {
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .content-title > input {
-    font-size: 30px;
+    font-size: 40px;
     width: 40%;
 }
 
 .content-title > div {
     float: right;
     text-align: right;
-    width: 50%;
+    width: 45%;
     margin: 0;
 }
 
-.content-title > div > button {
+.content-title > div > a > button {
     width: 15%;
     height: 100%;
 }
@@ -204,4 +211,14 @@
 .detail-info > div > a > input {
     margin: 20px;
     width: 10%;
+}
+
+a > button {
+    border-radius:10px;
+    height:30px;
+    width:100px;
+    font-size:18px;
+    border-style:none;
+    background-color:orange;
+    color:white;
 }

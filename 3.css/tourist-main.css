@@ -242,7 +242,16 @@
     width: 5%;
     text-align: center;
     float: right;
+    border-radius:10px;
+    height:30px;
+    width:100px;
+    font-size:18px;
+    border-style:none;
+    background-color:orange;
+    color:white;
 }
+
+
 
 /* 컨텐츠 아래 */
 .content-row {
