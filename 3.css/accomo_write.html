@@ -82,7 +82,7 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
     }
     .head_pic> .box2{
         background-image: url("pic/accomodation/oceansweet.gif");
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
         border-bottom: 1px solid black;
     }
@@ -250,10 +250,25 @@ grid-template-rows: 10% 80% 10%;
         color:white;
     }
 
+    .pic_middle1{
+        background-image: url("pic/accomodation/oceansweetbed.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .pic_middle2{
+        background-image: url("pic/accomodation/oceansweetbed2.gif");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
     .pic_bottom{
+        border-top:1px solid black;
         line-height: 38px;
         font-size:25px;
     }
+    
+
+
     
     .bottom_Del{
         
@@ -414,15 +429,16 @@ grid-template-rows: 10% 80% 10%;
     
     #complete_button{
         text-decoration: none;
-        font-size:50px;
+        margin-top:20px;
     }
 
     #complete_button button{
+        font-size:40px;
         background-color: white;
         display: inline-block;
         box-sizing:border-box;
-        height:50px;
-        width:120px;
+        height:55px;
+        width:140px;
         text-align:center;
        line-height:40px;
         border: 1px solid orange;
@@ -430,7 +446,7 @@ grid-template-rows: 10% 80% 10%;
       
         left:600px;
         top:1px;
-        font-size:20px;
+       
 
     }
 
@@ -495,7 +511,7 @@ grid-template-rows: 10% 80% 10%;
                 </span>
 
             </div>
-            <div class="pic_middle"></div>
+            <div class="pic_middle1"></div>
             <div class="pic_bottom">
                 <span>파일명</span>
                 <span class="bottom_Del"><a href="#">삭제</a></span>
@@ -510,7 +526,7 @@ grid-template-rows: 10% 80% 10%;
                 </span>
 
             </div>
-            <div class="pic_middle"></div>
+            <div class="pic_middle2"></div>
             <div class="pic_bottom">
                 <span>파일명</span>
                 <span class="bottom_Del"><a href="#">삭제</a></span>

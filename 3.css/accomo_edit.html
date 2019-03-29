@@ -84,7 +84,7 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
     
     .head_pic> .box2{
         background-image: url("pic/accomodation/oceansweet.gif");
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
         border-bottom: 1px solid black;
     }
@@ -203,12 +203,12 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
       display:grid;
       grid-template-columns: 1fr 1fr;
       grid-column-gap: 20px;
-      background-color: #f3f3f3;
+      
     }
     .pic1_pic2 > div{
      
       width:100%;
-    
+      background-color: #f3f3f3;
       
     }
    .pic1{
@@ -219,7 +219,7 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
      
      .pic1> div{
         width:100%;
-        border:1px solid black;
+        
      }
      #top_myPC{
         display: inline-block;
@@ -245,19 +245,32 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
     
     .pic_top{
         font-size:25px;
+        border-bottom: 1px solid black;
     }
     .pic_top input{
    display:none;
     }
-
+    .pic_middle1{
+        background-image: url("pic/accomodation/oceansweetbed.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-bottom: 1px solid black;
+    }
+    .pic_middle2{
+        background-image: url("pic/accomodation/oceansweetbed2.gif");
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-bottom: 1px solid black;
+    }
     .pic_bottom{
+      border-top:1px solid black;
         line-height: 38px;
         font-size:25px;
     }
     
     .bottom_Del{
         
-        border:1px solid black;
+        border-top:1px solid black;
     
 
         display: inline-block;
@@ -413,6 +426,7 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
     #complete_button{
         text-decoration: none;
         font-size:50px;
+        margin-top:20px;
     }
 
     #complete_button button{
@@ -428,7 +442,7 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
       
         left:600px;
         top:1px;
-        font-size:20px;
+        font-size:40px;
 
     }
 
@@ -472,13 +486,13 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
                     <option value="5">성산읍</option>
                     <option value="6">우도</option>
                     <option value="2">추자도</option>
-               <input id="leftAddress" type:"text" name="address" placeholder="탑동로 66">
+               <input id="leftAddress" type:"text" name="address" value="탑동로 66">
                 </select>
               </div>
-              <div class="box3">연락처: <input id="phoneNumber1" type:"text" name="phoneNumber" placeholder="(+82)064-729-8100"></div>
-              <div class="box4">홈페이지: <input id="website1" type:"text" name="website" placeholder="www.oceansweetjeju.co,kr"></div>
-              <div class="box5">20자 멘트: <input id="introduction1" type:"text" name="indroduction" placeholder="5성급 호텔의 럭셔리함을 즐길 수 있는 곳"></div>
-              <div class="box6">호텔 명: <input id="hotelname1" type:"text" name="hotelname" placeholder="오션 스위츠 제주"></div>
+              <div class="box3">연락처: <input id="phoneNumber1" type:"text" name="phoneNumber" value="(+82)064-729-8100"></div>
+              <div class="box4">홈페이지: <input id="website1" type:"text" name="website" value="www.oceansweetjeju.co,kr"></div>
+              <div class="box5">20자 멘트: <input id="introduction1" type:"text" name="indroduction" value="5성급 호텔의 럭셔리함을 즐길 수 있는 곳"></div>
+              <div class="box6">호텔 명: <input id="hotelname1" type:"text" name="hotelname" value="오션 스위츠 제주"></div>
           </div>
       </div>
       <div class="pic1_pic2">
@@ -491,7 +505,7 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
                     </span>
 
                 </div>
-                <div class="pic_middle"></div>
+                <div class="pic_middle1"></div>
                 <div class="pic_bottom">
                     <span>파일명</span>
                     <span class="bottom_Del"><a href="#">삭제</a></span>
@@ -506,7 +520,7 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
                     </span>
 
                 </div>
-                <div class="pic_middle"></div>
+                <div class="pic_middle2"></div>
                 <div class="pic_bottom">
                     <span>파일명</span>
                     <span class="bottom_Del"><a href="#">삭제</a></span>
@@ -517,7 +531,16 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
       </div>
       <div class="text">
         <div> 
-            <textarea name="content" rows="20" cols="70" placeholder="숙소에 대해 소개해주세요"></textarea>
+            <textarea name="content" rows="20" cols="70" placeholder="">남원 해안경승지에 위치한 오션 스위츠 제주는 해안절벽과 푸른 바다가 어우러져 영화속 한 장면처럼 멋진 풍경을 연출한다.
+레스토랑, 노래방, 카페, 게임존 등 부대시설이 갖춰져 있고 실,내외 수영장 아쿠아나에서 바다를 한눈에 바라보며 물놀이와 수영을 즐길 수 있다.
+
+객실배정은 14시부터 선착순으로 배정되고 주중과 주말의 체크아웃시간이 다르니 유의해야한다.
+                    ​​​​​​​
+로얄스위트룸을 포함한 5가지, 총 322개의 객실이 있으며 객실에 따라 양실, 한실을 선택할 수 있다. 바다 전망 객실 배정 시에는 추가금액이 있다.
+                    
+주변관광지로는 큰엉해안경승지, 코코몽 에코파크, 신영영화박물관, 표선해수욕장 등이 있으며 제주국제공항으로부터 승용차로 약 1시간이 소요된다.
+
+            </textarea>
         </div>
       </div>
         <div class="pic_info"> 

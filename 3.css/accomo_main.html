@@ -447,12 +447,12 @@ input[type=radio]:checked + label.city{
         color:black;
     }
     #button:hover{
-        border-color: black;
-        background-color:black;
-        color:white;
+        border-color: orange;
+        background-color:orange;
+        color:black;
     }
     .thumbnail-info{
-        margin-top:70px;
+        margin-top:100px;
         width:1200px;
         display:grid;
         grid-template-columns: 1fr 1fr;
@@ -681,20 +681,37 @@ input[type=radio]:checked + label.city{
      .orangered{
          background:orange;
         }
-    #accomo_write{
-        position:relative;
-        width:100px;
-        height:37px;
-        top:-35px;
-       left:900px;
-        border-radius: 0%;
-
-
-    }
+   
     #accomo_write a{
         text-decoration: none;
-         font-size:24px;   
+         font-size:30px;   
             }
+        
+    #accomo_write{
+        margin-top:10px;
+        display: inline-block;
+        box-sizing:border-box;
+        height:45px;
+        width:120px;
+        text-align:center;
+       line-height:50px;
+        border: 1px solid orange;
+        box-shadow: 3px 3px  gray;
+      
+        left:821px;
+        top:70px;
+        font-size:20px;
+
+    }
+
+    #accomo_write:hover{
+        background-color:orange;
+        color:white;
+    }
+
+    .box1 input{
+   display:none;
+    }
 
 
     .footer {
@@ -759,20 +776,20 @@ input[type=radio]:checked + label.city{
         
 
     <div class="body">
-
+        
         <div class="introduction">
-          
-          <ul class="title">숙소</ul>
-          <ul class="title2">호텔에서 게스트 하우스까지 다양한 제주의 숙소</ul>
-          <ul class="title3">한라산과 에메랄드 빛 바다가 보이는 럭셔리한 호텔 부터 주머니 가벼운 대학생을위한 게스트 하우스까지!<br> 당신의 여정에 마침표를 찍어줄 제주의 다양한 숙소를 찾아보자.</ul>
+            
+            <ul class="title">숙소</ul>
+            <ul class="title2">호텔에서 게스트 하우스까지 다양한 제주의 숙소</ul>
+            <ul class="title3">한라산과 에메랄드 빛 바다가 보이는 럭셔리한 호텔 부터 주머니 가벼운 대학생을위한 게스트 하우스까지!<br> 당신의 여정에 마침표를 찍어줄 제주의 다양한 숙소를 찾아보자.</ul>
         </div>
         <div class="search-city">
-            <form action="main.do" method="get">
-             
-            <ul class="type">
-                <li class="subtype1">숙소 종류</li>
-    
-                <li class="subtype2">
+            <form action="accomo_main.html" method="get">
+                
+                <ul class="type">
+                    <li class="subtype1">숙소 종류</li>
+                    
+                    <li class="subtype2">
                         <input type="radio" id="radio_total"  name="type" value="total"  />
                         <label for ="radio_total" class="type">전체</label>
                         <input type="radio" id="radio_hotel"  name="type" value="hotel"  />
@@ -781,11 +798,11 @@ input[type=radio]:checked + label.city{
                         <label for ="radio_pension"  class="type">펜션</label>
                         <input type="radio" id="radio_gusetHouse"  name="type" value="gusestHouse"  />
                         <label for ="radio_gusetHouse"   class="type">게스트 하우스</label>
-                </li>
-            </ul>
-            <ul class="city">
-                <li class="subcity1">지역</li>
-                <li class="subcity2">  
+                    </li>
+                </ul>
+                <ul class="city">
+                    <li class="subcity1">지역</li>
+                    <li class="subcity2">  
                         <input type="radio" id="radio_totalcity"  name="city" value="total"  />
                         <label for ="radio_totalcity" class="city" >전체</label>
                         <input type="radio" id="radio_jeju"  name="city" value="jeju"  />
@@ -794,10 +811,10 @@ input[type=radio]:checked + label.city{
                         <label for ="radio_seogwipo"  class="city">서귀포</label>
                         <input type="radio" id="radio_aewol"  name="city" value="aewol"  />
                         <label for ="radio_aewol"   class="city">애월읍</label>
-                    
-                    
-                </li>
-                <li class="subcity3">  
+                        
+                        
+                    </li>
+                    <li class="subcity3">  
                         <input type="radio" id="radio_hanlim"  name="city" value="hanlim"  />
                         <label for ="radio_hanlim" class="city">한림</label>
                         <input type="radio" id="radio_seongsan"  name="city" value="seongsan"  />
@@ -807,16 +824,17 @@ input[type=radio]:checked + label.city{
                         <input type="radio" id="radio_chuza"  name="city" value="chuza"  />
                         <label for ="radio_chuza"   class="city">추자도</label>        
                     </li>
-
+                    
                 </ul>
                 <ul class="select"><button id="button">검색<button/>
                     
                 </ul>
-                </form>
+                <div id ="accomo_write"><a href="accomo_write.html">글 등록</a></div>
+            </form>
         </div>
-    <div class="thumbnail-info">
-        <div class="info_block">
-                <div class="info_header1">위치: 제주시</div>
+        <div class="thumbnail-info">
+            <div class="info_block">
+                <div class="info_header1">위치: 제주시 > 제주시내</div>
                 <div class="info_pic1"></div>
                 <div class="info_line">5성급 호텔의 럭셔리함을 즐길 수 있는 곳</div>
                 <div class="info_bottom">
@@ -827,7 +845,7 @@ input[type=radio]:checked + label.city{
         </div>
     
         <div class="info_block">
-            <div class="info_header2">위치: 애월</div>
+            <div class="info_header2">위치: 제주시 > 애월읍</div>
             <div class="info_pic2"></div>
             <div class="info_line">한밤의 풀벌레 소리와 하늘을 수놓은 별이 있는곳</div>
             <div class="info_bottom">
@@ -837,7 +855,7 @@ input[type=radio]:checked + label.city{
             </div>
     </div>
     <div class="info_block">
-            <div class="info_header3">위치: 제주시</div>
+            <div class="info_header3">위치: 제주시 > 제주시내</div>
             <div class="info_pic3"></div>
             <div class="info_line">제주 도심에 위치한 비지니스 최적의 호텔</div>
             <div class="info_bottom">
@@ -847,7 +865,7 @@ input[type=radio]:checked + label.city{
             </div>
     </div>
     <div class="info_block">
-        <div class="info_header4">위치: 조천</div>
+        <div class="info_header4">위치: 서귀포시 > 한림</div>
         <div class="info_pic4"></div>
         <div class="info_line"> 이색적인 제주를 만나고 싶은 그대에게 </div>
         <div class="info_bottom">
@@ -855,6 +873,7 @@ input[type=radio]:checked + label.city{
             <div></div>
             <div class="bottom_detail"><a href="#">자세히 보기</a></div>
         </div>
+        
 </div>
     
     </div>
@@ -872,7 +891,6 @@ input[type=radio]:checked + label.city{
             <div>9</div>
             <div>10</div>
             <div class="orangered">다음</div>
-            <div id ="accomo_write"><a href="accomo_write.html">글 등록</a></div>
 
     </div>
      
