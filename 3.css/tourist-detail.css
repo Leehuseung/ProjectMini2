@@ -256,6 +256,7 @@ a > button {
 .detail-icon > li {
     margin: 0;
     border-left: 1px solid gainsboro;
+    
 }
 
 .detail-icon > li:first-child {
@@ -268,6 +269,11 @@ a > button {
 
 .detail-icon > li > .iconDetail1, .iconDetail2, .iconDetail3, .iconDetail4 {
     cursor: pointer;
+}
+
+.detail-icon > li > div > a > img{
+    height:90%;
+    width:40%;
 }
 
 .detail-icon > li > div > img{

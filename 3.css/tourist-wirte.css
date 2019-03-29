@@ -222,3 +222,54 @@ a > button {
     background-color:orange;
     color:white;
 }
+
+.detail-icon{
+    box-sizing:border-box;
+    height:50%;
+    display : grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100%;
+}
+
+.detail-icon > ul {
+    width: 90%;
+}
+
+.detail-icon > li {
+    margin: 0;
+    border-left: 1px solid gainsboro;
+}
+
+.detail-icon > li:first-child {
+    border-left: 0px;
+}
+
+.detail-icon > li > .iconDetail1, .iconDetail2, .iconDetail3, .iconDetail4, .iconDetail5 {
+    height: 61px;
+}
+
+.detail-icon > li > .iconDetail1, .iconDetail2, .iconDetail3, .iconDetail4 {
+    cursor: pointer;
+}
+
+.detail-icon > li > div > a > img{
+    height:90%;
+    width:40%;
+}
+
+.detail-icon > li > div > img{
+    height:90%;
+    width:40%;
+}
+
+.detail-icon div{
+    font-size: 10px;
+    text-align:center;
+    width:100%;
+    box-sizing:border-box;
+}
+
+.detail-icon > li > div > form {
+    width: 100px;
+}
+
