@@ -35,6 +35,7 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
       display:grid;
       grid-template-columns: 1fr 1fr;
       grid-column-gap: 20px;
+     
     }
     .head_pic_info > div{
       
@@ -42,19 +43,19 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
      
     }
     .head_pic{
+        background-color:#f3f3f3;
         display: grid;
-        grid-template-rows: 10% 80% 10%;
-        background:#f3f3f3;
+        grid-template-rows: 10% 80% 10%
+        
     }
     .head_pic>div{
         width:100%;
-       
-    
+        background-color:#f3f3f3;    
     }
     .head_pic> .box1{
-      
+      border-bottom:1px solid black;
         font-size:30px;
-        border-bottom:1px solid black;
+        
     }
     #box1_myPC{
         display: inline-block;
@@ -65,9 +66,9 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
        line-height:40px;
         border: 1px solid orange;
         box-shadow: 3px 3px  gray;
-       
-        left:335px;
-        top:-6px;
+      
+        left:438px;
+        top:-2px;
         font-size:20px;
 
     }
@@ -80,6 +81,7 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
     .box1 input{
    display:none;
     }
+    
     .head_pic> .box2{
         background-image: url("pic/accomodation/oceansweet.gif");
         background-size: contain;
@@ -119,6 +121,7 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
     .head_info{
         display:grid;
         grid-template-rows: 18% 16% 16% 16% 16% 16% 16%;
+        border:1px solid black;
         background:#f3f3f3;
     }
     .head_info > div{
@@ -134,7 +137,6 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
     font-size:30px;
     line-height: 60px;
     }
-    
     .head_info > .box2 > select{
    border:1px solid black;
    font-size:20px;
@@ -201,34 +203,25 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
       display:grid;
       grid-template-columns: 1fr 1fr;
       grid-column-gap: 20px;
-     
+      background-color: #f3f3f3;
     }
     .pic1_pic2 > div{
+     
       width:100%;
-    background-color: #f3f3f3;
+    
       
     }
-    .pic1{
+   .pic1{
 
-display:grid;
-grid-template-rows: 10% 80% 10%;
-}
-
-.pic1> div{
- width:100%;
- 
-}
-   
-.pic_top{
-    line-height: 0px;
-        font-size:25px;
-    border-bottom: 1px solid black;
-    }
-    .pic_top input{
-   display:none;
-    }
-
-    #top_myPC{
+       display:grid;
+       grid-template-rows: 10% 80% 10%;
+   }
+     
+     .pic1> div{
+        width:100%;
+        border:1px solid black;
+     }
+     #top_myPC{
         display: inline-block;
         box-sizing:border-box;
         height:37px;
@@ -248,6 +241,13 @@ grid-template-rows: 10% 80% 10%;
     #top_myPC:hover{
         background-color:orange;
         color:white;
+    }
+    
+    .pic_top{
+        font-size:25px;
+    }
+    .pic_top input{
+   display:none;
     }
 
     .pic_bottom{
@@ -283,7 +283,6 @@ grid-template-rows: 10% 80% 10%;
         color:white;
     }
 
-
     .pic_explain{
         text-align: center;
         line-height:220px;
@@ -291,7 +290,6 @@ grid-template-rows: 10% 80% 10%;
     }
     .pic_info{
         width:1305px;
-    
       display: grid;
       grid-template-rows: 8% 92%;
     }
@@ -309,7 +307,7 @@ grid-template-rows: 10% 80% 10%;
     .pic_title{
         border: 1px solid black;
     }
-     .pic_title> div{
+    .pic_title> div{
      border:1px solid black;
      box-shadow: 3px 3px 1px black;
      margin-top: 10px;
@@ -351,7 +349,6 @@ grid-template-rows: 10% 80% 10%;
         grid-column-gap: 20px;
     }
     .detail_thumbnail{
-        background:#f3f3f3;
         margin-top:30px;
        margin-left:30px;
         width:96%;
@@ -408,10 +405,11 @@ grid-template-rows: 10% 80% 10%;
     left:30px;
     top:22px;
     }
+
     .thumbnail_pic_info  a:hover{
         background-color: orange;
     }
-    
+
     #complete_button{
         text-decoration: none;
         font-size:50px;
@@ -439,8 +437,6 @@ grid-template-rows: 10% 80% 10%;
         background-color:orange;
         color:white;
     }
-   
-
 
     </style>
 </head>
@@ -453,17 +449,17 @@ grid-template-rows: 10% 80% 10%;
       <div class="head_pic_info">
           <div class="head_pic">
                 <div class=box1>
-                        <span>메인사진 첨부하기</span>
-                        <span id="box1_myPC">
-                        <input id="myPC" type="file" name="attach" />
-                        <label for ="myPC" class="box1_myPC_label">내 PC</label>
-                    </span>
+                    <span>메인사진 </span>
+                    <span id="box1_myPC">
+                    <input id="myPC" type="file" name="attach" />
+                    <label for ="myPC" class="box1_myPC_label">내 PC</label>
+                </span>
                 </div>
                 <div class = box2></div>
                 <div class = box3 >
-                        <span>파일명:  oceansweet.jpg </span>
-                        <span class="head_Del"><a href="#">삭제</a></span>
-                        </div>
+                <span>파일명:  oceansweet.jpg </span>
+                <span class="head_Del"><a href="#">삭제</a></span>
+                </div>
           </div>
           <div class="head_info">
               <div class="box1">호텔 정보입력란</div>
@@ -476,49 +472,49 @@ grid-template-rows: 10% 80% 10%;
                     <option value="5">성산읍</option>
                     <option value="6">우도</option>
                     <option value="2">추자도</option>
-               <input id="leftAddress" type:"text" name="address">
+               <input id="leftAddress" type:"text" name="address" placeholder="탑동로 66">
                 </select>
               </div>
-              <div class="box3">연락처: <input id="phoneNumber1" type:"text" name="phoneNumber"></div>
-              <div class="box4">홈페이지: <input id="website1" type:"text" name="website"></div>
-              <div class="box5">20자 멘트: <input id="introduction1" type:"text" name="indroduction"></div>
-              <div class="box6">호텔 명: <input id="hotelname1" type:"text" name="hotelname"></div>
+              <div class="box3">연락처: <input id="phoneNumber1" type:"text" name="phoneNumber" placeholder="(+82)064-729-8100"></div>
+              <div class="box4">홈페이지: <input id="website1" type:"text" name="website" placeholder="www.oceansweetjeju.co,kr"></div>
+              <div class="box5">20자 멘트: <input id="introduction1" type:"text" name="indroduction" placeholder="5성급 호텔의 럭셔리함을 즐길 수 있는 곳"></div>
+              <div class="box6">호텔 명: <input id="hotelname1" type:"text" name="hotelname" placeholder="오션 스위츠 제주"></div>
           </div>
       </div>
       <div class="pic1_pic2">
-        <div class= "pic1"> 
-            <div class="pic_top">
-                    <span>시설사진 </span>
-                    <span id="top_myPC">
-                    <input id="myPC_S" type="file" name="attach" />
-                    <label for ="myPC_S" class="top_myPC_label">내 PC</label>
-                </span>
+            <div class= "pic1"> 
+                <div class="pic_top">
+                        <span>시설사진 </span>
+                        <span id="top_myPC">
+                        <input id="myPC_S" type="file" name="attach" />
+                        <label for ="myPC_S" class="top_myPC_label">내 PC</label>
+                    </span>
 
+                </div>
+                <div class="pic_middle"></div>
+                <div class="pic_bottom">
+                    <span>파일명</span>
+                    <span class="bottom_Del"><a href="#">삭제</a></span>
+                </div>
             </div>
-            <div class="pic_middle"></div>
-            <div class="pic_bottom">
-                <span>파일명</span>
-                <span class="bottom_Del"><a href="#">삭제</a></span>
-            </div>
-        </div>
-        <div class= "pic1"> 
-            <div class="pic_top">
-                    <span>시설사진 </span>
-                    <span id="top_myPC">
-                    <input id="myPC_S" type="file" name="attach" />
-                    <label for ="myPC_S" class="top_myPC_label">내 PC</label>
-                </span>
+            <div class= "pic1"> 
+                <div class="pic_top">
+                        <span>시설사진 </span>
+                        <span id="top_myPC">
+                        <input id="myPC_S" type="file" name="attach" />
+                        <label for ="myPC_S" class="top_myPC_label">내 PC</label>
+                    </span>
 
+                </div>
+                <div class="pic_middle"></div>
+                <div class="pic_bottom">
+                    <span>파일명</span>
+                    <span class="bottom_Del"><a href="#">삭제</a></span>
+                </div>
             </div>
-            <div class="pic_middle"></div>
-            <div class="pic_bottom">
-                <span>파일명</span>
-                <span class="bottom_Del"><a href="#">삭제</a></span>
-            </div>
-        </div>
-                
-        
-  </div>
+                    
+            
+      </div>
       <div class="text">
         <div> 
             <textarea name="content" rows="20" cols="70" placeholder="숙소에 대해 소개해주세요"></textarea>
@@ -562,7 +558,7 @@ grid-template-rows: 10% 80% 10%;
                 </div>
 
                     
-                    
+               
             </div>
         </div>
         <div id="complete_button"><button>등록</button></div>
