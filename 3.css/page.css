@@ -43,3 +43,34 @@
 .prev , .next{
     background:orange;
 }
+  /* 누르면 맨위로 올라가기 */
+  html {
+    scroll-behavior: smooth;
+  }
+#position1 {
+    position:fixed;
+    bottom:70px;
+    right:30px;
+}
+#position1 > a{
+    font-size:35px;
+    text-decoration: none;
+    cursor: pointer;
+}
+#position1 > a > .fas {
+    color:rgb(236, 78, 16);
+}
+#position2 {
+    position:fixed;
+    bottom:30px;
+    right:30px;
+ 
+}
+#position2 > a{
+    font-size:35px;
+    text-decoration: none;
+    cursor: pointer;
+}
+#position2 > a > .fas {
+    color:rgb(236, 78, 16);
+}
