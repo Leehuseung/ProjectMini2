@@ -281,3 +281,9 @@ a > button {
     width:100%;
     box-sizing:border-box;
 }
+
+.detail-map {
+    width: 90%;
+    height: 500px;
+    border: 1px solid black;
+}

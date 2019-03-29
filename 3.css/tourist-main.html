@@ -10,6 +10,9 @@
     <link rel="stylesheet" type="text/css" href="tourist-main.css" />
     <link rel="stylesheet" type="text/css" href="page.css" />
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+    <style>
+    
+    </style>
 </head>
 <!-- include -->
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
@@ -49,15 +52,16 @@
                 </div>
                 <div></div>
                 <div></div>
-                <div>
-                    <button>갤러리형</button>
-                    <button>리스트형</button>
+                <div class="sort_type">
+                    <button type="button" class="ico_sort"><img src="pic/tourist-img/ico_sort_thumb_on.png"></button>
+                    <button type="button" class="ico_sort_list"><img src="pic/tourist-img/ico_sort_list_on.png"></button>
                 </div>
                 <div>
                     <select name="list">
                         <option value="0">최신순</option>
                         <option value="1">리뷰순</option>
                         <option value="2">좋아요</option>
+                        <option value="3">조회수</option>
                     </select>
                 </div>
                 <div>
@@ -76,6 +80,15 @@
                             <div class="location">서귀포시 > 성산</div>
                             <div class="category">#자연</div>
                             <p>제주도의 랜드마크</p>
+                            <br>
+                            <div class="icon">
+                                <div class="iconDetail"><img src="pic/tourist-img/like.jpg"></div>
+                                <div class="iconDetail"><img src="pic/tourist-img/view.jpg"></div>
+                                <div class="iconDetail"><img src="pic/tourist-img/review.jpg"></div>
+                                <div>좋아요<br>5</div>
+                                <div>조회수<br>20</div>
+                                <div>리뷰<br>7</div>
+                            </div>
                         </div>
                     </div>
                 </a>    
