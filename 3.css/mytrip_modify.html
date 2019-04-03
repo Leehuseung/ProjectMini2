@@ -130,7 +130,27 @@
         border:none;
     }
 
- 
+    /* 선택하기옵션 */
+    #choice1{
+        width:150px; height:55px; font-size:35px; border:none; border-bottom: 1px solid gray; font-family: 'Gaegu', cursive; font-weight: bold;
+        font-family: 'Gaegu', cursive;
+        font-weight: bold;
+    }
+    #choice1 option{
+        font-family: 'Gaegu', cursive;
+        font-weight: bold;
+    }
+    #choice2{
+        width:500px; height:55px; 
+        font-size:35px; 
+        border:none; border-bottom: 1px solid gray; 
+        font-family: 'Gaegu', cursive;
+        font-weight: bold;
+    }
+    #choice2 option{
+        font-family: 'Gaegu', cursive;
+        font-weight: bold;
+    }
    
     /* 파일첨부 */
     
@@ -196,8 +216,7 @@
                 <tr>
                     <th style="width:20%">말머리</th>
                     <th style="width:20%">
-                        <select class="chice2" 
-                        style=" width:150px; height:55px; font-size:35px; border:none; border-bottom: 1px solid gray; font-family: 'Gaegu', cursive; font-weight: bold">
+                        <select id="choice1">
                             <option>맛집</option>
                             <option>선택</option>
                             <option>관광</option>
@@ -207,8 +226,7 @@
                     </th>
                     <th style="width:15%;">평가</th>
                     <th style="width:70%">
-                            <select class="chice2" 
-                            style=" width:500px; height:55px; font-size:35px; border:none; border-bottom: 1px solid gray; font-family: 'Gaegu', cursive; font-weight: bold">
+                            <select id="choice2">
                                 <option>★★★★☆ 맘에 들어요</option>
                                 <option>선택하세요</option>
                                 <option>★★★★★ 아주 좋아요</option>

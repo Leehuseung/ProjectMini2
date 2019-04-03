@@ -61,6 +61,26 @@
         text-decoration: none;
         
     }
+    #choice1{
+        width:150px; height:55px; font-size:35px; border:none; border-bottom: 1px solid gray; font-family: 'Gaegu', cursive; font-weight: bold;
+        font-family: 'Gaegu', cursive;
+        font-weight: bold;
+    }
+    #choice1 option{
+        font-family: 'Gaegu', cursive;
+        font-weight: bold;
+    }
+    #choice2{
+        width:500px; height:55px; 
+        font-size:35px; 
+        border:none; border-bottom: 1px solid gray; 
+        font-family: 'Gaegu', cursive;
+        font-weight: bold;
+    }
+    #choice2 option{
+        font-family: 'Gaegu', cursive;
+        font-weight: bold;
+    }
     /*저장*/
     .save  > #save > a{
         font-family: 'Gaegu', cursive;
@@ -195,24 +215,23 @@
                 <tr>
                     <th style="width:20%">말머리</th>
                     <th style="width:20%">
-                        <select class="chice2" 
-                        style=" width:150px; height:55px; font-size:35px; border:none; border-bottom: 1px solid gray; font-family: 'Gaegu', cursive; font-weight: bold">
+                        <select id="choice1">
+                       
                             <option>선택</option>
                             <option>관광</option>
                             <option>맛집</option>
                             <option>숙박</option>
                         </select>
                     </th>
-                    <th style="width:15%;">평가</th>
+                    <th style="width:15%;">평점</th>
                     <th style="width:70%">
-                            <select class="chice2" 
-                            style=" width:500px; height:55px; font-size:35px; border:none; border-bottom: 1px solid gray; font-family: 'Gaegu', cursive; font-weight: bold">
+                            <select id="choice2" >
                                 <option>선택하세요</option>
                                 <option>★★★★★ 아주 좋아요</option>
                                 <option>★★★★☆ 맘에 들어요</option>
                                 <option>★★★☆☆ 보통이에요</option>
-                                <option>★★☆☆☆ 보통이에요</option>
-                                <option>★☆☆☆☆ 보통이에요</option>
+                                <option>★★☆☆☆ 별로에요</option>
+                                <option>★☆☆☆☆ 추천하지않아요</option>
                             </select>
                     </th>
                 </tr>
