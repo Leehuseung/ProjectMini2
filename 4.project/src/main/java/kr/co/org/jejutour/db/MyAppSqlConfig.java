@@ -1,4 +1,4 @@
-package kr.co.org.jeju.db;
+package kr.co.org.jejutour.db;
 
 import java.io.Reader;
 
