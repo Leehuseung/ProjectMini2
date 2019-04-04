@@ -9,235 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Homepage</title>
     <style>
-   /* 전체 */
-*{
-    padding: 0;
-    margin: 0 auto;
-    font-family: 'Do Hyeon', sans-serif;
-    position: relative;
-}
-body {
-    width: 1200px;
-}
-
-
-
-.footer {
-    margin-top: 100px;
-    width: 1200px; height: 150px;
-    background: orange;
-    display:grid;
-    grid-template-columns:1fr 2fr ;
-    grid-column-gap: 30px;       
-}
-.footer a {
-    text-decoration: none;
-    color: black;
-}
-.phone {
-    width: 100%; height: 100%;
-    background: orange;
-    text-align: center;   
-}
-.center {
-    font-size: 20px;
-    margin-top: 57px;
-}
-.center img {
-    width: 40px; height: 40px;
-}
-.icon {
-    grid-template-columns:1fr 1fr 1fr ;
-    width: 100%; height: 100%;    
-    display: grid;
-}
-.icon img {
-    width: 50px; height: 50px;
-    margin-top: 40px;
-    margin-left: 35px;
-}
-.icon p {
-    margin-left: 20px;
-}
-.info1{
-    width: 100%;     
-}
-.info2 {
-    width: 100%;     
-} 
-.info3 {
-    width: 100%;     
-} 
-
-/* 헤더파트 ========================================================= */
-
-/* 로그인 부분 */
-.top{
-    border: 1px solid orange;
-    height:30px;
-    background : orange;
-    margin: 0 auto;
-}
-.top > .login{
-    height:30px;
-    border: 1px solid orange;
-    font-size:15px;
-    text-align: right;
-    line-height: 25px;
-    color: white;
-}
-.top > .login > a:link{
-    text-decoration: none;
-    color: white;
-}
-.top > .login > a:visited{
-    text-decoration: none;
-    color: white;
-}
-
-
-/* 타이틀 */
-.title{
-    height:100px;
-    margin: 0 auto;
-    font-size: 55px;
-    text-align: center;
-    line-height: 100px;
-}
-
-
-/* 메뉴 파트 */
-:root {
-    --nav-length: 7;
-    --nav-width: calc(100% / var(--nav-length));
-}
-
-ul{
-    list-style:none;
-}
-
-.search{
-    border-top: 1px solid gainsboro;
-    border-bottom: 1px solid gainsboro;
-    height:60px; 
-    margin:0 auto;
-    background: white;
-}
-
-.search > .menu > li {
-    display:inline-block;
-    text-align: center;
-    font-size:25px;
-    width: calc(100% / 7);
-    height:60px;
-    margin-right: -6px;      
-    font-weight: bold;
-    color: black;
-    line-height: 60px;
-}
-
-.search > .menu > li > a {
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    display:inline-block;
-   
-}
-
-
-
-/* 메뉴바 애니메이션 */
-.search > .menu > li:hover {
-    background: orange;
-    transition-duration: 0.5s;
-    -moz-transition-duration: 0.5s;
-    -webkit-transition-duration: 0.5s;
-}
-
-.search > .menu > li:hover > a:link {
-    color: white;
-    transition-duration: 0.5s;
-    -moz-transition-duration: 0.5s;
-    -webkit-transition-duration: 0.5s;
-}
-.search > .menu > li:hover > a:visited {
-    color: white;
-    transition-duration: 0.5s;
-    -moz-transition-duration: 0.5s;
-    -webkit-transition-duration: 0.5s;
-}
-
-.search > .menu > li > a:link, a:visited{
-    text-decoration: none;
-    color: black;
-}
-
-.search > .menu > li > a:hover{
-    font-weight: bold;
-    color: white;
-}
-.search > .menu > .nav-underline {
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: var(--nav-width);
-    height: 5px;
-    background: orange;
-    transition: all 0.7s ease-in-out;
-}
-
-ul > li:nth-child(1).is-current ~ .nav-underline {
-    left: calc(var(--nav-width) * 0);
-}
-ul > li:nth-child(2).is-current ~ .nav-underline {
-    left: calc(var(--nav-width) * 1);
-}
-ul > li:nth-child(3).is-current ~ .nav-underline {
-    left: calc(var(--nav-width) * 2);
-}
-ul > li:nth-child(4).is-current ~ .nav-underline {
-    left: calc(var(--nav-width) * 3);
-}
-ul > li:nth-child(5).is-current ~ .nav-underline {
-    left: calc(var(--nav-width) * 4);
-}
-ul > li:nth-child(6).is-current ~ .nav-underline {
-    left: calc(var(--nav-width) * 5);
-}
-ul > li:nth-child(7).is-current ~ .nav-underline {
-    left: calc(var(--nav-width) * 6);
-}
-ul > li:nth-child(1):hover ~ .nav-underline {
-    left: calc(var(--nav-width) * 0);
-}
-ul > li:nth-child(2):hover ~ .nav-underline {
-    left: calc(var(--nav-width) * 1);
-}
-ul > li:nth-child(3):hover ~ .nav-underline {
-    left: calc(var(--nav-width) * 2);
-}
-ul > li:nth-child(4):hover ~ .nav-underline {
-    left: calc(var(--nav-width) * 3);
-}
-ul > li:nth-child(5):hover ~ .nav-underline {
-    left: calc(var(--nav-width) * 4);
-}
-ul > li:nth-child(6):hover ~ .nav-underline {
-    left: calc(var(--nav-width) * 5);
-} 
-ul > li:nth-child(7):hover ~ .nav-underline {
-    left: calc(var(--nav-width) * 6);
-} 
-     
-   /*   footer 
-     .footer {
-    width: 1200px; height: 150px;
-    background: orange;
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    grid-column-gap: 30px;       
-    }   */
-
+ 
      /* 맛집 부분 */
      .container{
         width:1200px;
@@ -329,54 +101,6 @@ ul > li:nth-child(7):hover ~ .nav-underline {
         border:1px solid black;
         text-align:center;
     }
-    /*      하단      */
-.footer {
-    margin-top: 100px;
-    width: 1200px; height: 150px;
-    background: orange;
-    display:grid;
-    grid-template-columns:1fr 2fr ;
-    grid-column-gap: 30px;       
-}
-.phone {
-    width: 100%; height: 100%;
-    background: orange;
-    text-align: center;   
-}
-.center {
-    font-size: 20px;
-    margin-top: 57px;
-}
-.center img {
-    width: 40px; height: 40px;
-}
-.icon_f {
-    grid-template-columns:1fr 1fr 1fr ;
-    width: 100%; height: 100%;    
-    display: grid;
-}
-.icon_f img {
-    width: 50px; height: 50px;
-    margin-top: 40px;
-    margin-left: 35px;
-}
-.icon_f p {
-    margin-left: 20px;
-}
-.info1{
-    width: 100%;     
-}
-.info2 {
-    width: 100%;     
-}
-.info3 {
-    width: 100%;
-}
-.footer a {
-    text-decoration: none;
-    color: black;
-}
-    
    
     </style>
 
@@ -404,13 +128,13 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
             <div class="subMenu">
                     <li><a href="food_detail1.html" >상세보기</a></li>
                     <li><a href="food_detail2.html" >이용안내</a></li>
-                    <li><a href="#" >지도</a></li>
+                    <li><a href="food_detail3.html" >지도</a></li>
                     <li><a href="food_detail4.html" >리뷰</a></li>
                 </ul>
             </div>
             <div class="map">
                 <div class="api">
-                    <div>지도 api</div>
+                    <div></div>
                     <div>지도 목록</div>
                 </div>
                 
@@ -424,19 +148,6 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div id="footer"></div>
 </body>
 </html>
