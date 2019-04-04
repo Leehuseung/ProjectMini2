@@ -1,6 +1,6 @@
-@charset "UTF-8";
-  #img{
-        background: url("pic/main/flower.png") no-repeat;
+    /*바디 부분 */
+    #img{
+        background: url("../../images/review/flower.png") no-repeat;
         background-size: 1200px 250px;
         width:100%;
         margin-top: 15px;

@@ -9,9 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/view/review/write.do")
-public class WriteController extends HttpServlet{
-	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
-		
+@WebServlet("/view/review/Writeform.do")
+public class WriteformController extends HttpServlet{
+	public void service(HttpServletRequest request, HttpServletResponse response)throws IOException, ServletException {
+		RequestDispatcher rd = request.getRequestDispatcher("writeform.jsp");
+		rd.forward(request, response);
 	}
 }

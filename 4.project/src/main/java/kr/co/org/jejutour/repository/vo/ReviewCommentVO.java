@@ -2,7 +2,7 @@ package kr.co.org.jejutour.repository.vo;
 
 import java.util.Date;
 
-public class ReviewComment {
+public class ReviewCommentVO {
 	private int commentNo;
 	private int boardNo;
 	private int reportCnt;

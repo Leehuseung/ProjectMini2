@@ -1,6 +1,6 @@
 package kr.co.org.jejutour.repository.vo;
 
-public class ReviewFile {
+public class ReviewFileVO {
 	private int fileNo;
 	private int boardNo;
 	private int size;
