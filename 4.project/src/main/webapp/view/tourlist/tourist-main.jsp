@@ -54,8 +54,8 @@
                 <div></div>
                 <div></div>
                 <div class="sort_type">
-                    <button type="button" class="ico_sort"><img src="pic/tourist-img/ico_sort_thumb_on.png"></button>
-                    <button type="button" class="ico_sort_list"><img src="pic/tourist-img/ico_sort_list_on.png"></button>
+                    <button type="button" class="ico_sort"><img src="../../resources/images/tourlist/ico_sort_thumb_on.png"></button>
+                    <button type="button" class="ico_sort_list"><img src="../../resources/images/tourlist/ico_sort_list_on.png"></button>
                 </div>
                 <div>
                     <select name="list">
@@ -73,7 +73,7 @@
                 <a href="tourist-detail.html">
                     <div class="container" >
                         <div class="thumbnail">
-                            <img src="pic/tourist-img/detail01_thum.jpg"/>
+                            <img src="../../resources/images/tourlist/detail01_thum.jpg"/>
                             <h3>성산일출봉</h3>
                         </div>
                         <div class="info">
