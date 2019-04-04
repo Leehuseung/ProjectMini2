@@ -1,11 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+
+
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Homepage</title>
-    <link rel="stylesheet" type="text/css" href="main.css" />
+    <title>숙소메인</title>
+    <link rel="stylesheet" type="text/css" href="../../resources/css/main.css" />
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -14,8 +18,8 @@
 <script type="text/javascript">   
 $(document).ready( function() { 
 
-$("#headers").load("header.html");  // 원하는 파일 경로를 삽입하면 된다
-$("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 된다
+$("#headers").load("../header.html");   // 원하는 파일 경로를 삽입하면 된다
+$("#footer").load("../footer.html"); // 원하는 파일 경로를 삽입하면 된다
 }); 
 </script>
     
@@ -24,11 +28,10 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
     <style>
   
     .body > .introduction {
-        background-image: url("pic/accomodation/flower5.jpg");
+        background-image: url("../../resources/images/accomodation/flower5.jpg");
         
         
   
- 
        background-repeat: no-repeat;
         background-size: 1200px 300px;
         background-position: top left;
@@ -38,7 +41,7 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
             
     }
     .body > .search-city{
-        background-image: url("pic/accomodation/flower3.png");
+        background-image: url("../../resources/images/accomodation/flower3.png");
         background-repeat: no-repeat;
         background-size:cover;
         width:1200px;
@@ -280,14 +283,14 @@ input[type=radio]:checked + label.city{
     }
     .info_block > .info_pic1{
         
-       background-image: url("pic/accomodation/oceansweet.gif");
+       background-image: url("../../resources/images/accomodation/oceansweet.gif");
         background-repeat: no-repeat;
         background-size: cover;
         
     }
     .info_block > .info_pic2{
         
-        background-image: url("pic/accomodation/pension.jpg");
+        background-image: url("../../resources/images/accomodation/pension.jpg");
          background-repeat: no-repeat;
          background-size: cover;
          
@@ -301,14 +304,14 @@ input[type=radio]:checked + label.city{
      }
      .info_block > .info_pic3{
         
-        background-image: url("pic/accomodation/howardhotel.jpg");
+        background-image: url("../../resources/images/accomodation/howardhotel.jpg");
          background-repeat: no-repeat;
          background-size: cover;
          
      }
      .info_block > .info_pic4{
         
-        background-image: url("pic/accomodation/gusethouse.gif");
+        background-image: url("../../resources/images/accomodation/gusethouse.gif");
          background-repeat: no-repeat;
          background-size: cover;
          
@@ -553,9 +556,9 @@ input[type=radio]:checked + label.city{
 
 
     </style>
+
+
 </head>
-
-
 <body>
 <div id="headers"></div>
         
@@ -686,8 +689,5 @@ input[type=radio]:checked + label.city{
     <div id="footer"></div>
 
 
-
 </body>
-
-
 </html>
