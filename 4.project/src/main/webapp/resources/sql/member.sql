@@ -12,7 +12,7 @@ CREATE TABLE tb_member
     name          VARCHAR2(20)    NOT NULL, 
     report_cnt    NUMBER		  NOT NULL, 
     CONSTRAINT TB_MEMBER_PK PRIMARY KEY (member_no)
-)
+);
 
 ALTER TABLE tb_member MODIFY(report_cnt number default 0);
 
