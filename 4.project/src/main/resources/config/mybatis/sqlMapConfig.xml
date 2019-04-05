@@ -8,9 +8,8 @@
 	<!-- SQL의 결과를 담을 VO 객체들의 별칭을 설정하여 사용의 편의를 도모  
 	-->
 	<typeAliases>
-		<typeAlias alias="board" type="kr.co.mlec.board.vo.BoardVO" />
-		<typeAlias alias="comment" type="kr.co.mlec.board.vo.CommentVO" />
-		<typeAlias alias="file" type="kr.co.mlec.board.vo.FileVO" />
+		<typeAlias alias="member" type="kr.co.org.jejutour.repository.vo.MemberVO" />
+		
 	</typeAliases>
 	
 	<environments default="development">
@@ -26,7 +25,8 @@
 	</environments>
 
 	<mappers>
-		<mapper resource="config/mapper/board.xml"/>
+		<mapper resource="config/mapper/member.xml"/>
+		
 	</mappers>
 </configuration>
 
