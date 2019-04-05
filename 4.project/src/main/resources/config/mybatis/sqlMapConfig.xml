@@ -9,6 +9,7 @@
 	-->
 	<typeAliases>
 		<typeAlias alias="member" type="kr.co.org.jejutour.repository.vo.MemberVO" />
+		<typeAlias alias="review" type="kr.co.org.jejutour.repository.vo.ReviewVO" />
 		
 	</typeAliases>
 	
@@ -26,6 +27,7 @@
 
 	<mappers>
 		<mapper resource="config/mapper/member.xml"/>
+		<mapper resource="config/mapper/review.xml"/>
 		
 	</mappers>
 </configuration>

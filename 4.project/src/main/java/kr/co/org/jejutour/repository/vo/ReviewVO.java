@@ -4,9 +4,8 @@ import java.util.Date;
 
 public class ReviewVO {
 	private int boardNo;
-	private int reviewCategoryNo;
+	private String reviewCategory;
 	private String title;
-	private String writer;
 	private String content;
 	private int ratingCategory;
 	private int likeCnt;
@@ -18,11 +17,11 @@ public class ReviewVO {
 	public void setBoardNo(int boardNo) {
 		this.boardNo = boardNo;
 	}
-	public int getReviewCategoryNo() {
-		return reviewCategoryNo;
+	public String getReviewCategory() {
+		return reviewCategory;
 	}
-	public void setReviewCategoryNo(int reviewCategoryNo) {
-		this.reviewCategoryNo = reviewCategoryNo;
+	public void setReviewCategory(String reviewCategory) {
+		this.reviewCategory = reviewCategory;
 	}
 	public String getTitle() {
 		return title;
@@ -30,12 +29,7 @@ public class ReviewVO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getWriter() {
-		return writer;
-	}
-	public void setWriter(String writer) {
-		this.writer = writer;
-	}
+
 	public String getContent() {
 		return content;
 	}

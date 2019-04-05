@@ -3,7 +3,7 @@ package kr.co.org.jejutour.repository.vo;
 public class ReviewFileVO {
 	private int fileNo;
 	private int boardNo;
-	private int size;
+	private int fileSize;
 	private String path;
 	private String systemName;
 	private String orgName;
@@ -19,11 +19,11 @@ public class ReviewFileVO {
 	public void setBoardNo(int boardNo) {
 		this.boardNo = boardNo;
 	}
-	public int getSize() {
-		return size;
+	public int getFileSize() {
+		return fileSize;
 	}
-	public void setSize(int size) {
-		this.size = size;
+	public void setFileSize(int fileSize) {
+		this.fileSize = fileSize;
 	}
 	public String getPath() {
 		return path;

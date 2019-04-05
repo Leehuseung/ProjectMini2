@@ -1,97 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.mlec.board.dao.BoardMapper">
-	<resultMap id="boardMap" type="board">
-		<result column="no" property="no" />
-		<result column="writer" property="writer" />
+<mapper namespace="kr.co.mlec.board.dao.ReviewMapper">
+	<resultMap id="ReviewMap" type="review">
+		<result column="board_no" property="no" />
+		<result column="review_category" property="reviewCategory" />
 		<result column="title" property="title" />
 		<result column="content" property="content" />
-		<result column="reg_date" property="regDate" />
+		<result column="rating_category" property="ratingCategory" />
+		<result column="like_cnt" property="likeCnt" />
 		<result column="view_cnt" property="viewCnt" />
+		<result column="write_date" property="writeDate" />
 	</resultMap>
 
-	<select id="selectBoard" resultMap="boardMap">
-		select *
-		  from tb_board
-		 order by no desc
-	</select>
-	
-	<!-- 게시글 상세 정보 가져오기 -->
-	<select id="selectBoardByNo" parameterType="int" resultMap="boardMap">
-		select *
-		  from tb_board
-		 where no = #{no}		
-	</select>
-
-	<!-- 게시글 등록하기 -->
-	<insert id="insertBoard" parameterType="board">
-		insert into tb_board(
-			no, writer, title, content
-		) values (
-			s_board_no.nextval, #{writer}, #{title}, #{content}
-		) 
+	<!-- 리뷰 등록하기 -->
+	<insert id="insertReview" parameterType="review">
+	insert into tb_review(
+		board_no, review_category, title, content, rating_category
+	)values (
+		s_review_no.nextval, #{reviewCategory},#{title},#{content},#{ratingCategory}
+	)
 	</insert>
-	
-	<!-- 조회수 증가시키기 -->
-	<update id="updateViewCnt" parameterType="int">
-		update tb_board
-		   set view_cnt = view_cnt + 1
-		 where no = #{no}  
-	</update>
-	
-	<delete id="deleteBoard" parameterType="int">
-		delete 
-		  from tb_board
-		 where no = #{no} 
-	</delete>
-	
-	<update id="updateBoard" parameterType="board">
-		update tb_board
-		   set title = #{title},		
-		       content = #{content}		
-		 where no = #{no} 
-	</update>	
-	
-	<!-- 댓글 파트 시작 ============================= -->	
-	<resultMap id="commentMap" type="comment">
-		<result column="comment_no" property="commentNo" />
-		<result column="no" property="no" />
-		<result column="writer" property="writer" />
-		<result column="content" property="content" />
-		<result column="reg_date" property="regDate" />
-	</resultMap>
-	
-	<!-- 댓글 목록 -->
-	<select id="selectCommentsByNo" parameterType="int" resultMap="commentMap">
-	    select *
-	      from tb_comment
-	     where no = #{no}
-	     order by comment_no 
-	</select>	
-	
-	<!--  댓글 등록  -->
-	<insert id="insertComment" parameterType="comment">
-		insert into tb_comment(
-			comment_no, no, writer, content
-		) values (
-			s_comment_no.nextVal, #{no}, #{writer}, #{content}
-		)
-	</insert>
-	
-	<!--  댓글 삭제  -->
-	<delete id="deleteComment" parameterType="int">
-	    delete 
-	      from tb_comment
-	     where comment_no = #{commentNo}
-	</delete>
-	
-	<!--  댓글 수정  -->
-	<update id="updateComment" parameterType="comment">
-	    update tb_comment
-	       set content = #{content}
-	     where comment_no = #{commentNo}
-	</update> 	
 </mapper>
 
 

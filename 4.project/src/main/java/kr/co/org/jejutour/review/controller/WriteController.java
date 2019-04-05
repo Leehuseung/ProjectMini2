@@ -12,6 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/view/review/write.do")
 public class WriteController extends HttpServlet{
 	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
-		
+		 
 	}
 }

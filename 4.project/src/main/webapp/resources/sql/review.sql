@@ -1,9 +1,15 @@
 --프로젝트 디비생성, 권한주기
 --create user mini2 identified by mini2; 
 
---grant create session to mini2;
+--grant connect, resource,dba to mini2;
 ----------------------------------------------
 --테이블 생성 및 시퀀스 등등 적어주세요
+
+--테이블 조회
+select * from tb_review_file;
+select * from tb_review;
+select * from tb_review_comment;
+
 
 ------------------------리뷰테이블생성
 
@@ -15,7 +21,7 @@ CREATE TABLE tb_review
     view_cnt              NUMBER(5)         default 0, 
     like_cnt              NUMBER(5)         default 0,
     content               VARCHAR2(3000)    NOT NULL, 
-    review_category_no    NUMBER(2)         NOT NULL, 
+    review_category    VARCHAR2(20)         NOT NULL, 
     rating_category       VARCHAR2(20)      NOT NULL, 
     member_no             NUMBER(7)         NULL, 
     CONSTRAINT TB_REVIEW_PK PRIMARY KEY (board_no)
@@ -61,7 +67,7 @@ COMMENT ON COLUMN tb_review.like_cnt IS '좋아요수'
 COMMENT ON COLUMN tb_review.content IS '글내용'
 /
 
-COMMENT ON COLUMN tb_review.review_category_no IS '카테고리'
+COMMENT ON COLUMN tb_review.review_category IS '카테고리'
 /
 
 COMMENT ON COLUMN tb_review.rating_category IS '리뷰평가'
@@ -213,3 +219,19 @@ create sequence s_review_no;
 create sequence s_review_file_no;
 
 create sequence s_review_comment_no;
+
+--시퀀스 확인
+select * from user_sequences; 
+
+--파일 없이 등록
+<insert id="insertReview" parameterMap="review">
+insert into tb_review(board_no, review_category, title, content, rating_category)
+values(s_review_no.nextval, #{reviewCategory},#{title},#{content},#{ratingCategory)
+</insert>
+--파일과 함께 등록...??
+
+
+--테이블 삭제
+drop table tb_review_file;
+drop table tb_review comment;
+drop table tb_review;
