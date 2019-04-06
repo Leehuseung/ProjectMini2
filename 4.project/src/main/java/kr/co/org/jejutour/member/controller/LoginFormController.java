@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/view/member/signupform.do")
-public class SignUpFormController extends HttpServlet {
+@WebServlet("/view/member/loginform.do")
+public class LoginFormController extends HttpServlet {
 	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
-		request.getRequestDispatcher("/view/member/signupform.jsp")
+		request.getRequestDispatcher("/view/member/loginform.jsp")
 	       .forward(request, response);
 		
 	}

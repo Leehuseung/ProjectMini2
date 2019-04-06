@@ -12,6 +12,7 @@
 		<result column="report_cnt" property="reportCnt" />
 	</resultMap>
 	
+	<!-- 회원등록 -->
 	<insert id="insertMember" parameterType="member">
 		insert into tb_member(
 			member_no, id, pass, email, name
@@ -21,6 +22,27 @@
 		) 
 	</insert>
 	
+	<!-- 아이디 중복체크 -->
+	<select id="selectId" parameterType="String" resultType="int">
+		select count(*)
+		  from tb_member
+		 where id = #{id}		  
+	</select>
+	
+	<!-- 이메일 중복체크 -->
+	<select id="selectEmail" parameterType="String" resultType="int">
+		select count(*)
+		  from tb_member
+		 where email = #{email}		  
+	</select>
+	
+	<!-- 로그인 -->
+	<select id="selectLogin" parameterType="member" resultType="member">
+		select *
+		  from tb_member
+		 where id = #{id}
+		   and pass = #{pass}
+	</select>
 	
 </mapper>
 
