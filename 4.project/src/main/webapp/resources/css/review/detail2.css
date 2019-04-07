@@ -1,0 +1,271 @@
+    /*바디 부분 */
+    #img{
+        background: url("pic/main/flower.png") no-repeat;
+        background-size: 1200px 250px;
+        width:100%;
+        margin-top: 15px;
+       
+    }
+  
+    #img > #contents {
+        background-color:rgba(255,255,255,0.5);
+    }
+    /* 소제목 */
+    .title-area{
+        display: inline-block;
+        height: 130px;
+    }
+    .title-area2{
+        height: 100px;   
+    }
+    .title-area >.mytrip {
+        font-family: 'Nanum Pen Script', cursive;
+        padding :25px;
+        font-size:70px;
+        font-weight: bold;   
+        float:left;
+     
+    }
+    /* 버튼 */
+    .buttonList a{
+        font-family: 'Gaegu', cursive;
+        font-weight: bold;
+        font-size:30px;
+        color:black;
+        text-decoration: none;
+        
+    }
+    /*목록보기버튼*/
+    .list1 {
+        position: relative;
+        left:1000px;
+      
+    }
+    .list1>#list1 {
+        width:150px;
+        height: 50px; 
+        background: orange;
+        border:none;
+        border-radius:20px;
+    }
+
+    /*수정*/
+    .modify{
+        position: relative;
+        left:465px;
+    }
+    .modify > #modify {
+        width:150px;
+        height: 50px; 
+        background: orange;
+        border:none;
+        border-radius:20px;
+  
+    }
+   
+    /*삭제*/
+    .delete{
+        position: relative;
+        left:500px;
+    }
+    .delete > #delete {
+        width:150px;
+        height: 50px; 
+        background: orange;
+        border:none;
+        border-radius:20px;
+  
+    }
+  
+
+    /* 상세보기 테이블 */
+    .list{
+        margin: 10px;
+        display: inline;
+    }
+    table{
+        position: relative;
+        border-collapse:collapse;
+    }
+   
+    th{
+       
+        height:70px;
+        border-bottom: 3px solid lightgray;
+        border-top: 3px solid lightgray;
+        line-height: 60px;
+        font-family: 'Gaegu', cursive;
+        font-size:35px; 
+    }
+    td {
+        
+        height:70px;
+        border-top: 3px solid lightgray;
+        border-bottom: 3px solid lightgray;
+        line-height: 60px;
+        font-family: 'Gaegu', cursive;
+        font-size:35px; 
+    }
+  
+    /*작성된 내용!!*/
+    .content {
+        padding:15px;
+        font-size:50px;
+        font-family: 'Gaegu', cursive;
+    }
+  
+    /* 댓글 */
+    .comment  {
+        padding:50px;
+        display: inline;
+    
+    }
+    table{
+        width:100%;
+    }
+    .comment > th,td{
+        font-family: 'Gaegu', cursive;
+        border-top: 3px solid lightgray;
+        border-bottom: 3px solid lightgray;
+        
+    }
+     /*댓글등록 */
+    textarea{
+        font-family: 'Gaegu', cursive;
+        font-size:30px;
+        border:3px solid lightgray;
+        width:1000px;
+        height:150px;
+        position: relative;
+       
+        
+    }
+
+    #commentWrite1 {
+        width:182px;
+        height:152px;
+        background: orange;
+        border:none;
+        border-radius:20px;
+        font-family: 'Gaegu', cursive;
+        font-size: 40px;
+        position: relative;
+        left:-10px;
+        bottom: 70px;
+    }
+    
+        /* 좋아요 */
+    .particle-box{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    right:0;
+    top:0;
+    
+    z-index: 0;
+    color:#E0625E;
+
+    }
+    div.particle {
+        width: 30px;
+        height: 30px;
+        opacity: 1;
+        position: absolute;
+        bottom: 0%;
+        display: none;
+    }
+
+    div.particle i {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        opacity: 1;
+        z-index: 1;
+    }
+    .like-1{
+    color: #F44336;
+    }
+
+    .like-2{
+    color: #E91E63;
+    }
+    .like-3{
+    color: #9C27B0;
+    }
+    .like-4{
+    color: #D32F2F;
+    }
+    .like-5{
+    color: #FF5722;
+    }
+    .like-6{
+    color: #FB8C00;
+    }
+
+
+    @keyframes flowOne {
+    0% {
+        opacity: 1;
+        bottom: 0%;
+        left: 14%;
+    }
+    
+    50% {
+        opacity: 1;
+        left: 0%;
+    }
+
+    80% {
+        bottom: 80%; 
+    }
+    
+    100% {
+        opacity: 0;
+        bottom: 100%;
+        left: 18%;
+    }
+    }
+    @keyframes flowTwo {
+    0% {
+        opacity: 1;
+        bottom: 0;
+        left: 0;
+    }
+
+    
+    50% {
+        opacity: 1;
+        left: 11%;
+    }
+
+    80% {
+        bottom: 60%;
+    
+    }
+    
+    100% {
+        opacity: 0;
+        bottom: 80%;
+        left: 0; }
+    }
+    @keyframes flowThree {
+    0% {
+        opacity: 1;
+        bottom: 0;
+        left: 0;
+    }
+    50% {
+        opacity: 1;
+        left: 30%;
+    }
+    
+    80% {
+        bottom: 70%;
+    }
+    100% {
+        opacity: 0;
+        bottom: 90%;
+        left: 0; }
+    }
+    
+  

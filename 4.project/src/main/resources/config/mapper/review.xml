@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.mlec.board.dao.ReviewMapper">
+<mapper namespace="kr.co.org.jejutour.repository.dao.ReviewMapper">
 	<resultMap id="ReviewMap" type="review">
-		<result column="board_no" property="no" />
-		<result column="review_category" property="reviewCategory" />
+		<result column="board_no" property="boardNo" />
+		<result column="review_category_no" property="reviewCategoryNo" />
 		<result column="title" property="title" />
 		<result column="content" property="content" />
-		<result column="rating_category" property="ratingCategory" />
+		<result column="rating_category_no" property="ratingCategoryNo" />
 		<result column="like_cnt" property="likeCnt" />
 		<result column="view_cnt" property="viewCnt" />
 		<result column="write_date" property="writeDate" />
@@ -15,12 +15,18 @@
 
 	<!-- 리뷰 등록하기 -->
 	<insert id="insertReview" parameterType="review">
-	insert into tb_review(
-		board_no, review_category, title, content, rating_category
-	)values (
-		s_review_no.nextval, #{reviewCategory},#{title},#{content},#{ratingCategory}
-	)
+		insert into tb_review(
+			board_no, review_category_no, title, content, rating_category_no
+		)values (
+			s_review_no.nextval, #{reviewCategoryNo},#{title},#{content},#{ratingCategoryNo}
+		)
 	</insert>
+	<select id="DetailReview" parameterType="review" resultMap="review">
+		select a.view_cnt, a.review_category_no, a.title, a.content, a.ratingCategoryNo, b.name
+		  from tb_review a, tb_member b 
+		 where a.member_no = b.member_no
+	</select>
+	
 </mapper>
 
 

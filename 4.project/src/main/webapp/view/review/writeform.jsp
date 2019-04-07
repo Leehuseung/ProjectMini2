@@ -11,21 +11,20 @@
     <link rel="stylesheet" type="text/css" href="../../resources/css/review/review_write.css" />
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Gaegu|Nanum+Pen+Script" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">   
-    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="../../resources/js/review/review_write.js"></script>
 </head>
 <body>
     <div id="headers"></div>
 
     <div class="body">
-        <form>
-
+        <form method="post" action="/jeju/view/review/write.do">
             <div id="img">
                 <div id="contents">
                     <div class="title-area">
                     <div class="mytrip" >나의여행기록</div>
                 </div>
                 <div class="title-area2">
-                  
                 </div>
             </div>            
         </div>
@@ -34,29 +33,28 @@
                 <tr>
                     <th style="width:20%">말머리</th>
                     <th style="width:20%">
-                        <select id="choice1">
-                       
-                            <option>선택</option>
-                            <option>관광</option>
-                            <option>맛집</option>
-                            <option>숙박</option>
+                        <select id="choice1" name="reviewCategory">
+                            <option value="1">선택</option>
+                            <option value="2">관광</option>
+                            <option value="3">맛집</option>
+                            <option value="4">숙박</option>
                         </select>
                     </th>
                     <th style="width:15%;">평점</th>
                     <th style="width:70%">
-                            <select id="choice2" >
-                                <option>선택하세요</option>
-                                <option>★★★★★ 아주 좋아요</option>
-                                <option>★★★★☆ 맘에 들어요</option>
-                                <option>★★★☆☆ 보통이에요</option>
-                                <option>★★☆☆☆ 별로에요</option>
-                                <option>★☆☆☆☆ 추천하지않아요</option>
+                            <select id="choice2" name="ratingCategory">
+                                <option value="20">선택하세요</option>
+                                <option value="21">★★★★★ 아주 좋아요</option>
+                                <option value="22">★★★★☆ 맘에 들어요</option>
+                                <option value="23">★★★☆☆ 보통이에요</option>
+                                <option value="24">★★☆☆☆ 별로에요</option>
+                                <option value="25">★☆☆☆☆ 추천하지않아요</option>
                             </select>
                     </th>
                 </tr>
                 <tr>
-                    <th>제목</th> 
-                    <td colspan="3"><input id="content" type="text" placeholder="  제목을 입력하세요."/></td>
+                     <th>제목</th> 
+                    <td colspan="3"><input id="content" name="title" type="text" placeholder="  제목을 입력하세요."/></td>
                 </tr>
                 <tr>
                     <th>파일첨부</th>
@@ -70,14 +68,14 @@
                 </tr>
               
             </table> 
-                <div class="contentWrite">
-                    <textarea rows="30" cols="4" placeholder="  내용을 입력하세요."></textarea>
+            </div>
+                <div class="contentWrite" >
+                    <textarea rows="30" cols="4" placeholder="  내용을 입력하세요." name="content"></textarea>
                 </div>
                 <span class="save">
-                        <button id="save" type="submit"><a href="mytrip_detail.html">저장</a></button>
+                	<button id="save">저장</button>
                 </span>
         </form>
-                
     </div>
       
         <span class="list1">        
@@ -85,8 +83,6 @@
         </span>    
 
         <div id="footer"></div>
-    
-        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
         <script type="text/javascript">   
         $(document).ready( function() { 
 

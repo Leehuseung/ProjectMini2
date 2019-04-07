@@ -21,8 +21,8 @@ CREATE TABLE tb_review
     view_cnt              NUMBER(5)         default 0, 
     like_cnt              NUMBER(5)         default 0,
     content               VARCHAR2(3000)    NOT NULL, 
-    review_category    VARCHAR2(20)         NOT NULL, 
-    rating_category       VARCHAR2(20)      NOT NULL, 
+    review_category_no    NUMBER(5)          NOT NULL, 
+    rating_category_no    NUMBER(5)       	NOT NULL, 
     member_no             NUMBER(7)         NULL, 
     CONSTRAINT TB_REVIEW_PK PRIMARY KEY (board_no)
 )
@@ -43,7 +43,7 @@ BEGIN
 END;
 /
 
---DROP TRIGGER tb_review_AI_TRG;
+DROP TRIGGER tb_review_AI_TRG;
 /
 
 --DROP SEQUENCE tb_review_SEQ;
@@ -67,10 +67,10 @@ COMMENT ON COLUMN tb_review.like_cnt IS '좋아요수'
 COMMENT ON COLUMN tb_review.content IS '글내용'
 /
 
-COMMENT ON COLUMN tb_review.review_category IS '카테고리'
+COMMENT ON COLUMN tb_review.review_category_no IS '리뷰카테고리번호'
 /
 
-COMMENT ON COLUMN tb_review.rating_category IS '리뷰평가'
+COMMENT ON COLUMN tb_review.rating_category_no IS '리뷰평가카테고리번호'
 /
 
 COMMENT ON COLUMN tb_review.member_no IS '멤버회원번호'
@@ -224,9 +224,12 @@ create sequence s_review_comment_no;
 select * from user_sequences; 
 
 --파일 없이 등록
-<insert id="insertReview" parameterMap="review">
-insert into tb_review(board_no, review_category, title, content, rating_category)
-values(s_review_no.nextval, #{reviewCategory},#{title},#{content},#{ratingCategory)
+<insert id="insertReview" parameterType="review">
+	insert into tb_review(
+		board_no, review_category_no, title, content, rating_category_no
+	)values (
+		s_review_no.nextval, #{reviewCategoryNo},#{title},#{content},#{ratingCategoryNo}
+	)
 </insert>
 --파일과 함께 등록...??
 

@@ -1,13 +1,13 @@
 package kr.co.org.jejutour.repository.vo;
 
 import java.util.Date;
-
-public class ReviewVO {
-	private int boardNo;
-	private String reviewCategory;
-	private String title;
+                                   
+public class ReviewVO {            
+	private int boardNo;           
+	private String title;          
+	private int reviewCategoryNo; 
 	private String content;
-	private int ratingCategory;
+	private int ratingCategoryNo;
 	private int likeCnt;
 	private int viewCnt;
 	private Date writeDate;
@@ -16,12 +16,6 @@ public class ReviewVO {
 	}
 	public void setBoardNo(int boardNo) {
 		this.boardNo = boardNo;
-	}
-	public String getReviewCategory() {
-		return reviewCategory;
-	}
-	public void setReviewCategory(String reviewCategory) {
-		this.reviewCategory = reviewCategory;
 	}
 	public String getTitle() {
 		return title;
@@ -36,11 +30,18 @@ public class ReviewVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public int getRatingCategory() {
-		return ratingCategory;
+
+	public int getReviewCategoryNo() {
+		return reviewCategoryNo;
 	}
-	public void setRatingCategory(int ratingCategory) {
-		this.ratingCategory = ratingCategory;
+	public void setReviewCategoryNo(int reviewCategoryNo) {
+		this.reviewCategoryNo = reviewCategoryNo;
+	}
+	public int getRatingCategoryNo() {
+		return ratingCategoryNo;
+	}
+	public void setRatingCategoryNo(int ratingCategoryNo) {
+		this.ratingCategoryNo = ratingCategoryNo;
 	}
 	public int getLikeCnt() {
 		return likeCnt;
