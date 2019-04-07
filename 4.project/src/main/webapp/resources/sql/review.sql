@@ -7,7 +7,9 @@
 
 --테이블 조회
 select * from tb_review_file;
+
 select * from tb_review;
+
 select * from tb_review_comment;
 
 
@@ -236,5 +238,7 @@ select * from user_sequences;
 
 --테이블 삭제
 drop table tb_review_file;
-drop table tb_review comment;
+
+drop table tb_review_comment;
+
 drop table tb_review;

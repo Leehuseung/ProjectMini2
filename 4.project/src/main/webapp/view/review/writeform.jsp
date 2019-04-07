@@ -90,6 +90,13 @@
    		$("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
    		});
         </script>
+        <script>
+        	$("#choice1").click({
+        		$(#choice1).on("change",function(){
+        			$(this).find("option[value='"+$(this).val()+"']").text();
+        		});        	
+        	});
+        </script>
     </body>
 
 

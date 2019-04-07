@@ -7,5 +7,5 @@ public interface ReviewMapper {
 	public void insertReview(ReviewVO r);
 	
 // 리뷰 상세조회
-	public ReviewVO DetailReview(ReviewVO r);
+	public ReviewVO detailReview(ReviewVO r);
 }

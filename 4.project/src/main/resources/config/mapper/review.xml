@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.org.jejutour.repository.dao.ReviewMapper">
-	<resultMap id="ReviewMap" type="review">
+	<resultMap id="reviewMap" type="review">
 		<result column="board_no" property="boardNo" />
 		<result column="review_category_no" property="reviewCategoryNo" />
 		<result column="title" property="title" />
@@ -21,7 +21,7 @@
 			s_review_no.nextval, #{reviewCategoryNo},#{title},#{content},#{ratingCategoryNo}
 		)
 	</insert>
-	<select id="DetailReview" parameterType="review" resultMap="review">
+	<select id="detailReview" parameterType="review" resultMap="reviewMap">
 		select a.view_cnt, a.review_category_no, a.title, a.content, a.ratingCategoryNo, b.name
 		  from tb_review a, tb_member b 
 		 where a.member_no = b.member_no
