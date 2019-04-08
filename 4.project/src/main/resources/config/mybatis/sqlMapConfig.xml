@@ -11,6 +11,9 @@
 		<typeAlias alias="member" type="kr.co.org.jejutour.repository.vo.MemberVO" />
 		<typeAlias alias="review" type="kr.co.org.jejutour.repository.vo.ReviewVO" />
 		<typeAlias alias="tourist" type="kr.co.org.jejutour.repository.vo.TouristVO" />
+		<typeAlias alias="restrauntBoard" type="kr.co.org.jejutour.repository.vo.RestrauntBoardVO" />
+		<typeAlias alias="restrauntFile" type="kr.co.org.jejutour.repository.vo.RestrauntFileVO" />
+		<typeAlias alias="restrauntLocation" type="kr.co.org.jejutour.repository.vo.RestrauntLocationVO" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -28,6 +31,7 @@
 	<mappers>
 		<mapper resource="config/mapper/member.xml"/>
 		<mapper resource="config/mapper/review.xml"/>		
+		<mapper resource="config/mapper/restraunt.xml"/>
 	</mappers>
 </configuration>
 

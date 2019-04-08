@@ -15,8 +15,8 @@ CREATE TABLE tb_restraunt_board
     board_no          NUMBER(7)         NOT NULL, 
     name              VARCHAR2(100)     NOT NULL, 
     intro             VARCHAR2(3000)    NOT NULL, 
-    like_cnt          NUMBER(7)         NOT NULL, 
-    view_cnt          NUMBER(7)         NOT NULL, 
+    like_cnt          NUMBER(7)         default 0, 
+    view_cnt          NUMBER(7)         default 0, 
     food_category     NUMBER(1)         NOT NULL, 
     business_hours    VARCHAR2(300)     NOT NULL, 
     amendity          VARCHAR2(300)     NOT NULL, 
@@ -136,4 +136,69 @@ COMMENT ON COLUMN tb_restraunt_file.path IS '경로'
 ALTER TABLE tb_restraunt_file
     ADD CONSTRAINT FK_tb_restraunt_file_board_no_ FOREIGN KEY (board_no)
         REFERENCES tb_restraunt_board (board_no) on delete cascade
+/
+
+
+--지역시퀀스
+ 
+
+---------------지역테이블
+
+
+
+select *
+  from tab;
+
+
+CREATE TABLE tb_code(
+    no             NUMBER(30)      NOT NULL, 
+    groups          NUMBER(30)      NOT NULL, 
+    value          NUMBER(30)      NOT NULL, 
+    value_name     VARCHAR2(30)    NOT NULL, 
+    detail         NUMBER(30)      NULL, 
+    detail_name    VARCHAR2(30)    NULL, 
+    CONSTRAINT TB_CODE_PK PRIMARY KEY (no)
+)
+/
+
+CREATE SEQUENCE tb_code_SEQ
+START WITH 1
+INCREMENT BY 1;
+/
+
+CREATE OR REPLACE TRIGGER tb_code_AI_TRG
+BEFORE INSERT ON tb_code 
+REFERENCING NEW AS NEW FOR EACH ROW 
+BEGIN 
+    SELECT tb_code_SEQ.NEXTVAL
+    INTO: NEW.no
+    FROM DUAL;
+END;
+/
+
+--DROP TRIGGER tb_code_AI_TRG;
+/
+
+--DROP SEQUENCE tb_code_SEQ;
+/
+
+COMMENT ON TABLE tb_code IS '공유코드(지역,숙박타입)'
+/
+
+COMMENT ON COLUMN tb_code.no IS '번호'
+/
+
+COMMENT ON COLUMN tb_code.groups IS '그룹'
+/
+
+COMMENT ON COLUMN tb_code.value IS '값'
+/
+
+COMMENT ON COLUMN tb_code.value_name IS '값_이름'
+/
+
+COMMENT ON COLUMN tb_code.detail IS '상세'
+/
+
+COMMENT ON COLUMN tb_code.detail_name IS '상세_이름'
 /

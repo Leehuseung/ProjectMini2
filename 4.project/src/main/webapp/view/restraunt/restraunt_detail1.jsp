@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html lang="en">
         <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
@@ -133,49 +134,51 @@ $(document).ready( function() {
 $("#headers").load("../header.html");  // 원하는 파일 경로를 삽입하면 된다
 $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
 }); 
+
+
+
+
 </script>
 
 <body>
-    
     <div id="headers"></div>
     </div>
 
     <div class="body">
         <div class="container">
             <div class="subtitle">
-                <h1>카페공작소</h1>               
+                <h1>${board.name}</h1>               
             </div>
             <div class="subMenu">
-                    <li><a href="food_detail1.html" >상세보기</a></li>
-                    <li><a href="food_detail2.html" >이용안내</a></li>
-                    <li><a href="food_detail3.html" >지도</a></li>
-                    <li><a href="food_detail4.html" >리뷰</a></li>
+                    <li><a href="/jeju/view/restraunt/restraunt_detail1.do" >상세보기</a></li>
+                    <li><a href="/jeju/view/restraunt/restraunt_detail2.do" >이용안내</a></li>
+                    <li><a href="/jeju/view/restraunt/restraunt_detail3.do" >지도</a></li>
+                    <li><a href="/jeju/view/restraunt/restraunt_detail4.do" >리뷰</a></li>
                 </ul>
             </div>
             <div class="like">
                 <div>좋아요</div>
                 <div>리뷰</div>
                 <div>조회</div>
-                <div>60</div>
-                <div>55</div>
-                <div>1233</div>
+                <div>${board.likeCnt }</div>
+                <div>리뷰수를 카운트해주세요</div>
+                <div>${board.viewCnt }</div>
             </div>
             <div class="photo">
-                <div><img src="pic/food/1.jpg"></div>
-                <div><img src="pic/food/2.jpg"></div>
-                <div><img src="pic/food/3.jpg"></div>
-                <div><img src="pic/food/4.jpg"></div>
+           <c:forEach var="file" items="${files}">
+                <div><img src="${file.path}"></div>
+    	   </c:forEach>	
+            <!-- 
+                <div><img src="/jeju/resources/images/restraunt/1.jpg"></div>
+                <div><img src="/jeju/resources/images/restraunt/2.jpg"></div>
+                <div><img src="/jeju/resources/images/restraunt/3.jpg"></div>
+                <div><img src="/jeju/resources/images/restraunt/4.jpg"></div> -->
             </div>
             <div class="ex">
-                <p>구좌읍 세화리에 위치한 차와 다양한 제주관련 소품을 함께 판매하는 카페다. 
-                        북적거리는 분위기 보다는 쉬고 싶은 다른 사람들을 존중하는 분위기가 지배적이다.
-                        메뉴판 위에도 '조용한 힐링카페를 지향한다'는 캘리그라피 문구가 쓰여 있다.
-                        구좌읍 당근으로 만든 수제 케이크와 제주 영귤, 댕유자로 만든 에이드 음료가 있고 따뜻한 차와 커피는 언제든 맛볼 수 있다.              
-                        카페 앞 바다에 유명한 포토존이 있어서 반짝이는 에메랄드 바다와 제주 감성의 스냅사진을 찍고 싶다면 들러볼만한 곳이다.</p>
+                <p>${board.intro}</p>
                    <div>
                     <button onclick="location.href='food_update.html'">글수정</button><button >글삭제</button>
                    </div>
-                        
             </div>
         </div>
     </div>

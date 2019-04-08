@@ -1,7 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
 <html lang="en">
+		
         <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="main.css" />
+        <link rel="stylesheet" type="text/css" href="../../resources/css/main.css" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <head>
     <meta charset="UTF-8">
@@ -106,56 +110,70 @@
 
 </head>
 <!-- include -->
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
-<script type="text/javascript">   
+ 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
 $(document).ready( function() { 
-
-$("#headers").load("header.html");  // 원하는 파일 경로를 삽입하면 된다
-$("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 된다
+$("#headers").load("../header.html");  // 원하는 파일 경로를 삽입하면 된다
+$("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
 }); 
+
+
+
 </script>
 
 <body>
     <div id="headers"></div>
-
-
     <div class="body">
+        <form method='POST' action='/jeju/view/restraunt/restraunt_write.do' enctype="multipart/form-data">
         <div class="container">
             <div class="subtitle">
                 <h1>글쓰기</h1>               
             </div>
             <div class="write">    
                 <div class="name">음식점 이름 </div>
-                <div><input type=text /></div>
+                <div><input type=text name="name"/></div>
+                <div class="name">음식점 소개 </div>
+                <div><input type=text name="intro"/></div>
+                <div>음식카테고리</div>
+                <div class="selecta">
+	                <span>
+	                    <select class="adrress" name="foodCategory" >
+	                        <option value='1'>한식</option>
+	                        <option value='2'>일식</option>
+	                        <option value='3'>양식</option>
+	                        <option value='4'>카페</option>
+	                    </select>
+					</span>	
+                </div>
+                
                 <div class="name">지역선택 </div>
                 <div class="selecta">
-                    <select class="adrress" name="area">
-                        <option value="0">제주시</option>
-                        <option value="1">서귀포시</option>
-                    </select>
-                    
-                    <select class="adrress" name="area">
-                        <option value="1">우도</option>
-                        <option value="2">애월읍</option>
-                        <option value="3">조천읍</option>
-                        <option value="4">구좌읍</option>
-                        <option value="5">성산읍</option>
-                        <option value="6">표선면</option>
-                        <option value="7">남원읍</option>
-                        <option value="8">중문</option>
-                        <option value="9">안덕면</option>
-                        <option value="10">대정읍</option>
-                        <option value="11">한경면</option>
-                    </select>
-
+	                    <select class="adrress" name="location" id="locationbox">
+	                        <option value='제주시내'>제주시내</option>
+	                        <option value='한경면'>한경면</option>
+	                        <option value='한림읍'>한림읍</option>
+	                        <option value='애월읍'>애월읍</option>
+	                        <option value='조천읍'>조천읍</option>
+	                        <option value='구좌읍'>구좌읍</option>
+	                        <option value='우도'>우도</option>
+	                        <option value='가파도'>가파도</option>
+	                        <option value='마라도'>마라도</option>
+	                        <option value='대정읍'>대정읍</option>
+	                        <option value='안덕면'>안덕면</option>
+	                        <option value='중문'>중문</option>
+	                        <option value='서귀포시'>서귀포시</option>
+	                        <option value='남원읍'>남원읍</option>
+	                        <option value='표선면'>표선면</option>
+	                    </select>
                 </div>
             </div>
             <h2 class="sub">이용안내 입력</h2>
             <div class="write">
                 <div class="name">이용시간 </div>
-                <div><input type=text /></div>
-                <div class="name">편의시설 </div>
-                <div><input type=text /></div>
+                <div><input  name="businessHours" type=text /></div>
+                <div class="name" >편의시설 </div>
+                <div><input type=text  name="amendity"/></div>
             </div>
             <div class="photo">
                 <div>사진</div>
@@ -167,10 +185,13 @@ $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 �
                 </div>
             </div>
                 <div>
-                    <div id=filediv><input type="file"></div>
-                    <button onclick="location.href='food_main.html'">글등록</button>
+             
+                    	<div id=filediv><input type="file" name="attach"/></div>
+                	</form>
+                    <button type="submit" onclick="location.href='food_main.html'">글등록</button>
                 </div>
         </div>
+        </form>
     </div>
 
 
