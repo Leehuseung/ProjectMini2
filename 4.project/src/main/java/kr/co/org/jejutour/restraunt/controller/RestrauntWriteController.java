@@ -31,7 +31,7 @@ public class RestrauntWriteController extends HttpServlet{
 					1024 * 1024 * 100,  // 
 					"utf-8" // 
 			);
-		
+			
 			
 			// 파라미터 정보를 읽어 데이터베이스에 저장하기
 			RestrauntBoardVO board = new RestrauntBoardVO();
