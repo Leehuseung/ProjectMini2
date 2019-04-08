@@ -9,7 +9,7 @@
     <title>tourist-main</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../../resources/css/main.css" />
-    <link rel="stylesheet" type="text/css" href="../../resources/css/tourlist/tourist-main.css" />
+    <link rel="stylesheet" type="text/css" href="../../resources/css/tourist/tourist-main.css" />
     <link rel="stylesheet" type="text/css" href="../../resources/css/page.css" />
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
     <style>
@@ -83,9 +83,9 @@
                             <p>제주도의 랜드마크</p>
                             <br>
                             <div class="icon">
-                                <div class="iconDetail"><img src="pic/tourist-img/like.jpg"></div>
-                                <div class="iconDetail"><img src="pic/tourist-img/view.jpg"></div>
-                                <div class="iconDetail"><img src="pic/tourist-img/review.jpg"></div>
+                                <div class="iconDetail"><img src="../../resources/images/tourlist/like.jpg"></div>
+                                <div class="iconDetail"><img src="../../resources/images/tourlist/view.jpg"></div>
+                                <div class="iconDetail"><img src="../../resources/images/tourlist/review.jpg"></div>
                                 <div>좋아요<br>5</div>
                                 <div>조회수<br>20</div>
                                 <div>리뷰<br>7</div>
@@ -96,7 +96,7 @@
                 <a href="tourist-detail.html">
                     <div class="container" >
                         <div class="thumbnail">
-                            <img src="pic/tourist-img/detail01_slide2.JPG"/>
+                            <img src="../../resources/images/tourlist/detail01_slide2.JPG"/>
                             <h3>성산일출봉</h3>
                         </div>
                         <div class="info">
@@ -110,7 +110,7 @@
                 <a href="tourist-detail.html">
                     <div class="container" >
                         <div class="thumbnail">
-                            <img src="pic/tourist-img/detail01_slide3.JPG"/>
+                            <img src="../../resources/images/tourlist/detail01_slide3.JPG"/>
                             <h3>성산일출봉</h3>
                         </div>
                         <div class="info">
@@ -124,7 +124,7 @@
                 <a href="tourist-detail.html">
                     <div class="container" >
                         <div class="thumbnail">
-                            <img src="pic/tourist-img/detail01_slide4.JPG"/>
+                            <img src="../../resources/images/tourlist/detail01_slide5.JPG"/>
                             <h3>성산일출봉</h3>
                         </div>
                         <div class="info">
@@ -138,7 +138,7 @@
                 <a href="tourist-detail.html">
                     <div class="container" >
                         <div class="thumbnail">
-                            <img src="pic/tourist-img/detail01_slide5.JPG"/>
+                            <img src="../../resources/images/tourlist/detail01_slide5.JPG"/>
                             <h3>성산일출봉</h3>
                         </div>
                         <div class="info">
@@ -152,7 +152,7 @@
                 <a href="tourist-detail.html">
                     <div class="container" >
                         <div class="thumbnail">
-                            <img src="pic/tourist-img/detail01_slide6.JPG"/>
+                            <img src="../../resources/images/tourlist/detail01_slide6.JPG"/>
                             <h3>성산일출봉</h3>
                         </div>
                         <div class="info">
@@ -166,7 +166,7 @@
                 <a href="tourist-detail.html">
                     <div class="container" >
                         <div class="thumbnail">
-                            <img src="pic/tourist-img/detail01_thum.jpg"/>
+                            <img src="../../resources/images/tourlist/detail01_thum.jpg"/>
                             <h3>성산일출봉</h3>
                         </div>
                         <div class="info">
@@ -180,7 +180,7 @@
                 <a href="tourist-detail.html">
                     <div class="container" >
                         <div class="thumbnail">
-                            <img src="pic/tourist-img/detail01_thum.jpg"/>
+                            <img src="../../resources/images/tourlist/detail01_thum.jpg"/>
                             <h3>성산일출봉</h3>
                         </div>
                         <div class="info">
@@ -194,7 +194,7 @@
                 <a href="tourist-detail.html">
                     <div class="container" >
                         <div class="thumbnail">
-                            <img src="pic/tourist-img/detail01_thum.jpg"/>
+                            <img src="../../resources/images/tourlist/detail01_thum.jpg"/>
                             <h3>성산일출봉</h3>
                         </div>
                         <div class="info">
