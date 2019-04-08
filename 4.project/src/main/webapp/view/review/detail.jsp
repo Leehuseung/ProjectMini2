@@ -53,7 +53,6 @@
                 </tr>
                 <tr>
                     <td class="content" colspan="8" rowspan="40">
-                       
                    	${review.content}
                     </td>
                     

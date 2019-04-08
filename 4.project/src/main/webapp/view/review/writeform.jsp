@@ -34,16 +34,16 @@
                     <th style="width:20%">말머리</th>
                     <th style="width:20%">
                         <select id="choice1" name="reviewCategory">
-                            <option value="1">선택</option>
-                            <option value="2">관광</option>
-                            <option value="3">맛집</option>
-                            <option value="4">숙박</option>
+                            <option >선택</option>
+                            <option value="1">관광</option>
+                            <option value="2">맛집</option>
+                            <option value="3">숙박</option>
                         </select>
                     </th>
                     <th style="width:15%;">평점</th>
                     <th style="width:70%">
                             <select id="choice2" name="ratingCategory">
-                                <option value="20">선택하세요</option>
+                                <option >선택하세요</option>
                                 <option value="21">★★★★★ 아주 좋아요</option>
                                 <option value="22">★★★★☆ 맘에 들어요</option>
                                 <option value="23">★★★☆☆ 보통이에요</option>
@@ -70,7 +70,7 @@
             </table> 
             </div>
                 <div class="contentWrite" >
-                    <textarea rows="30" cols="4" placeholder="  내용을 입력하세요." name="content"></textarea>
+                    <textarea rows="30" cols="4" placeholder="내용을 입력하세요." name="content"></textarea>
                 </div>
                 <span class="save">
                 	<button id="save">저장</button>
@@ -91,10 +91,10 @@
    		});
         </script>
         <script>
-        	$("#choice1").click({
-        		$(#choice1).on("change",function(){
-        			$(this).find("option[value='"+$(this).val()+"']").text();
-        		});        	
+        	$("#save").click(function(){
+        		$("#choice1").on("change",function(){
+        			console.log($(this).find("option[value='"+$(this).val()+"']").text());
+        		})        	
         	});
         </script>
     </body>
