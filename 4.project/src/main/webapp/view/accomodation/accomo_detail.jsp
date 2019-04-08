@@ -1,26 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html lang="en">
 
         <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
         <script type="text/javascript">   
         $(document).ready( function() { 
-        
-        $("#headers").load("header.html");  // 원하는 파일 경로를 삽입하면 된다
-        $("#footer").load("footer.html");  // 원하는 파일 경로를 삽입하면 된다
+
+        $("#headers").load("../header.html");  // 원하는 파일 경로를 삽입하면 된다
+        $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
         }); 
         </script>
 
 
 
 <head>
-
-  
-
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Homepage</title>
-    <link rel="stylesheet" type="text/css" href="/accomo_write.css" />
+     <link rel="stylesheet" type="text/css" href="../../resources/css/accomodation/accomo_write.css" />
+    
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -217,9 +218,9 @@
     }
     </style>
 </head>
-
 <body>
-        <div id="headers"></div>
+
+ <div id="headers"></div>
    <div class="edit_delete">
     <div class="edit"><a href="accomo_edit.html">글 수정</a></div>
     <div class="delete"><a href="accomo_main.html">글 삭제</a></div>
@@ -275,9 +276,5 @@
 
 </div>
 
-
-
 </body>
-
-
 </html>

@@ -1,35 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.mlec.board.dao.BoardMapper">
-	<resultMap id="boardMap" type="board">
-		<result column="no" property="no" />
-		<result column="writer" property="writer" />
-		<result column="title" property="title" />
-		<result column="content" property="content" />
-		<result column="reg_date" property="regDate" />
-		<result column="view_cnt" property="viewCnt" />
+<mapper namespace="kr.co.org.jejutour.repository.dao.AccomodationMapper">
+	<resultMap id="accInfoMap" type="accInfo">
+		<result column="acc_no" property="accNo" />
+		<result column="name" property="name" />
+		<result column="address" property="address" />
+		<result column="contact" property="contact" />
+		<result column="ment" property="ment" />
+		<result column="homepage" property="homepage" />
+		<result column="intro" property="intro" />
+		<result column="member_no" property="memberNo" />
+		<result column="main_file_name" property="mainFileName" />
+		<result column="main_file_path" property="mainFilePath" />
+		<result column="sub_file_name1" property="subFileName1" />
+		<result column="sub_file_path1" property="subFilePath1" />
+		<result column="sub_file_name2" property="subFileName2" />
+		<result column="sub_file_path2" property="subFilePath2" />
 	</resultMap>
 
-	<select id="selectBoard" resultMap="boardMap">
-		select *
-		  from tb_board
-		 order by no desc
-	</select>
 	
-	<!-- 게시글 상세 정보 가져오기 -->
-	<select id="selectBoardByNo" parameterType="int" resultMap="boardMap">
-		select *
-		  from tb_board
-		 where no = #{no}		
-	</select>
+	
 
-	<!-- 게시글 등록하기 -->
-	<insert id="insertBoard" parameterType="board">
-		insert into tb_board(
-			no, writer, title, content
+	<insert id="insertBoard" parameterType="accInfo">
+		insert into tb_acc_info(
+			acc_no, name, address, contact, ment, homepage, intro, member_no,main_file_name
+			main_file_path
 		) values (
-			s_board_no.nextval, #{writer}, #{title}, #{content}
+			s__no.nextval, #{writer}, #{title}, #{content}
 		) 
 	</insert>
 	

@@ -28,7 +28,7 @@ $("#footer").load("../footer.html"); // 원하는 파일 경로를 삽입하면 
     <style>
   
     .body > .introduction {
-        background-image: url("../../resources/images/accomodation/flower5.jpg");
+        background-image: url("../../resources/images/accomodation/default/flower5.jpg");
         
         
   
@@ -41,7 +41,7 @@ $("#footer").load("../footer.html"); // 원하는 파일 경로를 삽입하면 
             
     }
     .body > .search-city{
-        background-image: url("../../resources/images/accomodation/flower3.png");
+        background-image: url("../../resources/images/accomodation/default/flower3.png");
         background-repeat: no-repeat;
         background-size:cover;
         width:1200px;
