@@ -49,26 +49,6 @@
         text-decoration: none;
         
     }
-    #choice1{
-        width:150px; height:55px; font-size:35px; border:none; border-bottom: 1px solid gray; font-family: 'Gaegu', cursive; font-weight: bold;
-        font-family: 'Gaegu', cursive;
-        font-weight: bold;
-    }
-    #choice1 option{
-        font-family: 'Gaegu', cursive;
-        font-weight: bold;
-    }
-    #choice2{
-        width:500px; height:55px; 
-        font-size:35px; 
-        border:none; border-bottom: 1px solid gray; 
-        font-family: 'Gaegu', cursive;
-        font-weight: bold;
-    }
-    #choice2 option{
-        font-family: 'Gaegu', cursive;
-        font-weight: bold;
-    }
     /*저장*/
     .save{
         position: relative;
@@ -87,6 +67,13 @@
   
     }
 
+    .save > #save> a{
+        font-family: 'Gaegu', cursive;
+        font-weight: bold;
+        font-size:30px;
+        color:black;
+        text-decoration: none;
+    }
     /* 등록 테이블 */
     .list{
         margin: 10px;
@@ -113,8 +100,6 @@
         font-family: 'Gaegu', cursive;
         font-size:35px; 
     }
-    
-    
     textarea{
         width:100%;
         font-family: 'Gaegu', cursive;
@@ -123,7 +108,6 @@
         border-bottom:3px solid lightgray;
         border-right:3px solid lightgray;
         border-left:3px solid lightgray;
-        resize:none;
     }
     /*제목에 내용입력하라는 멘트*/
     #content {
@@ -133,6 +117,29 @@
         font-family: 'Gaegu', cursive;
         border:none;
     }
+
+    /* 선택하기옵션 */
+    #choice1{
+        width:150px; height:55px; font-size:35px; border:none; border-bottom: 1px solid gray; font-family: 'Gaegu', cursive; font-weight: bold;
+        font-family: 'Gaegu', cursive;
+        font-weight: bold;
+    }
+    #choice1 option{
+        font-family: 'Gaegu', cursive;
+        font-weight: bold;
+    }
+    #choice2{
+        width:500px; height:55px; 
+        font-size:35px; 
+        border:none; border-bottom: 1px solid gray; 
+        font-family: 'Gaegu', cursive;
+        font-weight: bold;
+    }
+    #choice2 option{
+        font-family: 'Gaegu', cursive;
+        font-weight: bold;
+    }
+   
     /* 파일첨부 */
     
     .filebox {
@@ -141,7 +148,6 @@
         top:-25px;
         left:150px;
     }
-
 
     .filebox label {
     /* display: inline-block; */
@@ -168,9 +174,10 @@
         clip: rect(0, 0, 0, 0);
         border: 0;
     }
-     /* 파일첨부 이미지 */
+    /* 파일첨부 이미지 */
     #contentimg {
         font-size:25px;
         font-family: 'Gaegu', cursive;
         width:500px;
     }
+  

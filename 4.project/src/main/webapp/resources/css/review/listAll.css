@@ -1,0 +1,131 @@
+    #img{
+        background: url("../../images/review/flower.png") no-repeat;
+        background-size: 1200px 250px;
+        width:100%;
+        margin-top: 15px;
+       
+       
+    }
+    #img > #contents {
+        background-color:rgba(255,255,255,0.5);
+    }
+    /* 소제목 */
+    .title-area{
+        display: inline-block;
+        height: 130px;
+    }
+    .title-area2{
+        height: 100px;   
+    }
+    .title-area >.mytrip {
+        font-family: 'Nanum Pen Script', cursive;
+        padding :25px;
+        font-size:70px;
+        font-weight: bold;   
+        float:left;
+     
+    }
+    /*검색 내용 선택*/
+    .choice1 {        
+        position: relative;
+        width: 150px;
+        height: 100px;
+        left: -149px;
+        top:-2px;
+        line-height: 100px;
+        
+      
+    }
+    /*검색내용입력*/
+    .search1{
+        position: relative;
+        width: 350px;
+        top:-79px;
+        right:-100px;
+    }
+    .search1 > #search1 {
+        font-size:25px; 
+        width:350px; 
+        height:50px;
+        font-family: 'Gaegu', cursive;
+        border:none;
+        border-bottom: 1px solid gray;
+    }
+    /*검색버튼*/
+    div.searchButton {
+        position: relative;
+        width: 35px;
+        bottom:129px;
+        left:291px;
+    }
+    .searchButton > #searchButton {
+    height: 50px; 
+    width:60px; 
+    font-size:30px;
+    font-weight: bold;
+    font-family: 'Gaegu', cursive;
+    border:none;
+    background: orange;
+    border-radius:10px;
+
+    }
+    /*글쓰기*/
+    .write {
+        position: relative;
+        width: 80px;
+        bottom:180px;
+        left:450px;
+    }
+    .write>#write {
+        width:150px;
+        height: 50px; 
+        background: orange;
+        border:none;
+        border-radius:20px;
+    }
+    .write > #write > a{
+        font-family: 'Gaegu', cursive;
+        font-weight: bold;
+        font-size:30px;
+        color:black;
+        text-decoration: none;
+    }
+
+    /* 전체목록 테이블 */
+    .list{
+        margin:10px;
+        display: inline;
+    }
+    table{
+        width:100%;
+        position: relative;
+        border-collapse:collapse;
+    }
+    tr:hover {
+
+        background: rgb(250, 221, 210);
+    }
+    th{
+        height:70px;
+        border-bottom: 3px solid lightgray;
+        border-top: 3px solid lightgray;
+        line-height: 60px;
+        font-family: 'Gaegu', cursive;
+        font-size:35px; 
+    }
+    td {
+        height:70px;
+        border-bottom: 3px solid lightgray;
+        line-height: 60px;
+        font-family: 'Gaegu', cursive;
+        font-size:35px; 
+        text-align: center;
+    }
+    td > #titleLink{
+        font-family: 'Gaegu', cursive;
+        text-decoration: none;
+        color:black;
+    }
+   
+ 
+  
