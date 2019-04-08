@@ -33,11 +33,15 @@
            <button type="button" id="checkEmail" class="check">중복확인</button>
            <br><br>            
            <button class="sign">가입</button>&nbsp;
-           <button class="sign" onclick="location.href='main_loginform.html'">뒤로</button>          
+           <button type="button" class="sign" id="back">뒤로</button>          
         </div>  
         </form>
        
        <script>
+       		$("#back").click(function () {
+       			window.location.href = '/jeju/view/member/loginform.do';
+       		});
+       
        		$("#checkId").click(function () {
        			$.ajax({     
        				url : "/jeju/view/member/signup.do",

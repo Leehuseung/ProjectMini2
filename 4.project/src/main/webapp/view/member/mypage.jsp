@@ -64,27 +64,20 @@
     					window.location.href = '/jeju/view/member/main.do';
     				} else if(data == 0) {
     					alert("비밀번호를 확인하세요.");
-    					$("#pass1").focus()
+    					$("#pass1").focus();
+    				}
+    			}
     		});
     	});
     	
     	$("#deleteinfo").click(function () {
-    		alert("정말로 탈퇴하시겠습니까?");
-    		alert(<input type="text">);
-    		$.ajax({
-    			url : "/jeju/view/member/deleteinfo.do",
-    			data : "pass1="+$("#pass1").val()+"&pass2="+$("#pass2").val(),
-    			success : function (data) {
-    				console.log(data);
-    				if(data == 1) {
-    					alert("비밀번호가 변경되었습니다.");
-    					window.location.href = '/jeju/view/member/main.do';
-    				} else if(data == 0) {
-    					alert("비밀번호를 확인하세요.");
-    					$("#pass1").focus();
-    				}
-    			}    				
-    		});
+    		alert("정말로 탈퇴하시겠습니까?");    	
+    		window.open(
+    				'deleteform.jsp',
+    				'회원탈퇴',
+    				'width=400, height=400, resizable=no, menubar=no, status=no, toolbar=no'
+    		)
+    		
     	});
     	
     </script>

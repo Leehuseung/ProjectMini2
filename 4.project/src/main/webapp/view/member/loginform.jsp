@@ -45,6 +45,11 @@
     			
     		});
     	});
+    	
+    	$("#signup").click(function () {
+    		window.location.href = '/jeju/view/member/signupform.do';
+    	});
+    	
     </script>
 </body>
 </html>
