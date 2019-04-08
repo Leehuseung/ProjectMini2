@@ -44,6 +44,13 @@
 		   and pass = #{pass}
 	</select>
 	
+	<!-- 내 정보 -->
+	<select id="selectInfo" parameterType="String" resultType="member">
+		select id, name, email
+		  from tb_member
+		 where id = #{id}
+	</select>
+	
 </mapper>
 
 

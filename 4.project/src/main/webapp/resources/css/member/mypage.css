@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+.subtitle{
+    margin-top: 20px;
+    height: 250px;    
+    line-height:120px;
+    text-align:center;
+    font-size: 30px;        
+    background: url("../../images/member/flower.png") no-repeat; 
+    opacity: 0.5;
+    background-size: 1200px 250px;   
+}
+#myinfo {
+    position: relative;
+    text-align: center;
+    top: -150px;
+    font-size: 30px;
+}
+
+.my {
+    display:grid;
+    grid-template-columns : 30% 70%;
+    box-sizing:border-box;
+    text-align:left;
+    height:100%;
+    font-size:20px;
+    margin-top: 20px;  
+}
+.right {
+    border-right: 1px solid orange;
+}
+.my > div {    
+    text-align: left;
+    padding-left: 60px;
+    height:100px;
+    box-sizing:border-box;    
+    border-top: 1px solid orange;
+    width:100%;
+    line-height:10px;
+}
+.my input {
+	height: 20px;
+    border: none;
+    border-bottom: 2px solid orange;
+    border-radius: 5px;
+}
+.my input:focus {
+    outline: none;
+}
+.my > .idbottom {
+    border-top: none;
+    border-right: 1px solid orange;
+}
+.my > .idright {
+    border-top: none;
+}
+.changeinfo {
+    box-sizing:border-box;    
+    height:50px;
+    width:100%;
+    text-align:center;
+    line-height:40px;
+}
+
+.changeinfo > #changeinfo {
+    border: 1px solid orange;
+    border-radius: 10px;
+    background: orange;
+    font-size:20px;
+    width:100px;
+    margin-top : 80px;
+    height:35px;
+}

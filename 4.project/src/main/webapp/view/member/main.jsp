@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>       
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,13 +19,12 @@
 
 <body>
 <script>
-	$(document).ready( function() { 
-
-	$("#headers").load("/jeju/view/header.html"); 
-	$("#footer").load("../footer.html"); 
+	$(document).ready( function() {
+		$("#footer").load("../footer.html"); 
 	});
 </script>	
-<div id="headers"></div>
+
+<jsp:include page="/view/header.jsp" />
 
 <div id = "main1">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -38,24 +39,24 @@
         </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img class="d-block w-100" src="pic/main/road.jpg" alt="첫번째 슬라이드">
+            <img class="d-block w-100" src="/jeju/resources/images/member/road.jpg" alt="첫번째 슬라이드">
             <div class="carousel-caption d-none d-md-block">            
         </div>
     </div>
     <div class="carousel-item">
-        <img class="d-block w-100" src="pic/main/mountain.jpg" alt="두번째 슬라이드">
+        <img class="d-block w-100" src="/jeju/resources/images/member/mountain.jpg" alt="두번째 슬라이드">
             <div class="carousel-caption d-none d-md-block"></div>
     </div>
     <div class="carousel-item">
-        <img class="d-block w-100" src="pic/main/suguk.jpg" alt="세번째 슬라이드">
+        <img class="d-block w-100" src="/jeju/resources/images/member/suguk.jpg" alt="세번째 슬라이드">
                 <div class="carousel-caption d-none d-md-block"></div>
     </div>
     <div class="carousel-item">
-        <img class="d-block w-100" src="pic/main/jejubang.jpg" alt="네번째 슬라이드">
+        <img class="d-block w-100" src="/jeju/resources/images/member/jejubang.jpg" alt="네번째 슬라이드">
                 <div class="carousel-caption d-none d-md-block"></div>
     </div>
     <div class="carousel-item">
-        <img class="d-block w-100" src="pic/main/jusang.jpg" alt="네번째 슬라이드">
+        <img class="d-block w-100" src="/jeju/resources/images/member/jusang.jpg" alt="네번째 슬라이드">
                 <div class="carousel-caption d-none d-md-block"></div>
     </div>
 
