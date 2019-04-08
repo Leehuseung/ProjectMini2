@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+.body{
+    width: 1200px;
+    height: 800px;
+    margin-top: 20px;
+}
+.member {
+    height: 250px;    
+    font-size: 30px;
+    text-align: center;
+    line-height: 120px;  
+    background: url("../../images/member/flower.png") no-repeat; 
+    opacity: 0.5;
+    background-size: 1200px 250px;  
+} 
+#myinfo {
+    position: relative;
+    text-align: center;
+    top: -150px;
+    font-size: 30px;
+} 
+.manage {    
+    margin-top: 20px;
+    display:grid;
+    grid-template-columns : 5% 15% 10% 30% 15% 15% 10%;
+    box-sizing:border-box;
+    text-align:left;          
+    font-size:20px;
+    text-align:center;
+}
+.manage div { 
+    height:40px;
+    box-sizing:border-box;    
+    border-top: 1px solid orange;
+    border-bottom: 1px solid orange; 
+    width:100%;
+    line-height:40px;
+} 
+
+.ban {
+    background: orange;
+    border-radius: 10px;
+    border : 1px solid lightgray;
+    width: 50px;
+    height: 30px;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.page {
+    box-sizing:border-box;
+    height:8%;  
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 30px;
+    padding-left: 200px;
+    padding-right:200px;
+    padding-top:20px;
+    padding-bottom:20px;
+    line-height:35px;
+}
+.page > div {
+    box-sizing:border-box;
+    border: 1px solid black;
+    height:100%;
+    width:80%;
+    text-align:center;
+    border-radius: 50%;
+    border: 1px solid orange;
+    box-shadow: 3px 3px  gray;
+}
+
+.page > div:hover{
+    background-color:orange;
+    color:white;
+}
+
+.page > div:hover > a {
+    color: white;
+}
+
+.page > div > a {
+    text-decoration: none;
+    display:inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.page > div > a:hover {
+    color:white;
+}
+ .prev , .next{
+     background:orange;
+ }

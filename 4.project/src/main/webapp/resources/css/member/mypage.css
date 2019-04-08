@@ -71,3 +71,13 @@
     margin-top : 80px;
     height:35px;
 }
+
+.changeinfo > #deleteinfo {
+    border: 1px solid orange;
+    border-radius: 10px;
+    background: orange;
+    font-size:20px;
+    width:100px;
+    margin-top : 80px;
+    height:35px;
+}

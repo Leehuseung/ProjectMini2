@@ -27,8 +27,7 @@
 
 	<mappers>
 		<mapper resource="config/mapper/member.xml"/>
-		<mapper resource="config/mapper/review.xml"/>
-		<mapper resource="config/mapper/tourist.xml"/>
+		<mapper resource="config/mapper/review.xml"/>		
 	</mappers>
 </configuration>
 

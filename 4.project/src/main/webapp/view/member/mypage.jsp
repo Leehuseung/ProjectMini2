@@ -34,22 +34,60 @@
             </div>
             <div class="my">
                 <div class="idbottom">아이디</div>
-                <div class="idright">${member.id}</div>
+                <div class="idright">${user.id}</div>
                 <div class="right">이름</div>
-                <div>${member.name}</div>
+                <div>${user.name}</div>
                 <div class="right">신규 비밀번호</div>
-                <div><input type="password"></div>
+                <div><input type="password" id="pass1" name="pass1"></div>
                 <div class="right">신규 비밀번호 확인</div>
-                <div><input type="password"></div>
+                <div><input type="password" id="pass2" name="pass2"></div>
                 <div class="right">이메일</div>
-                <div>${member.email }</div>
+                <div>${user.email}</div>
             </div>
             <div class="changeinfo">
                 <button type="button" id="changeinfo">정보 변경</button>
+                <button type="button" id="deleteinfo">탈퇴하기</button>
             </div>
         </div>
       
     <div id="footer"></div>
+    
+    <script>
+    	$("#changeinfo").click(function () {
+    		$.ajax({
+    			url : "/jeju/view/member/updateinfo.do",
+    			data : "pass1="+$("#pass1").val()+"&pass2="+$("#pass2").val(),
+    			success : function (data) {
+    				console.log(data);
+    				if(data == 1) {
+    					alert("비밀번호가 변경되었습니다.");
+    					window.location.href = '/jeju/view/member/main.do';
+    				} else if(data == 0) {
+    					alert("비밀번호를 확인하세요.");
+    					$("#pass1").focus()
+    		});
+    	});
+    	
+    	$("#deleteinfo").click(function () {
+    		alert("정말로 탈퇴하시겠습니까?");
+    		alert(<input type="text">);
+    		$.ajax({
+    			url : "/jeju/view/member/deleteinfo.do",
+    			data : "pass1="+$("#pass1").val()+"&pass2="+$("#pass2").val(),
+    			success : function (data) {
+    				console.log(data);
+    				if(data == 1) {
+    					alert("비밀번호가 변경되었습니다.");
+    					window.location.href = '/jeju/view/member/main.do';
+    				} else if(data == 0) {
+    					alert("비밀번호를 확인하세요.");
+    					$("#pass1").focus();
+    				}
+    			}    				
+    		});
+    	});
+    	
+    </script>
 
 </body>
 </html>

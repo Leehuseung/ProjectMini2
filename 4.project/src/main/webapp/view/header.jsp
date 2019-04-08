@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 
 <body>
@@ -33,11 +35,35 @@
                 <li><a href="food_main.html" >맛집</a></li>
                 <li><a href="accomo_main.html" >숙소</a></li>
                 <li><a href="mytrip_listAll.html" >나의여행</a></li>
-                <li><a href="/jeju/view/member/mypage.do"" >마이페이지</a></li>
-                <li><a href="main_manage.html" >관리페이지</a></li>
+                <c:choose>
+                <c:when test="${empty sessionScope.user}">
+                	<li><a href="/jeju/view/member/loginform.do">마이페이지</a></li>
+                </c:when>
+                <c:otherwise>
+                	<li><a href="/jeju/view/member/mypage.do">마이페이지</a></li>
+                </c:otherwise>
+                </c:choose>   
+                             
+                <c:choose>
+                <c:when test="${sessionScope.id eq 'admin'}">
+	                <li><a href="/jeju/view/member/manage.do" >관리페이지</a></li>
+	            </c:when>
+	            <c:otherwise>
+	            	<li><a id="manage">관리페이지</a></li>
+	            </c:otherwise>
+                </c:choose>
+                
+
                 <div class="nav-underline"></div>
             </ul>
         </div>
 </div>
+
+<script>
+	$("#manage").click(function () {
+		alert("권한이 없습니다.");
+	});
+</script>
+
 </body>
 </html>

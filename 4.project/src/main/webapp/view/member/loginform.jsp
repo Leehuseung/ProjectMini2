@@ -39,7 +39,7 @@
                          window.location.href = 'loginfailform.jsp';
     
                      } else {    
-                         window.location.href = 'main.jsp';    
+                         window.location.href = '/jeju/view/member/main.do';    
                      }
     			}
     			
