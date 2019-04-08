@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.mlec.board.dao.BoardMapper">
-	<resultMap id="boardMap" type="board">
+<mapper namespace="kr.co.org.jejutour.repository.dao.TouristMapper">
+	<resultMap id="touristBoardMap" type="board">
 		<result column="member_no" property="memberNo" />
 		<result column="board_no" property="boardNo" />
 		<result column="title" property="title" />
@@ -27,7 +27,79 @@
 
 	<!-- 메인파트기능 시작 =============================-->
 	
+	<!--  전체 게시물 조회 9칸씩  제일늦게 작성된글이 제일 위에 올라오도록 처리함 -->
+	<select id="selectTouristBoard" parameterType="page" resultMap="touristBoardMap">
+		select *
+ 		  from (select rownum rnum, a.*
+         		  from (select *
+                 		  from tb_board
+                 		 order by no desc) a
+        		)
+		 where rnum between #{begin} and #{end}
+	</select>
 	
+	<!-- 전체 게시글 숫자 -->
+	<select id="selectTouristBoardCount" resultType="int">
+		select count(*)
+		  from tb_tourist_board
+	</select>
+	
+	<!-- 글번호 조회 -->
+	<select id="selectTouristBoardByNo" resultMap="touristBoardMap" parameterType="int">
+	select * 
+	  from tb_tourist_board
+	 where board_no = #{boardNo} 	
+	</select>
+	
+	
+	<!-- 글등록 -->
+	<insert id="writeTouristBoard" parameterType="board">
+		<selectKey keyProperty="boardNo" resultType="int"
+				   order="BEFORE">
+			select tb_tourist_board_no.nextval
+			  from dual
+		</selectKey>
+		insert into tb_tourist_board( 
+		    board_no, title, nomination, tag, simple_introduce, introduce,
+		    fee, address, purpose, hours, contact, content_title, content 
+		) values (
+		    #{boardNo}, #{title}, #{nomination}, #{tag}, #{simpleIntroduce}, #{introduce},
+		    #{fee}, #{address}, #{purpose}, #{hours}, #{contact}, #{contentTitle}, #{content}
+		)	
+	</insert>
+	
+
+	<!-- 글수정 -->
+	<update id="updateTouristBoard" parameterType="board">
+	update tb_tourist_board 
+	   set title = #{title}, 
+	   	   nomination = #{writer},
+	       tag = #{tag},
+	       simple_introduce = #{simpleIntroduce},
+	       introduce = #{introduce},
+	       fee = #{fee},
+	       address = #{address},
+	       purpose = #{purpose},
+	       hours = #{hours},
+	       contact = #{contact},
+	       content_title = #{contentTitle},
+	       content = #{content}
+	 where board_no = #{boardNo}
+	</update>
+	
+	<!-- 글삭제 -->
+	<delete id="deleteTouristBoard" parameterType="int">
+	delete 
+	  from tb_tourist_board 
+	 where no = #{no}
+	</delete>
+	
+	<!-- 조회수증가 -->
+	<update id="updateTouristViewCnt" parameterType="int">
+	update tb_tourist_board
+	   set view_cnt = view_cnt + 1
+	 where borad_no = #{boardNo}
+	</update>
 	
 	
 	

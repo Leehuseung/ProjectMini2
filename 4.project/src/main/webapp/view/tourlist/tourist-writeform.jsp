@@ -46,6 +46,8 @@
             <div class="content-title">
                 <p class="content-tag">
                     태그 : <input type="text" class="text" placeholder="ex)#자연"/>
+                    지명 : <input type="text" class="text" placeholder="ex)서귀포시 > 성산"/>
+                    간단설명 : <input type="text" class="text" placeholder="ex)제주도의 랜드마크"/>
                 </p>
                 제목 : <input type="text" class="text" placeholder="ex)성산일출봉"/>
                 <div>
