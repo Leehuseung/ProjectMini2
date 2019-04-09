@@ -35,7 +35,8 @@ public class SignUpController extends HttpServlet {
 		}
 
 		member.setEmail(request.getParameter("email"));	
-		member.setId(request.getParameter("id"));	
+		member.setId(request.getParameter("id"));			
+		
 		mapper.insertMember(member);
 		
 		request.getRequestDispatcher("/view/member/loginform.jsp")

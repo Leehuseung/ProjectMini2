@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="../../resources/css/main.css" />
 <link rel="stylesheet" href="../../resources/css/member/manageform.css">
+<link rel="stylesheet" type="text/css" href="/jeju/resources/css/page.css" />
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
@@ -49,21 +50,14 @@
             </c:forEach>           
         </div>
     </div>
-    <div class="page">
-            <div class="prev"><a href="#">이전</a></div>
-            <div><a href="#">1</a></div>
-            <div><a href="#">2</a></div>
-            <div><a href="#">3</a></div>
-            <div><a href="#">4</a></div>
-            <div><a href="#">5</a></div>
-            <div><a href="#">6</a></div>
-            <div><a href="#">7</a></div>
-            <div><a href="#">8</a></div>
-            <div><a href="#">9</a></div>
-            <div><a href="#">10</a></div>
-            <div class="next"><a href="#">다음</a></div>
-        </div>
-    </div>    
+     <div class="page">
+                <c:if test="${pageResult.count != 0}">
+					<jsp:include page="pagetype.jsp" >
+						<jsp:param name="link" value="manage.do" />
+					</jsp:include>
+				</c:if>
+            </div>
+      
     <div id="footer"></div>
    
     <script>

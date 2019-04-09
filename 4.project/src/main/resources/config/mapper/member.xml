@@ -74,9 +74,20 @@
 		   and pass = #{pass}	
 	</delete>
 	
-	<!-- 회원 전체목록 -->
-	<select id="selectMemberList" resultMap="MemberMap" >
-		select member_no, id, email, name, join_date, report_cnt
+	<!-- 회원 전체목록 페이징추가 -->
+	<select id="selectMemberList" parameterType="member" resultMap="MemberMap">
+		select *
+ 		  from (select rownum rnum, a.*
+         		  from (select *
+                 		  from tb_member
+                 	   ) a
+        		)
+		 where rnum between #{begin} and #{end}
+	</select>
+	
+	<!-- 회원 전체목록 페이징 번호 -->
+	<select id="selectMemberListCount" resultType="int">
+		select count(*)
 		  from tb_member
 	</select>
 	

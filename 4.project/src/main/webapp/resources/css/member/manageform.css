@@ -49,48 +49,5 @@ a {
     text-decoration: none;
     color: black;
 }
-.page {
-    box-sizing:border-box;
-    height:8%;  
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 30px;
-    padding-left: 200px;
-    padding-right:200px;
-    padding-top:20px;
-    padding-bottom:20px;
-    line-height:35px;
-}
-.page > div {
-    box-sizing:border-box;
-    border: 1px solid black;
-    height:100%;
-    width:80%;
-    text-align:center;
-    border-radius: 50%;
-    border: 1px solid orange;
-    box-shadow: 3px 3px  gray;
-}
 
-.page > div:hover{
-    background-color:orange;
-    color:white;
-}
-
-.page > div:hover > a {
-    color: white;
-}
-
-.page > div > a {
-    text-decoration: none;
-    display:inline-block;
-    width: 100%;
-    height: 100%;
-}
-
-.page > div > a:hover {
-    color:white;
-}
- .prev , .next{
-     background:orange;
- }
+????
