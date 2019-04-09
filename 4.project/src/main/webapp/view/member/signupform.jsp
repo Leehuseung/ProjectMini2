@@ -17,7 +17,7 @@
            </div>
         <br>
         
-        <form method="post" action="/jeju/view/member/signup.do">
+        <form name="mForm" method="post">
            <div class="login">
            <p id="pass">회원가입</p>
            <span class="n">이름</span><input type="text" placeholder="Name" name="name"><br>
@@ -32,12 +32,32 @@
            <span class="e">이메일</span><input type="email" id="email" placeholder="Email" name="email">
            <button type="button" id="checkEmail" class="check">중복확인</button>
            <br><br>            
-           <button class="sign">가입</button>&nbsp;
+           <button id="signup" class="sign">가입</button>&nbsp;
            <button type="button" class="sign" id="back">뒤로</button>          
         </div>  
         </form>
        
        <script>
+	       function isEmpty(ele, msg) {
+	           if(ele.value == "") {
+	               alert(msg);  
+	               ele.focus();
+	               return true;
+	           }
+	           return false;
+	       }
+	       
+       		$("#signup").click(function () {
+       			var f = document.mForm;
+       			if(isEmpty(f.name,"이름을 입력하세요"))  return;
+       			if(isEmpty(f.id,"아이디를 입력하세요"))  return;
+                if(isEmpty(f.pass1,"패스워드를 입력하세요"))  return;            
+                if(isEmpty(f.pass2,"패스워드확인을 입력하세요"))  return;     
+                if(isEmpty(f.pass2,"이메일을 입력하세요"))  return;     
+                f.action = "/jeju/view/member/signup.do";
+                f.submit;
+       		});
+       		
        		$("#back").click(function () {
        			window.location.href = '/jeju/view/member/loginform.do';
        		});

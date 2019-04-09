@@ -74,6 +74,18 @@
 		   and pass = #{pass}	
 	</delete>
 	
+	<!-- 회원 전체목록 -->
+	<select id="selectMemberList" resultMap="MemberMap" >
+		select member_no, id, email, name, join_date, report_cnt
+		  from tb_member
+	</select>
+	
+	<!-- 회원강퇴 -->
+	<delete id="memberBan" parameterType="String">
+		delete
+		  from tb_member
+		 where member_no = #{memberNo}
+	</delete>
 </mapper>
 
 

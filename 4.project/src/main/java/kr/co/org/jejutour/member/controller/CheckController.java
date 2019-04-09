@@ -36,12 +36,13 @@ public class CheckController extends HttpServlet {
 			member.setId(request.getParameter("id"));
 			out.close();
 		}
-		
-		int countEmail = mapper.selectEmail(request.getParameter("email"));			
-		out.println(countEmail);
-		member.setEmail(request.getParameter("email"));				
-		
-		out.close();
+		if(request.getParameter("email") != null) {
+			int countEmail = mapper.selectEmail(request.getParameter("email"));			
+			out.println(countEmail);
+			member.setEmail(request.getParameter("email"));						
+			out.close();
+			
+		}
 		
 	}
 }

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>     
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,14 +37,16 @@
             <div>가입일</div>
             <div>누적신고횟수</div>
             <div>강퇴여부</div>
-            <div>1</div>
-            <div>dltndks</div>
-            <div>이수안</div>
-            <div>dltndks@naver.com</div>
-            <div>2019-03-27</div>
-            <div>0회</div>
-            <div><button class="ban"><a href="javascript:void(0); onclick=doAction();">강퇴하기</a></button></div>          
-                       
+            <c:forEach var="user" items="${member}">
+            <div>${user.memberNo}</div>
+            <div>${user.id}</div>
+            <div>${user.name}</div>
+            <div>${user.email}</div>
+            <div><fmt:formatDate value="${user.joinDate}" 
+					                      pattern="yyyy-MM-dd" /></div>
+            <div>${user.reportCnt}회</div>            
+            <div><button id="ban" class="ban" onclick="memberBan(${user.memberNo});">강퇴하기</button></div>          
+            </c:forEach>           
         </div>
     </div>
     <div class="page">
@@ -60,5 +65,21 @@
         </div>
     </div>    
     <div id="footer"></div>
+   
+    <script>
+    	function memberBan (num) {
+    		alert("정말로 강퇴하시겠습니까?");
+    		$.ajax ({
+    			url : "/jeju/view/member/memberban.do",
+    			data : "memberNo=" + num,
+        		success : function (data) {
+        			if(data == 1) {
+        				alert("강퇴되었습니다.");
+        				window.location.reload();
+        			} 
+        		}
+    		});	
+    	};
+    </script>
 </body>
 </html>
