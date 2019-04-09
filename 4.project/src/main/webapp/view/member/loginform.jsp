@@ -36,7 +36,7 @@
     			data : "id="+$("#id").val()+"&pass="+$("#pass").val(),
     			success : function(data) {
     				 if (data == 0) {    					 
-                         window.location.href = 'loginfailform.jsp';
+                         window.location.href = '/jeju/view/member/loginfailform.do';
     
                      } else {    
                          window.location.href = '/jeju/view/member/main.do';    
