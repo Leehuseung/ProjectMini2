@@ -14,5 +14,7 @@ public interface RestrauntMapper {
 	void insertFileNoneSe(RestrauntFileVO file);
 	public void insertBoard(RestrauntBoardVO board);
 	public int selectFileByNo(String name);
+	public List<RestrauntBoardVO> selectRestrauntBoard();
+	public List<RestrauntFileVO> selectRestrauntFile();
 	
 }

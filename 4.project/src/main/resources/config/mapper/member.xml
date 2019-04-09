@@ -83,6 +83,8 @@
                  	   ) a
         		)
 		 where rnum between #{begin} and #{end}
+		 
+		 
 	</select>
 	
 	<!-- 회원 전체목록 페이징 번호 -->

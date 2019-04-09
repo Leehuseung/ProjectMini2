@@ -1,5 +1,8 @@
+<%@page import="kr.co.org.jejutour.repository.vo.RestrauntBoardVO"%>
+<%@page import="kr.co.org.jejutour.repository.vo.RestrauntFileVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
         <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
@@ -173,6 +176,9 @@
         height:100%;
         width:100%;
     }
+    .page{  
+    margin-top:50px;
+    }
    
 
     </style>
@@ -188,22 +194,22 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
 }); 
 
 
+
+
 </script>
 
 
 <body>
 
     <div id="headers"></div>
-
-
-
-
     <div class="body">
         <div class="container">
             <div class="subtitle">
                 <h1>무엇을 먹을까? 행복한 고민에 빠지게 하는 제주의 한식</h1>
                 <br><p>칼칼한 갈치조림, 고소한 고등어 구이, 담백한 전복뚝배기, 성게미역국, 제주 흑돼지 구이 등 다양한 제주의 음식은 행복한 고민에 빠지게 한다. 다양하고 싱싱한 식재료를 이용한 담백하고 맛깔스러운 제주도 음식은 먹는 즐거움을 풍요롭게 한다.</p>               
             </div>
+
+
             <div class="subMenu">
                     <li class=han><a href="#" >한 식</a></li>
                     <li class=il><a href="#" >일 식</a></li>
@@ -211,6 +217,8 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
                     <li class=cafe><a href="#" >카 페</a></li>
                 </ul>
             </div>
+
+
             <div class="writeForm">
                 <div class="select">
                     <select class="selectBox" name="area">
@@ -221,128 +229,44 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
                     </select>
                 </div>
                 <div class="write">
-                    
                     <button type="button" id="doUrl">글등록</button>                
                 </div>
             </div>
-
-
+			
+			
             <div class="information">
-                <div class="information_1">
-                    <div onclick="location.href='food_detail1.html'"><img src="pic/food/black.jpg"></div>
-                    <div>
-                        <div class="ex" onclick="location.href='food_detail1.html'">
-                            <div><h3>산방식당(모슬포 본점)</h3>
-                                 <h4>서귀포시>안덕</h4>
-                            </div>
-                        </div>
-                        <div class="icon">
-                            <div class="iconDetail"><img src="pic/food/like.jpg"></div>
-                            <div class="iconDetail"></div>
-                            <div class="iconDetail"><img src="pic/food/review.jpg"></div>
-                            <div >좋아요<br>5</div>
-                            <div></div>
-                            <div>리뷰<br>7</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="information_1">
-                    <div><img src="pic/food/guk.jpg"></div>
-                    <div>
-                        <div class="ex">
-                            <div><h3>로뎀</h3>
-                                    <h4>제주시>구착</h4>
+				<c:forEach var="board" items="${boardList}" begin="1" end="3" varStatus="status">
+				  <c:set var="file" value="${imgFile[status.index]}" />
 
-                            </div>
-                        </div>
-                        <div class="icon">
-                            <div class="iconDetail"><img src="pic/food/like.jpg"></div>
-                            <div class="iconDetail"></div>
-                            <div class="iconDetail"><img src="pic/food/review.jpg"></div>
-                            <div>좋아요<br>5</div>
-                            <div></div>
-                            <div>리뷰<br>7</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="information_1">
-                    <div><img src="pic/food/fish.jpg"></div>
-                    <div>
-                        <div class="ex" >
-                            <div><h3>오라숲소리</h3>
-                                    <h4>제주시>제주시내</h4>
-                            </div>
-                        </div>
-                        <div class="icon">
-                            <div class="iconDetail"><img src="pic/food/like.jpg"></div>
-                            <div class="iconDetail"></div>
-                            <div class="iconDetail"><img src="pic/food/review.jpg"></div>
-                            <div>좋아요<br>5</div>
-                            <div></div>
-                            <div>리뷰<br>7</div>
-                        </div>
-                    </div>
-                </div>
+					              
+
+
+	                <div class="information_1">
+	                
+	                    <div onclick="listFunc(${board.boardNo})">
+		                    	<img src="${file}">
+	                    </div>
+	                
+	                
+	                    <div>
+	                        <div class="ex" onclick="listFunc(${board.boardNo})">
+	                            <div><h3>${board.name}</h3>
+	                                 <h4>${board.location}</h4>
+	                            </div>
+	                        </div>
+	                        <div class="icon">
+	                            <div class="iconDetail"><img src="/jeju/resources/images/restraunt/like.jpg"></div>
+	                            <div class="iconDetail"></div>
+	                            <div class="iconDetail"><img src="/jeju/resources/images/restraunt/review.jpg"></div>
+	                            <div >좋아요<br>${board.likeCnt}</div>
+	                            <div></div>
+	                            <div>리뷰<br>리뷰카운트</div>
+	                        </div>
+	                    </div>
+	                </div>
+    	   		</c:forEach>	
             </div>
-            <div class="information">
-                <div class="information_1">
-                    <div onclick="location.href='food_detail1.html'"><img src="pic/food/black.jpg"></div>
-                    <div>
-                        <div class="ex" onclick="location.href='food_detail1.html'">
-                            <div><h3>산방식당(모슬포 본점)</h3>
-                                 <h4>서귀포시>안덕</h4>
-                            </div>
-                        </div>
-                        <div class="icon">
-                            <div class="iconDetail"><img src="pic/food/like.jpg"></div>
-                            <div class="iconDetail"></div>
-                            <div class="iconDetail"><img src="pic/food/review.jpg"></div>
-                            <div >좋아요<br>5</div>
-                            <div></div>
-                            <div>리뷰<br>7</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="information_1">
-                    <div><img src="pic/food/22.jpg"></div>
-                    <div>
-                        <div class="ex">
-                            <div><h3>로뎀</h3>
-                                    <h4>제주시>구착</h4>
-
-                            </div>
-                        </div>
-                        <div class="icon">
-                            <div class="iconDetail"><img src="pic/food/like.jpg"></div>
-                            <div class="iconDetail"></div>
-                            <div class="iconDetail"><img src="pic/food/review.jpg"></div>
-                            <div>좋아요<br>5</div>
-                            <div></div>
-                            <div>리뷰<br>7</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="information_1">
-                    <div><img src="pic/food/33.jpg"></div>
-                    <div>
-                        <div class="ex" >
-                            <div><h3>오라숲소리</h3>
-                                    <h4>제주시>제주시내</h4>
-                            </div>
-                        </div>
-                        <div class="icon">
-                            <div class="iconDetail"><img src="pic/food/like.jpg"></div>
-                            <div class="iconDetail"></div>
-                            <div class="iconDetail"><img src="pic/food/review.jpg"></div>
-                            <div>좋아요<br>5</div>
-                            <div></div>
-                            <div>리뷰<br>7</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
+           
                    <div class="page">
                 <div class="prev"><a href="#">이전</a></div>
                 <div><a href="#">1</a></div>
@@ -356,6 +280,8 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
                 <div><a href="#">9</a></div>
                 <div><a href="#">10</a></div>
                 <div class="next"><a href="#">다음</a></div>
+          		  </div> 
+          		
             </div>
         </div>
     </div>
@@ -372,6 +298,10 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
           $("#doUrl").click(function (){ 
         		window.location.href='/jeju/view/restraunt/restraunt_writeForm.do';
         	});
+          function listFunc(num){
+        	  window.location.href="/jeju/view/restraunt/restraunt_detail1.do?num="+num;
+        	  
+          }
           </script>  
 </body>
 </html>
