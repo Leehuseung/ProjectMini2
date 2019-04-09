@@ -5,12 +5,29 @@ import java.util.Date;
 public class ReviewVO {            
 	private int boardNo;           
 	private String title;          
-	private int reviewCategoryNo; 
+	private String reviewCategoryNo; 
 	private String content;
-	private int ratingCategoryNo;
+	private String ratingCategoryNo;
 	private int likeCnt;
 	private int viewCnt;
 	private Date writeDate;
+	
+	private int memberNo;
+	public int getMemberNo() {
+		return memberNo;
+	}
+	public void setMemberNo(int memberNo) {
+		this.memberNo = memberNo;
+	}
+	
+	
+	private String name;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getBoardNo() {
 		return boardNo;
 	}
@@ -31,16 +48,16 @@ public class ReviewVO {
 		this.content = content;
 	}
 
-	public int getReviewCategoryNo() {
+	public String getReviewCategoryNo() {
 		return reviewCategoryNo;
 	}
-	public void setReviewCategoryNo(int reviewCategoryNo) {
+	public void setReviewCategoryNo(String reviewCategoryNo) {
 		this.reviewCategoryNo = reviewCategoryNo;
 	}
-	public int getRatingCategoryNo() {
+	public String getRatingCategoryNo() {
 		return ratingCategoryNo;
 	}
-	public void setRatingCategoryNo(int ratingCategoryNo) {
+	public void setRatingCategoryNo(String ratingCategoryNo) {
 		this.ratingCategoryNo = ratingCategoryNo;
 	}
 	public int getLikeCnt() {

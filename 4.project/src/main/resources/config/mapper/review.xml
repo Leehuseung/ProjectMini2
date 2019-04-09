@@ -11,22 +11,81 @@
 		<result column="like_cnt" property="likeCnt" />
 		<result column="view_cnt" property="viewCnt" />
 		<result column="write_date" property="writeDate" />
+		<result column="member_no" property="memberNo" />
+	</resultMap>
+	
+	<resultMap id="MemberMap" type="member">
+		<result column="member_no" property="memberNo" />
+		<result column="id" property="id" />
+		<result column="pass" property="pass" />
+		<result column="email" property="email" />
+		<result column="join_date" property="joinDate" />
+		<result column="name" property="name" />
+		<result column="report_cnt" property="reportCnt" />
 	</resultMap>
 
-	<!-- 리뷰 등록하기 -->
+	<!-- 리뷰 등록하기 
+		selectKey 글등록이 되기 전에 글번호가 붙여져야 해서 사용.
+	-->
 	<insert id="insertReview" parameterType="review">
+       <selectKey keyProperty="boardNo" resultType="int" order="BEFORE">
+          select s_review_no.nextval from dual
+       </selectKey>
 		insert into tb_review(
-			board_no, review_category_no, title, content, rating_category_no
+			board_no, review_category_no, title, content, rating_category_no, member_no
 		)values (
-			s_review_no.nextval, #{reviewCategoryNo},#{title},#{content},#{ratingCategoryNo}
+			#{boardNo}, #{reviewCategoryNo},#{title},#{content},#{ratingCategoryNo}, #{memberNo}
 		)
 	</insert>
-	<select id="detailReview" parameterType="review" resultMap="reviewMap">
-		select a.view_cnt, a.review_category_no, a.title, a.content, a.ratingCategoryNo, b.name
-		  from tb_review a, tb_member b 
-		 where a.member_no = b.member_no
+	
+	<!-- 등록 후 상세보기 -->
+	<select id="detailReviewNo" parameterType="int" resultMap="reviewMap">
+		select a.view_cnt, 
+				(select name from tb_category where code_no = review_category_no) as review_category_no, 
+				(select name from tb_category where code_no = rating_category_no) as rating_category_no,
+				a.title, 
+				a.content, 
+				b.name,
+			    a.write_date, 
+			    a.like_cnt,
+			    a.view_cnt
+		  from  tb_review a
+		  inner join tb_member b 
+		     on a.member_no = b.member_no
+		  where a.board_no = #{boardNo}
 	</select>
 	
+	<!--조회수 증가-->
+	<update id="updateViewCnt" parameterType="int" >
+		update tb_review
+		   set view_cnt = view_cnt + 1
+		 where board_no = #{boardNo}
+	</update>
+	<!-- 전체조회 -->
+	<select id="selectListReview" parameterType="review" resultMap="reviewMap">
+		select a.board_no,
+			   b.name, 
+			   a.title,
+			   (select name from tb_category where code_no = review_category_no) as review_category_no,
+			   a.write_date,
+			   a.view_cnt,
+			   a.like_cnt
+		  from tb_review a
+		 inner join tb_member b
+		    on a.member_no = b.member_no
+		 order by board_no desc
+		 
+	</select>
+	
+	<!--들어갔는지체크..??  -->
+	<select id="writeCheck" parameterType="review" resultType="int">
+		select count(*)
+		  from tb_review
+		 where review_category_no=#{reviewCategoryNo}
+		   and title=#{title}
+		   and content=#{content}
+		   and rating_category_no = #{ratingCategoryNo}
+	</select>
 </mapper>
 
 

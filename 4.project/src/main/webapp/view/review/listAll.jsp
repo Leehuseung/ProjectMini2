@@ -1,5 +1,8 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +41,7 @@
                         <button id="searchButton" >검색</button>
                     </div>
                     <div class="write">
-                        <button id="write"><a href="mytrip_write.html">글쓰기</a></button>
+                        <button id="write"><a href="writeform.do">글쓰기</a></button>
                     </div>
                 </div>
             </div>            
@@ -48,9 +51,8 @@
                 <tr>
                     <th style="width:8%">번호</th>
                     <th style="width:10%">
-                        <select class="chice2" 
-                        style=" width:100px; height:50px; font-size:35px; border:none; border-bottom: 1px solid gray; font-family: 'Gaegu', cursive; font-weight: bold"
-                        >
+                        <select class="choice2" 
+                        style=" width:100px; height:50px; font-size:35px; border:none; border-bottom: 1px solid gray; font-family: 'Gaegu', cursive; font-weight: bold">
                             <option>선택</option>
                             <option>관광</option>
                             <option>맛집</option>
@@ -63,99 +65,20 @@
                     <th>조회수</th>
                     <th>좋아요</th>
                 </tr>
+                <c:forEach var="list" items="${lists}">
                 <tr>
-                    <td style="width:8%">10</td>
-                    <td style="width:10%">맛집</td>
-                    <td style="width:40%"><a id="titleLink" href="mytrip_detail.html">[제주김만복]눈과입이호강했습니다.</a></td>
-                    <td style="width:10%">김정래</td>
-                    <td style="width:15%">2019.3.14</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td style="width:8%">${list.boardNo}</td>
+                    <td style="width:10%">${list.reviewCategoryNo }</td>
+                    <td style="width:40%"><a id="titleLink" href="detail.do?no="+${list.boardNo}>${list.title}</a></td>
+                    <td style="width:10%">${list.name}</td>
+                    <td style="width:15%"><fmt:formatDate value="${list.writeDate}" pattern="yyyy.MM.dd"/> </td>
+                    <td>${list.viewCnt}</td>
+                    <td>${list.likeCnt}</td>
                 </tr>
-                <tr>
-                    <td style="width:8%">9</td>
-                    <td style="width:10%">맛집</td>
-                    <td style="width:40%"><a id="titleLink" href="mytrip_detail+comment.html" >[산방식당]맛있어요</a></td>
-                    <td style="width:10%">도비</td>
-                    <td style="width:15%">2019.3.14</td>
-                    <td>10</td>
-                    <td>4</td>
-                </tr>
-                
-                <tr>
-                    <td style="width:8%">8</td>
-                    <td style="width:10%">관광</td>
-                    <td style="width:40%">[성산일출봉]힘들지만 뿌듯,완벽</td>
-                    <td style="width:10%">이규종</td>
-                    <td style="width:15%">2019.3.13</td>
-                    <td>20</td>
-                    <td>11</td>
-                </tr>
-                
-                <tr>
-                    <td style="width:8%">7</td>
-                    <td style="width:10%">숙박</td>
-                    <td style="width:40%">[나미송이머무는곳]다녀감</td>
-                    <td style="width:10%">이후승</td>
-                    <td style="width:15%">2019.3.13</td>
-                    <td>33</td>
-                    <td>3</td>
-                </tr>
-                <tr>
-                    <td style="width:8%">6</td>
-                    <td style="width:10%">숙박</td>
-                    <td style="width:40%">[스위츠마을]이색적인 제주를 만남</td>
-                    <td style="width:10%">박지수</td>
-                    <td style="width:15%">2019.3.13</td>
-                    <td>52</td>
-                    <td>15</td>
-                </tr>
-                <tr>
-                    <td style="width:8%">5</td>
-                    <td style="width:10%">관광</td>
-                    <td style="width:40%">[우도]행복했던 시간~</td>
-                    <td style="width:10%">오이슬</td>
-                    <td style="width:15%">2019.3.13</td>
-                    <td>49</td>
-                    <td>34</td>
-                </tr>
-                <tr>
-                    <td style="width:8%">4</td>
-                    <td style="width:10%">관광</td>
-                    <td style="width:40%">[점보빌리지]코끼리들의 재롱잔치</td>
-                    <td style="width:10%">구본현</td>
-                    <td style="width:15%">2019.3.13</td>
-                    <td>57</td>
-                    <td>35</td>
-                </tr>
-                <tr>
-                    <td style="width:8%">3</td>
-                    <td style="width:10%">맛집</td>
-                    <td style="width:40%">[로뎀]또방문하고싶은곳,굿!!</td>
-                    <td style="width:10%">구본영</td>
-                    <td style="width:15%">2019.3.12</td>
-                    <td>60</td>
-                    <td>22</td>
-                </tr>
-                <tr>
-                    <td style="width:8%">2</td>
-                    <td style="width:10%">관광</td>
-                    <td style="width:40%">[섭지코지]인생사진 건지기!</td>
-                    <td style="width:10%">조진영</td>
-                    <td style="width:15%">2019.3.12</td>
-                    <td>102</td>
-                    <td>40</td>
-                </tr>
-                <tr>
-                    <td style="width:8%">1</td>
-                    <td style="width:10%">숙박</td>
-                    <td style="width:40%">[하워드존슨]너무좋아요 짱짱짱</td>
-                    <td style="width:10%">박지현</td>
-                    <td style="width:15%">2019.3.12</td>
-                    <td>78</td>
-                    <td>17</td>
-                </tr>
+                </c:forEach>
+               
             </table> 
+        </div>
         </div>
         <!-- 페이징 -->
         <div class="page">

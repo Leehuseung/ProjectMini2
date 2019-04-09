@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,11 +44,11 @@
                     <th style="width:70%">
                             <select id="choice2" name="ratingCategory">
                                 <option >선택하세요</option>
-                                <option value="21">★★★★★ 아주 좋아요</option>
-                                <option value="22">★★★★☆ 맘에 들어요</option>
-                                <option value="23">★★★☆☆ 보통이에요</option>
-                                <option value="24">★★☆☆☆ 별로에요</option>
-                                <option value="25">★☆☆☆☆ 추천하지않아요</option>
+                                <option value="11">★★★★★ 아주 좋아요</option>
+                                <option value="12">★★★★☆ 맘에 들어요</option>
+                                <option value="13">★★★☆☆ 보통이에요</option>
+                                <option value="14">★★☆☆☆ 별로에요</option>
+                                <option value="15">★☆☆☆☆ 추천하지않아요</option>
                             </select>
                     </th>
                 </tr>
@@ -79,7 +79,7 @@
     </div>
       
         <span class="list1">        
-            <button id="list1"><a href="mytrip_listAll.html">목록보기</a></button>
+            <button id="list1"><a href="list.do">목록보기</a></button>
         </span>    
 
         <div id="footer"></div>
@@ -91,11 +91,32 @@
    		});
         </script>
         <script>
-        	$("#save").click(function(){
+        
+  			$("#save").click(function(){
+        		$.ajax({
+        			type:"post",
+        			url:"write.do",
+        		   data:"choice1="+$("#choice1").val()
+        		   +"&choice2="+$("#choice2").val()
+        		   +"&content="+$("#content").val()
+        		   +"&contentWrite="+$(".contentWrite").val(),
+        		   dataType:"json",
+        		   success:function(data) {
+        			   if(data == 1){
+        				   window.location.href = 'jeju/view/review/detail.jsp';    
+        			   }if(data == 0){
+        				   alert("값을 입력하세요");
+        			   }
+        		   }
+        		   
+        		})
+        		
+        	}); 
+        	/* $("#save").click(function(){
         		$("#choice1").on("change",function(){
         			console.log($(this).find("option[value='"+$(this).val()+"']").text());
         		})        	
-        	});
+        	}); */
         </script>
     </body>
 

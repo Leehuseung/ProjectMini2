@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,25 +36,26 @@
                 <table summary="나의여행 글등록">
                 <tr>
                     <!-- 선택한 옵션 db에서 가져오게끔 -->
-                    <th style="width:15%">${review.reviewCategoryNo}</th>
+                    <th style="width:15%">${detail.reviewCategoryNo}</th>
                     <!-- 제목  -->
-                    <td colspan="7">${review.title}</td>
+                    <td colspan="7">${detail.title}</td>
                 </tr>
                 <tr>
                     <th style="width:10%;">작성자</th>
-                    <td>도비</td>
+                    <td>${detail.name}</td>
                     <th>평점</th>
-                    <td style="color:rgb(241, 159, 50)">${review.ratingCategoryNo}</td>
+                    <td style="color:rgb(241, 159, 50)">
+                    ${detail.ratingCategoryNo}</td>
                     <th>조회수</th>
                     <!--클릭할때마다 늘어나게!!-->
-                    <td>${review.viewCnt}</td>
+                    <td>${detail.viewCnt}</td>
                     <th style="width:10%">작성일</th>
                     <!-- 날짜 db가져오게 설정 -->
-                    <td>${review.writeDate}</td>
+                    <td><fmt:formatDate value="${detail.writeDate}" pattern="yyyy.MM.dd"/></td>
                 </tr>
                 <tr>
                     <td class="content" colspan="8" rowspan="40">
-                   	${review.content}
+                   	${detail.content}
                     </td>
                     
                 </tr>
@@ -73,7 +75,7 @@
             <!-- 버튼 -->
         <div class="buttonList" >
             <span class="list1">
-                <button id="list1"><a href="mytrip_listAll.html">목록보기</a></button>
+                <button id="list1"><a href="detail.do">목록보기</a></button>
             </span>
             <span class="modify">
                 <button id="modify"><a href="mytrip_modify.html">수정</a></button>
