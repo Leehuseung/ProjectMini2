@@ -74,10 +74,10 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
                 </select>
                <input id="leftAddress" type:"text" name="address">
               </div>
-              <div class="box3">연락처: <input id="phoneNumber1" type:"text" name="phoneNumber"></div>
-              <div class="box4">홈페이지: <input id="website1" type:"text" name="website"></div>
+              <div class="box3">연락처: <input id="phoneNumber" type:"text" name="contact"></div>
+              <div class="box4">홈페이지: <input id="website" type:"text" name="homepage"></div>
               <div class="box5">20자 멘트: <input id="ment" type:"text" name="ment"></div>
-              <div class="box6">호텔 명: <input id="hotelname1" type:"text" name="hotelName"></div>
+              <div class="box6">호텔 명: <input id="hotelname" type:"text" name="hotelName"></div>
           </div>
       </div>
       <div class="pic1_pic2">
@@ -116,7 +116,7 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
   </div>
       <div class="text">
         <div> 
-            <textarea name="content" rows="20" cols="70" placeholder="숙소에 대해 소개해주세요"></textarea>
+            <textarea name="intro" rows="20" cols="70" placeholder="숙소에 대해 소개해주세요"></textarea>
         </div>
       </div>
         <div class="pic_info"> 

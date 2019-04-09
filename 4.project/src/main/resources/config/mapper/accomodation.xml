@@ -25,9 +25,10 @@
 	<insert id="insertBoard" parameterType="accInfo">
 		insert into tb_acc_info(
 			acc_no, name, address, contact, ment, homepage, intro, member_no,main_file_name
-			main_file_path
+			main_file_path,sub_file_name1,sub_file_path1,sub_file_name2, sub_file_path2
 		) values (
-			s__no.nextval, #{writer}, #{title}, #{content}
+			s_acc_no.nextval, #{name}, #{address}, #{contact},#{ment},#{homepage},#{intro},#{memberNo},#{mainFileName}
+			,#{mainFilePath},#{subFileName1},#{subFilePath1},#{subFileName2},#{subFilePath2}
 		) 
 	</insert>
 	
