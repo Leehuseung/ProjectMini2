@@ -40,7 +40,7 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
 
 <div id="headers"></div>
   
-   <form action="write.do" method="post" enctype="multipart/form-data">
+   <form name="mForm" action="write.do" method="post" enctype="multipart/form-data" onsubmit = "retu">
    <div class="info_body">
       <div class="head_pic_info">
           <div class="head_pic">
@@ -74,19 +74,19 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
                 </select>
                <input id="leftAddress" type:"text" name="address">
               </div>
-              <div class="box3">연락처: <input id="phoneNumber" type:"text" name="contact"></div>
-              <div class="box4">홈페이지: <input id="website" type:"text" name="homepage"></div>
-              <div class="box5">20자 멘트: <input id="ment" type:"text" name="ment"></div>
-              <div class="box6">호텔 명: <input id="hotelname" type:"text" name="hotelName"></div>
+              <div class="box3" >연락처: <input id="phoneNumber" type:"text" name="contact"></div>
+              <div class="box4" >홈페이지: <input id="website" type:"text" name="homepage"></div>
+              <div class="box5" >20자 멘트: <input id="ment" type:"text" name="ment"></div>
+              <div class="box6" >숙박 명: <input id="hotelName" type:"text" name="hotelName"></div>
           </div>
       </div>
       <div class="pic1_pic2">
         <div class= "pic1"> 
             <div class="pic_top">
-                    <span>시설사진 </span>
+                    <span>보조사진 </span>
                     <span id="top_myPC">
-                    <input id="myPC_S" type="file" name="subPic1" />
-                    <label for ="myPC_S" class="top_myPC_label">내 PC</label>
+                    <input id="myPC_S1" type="file" name="subPic1" />
+                    <label for ="myPC_S1" class="top_myPC_label">내 PC</label>
                 </span>
 
             </div>
@@ -98,10 +98,10 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
         </div>
         <div class= "pic1"> 
             <div class="pic_top">
-                    <span>시설사진 </span>
+                    <span>보조사진 </span>
                     <span id="top_myPC">
-                    <input id="myPC_S" type="file" name="subPic2" />
-                    <label for ="myPC_S" class="top_myPC_label">내 PC</label>
+                    <input id="myPC_S2" type="file" name="subPic2" />
+                    <label for ="myPC_S2" class="top_myPC_label">내 PC</label>
                 </span>
 
             </div>
@@ -164,7 +164,95 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
    </div>
 </form>
    
-   
+  <script>
+  
+  $(document).ready(function(){
+	  $('#complete_button').click(function(){
+		  
+	
+	
+	
+var myPC = $("#myPC").val();
+	
+	if(myPC ==""){
+		alert("메인사진을 첨부하시라요.")
+	 
+		 $('.head_pic > .box2').attr("tabindex",-1).focus();
+		return false;
+	}//if
+	
+//------------------------------------------------------------		 
+var myPC_S1 = $("#myPC_S1").val();
+	
+	if(myPC_S1 ==""){
+		alert("보조 사진을 첨부하시라요.")
+	 
+		 $(".pic_middle1").attr("tabindex",-1).focus();
+		return false;
+	}//if
+
+//------------------------------------------------------------	
+var myPC_S2 = $("#myPC_S2").val();
+	
+	if(myPC_S2 ==""){
+		alert("보조 사진을 첨부하시라요.")
+	 
+		 $(".pic_middle2").attr("tabindex",-1).focus();
+		return false;
+	}//if	
+	
+	
+	//------------------------------------------------------------
+	
+var contact = $("#phoneNumber").val();
+	
+	if(contact ==""){
+		alert("무사 연락처를 안입력하셨수꽝?")
+	
+		 $('#phoneNumber').focus();
+		return false;
+	}//if
+
+	//------------------------------------------------------------	
+	
+var website = $("#website").val();
+	
+	if(website ==""){
+		alert("홈페이지 주소를 안입력하셨수당")
+	
+		 $('#website').focus();
+		return false;
+	}//if	
+//------------------------------------------------------------	
+
+
+var ment = $("#ment").val();
+	
+	if(ment ==""){
+		alert("홈페이지 소개 멘트를 입력해주세요")
+	
+		 $('#ment').focus();
+		return false;
+	}//if	
+	
+	
+
+	//------------------------------------------------------------	
+	
+var hotelName = $('#hotelName').val();
+	
+	if(hotelName ==""){
+		alert("숙소 명을 입력해주세요")
+	
+		 $('#hotelName').focus();
+		return false;
+	}//if	
+	
+	  });//complete button
+  
+  });//document
+  
+  </script> 
   
 
 <div id="footer"></div>

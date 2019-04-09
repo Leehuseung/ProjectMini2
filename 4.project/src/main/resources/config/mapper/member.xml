@@ -37,7 +37,7 @@
 	</select>
 	
 	<!-- 로그인 -->
-	<select id="selectLogin" parameterType="member" resultType="member">
+	<select id="selectLogin" parameterType="member" resultMap="MemberMap">
 		select *
 		  from tb_member
 		 where id = #{id}
@@ -51,20 +51,30 @@
 		 where id = #{id}
 	</select>
 	
+	<!-- 내 정보 비밀번호 변경 -->
+	<update id="updateInfo" parameterType="member">
+		update tb_member
+		   set pass = #{pass}
+		 where id = #{id}
+	</update>
+	
+	<!-- 아이디 찾기 이메일 발송 -->
+	<select id="findId" parameterType="member" resultType="String">
+		select id
+		  from tb_member
+		 where name = #{name}
+		   and email = #{email}
+	</select>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="deleteInfo" parameterType="member">
+		delete 
+		  from tb_member
+		 where id = #{id}
+		   and pass = #{pass}	
+	</delete>
+	
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

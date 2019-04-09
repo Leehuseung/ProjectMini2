@@ -29,8 +29,7 @@ public class LoginController extends HttpServlet {
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pass");
 		HttpSession session = request.getSession();
-		System.out.println(id);
-		System.out.println(pass);
+		
 		MemberVO member = new MemberVO();
 		member.setId(id);
 		member.setPass(pass);
@@ -47,6 +46,8 @@ public class LoginController extends HttpServlet {
             }
         } else {
 	        session.setAttribute("user", user);
+	        session.setAttribute("id", user.getId());	        
+	        System.out.println(user.getMemberNo());
 	        out.println(1);
         } 
 	}

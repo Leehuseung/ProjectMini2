@@ -13,33 +13,35 @@ import kr.co.org.jejutour.db.MyAppSqlConfig;
 import kr.co.org.jejutour.repository.dao.MemberMapper;
 import kr.co.org.jejutour.repository.vo.MemberVO;
 
-
-@WebServlet("/view/member/signup.do")
-public class SignUpController extends HttpServlet {
+@WebServlet("/view/member/check.do")
+public class CheckController extends HttpServlet {
 	private MemberMapper mapper;
-	public SignUpController () {
+	
+	public CheckController () {
 		mapper = MyAppSqlConfig.getSqlSession().getMapper(MemberMapper.class);
 	}
-	public void service(HttpServletRequest request, HttpServletResponse response) 
+	
+	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
+		
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		
-		MemberVO member = new MemberVO();		
+		MemberVO member = new MemberVO();
+		PrintWriter out = response.getWriter();
 		
-		member.setName(request.getParameter("name"));	
-		
-		
-		if(request.getParameter("pass1").equals(request.getParameter("pass2"))) {
-				member.setPass(request.getParameter("pass1"));
+		if(request.getParameter("id") != null) {			
+			int countId = mapper.selectId(request.getParameter("id"));		
+			out.println(countId);	
+			member.setId(request.getParameter("id"));
+			out.close();
 		}
-
-		member.setEmail(request.getParameter("email"));	
-		member.setId(request.getParameter("id"));	
-		mapper.insertMember(member);
 		
-		request.getRequestDispatcher("/view/member/loginform.jsp")
-	       .forward(request, response);
-	
+		int countEmail = mapper.selectEmail(request.getParameter("email"));			
+		out.println(countEmail);
+		member.setEmail(request.getParameter("email"));				
+		
+		out.close();
+		
 	}
 }

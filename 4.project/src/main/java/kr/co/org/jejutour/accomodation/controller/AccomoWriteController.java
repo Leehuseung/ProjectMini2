@@ -12,11 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import kr.co.mlec.board.dao.BoardMapper;
+import kr.co.org.jejutour.db.MyAppSqlConfig;
+import kr.co.org.jejutour.repository.dao.AccomodationMapper;
 import kr.co.org.jejutour.repository.vo.AccInfoVO;
 @WebServlet("/view/accomodation/write.do")
-private BoardMapper mapper
 public class AccomoWriteController extends HttpServlet{
+	
+	AccomodationMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(AccomodationMapper.class);
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -63,7 +65,7 @@ public class AccomoWriteController extends HttpServlet{
 	System.out.println("intro" + intro);
 	Enumeration<String> fNames = mRequest.getFileNames();
 	System.out.println(fNames.toString());//
-	
+	board.setIntro(intro);
 	while(fNames.hasMoreElements()) {
 		String fName = fNames.nextElement();
 	File f = mRequest.getFile(fName);
@@ -76,6 +78,8 @@ public class AccomoWriteController extends HttpServlet{
 	System.out.println("파일 이름: " + fileName);
 		System.out.println("파일경로: " + path );
 	System.out.println("-------------------------");
+	board.setMainFileName(fileName);
+	board.setMainFilePath(path);
 	}//inner if
 	if(fName.equals("subPic1")) {
 		String fileName = mRequest.getFilesystemName(fName);
@@ -83,8 +87,12 @@ public class AccomoWriteController extends HttpServlet{
 		String path =	directory + fileName;
 		System.out.println("파일 이름: " + fileName);
 			System.out.println("파일경로: " + path );
+			
 			System.out.println("-------------------------");
-		}
+		
+			board.setSubFileName1(fileName);
+			board.setSubFilePath1(path);
+	}
 	
 	if(fName.equals("subPic2")) {
 		String fileName = mRequest.getFilesystemName(fName);
@@ -93,14 +101,17 @@ public class AccomoWriteController extends HttpServlet{
 		System.out.println("파일 이름: " + fileName);
 			System.out.println("파일경로: " + path );
 			System.out.println("-------------------------");
-		}
+			board.setSubFileName2(fileName);
+			board.setSubFilePath2(path);
 	
+	}
 	
 	
 	
 	}//if
 	}//while
-	
+	board.setMemberNo(1);
+	mapper.insertAccInfo(board);
 
 	
 	}//service

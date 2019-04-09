@@ -33,17 +33,21 @@
            <button type="button" id="checkEmail" class="check">중복확인</button>
            <br><br>            
            <button class="sign">가입</button>&nbsp;
-           <button class="sign" onclick="location.href='main_loginform.html'">뒤로</button>          
+           <button type="button" class="sign" id="back">뒤로</button>          
         </div>  
         </form>
        
        <script>
+       		$("#back").click(function () {
+       			window.location.href = '/jeju/view/member/loginform.do';
+       		});
+       
        		$("#checkId").click(function () {
        			$.ajax({     
-       				url : "/jeju/view/member/signup.do",
+       				url : "/jeju/view/member/check.do",
        	            data : "id="+$("#id").val(),
        	            success : function(data){
-       	            	if(data == 1) {
+       	            	if(data != 0) {
        	            		console.log(data);
     						alert("이미 사용중인 아이디 입니다.");
     						$("#id").focus();
@@ -56,10 +60,10 @@
        	      });   
        		$("#checkEmail").click(function () {
        			$.ajax({     
-       				url : "/jeju/view/member/signup.do",
+       				url : "/jeju/view/member/check.do",
        	            data : "email="+$("#email").val(),
        	            success : function(data){
-       	            	if(data == 1) {
+       	            	if(data != 0) {
        	            		console.log(data);
     						alert("이미 사용중인 이메일 입니다.");
     						$("#email").focus();

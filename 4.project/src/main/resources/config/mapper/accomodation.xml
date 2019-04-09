@@ -22,9 +22,9 @@
 	
 	
 
-	<insert id="insertBoard" parameterType="accInfo">
+	<insert id="insertAccInfo" parameterType="accInfo">
 		insert into tb_acc_info(
-			acc_no, name, address, contact, ment, homepage, intro, member_no,main_file_name
+			acc_no, name, address, contact, ment, homepage, intro, member_no,main_file_name,
 			main_file_path,sub_file_name1,sub_file_path1,sub_file_name2, sub_file_path2
 		) values (
 			s_acc_no.nextval, #{name}, #{address}, #{contact},#{ment},#{homepage},#{intro},#{memberNo},#{mainFileName}
@@ -32,65 +32,7 @@
 		) 
 	</insert>
 	
-	<!-- 조회수 증가시키기 -->
-	<update id="updateViewCnt" parameterType="int">
-		update tb_board
-		   set view_cnt = view_cnt + 1
-		 where no = #{no}  
-	</update>
-	
-	<delete id="deleteBoard" parameterType="int">
-		delete 
-		  from tb_board
-		 where no = #{no} 
-	</delete>
-	
-	<update id="updateBoard" parameterType="board">
-		update tb_board
-		   set title = #{title},		
-		       content = #{content}		
-		 where no = #{no} 
-	</update>	
-	
-	<!-- 댓글 파트 시작 ============================= -->	
-	<resultMap id="commentMap" type="comment">
-		<result column="comment_no" property="commentNo" />
-		<result column="no" property="no" />
-		<result column="writer" property="writer" />
-		<result column="content" property="content" />
-		<result column="reg_date" property="regDate" />
-	</resultMap>
-	
-	<!-- 댓글 목록 -->
-	<select id="selectCommentsByNo" parameterType="int" resultMap="commentMap">
-	    select *
-	      from tb_comment
-	     where no = #{no}
-	     order by comment_no 
-	</select>	
-	
-	<!--  댓글 등록  -->
-	<insert id="insertComment" parameterType="comment">
-		insert into tb_comment(
-			comment_no, no, writer, content
-		) values (
-			s_comment_no.nextVal, #{no}, #{writer}, #{content}
-		)
-	</insert>
-	
-	<!--  댓글 삭제  -->
-	<delete id="deleteComment" parameterType="int">
-	    delete 
-	      from tb_comment
-	     where comment_no = #{commentNo}
-	</delete>
-	
-	<!--  댓글 수정  -->
-	<update id="updateComment" parameterType="comment">
-	    update tb_comment
-	       set content = #{content}
-	     where comment_no = #{commentNo}
-	</update> 	
+
 </mapper>
 
 
