@@ -166,7 +166,7 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
             </div>
             <div class="photo">
            <c:forEach var="file" items="${files}">
-                <div><img src="${file.path}"></div>
+                <div><img src="${file}"></div>
     	   </c:forEach>	
             <!-- 
                 <div><img src="/jeju/resources/images/restraunt/1.jpg"></div>

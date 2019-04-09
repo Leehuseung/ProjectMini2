@@ -15,8 +15,8 @@ CREATE TABLE tb_restraunt_board
     board_no          NUMBER(7)         NOT NULL, 
     name              VARCHAR2(100)     NOT NULL, 
     intro             VARCHAR2(3000)    NOT NULL, 
-    like_cnt          NUMBER(7)         NOT NULL, 
-    view_cnt          NUMBER(7)         NOT NULL, 
+    like_cnt          NUMBER(7) default 0         NOT NULL, 
+    view_cnt          NUMBER(7) default 0        NOT NULL, 
     food_category     NUMBER(1)         NOT NULL, 
     business_hours    VARCHAR2(300)     NOT NULL, 
     amendity          VARCHAR2(300)     NOT NULL, 
@@ -25,20 +25,7 @@ CREATE TABLE tb_restraunt_board
 )
 /
 
-CREATE SEQUENCE tb_restraunt_board_SEQ
-START WITH 1
-INCREMENT BY 1;
-/
 
-CREATE OR REPLACE TRIGGER tb_restraunt_board_AI_TRG
-BEFORE INSERT ON tb_restraunt_board 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT tb_restraunt_board_SEQ.NEXTVAL
-    INTO: NEW.board_no
-    FROM DUAL;
-END;
-/
 
 --DROP TRIGGER tb_restraunt_board_AI_TRG;
 /
@@ -97,20 +84,7 @@ CREATE TABLE tb_restraunt_file
 )
 /
 
-CREATE SEQUENCE tb_restraunt_file_SEQ
-START WITH 1
-INCREMENT BY 1;
-/
 
-CREATE OR REPLACE TRIGGER tb_restraunt_file_AI_TRG
-BEFORE INSERT ON tb_restraunt_file 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT tb_restraunt_file_SEQ.NEXTVAL
-    INTO: NEW.board_no
-    FROM DUAL;
-END;
-/
 
 --DROP TRIGGER tb_restraunt_file_AI_TRG;
 /
@@ -133,7 +107,3 @@ COMMENT ON COLUMN tb_restraunt_file.name IS '이름'
 COMMENT ON COLUMN tb_restraunt_file.path IS '경로'
 /
 
-ALTER TABLE tb_restraunt_file
-    ADD CONSTRAINT FK_tb_restraunt_file_board_no_ FOREIGN KEY (board_no)
-        REFERENCES tb_restraunt_board (board_no) on delete cascade
-/

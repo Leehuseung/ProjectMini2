@@ -50,8 +50,14 @@
 	</select>
 	
 	<!-- 사진경로 불러오기 -->
-	<select id="selectRestrauntFileByNo" parameterType="int" resultMap="restrauntFileMap">
+<!-- 	<select id="selectRestrauntFileByNo" parameterType="int" resultMap="restrauntFileMap">
 	  select *
+		from tb_restraunt_file
+	   where board_no= #{boardNo}
+	</select> -->
+	
+	<select id="selectRestrauntFileByNo" parameterType="int" resultType="String">
+	  select path
 		from tb_restraunt_file
 	   where board_no= #{boardNo}
 	</select>

@@ -18,8 +18,8 @@ import kr.co.org.jejutour.repository.vo.RestrauntFileVO;
 public class RestrauntBoardDetail1Contorller extends HttpServlet{
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
 		RestrauntMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(RestrauntMapper.class);
-		RestrauntBoardVO board = mapper.selectRestrauntBoardByNo(1);
-		List<RestrauntFileVO> files = mapper.selectRestrauntFileByNo(1);
+		RestrauntBoardVO board = mapper.selectRestrauntBoardByNo(6);
+		List<String> files = mapper.selectRestrauntFileByNo(6);
 		request.setAttribute("files", files);
 		request.setAttribute("board", board);
 		
