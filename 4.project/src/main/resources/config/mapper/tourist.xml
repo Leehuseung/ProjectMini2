@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.org.jejutour.repository.dao.TouristMapper">
-	<resultMap id="touristBoardMap" type="board">
+	<resultMap id="touristBoardMap" type="tourist">
 		<result column="member_no" property="memberNo" />
 		<result column="board_no" property="boardNo" />
 		<result column="title" property="title" />
@@ -17,7 +17,8 @@
 		<result column="fee" property="fee" />
 		<result column="address" property="address" />
 		<result column="purpose" property="purpose" />
-		<result column="hours" property="hours" />
+		<result column="weekday" property="weekday" />
+		<result column="weekend" property="weekend" />
 		<result column="contact" property="contact" />
 		<result column="update_date" property="updateDate" />
 		<result column="content_title" property="contentTitle" />
@@ -25,15 +26,15 @@
 		<result column="like_status" property="likeStatus" />
 	</resultMap>
 
-	<!-- 메인파트기능 시작 =============================-->
+	<!-- 메인파트기능 시작 ============================= -->
 	
 	<!--  전체 게시물 조회 9칸씩  제일늦게 작성된글이 제일 위에 올라오도록 처리함 -->
-	<select id="selectTouristBoard" parameterType="page" resultMap="touristBoardMap">
+	<select id="selectTouristBoard" parameterType="tourist" resultMap="touristBoardMap">
 		select *
  		  from (select rownum rnum, a.*
          		  from (select *
-                 		  from tb_board
-                 		 order by no desc) a
+                 		  from tb_tourist_board
+                 		 order by board_no desc) a
         		)
 		 where rnum between #{begin} and #{end}
 	</select>
@@ -53,24 +54,24 @@
 	
 	
 	<!-- 글등록 -->
-	<insert id="writeTouristBoard" parameterType="board">
+	<insert id="writeTouristBoard" parameterType="tourist">
 		<selectKey keyProperty="boardNo" resultType="int"
 				   order="BEFORE">
-			select tb_tourist_board_no.nextval
+			select s_tourist_board_no.nextval
 			  from dual
 		</selectKey>
 		insert into tb_tourist_board( 
-		    board_no, title, nomination, tag, simple_introduce, introduce,
-		    fee, address, purpose, hours, contact, content_title, content 
+		    member_no, board_no, title, nomination, tag, simple_introduce, introduce,
+		    fee, address, purpose, weekday, weekend, contact, content_title, content 
 		) values (
-		    #{boardNo}, #{title}, #{nomination}, #{tag}, #{simpleIntroduce}, #{introduce},
-		    #{fee}, #{address}, #{purpose}, #{hours}, #{contact}, #{contentTitle}, #{content}
+		    #{memberNo}, #{boardNo}, #{title}, #{nomination}, #{tag}, #{simpleIntroduce}, #{introduce},
+		    #{fee}, #{address}, #{purpose}, #{weekday}, #{weekend}, #{contact}, #{contentTitle}, #{content}
 		)	
 	</insert>
 	
 
 	<!-- 글수정 -->
-	<update id="updateTouristBoard" parameterType="board">
+	<update id="updateTouristBoard" parameterType="tourist">
 	update tb_tourist_board 
 	   set title = #{title}, 
 	   	   nomination = #{writer},
@@ -80,38 +81,33 @@
 	       fee = #{fee},
 	       address = #{address},
 	       purpose = #{purpose},
-	       hours = #{hours},
+	       weekday = #{weekday},
+	       weekend = #{weekend},
 	       contact = #{contact},
 	       content_title = #{contentTitle},
 	       content = #{content}
-	 where board_no = #{boardNo}
+	 where board_no = #{no}
 	</update>
 	
 	<!-- 글삭제 -->
 	<delete id="deleteTouristBoard" parameterType="int">
 	delete 
 	  from tb_tourist_board 
-	 where no = #{no}
+	 where board_no = #{no}
 	</delete>
 	
 	<!-- 조회수증가 -->
 	<update id="updateTouristViewCnt" parameterType="int">
 	update tb_tourist_board
 	   set view_cnt = view_cnt + 1
-	 where borad_no = #{boardNo}
+	 where board_no = #{no}
 	</update>
 	
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	<!-- 댓글 파트 시작 ============================= -->	
-	<resultMap id="commentMap" type="comment">
+	<resultMap id="commentMap" type="tourist">
 		<result column="board_no" property="boardNo" />
 		<result column="member_no" property="memberNo" />
 		<result column="comment_no" property="commentNo" />
@@ -124,69 +120,61 @@
 	<!-- 댓글 목록 -->
 	<select id="selectCommentsByNo" parameterType="int" resultMap="commentMap">
 	    select *
-	      from tb_comment
-	     where no = #{no}
-	     order by comment_no 
+	      from tb_tourist_comment
+	     where board_no = #{boardNo}
+	     order by comment_no
 	</select>	
 	
 	<!--  댓글 등록  -->
-	<insert id="insertComment" parameterType="comment">
-		insert into tb_comment(
-			comment_no, no, writer, content
+	<insert id="insertComment" parameterType="tourist">
+		insert into tb_tourist_comment(
+			comment_no, board_no, content
 		) values (
-			s_comment_no.nextVal, #{no}, #{writer}, #{content}
+			s_tourist_comment_no.nextVal, #{boardNo}, #{content}
 		)
 	</insert>
 	
 	<!--  댓글 삭제  -->
 	<delete id="deleteComment" parameterType="int">
 	    delete 
-	      from tb_comment
+	      from tb_tourist_comment
 	     where comment_no = #{commentNo}
 	</delete>
 	
 	<!--  댓글 수정  -->
-	<update id="updateComment" parameterType="comment">
-	    update tb_comment
+	<update id="updateComment" parameterType="tourist">
+	    update tb_tourist_comment
 	       set content = #{content}
 	     where comment_no = #{commentNo}
 	</update> 	
 	
-	<!-- 첨부파일 등록 ============================= -->
-	<resultMap id="fileMap" type="file">
-		<result column="no" property="no" />
-		<result column="file_no" property="fileNo" />
-		<result column="org_name" property="orgName" />
-		<result column="system_name" property="systemName" />
-		<result column="file_path" property="filePath" />
-		<result column="file_size" property="fileSize" />
-	</resultMap>
 	
 	
-	<!-- 파일 등록 =================================-->
-	<resultMap id="fileMap" type="file">
+	
+	<!-- 파일 등록 ================================= -->
+	<resultMap id="fileMap" type="tourist">
 		<result column="board_no" property="boardNo" />
 		<result column="file_no" property="fileNo" />
 		<result column="name" property="name" />
 		<result column="path" property="path" />
 	</resultMap>
 	
-	<insert id="writeBoardFile" parameterType="file">
+	<insert id="writeTouristBoardFile" parameterType="tourist">
 		
-		insert into tb_board_file ( 
-		    file_no, no, org_name, system_name, file_path, file_size
+		insert into tb_tourist_file ( 
+		    file_no, board_no, name, path
 		) values (
-		    s_board_file_no.nextval, #{no}, #{orgName}, #{systemName}, #{filePath}, #{fileSize}
+		    s_tourist_file_no.nextval, #{boardNo}, #{name}, #{path}
 		)	
 	</insert>
 	
 	<!-- 파일 목록 -->
-	<select id="selectFilesByNo" resultMap="fileMap" parameterType="int">
+	<select id="selectTouristFilesByNo" resultMap="fileMap" parameterType="int">
 		select *
-		  from tb_board_file
-		 where no = #{no}
+		  from tb_tourist_file
+		 where board_no = #{boardNo}
 	</select>
-	
+
 	
 </mapper>
 

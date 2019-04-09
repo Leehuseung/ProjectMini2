@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,18 +10,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>tourist-update</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/tourist/tourist-wirte.css" />
     <link rel="stylesheet" type="text/css" href="../../resources/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../../resources/css/tourist/tourist-update.css" />
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
 </head>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
 <script type="text/javascript">   
     $(document).ready( function() { 
-    
-    $("#headers").load("../header.html");  // 원하는 파일 경로를 삽입하면 된다
-    $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
+    	$("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
     }); 
 </script>
+<jsp:include page="/view/header.jsp" />
 <body>
     <div id="headers"></div>
     <div class="body">
@@ -45,13 +46,13 @@
         <div class="wrapper">
             <div class="content-title">
                 <p class="content-tag">
-                    태그 : <input type="text" class="text" placeholder="ex)#자연"/>
-                    지명 : <input type="text" class="text" placeholder="ex)서귀포시 > 성산"/>
-                    간단설명 : <input type="text" class="text" placeholder="ex)제주도의 랜드마크"/>
+                    태그 : <input type="text" class="text" name="tag" value="${tourist.tag}"/>
+                    지명 : <input type="text" class="text" name="nomination" placeholder="${tourist.nomination}"/>
+                    간단설명 : <input type="text" class="text" name="simpleIntroduce" placeholder="${tourist.simpleIntroduce}"/>
                 </p>
-                제목 : <input type="text" class="text" placeholder="ex)성산일출봉"/>
+                제목 : <input type="text" class="text" name="title" value="${tourist.title}"/>
                 <div>
-                    <a href="tourist-main.html" >
+                    <a href="touristlist.do" >
                         <button>목록으로</button> 
                     </a>
                 </div>
@@ -65,69 +66,62 @@
             <br>
             <ul class="detail-icon">
                 <li>
-                    <div class="iconDetail1"><form action="" method="post" enctype="multipart/form-data" name="">
-                        <input multiple="multiple" type="file" name="FileName[]" >
-                    </form></div>
+                    <div class="iconDetail1"><img src="../../resources/images/tourlist/detail_info.png"></div>
                     <div>상세정보<br>&nbsp;</div>
                 </li>
                 <li>
-                    <div class="iconDetail2"><form action="" method="post" enctype="multipart/form-data" name="" aria-va>
-                        <input multiple="multiple" type="file" name="FileName[]" value="da">
-                    </form></div>
+                    <div class="iconDetail2"><img src="../../resources/images/tourlist/map.png"></div>
                     <div>지도<br>&nbsp;</div>
                 </li>
                 <li>
-                    <div class="iconDetail3"><form action="" method="post" enctype="multipart/form-data" name="">
-                        <input multiple="multiple" type="file" name="FileName[]">
-                    </form></div>
-                    <div>리뷰<br>7</div>
+                    <div class="iconDetail3"><img src="../../resources/images/tourlist/review.jpg"></div>
+                    <div>리뷰<br>${tourist.reviewCnt}</div>
                 </li>
                 <li>
-                    <div class="iconDetail4"><form action="" method="post" enctype="multipart/form-data" name="">
-                        <input multiple="multiple" type="file" name="FileName[]">
-                    </form></div>
-                    <div>좋아요<br>5</div>
+                    <div class="iconDetail4"><img src="../../resources/images/tourlist/like.jpg"></div>
+                    <div>좋아요<br>${tourist.likeCnt}</div>
                 </li>
                 <li>
-                    <div class="iconDetail5"><form action="" method="post" enctype="multipart/form-data" name="">
-                        <input multiple="multiple" type="file" name="FileName[]">
-                    </form></div>
-                    <div>조회수<br>20</div>
+                    <div class="iconDetail5"><img src="../../resources/images/tourlist/view.jpg"></div>
+                    <div>조회수<br>${tourist.viewCnt}</div>
                 </li>
             </ul>
             <div class="detail-title">
-                소개 : <input type="text" class="text" placeholder="ex)성산일출봉"/>
+                소개 : <input type="text" class="text" name="introduce" value="${tourist.introduce}"/>
                 <div class="pay">
-                    이용요금 : <input type="text" class="text" placeholder="ex)유료,일반 : 2.000원 / 장애인 : 무료 (1-3급 동반 1인까지)"/>
+                    이용요금 : <input type="text" class="text" name="fee" value="${tourist.fee}"/>
                 </div>
             </div>
             <div class="location">
-                주소 : <input type="text" class="text" placeholder="ex)서귀포시 성산읍 일출로 284-13"/>
+                주소 : <input type="text" class="text" name="address" value="${tourist.address}"/>
                 <div>
-                    주요목적 : <input type="text" class="text" placeholder="ex)산책로, 올레코스, 오름"/>
+                    주요목적 : <input type="text" class="text" name="purpose" value="${tourist.purpose}"/>
                 </div>
             </div>
             <div class="time">
-                이용시간 : 평일 <input type="text" class="text" placeholder="ex)(07:30 ~ 19:30)"/> , 주말 <input type="text" class="text" placeholder="ex)(07:30 ~ 19:30)"/>
+                이용시간 : 평일 <input type="text" class="text" name="weekday" value="${tourist.weekday}"/> , 주말 <input type="text" class="text" name="weekend" value="${tourist.weekend}"/>
             </div>
             <div class="phone-num">
-                연락처 : (+82) <input type="text" class="text" placeholder="ex)064 783 0959"/>
+                연락처 : (+82) <input type="text" class="text" name="contact" value="${tourist.contact}"/>
+                <div class="update-date">
+                    최종 수정일 <fmt:formatDate value="${tourist.updateDate}" pattern="yyyy년-MM월-dd일" />
+                </div>
             </div>
             <div class="up-del">
                 
             </div>
             <div class="detail-info">
-                <textarea class="info-title" placeholder="세줄이내로 상세정보 제목을 적어주세요"></textarea> <br />
+                <textarea class="info-title" name="contentTitle" placeholder="${tourist.contentTitle}"></textarea> <br />
                 <br>
-                <textarea class="info-content" placeholder="본문 내용을 적어주세요"></textarea>
+                <textarea class="info-content" name="content" placeholder="${tourist.content}"></textarea>
                 <br><br><br>
-                <div>    
-                    <a href="tourist-main.html">
-                        <button>등록하기</button>
+                <div>
+                    <a href="updateboard.do">
+                        <button>수정하기</button>
                     </a>
-                    <a href="tourist-main.html">
-                        <button>취소</button>         
-                    </a>
+                    <a>
+                        <button onClick="history.back()">취소</button>                
+                    </a>    
                 </div>
             </div>
         </div>

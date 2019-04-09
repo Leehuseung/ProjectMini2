@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,26 +34,29 @@
                 <table summary="나의여행 글등록">
                 <tr>
                     <!-- 선택한 옵션 db에서 가져오게끔 -->
-                    <th style="width:15%">${detail2.reviewCategoryNo}</th>
+                    <th style="width:15%">맛집</th>
                     <!-- 제목  -->
-                    <td colspan="7">${detail2.title}</td>
+                    <td colspan="7">[추천해준곳] 맛있어요</td>
                 </tr>
                 <tr>
                     <th style="width:10%;">작성자</th>
-                    <td>${detail2.name}</td>
+                    <td>도비</td>
                     <th>평점</th>
-                    <td style="color:rgb(241, 159, 50)">
-                    ${detail2.ratingCategoryNo}</td>
+                    <td style="color:rgb(241, 159, 50)">★★★★☆</td>
                     <th>조회수</th>
                     <!--클릭할때마다 늘어나게!!-->
-                    <td>${detail2.viewCnt}</td>
+                    <td>10</td>
                     <th style="width:10%">작성일</th>
                     <!-- 날짜 db가져오게 설정 -->
-                    <td><fmt:formatDate value="${detail2.writeDate}" pattern="yyyy.MM.dd"/></td>
+                    <td>2019.3.14</td>
                 </tr>
                 <tr>
                     <td class="content" colspan="8" rowspan="40">
-                   	${detail2.content}
+                        <img src="../../resources/images/review/food.png"/><br>
+                        제주도 맛집 정보를 보고 맛있어 보여서 간 곳입니다.<br>
+                        정말 맛있게 먹었습니다~~!<br>
+                        또 제주도 가면 갈거에요.<br>
+                        갈치조림의 맛에 감동했습니다!!!<br>
                     </td>
                     
                 </tr>
@@ -75,7 +76,7 @@
             <!-- 버튼 -->
         <div class="buttonList" >
             <span class="list1">
-                <button id="list1"><a href="list.do">목록보기</a></button>
+                <button id="list1"><a href="mytrip_listAll.html">목록보기</a></button>
             </span>
             <span class="modify">
                 <button id="modify"><a href="mytrip_modify.html">수정</a></button>
@@ -97,10 +98,11 @@
         
               
         <div class="comment">
+            <form action="#">
                 <table>
                     <tr>
                         <th style="width:200px">댓글</th>
-                        <td> 0개</td>
+                        <td> 5개</td>
                     </tr>
                 </table>
         </div>
@@ -110,7 +112,108 @@
                 <span ><input id="commentWrite1" type="submit" value="등록" /></span>
             </form>        
         </div>
+        <div class="commentList">
+            <form action="#">
+                <table>
+                    <tr>
+                        <th style="width:400px;" align="left" >치즈</th>
+                        <th >2019.3.20</th>
+                        <th id="commenttd">
+                            <input id="like" type="submit" value="♡"/> 
+                            <a href="">신고하기</a>
+                            <a href="">수정</a>	
+                            <a href="javascript:aaa();">삭제</a>	
+                        </th>
+                        
+                    </tr>
+                    <tr>
+                        <td colspan="3">잘 보고갑니다~</td>
+                    </tr>
+                    <tr>
+                        <th style="width:400px;">박지현</th>
+                        <th >2019.3.20</th>
+                        <th id="commenttd">
+                            <input id="like" type="submit" value="♡"/> 
+                            <a href="">신고하기</a>
+                            <a href="">수정</a>	
+                            <a href="javascript:aaa();">삭제</a>	
+                        </th>
+                        
+                    </tr>
+            
+                    <tr>
+                        <td colspan="3">군침(츄릅)</td>
+                    </tr>
+                    <tr>
+                        <th style="width:400px;" >이후승</th>
+                        <th >2019.3.19</th>
+                        <th id="commenttd">
+                            <input id="like" type="submit" value="♡"/> 
+                            <a href="">신고하기</a>
+                            <a href="">수정</a>	
+                            <a href="javascript:aaa();">삭제</a>	
+                        </th>
+                        
+                    </tr>
+                    <tr>
+                        <td colspan="3">어딘가요?</td>
+                    </tr>
+                    <tr>
+                        <th style="width:400px;">오이슬</th>
+                        <th>2019.3.19</th>
+                        <th id="commenttd">
+                            <input id="like" type="submit" value="♡"/> 
+                            <a href="">신고하기</a>
+                            <a href="">수정</a>	
+                            <a href="javascript:aaa();">삭제</a>	
+                        </th>
+                        <script>
+                            function aaa() {
+                                var result = confirm("삭제??");
+                                if (result) {
+                                    alert("삭제진행해야함...");
+                                }
+                            }
+                        </script>
+                                
+                    </tr>
+                    <tr>
+                        <td colspan="3">맛있어보입니다!!!!</td>
+                    </tr>
+                    <tr>
+                        <th style="width:400px;" >박지수</th>
+                        <th >2019.3.18</th>
+                        <th id="commenttd">
+                            <input id="like" type="submit" value="♡"/> 
+                            <a href="">신고하기</a>
+                            <a href="">수정</a>	
+                            <a href="javascript:aaa();">삭제</a>	
+                        </th>
+                        
+                    </tr>
+                    <tr>
+                        <td colspan="3">좋아요~</td>
+                    </tr>
+                 </table>
+                 <br>
+                </form>
         </div> 
+    </div>    
+    
+    <div class="page">
+        <div class="prev"><a href="#">이전</a></div>
+        <div><a href="#">1</a></div>
+        <div><a href="#">2</a></div>
+        <div><a href="#">3</a></div>
+        <div><a href="#">4</a></div>
+        <div><a href="#">5</a></div>
+        <div><a href="#">6</a></div>
+        <div><a href="#">7</a></div>
+        <div><a href="#">8</a></div>
+        <div><a href="#">9</a></div>
+        <div><a href="#">10</a></div>
+        <div class="next"><a href="#">다음</a></div>
+    </div>
     <div id="footer"></div>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
     <script type="text/javascript">   

@@ -69,7 +69,7 @@
                 <tr>
                     <td style="width:8%">${list.boardNo}</td>
                     <td style="width:10%">${list.reviewCategoryNo }</td>
-                    <td style="width:40%"><a id="titleLink" href="detail.do?no="+${list.boardNo}>${list.title}</a></td>
+                    <td style="width:40%"><a id="titleLink" href='detail.do?no=${list.boardNo}'>${list.title}</a></td>
                     <td style="width:10%">${list.name}</td>
                     <td style="width:15%"><fmt:formatDate value="${list.writeDate}" pattern="yyyy.MM.dd"/> </td>
                     <td>${list.viewCnt}</td>

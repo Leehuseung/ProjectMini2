@@ -24,7 +24,6 @@ public class ListController extends HttpServlet{
 	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		
 		request.setAttribute("lists", mapper.selectListReview(new ReviewVO()));
-		System.out.println(mapper.selectListReview(new ReviewVO()));
 		request.getRequestDispatcher("listAll.jsp").forward(request, response);
 		
 	}

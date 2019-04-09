@@ -75,7 +75,7 @@
             <!-- 버튼 -->
         <div class="buttonList" >
             <span class="list1">
-                <button id="list1"><a href="detail.do">목록보기</a></button>
+                <button id="list1"><a href="list.do">목록보기</a></button>
             </span>
             <span class="modify">
                 <button id="modify"><a href="mytrip_modify.html">수정</a></button>

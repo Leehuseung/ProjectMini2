@@ -11,6 +11,7 @@
 		<typeAlias alias="member" type="kr.co.org.jejutour.repository.vo.MemberVO" />
 		<typeAlias alias="review" type="kr.co.org.jejutour.repository.vo.ReviewVO" />
 		<typeAlias alias="tourist" type="kr.co.org.jejutour.repository.vo.TouristVO" />
+		<typeAlias alias="touristPage" type="kr.co.org.jejutour.repository.vo.TouristPageVO" />
 		<typeAlias alias="accInfo" type="kr.co.org.jejutour.repository.vo.AccInfoVO" />
 	</typeAliases>
 	
@@ -30,7 +31,7 @@
 		<mapper resource="config/mapper/member.xml"/>
 		<mapper resource="config/mapper/review.xml"/>
 		<mapper resource="config/mapper/tourist.xml"/>
-		<mapper resource="config/mapper/accomodation.xml"/>
+
 	</mappers>
 </configuration>
 
