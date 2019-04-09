@@ -114,7 +114,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
 $(document).ready( function() { 
-$("#headers").load("../header.html");  // 원하는 파일 경로를 삽입하면 된다
+$("#headers").load("../header.jsp");  // 원하는 파일 경로를 삽입하면 된다
 $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
 }); 
 
@@ -185,10 +185,12 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
                 </div>
             </div>
                 <div>
-             
-                    	<div id=filediv><input type="file" name="attach"/></div>
+                    	<span id=filediv><input type="file" name = "attach1"/></span>
+                    	<span id=filediv><input type="file" name = "attach2"/></span>
+                    	<span id=filediv><input type="file" name = "attach3"/></span>
+                    	<span id=filediv><input type="file" name = "attach4"/></span>
                 	</form>
-                    <button type="submit" onclick="location.href='food_main.html'">글등록</button>
+                    <button type="submit">글등록</button>
                 </div>
         </div>
         </form>

@@ -30,12 +30,24 @@
 	   where board_no= #{boardNo}
 	</select>
 	<insert id="insertFile" parameterType="restrauntFile">
-		insert into tb_board_file (
+		insert into tb_restraunt_file (
 			board_no, file_no, name, path
 		) values (
-			2, s_file_no.nextval, #{name}, #{path}		
+		   s_restraunt_board_no.nextval, s_restraunt_file_no.nextval, #{name}, #{path}		
 		)
 	</insert> 	 
+	<insert id="insertFileNoneSe" parameterType="restrauntFile">
+		insert into tb_restraunt_file (
+			board_no, file_no, name, path
+		) values (
+		   #{boardNo}, s_restraunt_file_no.nextval, #{name}, #{path}		
+		)
+	</insert> 	 
+	<select id="selectFileByNo" parameterType="String" resultType="int">
+		select board_no
+		  from tb_restraunt_file
+		 where name=#{name}
+	</select>
 	
 	<!-- 사진경로 불러오기 -->
 	<select id="selectRestrauntFileByNo" parameterType="int" resultMap="restrauntFileMap">
@@ -53,10 +65,13 @@
 	
 	<!-- 글추가 -->
 	 <insert id="insertBoard" parameterType="restrauntBoard">
+		<selectKey keyProperty="boardNo" resultType="int" order="BEFORE">
+    		select s_restraunt_board_no.nextval from dual
+    	</selectKey>
 		insert into tb_restraunt_board(
 			member_no, board_no, name, intro, food_category, business_hours, amendity, location
 		) values (																																
-			#{memberNo}, s_board_no.nextval, 
+			#{memberNo}, s_restraunt_board_no.nextval, 
 			#{name}, #{intro}, 
 			#{foodCategory}, #{businessHours},
 			#{amendity},#{location}

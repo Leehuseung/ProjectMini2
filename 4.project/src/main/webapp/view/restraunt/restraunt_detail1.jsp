@@ -131,7 +131,7 @@
 <script type="text/javascript">   
 $(document).ready( function() { 
 
-$("#headers").load("../header.html");  // 원하는 파일 경로를 삽입하면 된다
+$("#headers").load("../header.jsp");  // 원하는 파일 경로를 삽입하면 된다
 $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
 }); 
 
