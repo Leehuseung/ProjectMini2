@@ -267,11 +267,12 @@ a > button {
     height: 61px;
 }
 
-.detail-icon > li > .iconDetail1, .iconDetail2, .iconDetail3, .iconDetail4 {
-    cursor: pointer;
+.detail-icon > li > .iconDetail4  > img{
+	cursor: pointer;
 }
 
 .detail-icon > li > div > a > img{
+    cursor: pointer;
     height:90%;
     width:40%;
 }

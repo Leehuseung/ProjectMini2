@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,10 +17,10 @@
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
 <script type="text/javascript">   
     $(document).ready( function() { 
-        $("#headers").load("../header.html");  // 원하는 파일 경로를 삽입하면 된다
         $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
     }); 
 </script>
+<jsp:include page="/view/header.jsp" />
 <body>
     <div id="headers"></div>
     <div class="body">
@@ -44,11 +46,11 @@
         <div class="wrapper">
             <div class="content-title">
                 <p class="content-tag">
-                    #자연
+                    ${tourist.tag}
                 </p>
-                성산일출봉
+                ${tourist.title}
                 <div class="go-list">
-                    <a href="tourist-main.html" >
+                    <a href="touristlist.do" >
                         <button>목록으로</button> 
                     </a>
                 </div>
@@ -57,94 +59,85 @@
                 <a class="button" id="prev"><</a>
                 <a class="button" id="next">></a>
                 <div class="slide" id="slide1">
-                    <img src="pic/tourist-img/detail01_slide1.JPG">
+                    <img src="../../resources/images/tourlist/detail01_slide1.jpg">
                 </div>
                 <div class="slide" id= "slide2">
-                    <img src="pic/tourist-img/detail01_slide2.JPG">
+                    <img src="../../resources/images/tourlist/detail01_slide2.jpg">
                 </div>
                 <div class="slide" id= "slide3">
-                    <img src="pic/tourist-img/detail01_slide3.JPG">
+                    <img src="../../resources/images/tourlist/detail01_slide3.jpg">
                 </div>
                 <div class="slide" id= "slide4">
-                    <img src="pic/tourist-img/detail01_slide4.JPG">
+                    <img src="../../resources/images/tourlist/detail01_slide3.jpg">
                 </div>
                 <div class="slide" id= "slide5">
-                    <img src="pic/tourist-img/detail01_slide5.JPG">
+                    <img src="../../resources/images/tourlist/detail01_slide5.jpg">
                 </div>
                 <div class="slide" id= "slide6">
-                    <img src="pic/tourist-img/detail01_slide6.JPG">
+                    <img src="../../resources/images/tourlist/detail01_slide6.jpg">
                 </div>
             </div>
             <ul class="detail-icon">
                 <li>
-                    <div class="iconDetail1"><a href="tourist-detail.html"><img src="pic/tourist-img/detail_info.png"></a></div>
+                    <div class="iconDetail1"><a href="tourist-detail.html"><img src="../../resources/images/tourlist/detail_info.png"></a></div>
                     <div>상세정보<br>&nbsp;</div>
                 </li>
                 <li>
-                    <div class="iconDetail2"><a href="tourist-detail-map.html"><img src="pic/tourist-img/map.png"></a></div>
+                    <div class="iconDetail2"><a href="tourist-detail-map.html"><img src="../../resources/images/tourlist/map.png"></a></div>
                     <div>지도<br>&nbsp;</div>
                 </li>
                 <li>
-                    <div class="iconDetail3"><a href="tourist-detail-review.html"><img src="pic/tourist-img/review.jpg"></a></div>
-                    <div>리뷰<br>7</div>
+                    <div class="iconDetail3"><a href="tourist-detail-review.html"><img src="../../resources/images/tourlist/review.jpg"></a></div>
+                    <div>리뷰<br>${tourist.reviewCnt}</div>
                 </li>
                 <li>
-                    <div class="iconDetail4"><img src="pic/tourist-img/like.jpg"></div>
-                    <div>좋아요<br>5</div>
+                    <div class="iconDetail4"><img src="../../resources/images/tourlist/like.jpg"></div>
+                    <div>좋아요<br>${tourist.likeCnt}</div>
                 </li>
                 <li>
-                    <div class="iconDetail5"><img src="pic/tourist-img/view.jpg"></div>
-                    <div>조회수<br>20</div>
+                    <div class="iconDetail5"><img src="../../resources/images/tourlist/view.jpg"></div>
+                    <div>조회수<br>${tourist.viewCnt}</div>
                 </li>
             </ul>
             <br>
             <div class="detail-title">
-                소개 : 성산일출봉
+                소개 : ${tourist.introduce}
                 <div class="pay">
-                    이용요금 : 유료,일반 : 2.000원 / 장애인 : 무료 (1-3급 동반 1인까지)
+                    이용요금 : ${tourist.fee}
                 </div>
             </div>
             <div class="location">
-                주소 : 서귀포시 성산읍 일출로 284-13 
+                주소 : ${tourist.address}
                 <div>
-                    주요 목적 : 산책로, 올레코스, 오름
+                    주요 목적 : ${tourist.purpose}
                 </div>
             </div>
             <div class="time">
-                이용시간 : 평일 (07:30 ~ 19:30) , 주말 (07:30 ~ 19:30)
+                이용시간 : 평일 ${tourist.weekday}, 주말 ${tourist.weekend}
             </div>
             <div class="phone-num">
-                연락처 : (+82) 064 783 0959
+                연락처 : ${tourist.contact}
                 <div class="update-date">
-                    최종 수정일 2017.06.27
+                    최종 수정일 <fmt:formatDate value="${tourist.writeDate}" pattern="yyyy년-MM월-dd일" />
                 </div>
             </div>
             <div class="up-del">
-                <a href="tourist-update.html" >
+                <a href="updateboardform.do?no=${tourist.boardNo}" >
                     <button>글수정</button>
                 </a>
-                <a href="tourist-main.html">
+                <a href="deleteboard.do">
                     <button>글삭제</button>
                 </a>
             </div>
             <div class="detail-info">
                 <p class="info-title">
-                    유네스코 세계자연유산이자 세계7대자연경관 대표 명소 <br>
-                    제주 10경 중에서도 으뜸 <br>
-                    정상에 올라 보는 일출과 일몰이 장관
+                    ${tourist.contentTitle}
                 </p>
                 <br>
                 <p class="info-content">
-                    유네스코 세계자연유산에 이어 세계7대자연경관 대표 명소로 선정된 제주 여행의 필수코스,
-                    성산일출봉! 누구나 방문하는 곳이지만 그렇다고 해서 빼 놓으면 섭섭하다.
-                    조금은 가파른 계단을 따라 정상까지 올라가면 숨이 턱 끝까지 차오르지만,
-                    이내 보이는 망망대해의 경관에 고단함이 씻은 듯이 사라진다.
-                    특히 일출봉이라는 이름답게 정상에서 보는 일출이 그야말로 기가 막히다는 사실! 
-                    예로부터 제주 10경 중 으뜸이라고 전해질 정도이니 가능하다면 이곳에서 하루를 시작하는 것도 좋을 것.
-                    참고로 바닷가 쪽으로도 내려갈 수도 있으니 바다를 조금 더 가까이 느끼고 싶다면 추천한다.
+                    ${tourist.content}
                     <br>
                     <br>
-                    성산리사무소 하차, 도보 5분 
                 </p>
             </div>
         </div>

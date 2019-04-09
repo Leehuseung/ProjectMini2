@@ -1,10 +1,26 @@
-테이블 생성 및 시퀀스 등등 적어주세요
+--테이블 생성 및 시퀀스 등등 적어주세요
 
 ---------------------------------------------------
 
+
+--시퀀스 삭제
+drop sequence s_tourist_board_no;
+
+drop sequence s_tourist_file_no;
+
+drop sequence s_tourist_comment_no;
+
+--테이블 삭제
+drop table tb_tourist_file;
+
+drop table tb_tourist_comment;
+
+drop table tb_tourist_board;
+
+
 --시퀀스생성 (자동으로 만들어진 SEQ 부분이 삭제후 다시만들때 충돌일으킬것! 유의하기)
 
-create sequence s_tourist_no;
+create sequence s_tourist_board_no;
 
 create sequence s_tourist_file_no;
 
@@ -13,19 +29,30 @@ create sequence s_tourist_comment_no;
 --시퀀스 확인
 select * from user_sequences; 
 
---시퀀스 삭제
-drop sequence s_tourist_no;
 
-drop sequence s_tourist_file_no;
 
-drop sequence s_tourist_comment_no;
+/* 테이블 복사 복사 
 
---테이블 삭제
-drop table tb_review_file;
+insert into tb_tourist_board(member_no, board_no, title, nomination, tag, simple_introduce, introduce,
+            fee, address, purpose, weekday, weekend, contact, content_title, content)
+select 1, s_tourist_board_no.nextval, 'title' || s_tourist_board_no.currval,
+       'nomination' || s_tourist_board_no.currval, 'tag' || s_tourist_board_no.currval,
+       'simpleIntroduce' || s_tourist_board_no.currval, 'introduce' || s_tourist_board_no.currval,
+       'fee' || s_tourist_board_no.currval, 'address' || s_tourist_board_no.currval,
+       'purpose' || s_tourist_board_no.currval, 'weekday' || s_tourist_board_no.currval,
+       'weekend' || s_tourist_board_no.currval, 'contact' || s_tourist_board_no.currval,
+       'contentTitle' || s_tourist_board_no.currval, 'content' || s_tourist_board_no.currval
+  from tb_tourist_board;
+  
+select count(*)
+  from tb_tourist_board;
+  
+select * from user_sequences; 
 
-drop table tb_review_comment;
+commit;
 
-drop table tb_review;
+ */
+
 
 ------------------------관광지 테이블 생성
 
@@ -38,17 +65,18 @@ CREATE TABLE tb_tourist_board
     nomination          VARCHAR2(100)     NOT NULL, 
     tag                 VARCHAR2(100)     NOT NULL, 
     simple_introduce    VARCHAR2(100)     NOT NULL, 
-    like_cnt            NUMBER(7)         NOT NULL, 
-    view_cnt            NUMBER(7)         NOT NULL, 
-    review_cnt          NUMBER(7)         NOT NULL, 
-    write_date          DATE              NOT NULL, 
+    like_cnt            NUMBER(7)         default 0, 
+    view_cnt            NUMBER(7)         default 0, 
+    review_cnt          NUMBER(7)         default 0, 
+    write_date          DATE              default sysdate, 
     introduce           VARCHAR2(100)     NOT NULL, 
     fee                 VARCHAR2(100)     NOT NULL, 
     address             VARCHAR2(100)     NOT NULL, 
     purpose             VARCHAR2(100)     NOT NULL, 
-    hours               VARCHAR2(100)     NOT NULL, 
+    weekday             VARCHAR2(100)     NOT NULL, 
+    weekend             VARCHAR2(100)     NOT NULL, 
     contact             VARCHAR2(100)     NOT NULL, 
-    update_date         DATE              NOT NULL, 
+    update_date         DATE              default sysdate, 
     content_title       VARCHAR2(900)     NOT NULL, 
     content             VARCHAR2(2000)    NOT NULL, 
     like_status         NUMBER(1)         NULL, 
@@ -123,7 +151,10 @@ COMMENT ON COLUMN tb_tourist_board.address IS '주소'
 COMMENT ON COLUMN tb_tourist_board.purpose IS '주요목적'
 /
 
-COMMENT ON COLUMN tb_tourist_board.hours IS '이용시간'
+COMMENT ON COLUMN tb_tourist_board.weekday IS '평일이용시간'
+/
+
+COMMENT ON COLUMN tb_tourist_board.weekend IS '주말이용시간'
 /
 
 COMMENT ON COLUMN tb_tourist_board.contact IS '연락처'
@@ -156,7 +187,7 @@ CREATE TABLE tb_tourist_comment
     comment_no    NUMBER(7)        NOT NULL, 
     name          VARCHAR2(20)     NULL, 
     content       VARCHAR2(500)    NULL, 
-    write_date    DATE             NULL, 
+    write_date    DATE             default sysdate, 
     rating        number(1)        NULL, 
     CONSTRAINT TB_TOURIST_COMMENT_PK PRIMARY KEY (comment_no)
 )
@@ -265,3 +296,6 @@ ALTER TABLE tb_tourist_file
     ADD CONSTRAINT FK_tb_tourist_file_board_no_tb FOREIGN KEY (board_no)
         REFERENCES tb_tourist_board (board_no) on delete cascade
 /
+commit;
+
+

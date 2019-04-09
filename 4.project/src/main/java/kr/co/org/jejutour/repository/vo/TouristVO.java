@@ -18,13 +18,27 @@ public class TouristVO {
 	private String fee;
 	private String address;
 	private String purpose;
-	private String hours;
+	private String weekday;
+	private String weekend;
 	private String contact;
 	private Date updateDate;
 	private String contentTitle;
 	private String content;
 	private int likeStatus;
 	
+	
+	public String getWeekday() {
+		return weekday;
+	}
+	public void setWeekday(String weekday) {
+		this.weekday = weekday;
+	}
+	public String getWeekend() {
+		return weekend;
+	}
+	public void setWeekend(String weekend) {
+		this.weekend = weekend;
+	}
 	public int getMemberNo() {
 		return memberNo;
 	}
@@ -108,12 +122,6 @@ public class TouristVO {
 	}
 	public void setPurpose(String purpose) {
 		this.purpose = purpose;
-	}
-	public String getHours() {
-		return hours;
-	}
-	public void setHours(String hours) {
-		this.hours = hours;
 	}
 	public String getContact() {
 		return contact;
