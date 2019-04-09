@@ -23,8 +23,8 @@ CREATE TABLE tb_review
     view_cnt              NUMBER(5)         default 0, 
     like_cnt              NUMBER(5)         default 0,
     content               VARCHAR2(3000)    NOT NULL, 
-    review_category_no    NUMBER(5)          NOT NULL, 
-    rating_category_no    NUMBER(5)       	NOT NULL, 
+    review_category_no    NUMBER(5)   		NOT NULL, 
+    rating_category_no    NUMBER(5)   		NOT NULL, 
     member_no             NUMBER(7)         NULL, 
     CONSTRAINT TB_REVIEW_PK PRIMARY KEY (board_no)
 )
@@ -242,3 +242,10 @@ drop table tb_review_file;
 drop table tb_review_comment;
 
 drop table tb_review;
+
+--시퀀스 삭제
+drop sequence s_review_no;
+
+drop sequence s_review_file_no;
+
+drop sequence s_review_comment_no;

@@ -1,6 +1,7 @@
 package kr.co.org.jejutour.review.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,11 +34,12 @@ public class WriteController extends HttpServlet{
 		
 		//jsp파일로 r이라는 reviewVO를 넘겨주는 거니까 jsp에는 vo에 정의되어 있는 변수명이랑 일치시켜야 함.
 		r.setRatingCategoryNo(request.getParameter("ratingCategory"));
+//		System.out.println(request.getParameter("reviewCategory"));
 		r.setReviewCategoryNo(request.getParameter("reviewCategory"));
 		r.setContent(request.getParameter("content"));
 		
 		mapper.insertReview(r);
-		response.sendRedirect("detail.do?no=" + r.getBoardNo());
+		response.sendRedirect("detail2.do?no=" + r.getBoardNo());
 
 		
 		

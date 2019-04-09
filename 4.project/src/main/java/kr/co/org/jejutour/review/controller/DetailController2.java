@@ -13,21 +13,22 @@ import kr.co.org.jejutour.db.MyAppSqlConfig;
 import kr.co.org.jejutour.repository.dao.ReviewMapper;
 import kr.co.org.jejutour.repository.vo.ReviewVO;
 
-@WebServlet("/view/review/detail.do")
-public class DetailController extends HttpServlet{
+@WebServlet("/view/review/detail2.do")
+public class DetailController2 extends HttpServlet{
 	private ReviewMapper mapper;
-	public DetailController() {
+	public DetailController2() {
 		mapper = MyAppSqlConfig.getSqlSession().getMapper(ReviewMapper.class);
 	}
 	
 	public void service(HttpServletRequest request, HttpServletResponse response)throws IOException, ServletException {
 
 		int no = Integer.parseInt(request.getParameter("no"));
+//		System.out.println( "no:" + Integer.parseInt(request.getParameter("no")));
 	//		System.out.println("detail1"+no);
-		mapper.updateViewCnt(no);
-		request.setAttribute("detail", mapper.detailReviewNo(no));
+		request.setAttribute("detail2", mapper.detailReviewNo(no));
+//				System.out.println(no);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("detail.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("detail2.jsp");
 		rd.forward(request, response);
 	}
 }
