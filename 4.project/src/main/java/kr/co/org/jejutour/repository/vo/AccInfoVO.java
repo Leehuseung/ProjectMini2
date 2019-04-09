@@ -10,7 +10,7 @@ public class AccInfoVO {
 	String ment;
 	String homepage;
 	String intro;
-	String memberNo;
+	int memberNo;
 	String mainFileName;
 	String mainFilePath;
 	String subFileName1;
@@ -61,10 +61,10 @@ public class AccInfoVO {
 	public void setIntro(String intro) {
 		this.intro = intro;
 	}
-	public String getMemberNo() {
+	public int getMemberNo() {
 		return memberNo;
 	}
-	public void setMemberNo(String memberNo) {
+	public void setMemberNo(int memberNo) {
 		this.memberNo = memberNo;
 	}
 	public String getMainFileName() {
