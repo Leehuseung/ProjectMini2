@@ -8,4 +8,6 @@ public interface MemberMapper {
 	public int selectEmail(String email);
 	public MemberVO selectLogin(MemberVO member);
 	public MemberVO selectInfo(String id);
+	public void updateInfo(MemberVO member);
+	public void deleteInfo(MemberVO member);
 }

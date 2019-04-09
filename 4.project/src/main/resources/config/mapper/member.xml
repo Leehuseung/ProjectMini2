@@ -51,20 +51,23 @@
 		 where id = #{id}
 	</select>
 	
+	<!-- 내 정보 비밀번호 변경 -->
+	<update id="updateInfo" parameterType="member">
+		update tb_member
+		   set pass = #{pass}
+		 where id = #{id}
+	</update>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="deleteInfo" parameterType="member">
+		delete 
+		  from tb_member
+		 where id = #{id}
+		   and pass = #{pass}
+	
+	</delete>
+	
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
