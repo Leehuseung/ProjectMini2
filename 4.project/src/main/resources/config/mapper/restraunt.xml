@@ -1,97 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.mlec.board.dao.BoardMapper">
-	<resultMap id="boardMap" type="board">
-		<result column="no" property="no" />
-		<result column="writer" property="writer" />
-		<result column="title" property="title" />
-		<result column="content" property="content" />
-		<result column="reg_date" property="regDate" />
+<mapper namespace="kr.co.org.jejutour.repository.dao.RestrauntMapper">
+	
+	<resultMap id="restrauntBoardMap" type="restrauntBoard">
+		<result column="member_no" property="memberNo"/>
+		<result column="board_no" property="boardNo"/>
+		<result column="name" property="name" />
+		<result column="intro" property="intro" />
+		<result column="like_cnt" property="likeCnt" />
 		<result column="view_cnt" property="viewCnt" />
+		<result column="food_category" property="foodCategory" />
+		<result column="business_hours" property="businessHours" />
+		<result column="amendity" property="amendity" />
+		<result column="like_status" property="likeStatus" />
+		<result column="location" property="location" />
 	</resultMap>
-
-	<select id="selectBoard" resultMap="boardMap">
-		select *
-		  from tb_board
-		 order by no desc
+	
+	<resultMap id="restrauntFileMap" type="restrauntFile">
+		<result column="member_no" property="memberNo"/>
+		<result column="board_no" property="boardNo"/>
+		<result column="name" property="name" />
+		<result column="path" property="path" />
+	</resultMap>
+	<!-- 게시글 선택 -->
+	<select id="selectRestrauntBoardByNo" parameterType="int" resultMap="restrauntBoardMap">
+	  select *
+		from tb_restraunt_board
+	   where board_no= #{boardNo}
+	</select>
+	<insert id="insertFile" parameterType="restrauntFile">
+		insert into tb_board_file (
+			board_no, file_no, name, path
+		) values (
+			2, s_file_no.nextval, #{name}, #{path}		
+		)
+	</insert> 	 
+	
+	<!-- 사진경로 불러오기 -->
+	<select id="selectRestrauntFileByNo" parameterType="int" resultMap="restrauntFileMap">
+	  select *
+		from tb_restraunt_file
+	   where board_no= #{boardNo}
 	</select>
 	
-	<!-- 게시글 상세 정보 가져오기 -->
-	<select id="selectBoardByNo" parameterType="int" resultMap="boardMap">
-		select *
-		  from tb_board
-		 where no = #{no}		
+	<!-- 지역값1 불러오기 -->
+	<select id="selectRestrauntLoacationByNo" parameterType="int" resultType="String">
+		select value_name
+		  from tb_code
+		 where groups=#{groups}
 	</select>
-
-	<!-- 게시글 등록하기 -->
-	<insert id="insertBoard" parameterType="board">
-		insert into tb_board(
-			no, writer, title, content
-		) values (
-			s_board_no.nextval, #{writer}, #{title}, #{content}
+	
+	<!-- 글추가 -->
+	 <insert id="insertBoard" parameterType="restrauntBoard">
+		insert into tb_restraunt_board(
+			member_no, board_no, name, intro, food_category, business_hours, amendity, location
+		) values (																																
+			#{memberNo}, s_board_no.nextval, 
+			#{name}, #{intro}, 
+			#{foodCategory}, #{businessHours},
+			#{amendity},#{location}
 		) 
 	</insert>
 	
-	<!-- 조회수 증가시키기 -->
-	<update id="updateViewCnt" parameterType="int">
-		update tb_board
-		   set view_cnt = view_cnt + 1
-		 where no = #{no}  
-	</update>
 	
-	<delete id="deleteBoard" parameterType="int">
-		delete 
-		  from tb_board
-		 where no = #{no} 
-	</delete>
 	
-	<update id="updateBoard" parameterType="board">
-		update tb_board
-		   set title = #{title},		
-		       content = #{content}		
-		 where no = #{no} 
-	</update>	
-	
-	<!-- 댓글 파트 시작 ============================= -->	
-	<resultMap id="commentMap" type="comment">
-		<result column="comment_no" property="commentNo" />
-		<result column="no" property="no" />
-		<result column="writer" property="writer" />
-		<result column="content" property="content" />
-		<result column="reg_date" property="regDate" />
-	</resultMap>
-	
-	<!-- 댓글 목록 -->
-	<select id="selectCommentsByNo" parameterType="int" resultMap="commentMap">
-	    select *
-	      from tb_comment
-	     where no = #{no}
-	     order by comment_no 
-	</select>	
-	
-	<!--  댓글 등록  -->
-	<insert id="insertComment" parameterType="comment">
-		insert into tb_comment(
-			comment_no, no, writer, content
-		) values (
-			s_comment_no.nextVal, #{no}, #{writer}, #{content}
-		)
-	</insert>
-	
-	<!--  댓글 삭제  -->
-	<delete id="deleteComment" parameterType="int">
-	    delete 
-	      from tb_comment
-	     where comment_no = #{commentNo}
-	</delete>
-	
-	<!--  댓글 수정  -->
-	<update id="updateComment" parameterType="comment">
-	    update tb_comment
-	       set content = #{content}
-	     where comment_no = #{commentNo}
-	</update> 	
+
 </mapper>
 
 
