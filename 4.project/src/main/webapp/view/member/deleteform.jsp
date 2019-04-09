@@ -29,6 +29,11 @@
 		margin-left : 55px;		
 		font-size : 18px;
 	}
+	
+	input:focus {
+    	outline: none;
+	}
+	
 	#pass {
 		line-height : 80px;
 	}

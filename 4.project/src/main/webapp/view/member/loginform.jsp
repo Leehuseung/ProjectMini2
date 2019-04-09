@@ -22,7 +22,7 @@
             <input type="password" placeholder="password" id="pass" name="password">
             <br>
             <br>
-            <div><a href="findID.jsp">아이디찾기</a>&nbsp;|
+            <div><a href="/jeju/view/member/findIdform.do">아이디찾기</a>&nbsp;|
             <a href="findPassword.jsp">비밀번호찾기</a></div>           
             <input type="button" id="log" name="log" value="Login">
             <input type="button" id="signup" name="signup" value="Sign Up">

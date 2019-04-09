@@ -27,7 +27,7 @@
 				아이디 또는 <br>비밀번호를 잘못 입력하셨습니다.
 			</div>
 			<br>
-            <div id="find"><a href="main_findID.html">아이디찾기</a>&nbsp;|
+            <div id="find"><a href="/jeju/view/member/findIdform.do">아이디찾기</a>&nbsp;|
             <a href="main_findPassword.html">비밀번호찾기</a></div>           
             <input type="button" id="log" name="log" value="Login">
             <input type="button" id="signup" name="signup" value="Sign Up">

@@ -58,13 +58,20 @@
 		 where id = #{id}
 	</update>
 	
+	<!-- 아이디 찾기 이메일 발송 -->
+	<select id="findId" parameterType="member" resultType="String">
+		select id
+		  from tb_member
+		 where name = #{name}
+		   and email = #{email}
+	</select>
+	
 	<!-- 회원탈퇴 -->
 	<delete id="deleteInfo" parameterType="member">
 		delete 
 		  from tb_member
 		 where id = #{id}
-		   and pass = #{pass}
-	
+		   and pass = #{pass}	
 	</delete>
 	
 </mapper>

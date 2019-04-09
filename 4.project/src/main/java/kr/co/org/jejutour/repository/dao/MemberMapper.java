@@ -10,4 +10,6 @@ public interface MemberMapper {
 	public MemberVO selectInfo(String id);
 	public void updateInfo(MemberVO member);
 	public void deleteInfo(MemberVO member);
+	public String findId(MemberVO member);
+	
 }

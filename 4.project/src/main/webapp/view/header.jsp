@@ -31,7 +31,7 @@
     <div class="search">
             <ul class="menu">
                 <li><a href="/jeju/view/member/main.do" class="is-current" >Home</a></li>
-                <li><a href="tourist-main.html" >관광지</a></li>
+                <li><a href="/jeju/view/tourist/tourist-main.do" >관광지</a></li>
                 <li><a href="food_main.html" >맛집</a></li>
                 <li><a href="accomo_main.html" >숙소</a></li>
                 <li><a href="mytrip_listAll.html" >나의여행</a></li>
