@@ -3,14 +3,13 @@
 ---------------------------------------------------
 CREATE TABLE tb_code
 (
-    no             NUMBER(30)      NOT NULL, 
-    groups          NUMBER(30)      NOT NULL, 
-    value          NUMBER(30)      NOT NULL, 
-    value_name     VARCHAR2(30)    NOT NULL, 
-    detail         NUMBER(30)      NULL, 
-    detail_name    VARCHAR2(30)    NULL, 
+    no           NUMBER(30)       NOT NULL, 
+    id           NUMBER(30)       NOT NULL, 
+    name         VARCHAR2(300)    NOT NULL, 
+    parent_id    NUMBER(30)       NOT NULL, 
     CONSTRAINT TB_CODE_PK PRIMARY KEY (no)
 )
+
 /
 
 CREATE SEQUENCE s_code_no
@@ -19,26 +18,45 @@ INCREMENT BY 1;
 /
 
 
+--DROP TRIGGER tb_code_AI_TRG;
+/
+
+--DROP SEQUENCE tb_code_SEQ;
+/
 
 COMMENT ON TABLE tb_code IS '공유코드(지역,숙박타입)'
 /
 
-COMMENT ON COLUMN tb_code.no IS '번호'
+COMMENT ON COLUMN tb_code.no IS '고유번호'
 /
 
-COMMENT ON COLUMN tb_code.groups IS '그룹'
+COMMENT ON COLUMN tb_code.id IS '아이디'
 /
 
-COMMENT ON COLUMN tb_code.value IS '값'
+COMMENT ON COLUMN tb_code.name IS '이름'
 /
 
-COMMENT ON COLUMN tb_code.value_name IS '값_이름'
+COMMENT ON COLUMN tb_code.parent_id IS '부모아이디'
 /
 
-COMMENT ON COLUMN tb_code.detail IS '상세'
-/
+------------------------------------------------------------------------------
+insert into tb_code(no,id,name,parent_id) values(s_code_no.nextval,1,'제주시',0);
 
-COMMENT ON COLUMN tb_code.detail_name IS '상세_이름'
+insert into tb_code(no,id,name,parent_id) values(s_code_no.nextval,2,'서귀포시',0);
+
+insert into tb_code(no,id,name,parent_id) values(s_code_no.nextval,3,'애월읍',1);
+
+insert into tb_code(no,id,name,parent_id) values(s_code_no.nextval,4,'한림읍',1);
+
+insert into tb_code(no,id,name,parent_id) values(s_code_no.nextval,6,'우도',1);
+
+insert into tb_code(no,id,name,parent_id) values(s_code_no.nextval,7,'성산읍',2);
+
+insert into tb_code(no,id,name,parent_id) values(s_code_no.nextval,8,'남원읍',2);
+
+
+   
+
 
 -----------------------------------------------------------------------
 

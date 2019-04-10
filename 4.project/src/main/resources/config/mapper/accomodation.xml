@@ -23,11 +23,11 @@
 	
 	
 	
-	<resultMap id="codewMap" type="code">
+	<resultMap id="codeMap" type="code">
 	<result column="no" property="no" />
 	<result column="id" property="id" />
 	<result column="name" property="name" />
-	<result column="parent_id" property="parentID" />
+	<result column="parent_id" property="parentId" />
 	</resultMap>
 
 	<insert id="insertAccInfo" parameterType="accInfo">
@@ -40,11 +40,11 @@
 		) 
 	</insert>
 	
-	<select id="selectCodeTown" parameterType="int" resultMap="code">
+	<select id="selectCodeTown" parameterType="int" resultMap="codeMap">
 	
 	select * 
 	from tb_code
-	where parent_id =${parentId}
+	where parent_id =#{parentId}
 	
 	
 	</select>

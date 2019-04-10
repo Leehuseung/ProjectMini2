@@ -66,12 +66,8 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
                     <option value="2">서귀포시</option>
                    
                 </select>
-                <select name="town" id="area2" id="selectTowns">
-                    <option value="3">애월읍</option>
-                    <option value="4">한림읍</option>
-                    <option value="5">우도면</option>
-                    <option value="6">성산읍</option>
-                    <option value="7">남원읍</option>
+                <select name="town" id="selectTowns">
+                  <option value="0">선택</option>
                 </select>
                <input id="leftAddress" type:"text" name="address">
               
@@ -118,13 +114,13 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
   </div>
       <div class="text">
         <div> 
-            <textarea name="intro" rows="20" cols="70" placeholder="숙소에 대해 소개해주세요"></textarea>
+            <textarea id="intro" name="intro" rows="20" cols="70" placeholder="숙소에 대해 소개해주세요"></textarea>
         </div>
       </div>
         <div class="pic_info"> 
             <div class="pic_title">
                     <div>사진첩</div>
-                    <div class="select_pic" id="select_pic2"><input type="file" id="pic_info_attach1"  name="album" />
+                    <div class="select_pic" id="select_pic2"><input multiple="multiple" type="file" id="pic_info_attach1"  name="album" />
                         <label for ="pic_info_attach1" class="class_info_attach">내 PC</label></div>
                 </div>
             <div class="pic_detail">
@@ -250,11 +246,28 @@ var hotelName = $('#hotelName').val();
 		return false;
 	}//if	
 	
-	  });//complete button
+	  
+  // 숙소 입력확인-------------------------
   
+  var intro = $('#intro').val();
+	
+	if(intro ==""){
+		alert("숙소  소개를 입력해 주세요")
+	
+		  $("#intro").attr("tabindex",-1).focus();
+		return false;
+	}//if	
+	
+	
+	
+  
+	  });//complete button
+	  
   });//document
   
+  
   // 이미지 미리보기-------------------------
+
   $(function(){
 	 $("#myPC").change(function(e){
 		  if(this.files && this.files[0]){
@@ -271,6 +284,7 @@ var hotelName = $('#hotelName').val();
 		  	
 	 }); //2번째  function
   });//first function
+  //--삭제 버튼 클릭시 이미지 삭제--------------------------------------------
   //$(document).ready(function(){
   $('.head_Del a').click(function(){
 	  $('#mainFile').html('<input id="myPC" type="file" name="mainPic" /><label for ="myPC" class="box1_myPC_label">내 PC</label>');
@@ -281,23 +295,65 @@ var hotelName = $('#hotelName').val();
 	//});
   });
   
+  
+ //--서브 1 이미지 처리------------------------------------------------------------- 
+   $(function(){
+	 $("#myPC_S1").change(function(e){
+		  if(this.files && this.files[0]){
+			  console.dir(this.files[0]);
+			  var reader = new FileReader();
+			  reader.onload = function(e){
+				 $('.head_pic > .box2').css('background','url("' + e.target.result + '")'); 
+			  }//onload
+			  reader.readAsDataURL(this.files[0]);
+		  }//if
+			//---------------------- 사진이름추가요
+		  var fileName = e.target.files[0].name;  
+		  $('#mainFileName').html("파일명: " + fileName);
+		  	
+	 }); //2번째  function
+  });//first function
+  //--삭제 버튼 클릭시 이미지 삭제--------------------------------------------
+  //$(document).ready(function(){
+  $('.head_Del a').click(function(){
+	  $('#mainFile').html('<input id="myPC" type="file" name="mainPic" /><label for ="myPC" class="box1_myPC_label">내 PC</label>');
+	  $('.head_pic > .box2').css('background',''); 
+	  $('#mainFileName').html('파일명:');
+	  
+	  //post code
+	//});
+  });
+ //---서브 1 이미지 끝---------------------------------------------------- 
+  
+  
 //--select options---------------------
 
-$.ajax({
-			url: "writeForm.do", 
+ $("#selectCities").change(function(e){
+
+
+	 $.ajax({
+	
+			url: "ajax.do", 
+			dataType: "json",
 			data: "city=" +  $("#selectCities").val(),
 			success: function (list) {
+				console.log(list);
+				var option ="";
 				for(let board of list){
-				option +=	`<option value=${board.id}>${board.name}</option>`
-				$("#selectTowns").append(option);
-			
+				option += "<option value='" + board.id + "'>" + board.name + "</option>";
+				console.log(board.name);
 				}//for	
+				$("#selectTowns").html(option);
+				alert("시 선택 성공");
+				
 			}//function
 			
 			});
 
-
+ });
   
+  
+
   </script> 
   
 
