@@ -47,25 +47,26 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
                 <div class=box1>
                         <span>메인사진 첨부하기</span>
                         <span id="box1_myPC">
-                        <input id="myPC" type="file" name="mainPic" />
-                        <label for ="myPC" class="box1_myPC_label">내 PC</label>
-                    </span>
+	                      	<input id="myPC" type="file" name="mainPic" />
+	                        <label for ="myPC" class="box1_myPC_label">내 PC</label>
+	                    	</span>
                 </div>
                 <div class = box2></div>
                 <div class = box3 >
-                        <span>파일명:  oceansweet.jpg </span>
+                        <span id="mainFileName">파일명:   </span>
                         <span class="head_Del"><a href="#">삭제</a></span>
                         </div>
           </div>
           <div class="head_info">
               <div class="box1">숙박 정보입력란</div>
               <div class="box2">주소:
-                <select name="group">
+                <select name="city" id="selectCities">
+                    <option value="0">선택</option>
                     <option value="1">제주시</option>
                     <option value="2">서귀포시</option>
                    
                 </select>
-                <select name="g" id="area2">
+                <select name="town" id="area2" id="selectTowns">
                     <option value="3">애월읍</option>
                     <option value="4">한림읍</option>
                     <option value="5">우도면</option>
@@ -73,6 +74,7 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
                     <option value="7">남원읍</option>
                 </select>
                <input id="leftAddress" type:"text" name="address">
+              
               </div>
               <div class="box3" >연락처: <input id="phoneNumber" type:"text" name="contact"></div>
               <div class="box4" >홈페이지: <input id="website" type:"text" name="homepage"></div>
@@ -251,6 +253,50 @@ var hotelName = $('#hotelName').val();
 	  });//complete button
   
   });//document
+  
+  // 이미지 미리보기-------------------------
+  $(function(){
+	 $("#myPC").change(function(e){
+		  if(this.files && this.files[0]){
+			  console.dir(this.files[0]);
+			  var reader = new FileReader();
+			  reader.onload = function(e){
+				 $('.head_pic > .box2').css('background','url("' + e.target.result + '")'); 
+			  }//onload
+			  reader.readAsDataURL(this.files[0]);
+		  }//if
+			//---------------------- 사진이름추가요
+		  var fileName = e.target.files[0].name;  
+		  $('#mainFileName').html("파일명: " + fileName);
+		  	
+	 }); //2번째  function
+  });//first function
+  //$(document).ready(function(){
+  $('.head_Del a').click(function(){
+	  $('#mainFile').html('<input id="myPC" type="file" name="mainPic" /><label for ="myPC" class="box1_myPC_label">내 PC</label>');
+	  $('.head_pic > .box2').css('background',''); 
+	  $('#mainFileName').html('파일명:');
+	  
+	  //post code
+	//});
+  });
+  
+//--select options---------------------
+
+$.ajax({
+			url: "writeForm.do", 
+			data: "city=" +  $("#selectCities").val(),
+			success: function (list) {
+				for(let board of list){
+				option +=	`<option value=${board.id}>${board.name}</option>`
+				$("#selectTowns").append(option);
+			
+				}//for	
+			}//function
+			
+			});
+
+
   
   </script> 
   

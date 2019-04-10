@@ -40,7 +40,8 @@
 	
 	<!-- 등록 후 상세보기 -->
 	<select id="detailReviewNo" parameterType="int" resultMap="reviewMap">
-		select a.view_cnt, 
+		select a.view_cnt,
+				a.board_no,
 				(select name from tb_category where code_no = review_category_no) as review_category_no, 
 				(select name from tb_category where code_no = rating_category_no) as rating_category_no,
 				a.title, 
@@ -85,6 +86,36 @@
 		   and title=#{title}
 		   and content=#{content}
 		   and rating_category_no = #{ratingCategoryNo}
+	</select>
+	
+	
+	<!--댓글 -->
+	<resultMap id="commentMap" type="rcomment" >
+		<result column="comment_no" property="commentNo"/>
+		<result column="board_no" property="boardNo"/>
+		<result column="report_cnt" property="reportCnt"/>
+		<result column="like_cnt" property="likeCnt"/>
+		<result column="content" property="content"/>
+		<result column="write_date" property="writeDate"/>
+		<result column="member_no" property="memberNo" />
+	</resultMap>
+	
+	<!-- 댓글 등록 -->
+	<insert id="insertComment" parameterType="rcomment">
+		insert into tb_review_comment(comment_no, board_no,content, member_no)
+		values(s_review_comment_no.nextval,#{boardNo},#{content}, #{memberNo})
+	</insert>  
+	
+	<!-- 댓글 조회 -->
+	<select id="selectListCommentByNo" parameterType="int" resultMap="commentMap">
+		select a.write_date, 
+			   b.name,
+			   a.content
+		  from tb_review_comment a
+		 inner join tb_member b
+		    on a.member_no = b.member_no
+		 where a.board_no = #{boardNo}
+		 order by comment_no desc
 	</select>
 </mapper>
 

@@ -36,6 +36,28 @@
 		   s_restraunt_board_no.nextval, s_restraunt_file_no.nextval, #{name}, #{path}		
 		)
 	</insert> 	 
+	
+ 	<select id="selectRestrauntBoard" resultMap="restrauntBoardMap">
+		select *
+		  from tb_Restraunt_board
+		 order by board_no
+	</select> 
+
+ 	<select id="selectRestrauntFile" resultMap="restrauntFileMap">
+		select *
+		  from tb_Restraunt_file
+		   order by board_no
+	</select> 
+<!--  	<select id="selectRestrauntBoard" resultMap="restrauntBoardMap">
+		select *
+ 		  from (select rownum rnum, a.*
+         		  from (select *
+                 		  from tb_restruant_board
+                 	   ) a
+        		)
+		 where rnum between #{begin} and #{end}
+	</select>
+	-->
 	<insert id="insertFileNoneSe" parameterType="restrauntFile">
 		insert into tb_restraunt_file (
 			board_no, file_no, name, path
@@ -50,8 +72,14 @@
 	</select>
 	
 	<!-- 사진경로 불러오기 -->
-	<select id="selectRestrauntFileByNo" parameterType="int" resultMap="restrauntFileMap">
+<!-- 	<select id="selectRestrauntFileByNo" parameterType="int" resultMap="restrauntFileMap">
 	  select *
+		from tb_restraunt_file
+	   where board_no= #{boardNo}
+	</select> -->
+	
+	<select id="selectRestrauntFileByNo" parameterType="int" resultType="String">
+	  select path
 		from tb_restraunt_file
 	   where board_no= #{boardNo}
 	</select>

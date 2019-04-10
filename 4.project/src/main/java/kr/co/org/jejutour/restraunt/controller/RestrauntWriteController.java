@@ -73,7 +73,7 @@ public class RestrauntWriteController extends HttpServlet{
 		    	if (FileName != null & i == 0) {
 //					File f = mRequest.getFile(formName);
 					RestrauntFileVO fileVO = new RestrauntFileVO();
-					fileVO.setPath(path+"/"+FileName);
+					fileVO.setPath("/jeju/resources/images/restraunt/"+FileName);
 					fileVO.setName(FileName);
 					mapper.insertFile(fileVO);
 					

@@ -8,10 +8,13 @@ import kr.co.org.jejutour.repository.vo.RestrauntFileVO;
 public interface RestrauntMapper {
 		 
 	public RestrauntBoardVO selectRestrauntBoardByNo(int no);
-	public List<RestrauntFileVO> selectRestrauntFileByNo(int no);
+	public List<String> selectRestrauntFileByNo(int no);
 	public List<String> selectRestrauntLoacationByNo(int no);
 	void insertFile(RestrauntFileVO file);
 	void insertFileNoneSe(RestrauntFileVO file);
 	public void insertBoard(RestrauntBoardVO board);
 	public int selectFileByNo(String name);
+	public List<RestrauntBoardVO> selectRestrauntBoard();
+	public List<RestrauntFileVO> selectRestrauntFile();
+	
 }

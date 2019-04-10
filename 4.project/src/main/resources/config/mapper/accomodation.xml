@@ -17,21 +17,37 @@
 		<result column="sub_file_path1" property="subFilePath1" />
 		<result column="sub_file_name2" property="subFileName2" />
 		<result column="sub_file_path2" property="subFilePath2" />
+		<result column="city" property="city" />
+		<result column="town" property="town" />
 	</resultMap>
-
 	
 	
+	
+	<resultMap id="codewMap" type="code">
+	<result column="no" property="no" />
+	<result column="id" property="id" />
+	<result column="name" property="name" />
+	<result column="parent_id" property="parentID" />
+	</resultMap>
 
 	<insert id="insertAccInfo" parameterType="accInfo">
 		insert into tb_acc_info(
 			acc_no, name, address, contact, ment, homepage, intro, member_no,main_file_name,
-			main_file_path,sub_file_name1,sub_file_path1,sub_file_name2, sub_file_path2
+			main_file_path,sub_file_name1,sub_file_path1,sub_file_name2, sub_file_path2,city,town
 		) values (
 			s_acc_no.nextval, #{name}, #{address}, #{contact},#{ment},#{homepage},#{intro},#{memberNo},#{mainFileName}
-			,#{mainFilePath},#{subFileName1},#{subFilePath1},#{subFileName2},#{subFilePath2}
+			,#{mainFilePath},#{subFileName1},#{subFilePath1},#{subFileName2},#{subFilePath2},#{city},#{town}
 		) 
 	</insert>
 	
+	<select id="selectCodeTown" parameterType="int" resultMap="code">
+	
+	select * 
+	from tb_code
+	where parent_id =${parentId}
+	
+	
+	</select>
 
 </mapper>
 
