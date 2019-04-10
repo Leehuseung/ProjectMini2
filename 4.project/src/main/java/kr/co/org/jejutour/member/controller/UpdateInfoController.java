@@ -27,6 +27,8 @@ public class UpdateInfoController extends HttpServlet {
 			throws IOException, ServletException {
 		HttpSession session = request.getSession();
 		MemberVO user = (MemberVO)session.getAttribute("user");		
+		String salt = SHA256Util.generateSalt();
+		
 		
 		if(user.getId() != null) {
 			String pass1 = request.getParameter("pass1");
@@ -36,8 +38,10 @@ public class UpdateInfoController extends HttpServlet {
 		
 			MemberVO member = new MemberVO();
 			if(pass1.equals(pass2)) {
+				String newPassword = SHA256Util.getEncrypt(request.getParameter("pass1"), salt);
 				member.setId(user.getId());
-				member.setPass(pass1);
+				member.setPass(newPassword);
+				member.setSalt(salt);
 				out.println(1);
 			} else {
 				out.println(0);

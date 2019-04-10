@@ -10,7 +10,14 @@ public class MemberVO {
 	private Date joinDate;
 	private String name;
 	private int reportCnt;
+	private String salt;
 	
+	public String getSalt() {
+		return salt;
+	}
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
 	public int getMemberNo() {
 		return memberNo;
 	}

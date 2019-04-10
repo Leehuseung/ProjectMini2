@@ -29,9 +29,12 @@ public class SignUpController extends HttpServlet {
 		
 		member.setName(request.getParameter("name"));	
 		
-		
+		String salt = SHA256Util.generateSalt();
+		 
 		if(request.getParameter("pass1").equals(request.getParameter("pass2"))) {
-				member.setPass(request.getParameter("pass1"));
+		String newPassword = SHA256Util.getEncrypt(request.getParameter("pass1"), salt);
+				member.setPass(newPassword);
+				member.setSalt(salt);
 		}
 
 		member.setEmail(request.getParameter("email"));	

@@ -18,6 +18,9 @@ public interface MemberMapper {
 	// 로그인
 	public MemberVO selectLogin(MemberVO member);
 	
+	// 암호화된 비밀번호 찾기
+	public String selectSaltById(String id);
+	
 	// 내 정보
 	public MemberVO selectInfo(String id);
 	
@@ -30,6 +33,9 @@ public interface MemberMapper {
 	// 아이디 찾기
 	public String findId(MemberVO member);
 	
+	// 비밀번호 찾기
+	public void findPass(MemberVO member);
+	
 	// 회원강퇴
 	public void memberBan(String no);
 	
@@ -38,5 +44,6 @@ public interface MemberMapper {
 	
 	// 회원 전체목록 페이징번호
 	public int selectMemberListCount();
+	
 	
 }

@@ -56,6 +56,7 @@
 		width:50px; height : 30px;
 		background : orange;
 		color : white;
+		cursor:pointer;
 	}
 	
 </style>
