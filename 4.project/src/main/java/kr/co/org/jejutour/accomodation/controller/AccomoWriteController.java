@@ -70,6 +70,9 @@ public class AccomoWriteController extends HttpServlet{
 		board.setTown("남원읍");
 	}
 	
+	String memberNo = mRequest.getParameter("memberNo");
+	System.out.println(memberNo);
+	
 	String address = mRequest.getParameter("address");
 	System.out.println("address: " + address);
 	board.setAddress(address);//

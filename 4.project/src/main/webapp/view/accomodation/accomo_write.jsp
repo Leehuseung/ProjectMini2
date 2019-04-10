@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    
 <!DOCTYPE html>
 
 
@@ -40,7 +44,7 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
 
 <div id="headers"></div>
   
-   <form name="mForm" action="write.do" method="post" enctype="multipart/form-data" onsubmit = "retu">
+   <form name="mForm" action="write.do?memberNo=1" method="post" enctype="multipart/form-data" onsubmit = "retu">
    <div class="info_body">
       <div class="head_pic_info">
           <div class="head_pic">

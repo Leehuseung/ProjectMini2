@@ -9,5 +9,5 @@ public interface AccomodationMapper {
 
 	public void insertAccInfo(AccInfoVO board);
 	public List<CodeVO> selectCodeTown(int parent_id);
-	
+	public AccInfoVO selectAccInfo(int accNo);
 }

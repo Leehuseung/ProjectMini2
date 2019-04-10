@@ -48,6 +48,14 @@
 	
 	
 	</select>
+	
+	<select id="selectAccInfo" parameterType="int"  resultMap="accInfoMap">
+	
+	select * 
+	from tb_acc_Info
+	where acc_no = #{accNo}
+	</select>
+	
 
 </mapper>
 
