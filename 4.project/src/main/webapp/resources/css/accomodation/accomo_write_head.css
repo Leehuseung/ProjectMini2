@@ -63,8 +63,9 @@
     }
     .head_pic> .box2{
         background-image: url("pic/accomodation/oceansweet.gif");
-        background-size: cover;
-        background-repeat: no-repeat;
+	    background-size: contain !important;
+	    background-repeat: no-repeat !important;
+	    background-position-x: center !important;
         border-bottom: 1px solid black;
     }
     .head_pic>.box3 {
@@ -74,7 +75,7 @@
     .head_Del{
         
         border:1px solid black;
-    
+    	position:absolute;
 
         display: inline-block;
         box-sizing:border-box;
@@ -84,7 +85,7 @@
        line-height:40px;
         border: 1px solid orange;
         box-shadow: 3px 3px  gray;
-      left:287px;
+      left:539px !important; 
       top:-1px;
         font-size:20px;
 
@@ -235,14 +236,17 @@ grid-template-rows: 10% 80% 10%;
     }
 
     .pic_middle1{
+     	background-size: contain !important;
+	    background-repeat: no-repeat !important;
+	    background-position-x: center !important;
         background-image: url("pic/accomodation/oceansweetbed.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
+      
     }
     .pic_middle2{
+    	background-size: contain !important;
+	    background-repeat: no-repeat !important;
+	    background-position-x: center !important;
         background-image: url("pic/accomodation/oceansweetbed2.gif");
-        background-size: cover;
-        background-repeat: no-repeat;
     }
 
     .pic_bottom{
@@ -257,7 +261,7 @@ grid-template-rows: 10% 80% 10%;
     .bottom_Del{
         
         border:1px solid black;
-    
+		position:absolute;    
 
         display: inline-block;
         box-sizing:border-box;
@@ -268,7 +272,7 @@ grid-template-rows: 10% 80% 10%;
         border: 1px solid orange;
         box-shadow: 3px 3px  gray;
       
-        left:475px;
+        left:540px !important;
       top:1px;
         font-size:20px;
 

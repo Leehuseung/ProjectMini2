@@ -90,8 +90,8 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
             </div>
             <div class="pic_middle1"></div>
             <div class="pic_bottom">
-                <span>파일명</span>
-                <span class="bottom_Del"><a href="#">삭제</a></span>
+                <span id ="subFileName1">파일명</span>
+                <span class="bottom_Del" id ="bottom_Del1"><a href="#">삭제</a></span>
             </div>
         </div>
         <div class= "pic1"> 
@@ -105,8 +105,8 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
             </div>
             <div class="pic_middle2"></div>
             <div class="pic_bottom">
-                <span>파일명</span>
-                <span class="bottom_Del"><a href="#">삭제</a></span>
+                <span id ="subFileName2">파일명</span>
+                <span class="bottom_Del" id ="bottom_Del2"><a href="#">삭제</a></span>
             </div>
         </div>
                 
@@ -118,9 +118,9 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
         </div>
       </div>
         <div class="pic_info"> 
-            <div class="pic_title">
+              <div class="pic_title">
                     <div>사진첩</div>
-                    <div class="select_pic" id="select_pic2"><input multiple="multiple" type="file" id="pic_info_attach1"  name="album" />
+                    <div class="select_pic" id="select_pic2"><input type="file" id="pic_info_attach1"  name="pic_info_attach" />
                         <label for ="pic_info_attach1" class="class_info_attach">내 PC</label></div>
                 </div>
             <div class="pic_detail">
@@ -154,6 +154,11 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
                     </div>
                 </div>
 
+              
+               
+
+               
+               
                     
                     
             </div>
@@ -256,9 +261,27 @@ var hotelName = $('#hotelName').val();
 	
 		  $("#intro").attr("tabindex",-1).focus();
 		return false;
+	}//if
+	
+	
+	
+var city = $('#selectCities').val();
+	
+	if(city =="0"){
+		alert("숙소  주소를 확인해 주세요")
+	
+		  $('#selectCities').focus();
+		return false;
 	}//if	
 	
+var city = $('#selectTowns').val();
 	
+	if(city =="0"){
+		alert("숙소  주소를 확인해 주세요")
+	
+		  $('#selectTowns').focus();
+		return false;
+	}//if	
 	
   
 	  });//complete button
@@ -274,6 +297,7 @@ var hotelName = $('#hotelName').val();
 			  console.dir(this.files[0]);
 			  var reader = new FileReader();
 			  reader.onload = function(e){
+				  
 				 $('.head_pic > .box2').css('background','url("' + e.target.result + '")'); 
 			  }//onload
 			  reader.readAsDataURL(this.files[0]);
@@ -303,22 +327,22 @@ var hotelName = $('#hotelName').val();
 			  console.dir(this.files[0]);
 			  var reader = new FileReader();
 			  reader.onload = function(e){
-				 $('.head_pic > .box2').css('background','url("' + e.target.result + '")'); 
+				 $('.pic_middle1').css('background','url("' + e.target.result + '")'); 
 			  }//onload
 			  reader.readAsDataURL(this.files[0]);
 		  }//if
 			//---------------------- 사진이름추가요
 		  var fileName = e.target.files[0].name;  
-		  $('#mainFileName').html("파일명: " + fileName);
+		  $('#subFileName1').html("파일명: " + fileName);
 		  	
 	 }); //2번째  function
   });//first function
   //--삭제 버튼 클릭시 이미지 삭제--------------------------------------------
   //$(document).ready(function(){
-  $('.head_Del a').click(function(){
+  $('#bottom_Del1 a').click(function(){
 	  $('#mainFile').html('<input id="myPC" type="file" name="mainPic" /><label for ="myPC" class="box1_myPC_label">내 PC</label>');
-	  $('.head_pic > .box2').css('background',''); 
-	  $('#mainFileName').html('파일명:');
+	  $('.pic_middle1').css('background',''); 
+	  $('#subFileName1').html('파일명:');
 	  
 	  //post code
 	//});
@@ -326,6 +350,58 @@ var hotelName = $('#hotelName').val();
  //---서브 1 이미지 끝---------------------------------------------------- 
   
   
+ 
+ //---서브 2 이미지 시작---------------------------------------------------- 
+  $(function(){
+	 $("#myPC_S2").change(function(e){
+		  if(this.files && this.files[0]){
+			  console.dir(this.files[0]);
+			  var reader = new FileReader();
+			  reader.onload = function(e){
+				 $('.pic_middle2').css('background','url("' + e.target.result + '")'); 
+			  }//onload
+			  reader.readAsDataURL(this.files[0]);
+		  }//if
+			//---------------------- 사진이름추가요
+		  var fileName = e.target.files[0].name;  
+		  $('#subFileName2').html("파일명: " + fileName);
+		  	
+	 }); //2번째  function
+  });//first function
+  //--삭제 버튼 클릭시 이미지 삭제--------------------------------------------
+  //$(document).ready(function(){
+  $('#bottom_Del2 a').click(function(){
+	  $('#mainFile').html('<input id="myPC" type="file" name="mainPic" /><label for ="myPC" class="box1_myPC_label">내 PC</label>');
+	  $('.pic_middle2').css('background',''); 
+	  $('#subFileName2').html('파일명:');
+ 
+
+  });
+	  //---서브 2 이미지 끝---------------------------------------------------- 
+	
+/* 	 //다중 이미지
+  function fileInfo(f){
+		var files = f.files; // files 를 사용하면 파일의 정보를 알 수 있음
+
+		// 파일의 갯수만큼 반복
+		for(var i=0; i<files.length; i++){
+			[]
+			var reader = new FileReader(); // FileReader 객체 사용
+			reader.onload = function(e){
+				$('#img_box').append('<img src="' + e.target.result + '">'); // append 메소드를 사용해서 이미지 추가
+				// 이미지는 base64 문자열로 추가
+				// 이 방법을 응용하면 선택한 이미지를 미리보기 할 수 있음
+			}
+			reader.readAsDataURL(file[i]); // 파일을 읽는다
+		
+		}
+	}	  
+	   */
+	  
+	  
+	  
+	  
+	  
 //--select options---------------------
 
  $("#selectCities").change(function(e){

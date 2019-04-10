@@ -1,0 +1,191 @@
+@charset "UTF-8";
+
+.edit_delete{
+      margin-top:2%;
+      
+     
+    }
+    .edit_delete > div{
+      font-size:20px;
+        background-color: white;
+        display: inline-block;
+        box-sizing:border-box;
+        height:35px;
+        width:100px;
+        text-align:center;
+       line-height:40px;
+        border: 1px solid orange;
+        box-shadow: 3px 3px  gray;
+        margin-right:10px;
+        
+        top:12px;
+       
+    }
+
+    .edit_delete > div:hover{
+        background-color: orange;
+    }
+    .edit_delete > div a{
+      text-decoration: none;
+      color:black;
+   
+   
+   
+   
+   
+    }
+    .info_body{
+      margin-top:20px;
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr 2fr; 
+      grid-row-gap:20px;
+    }
+    .info_body >div:nth-child(odd){
+        width:1305px;
+    }
+    .head_pic_info{
+      
+    height:410px;
+      width:1305px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 20px;
+    }
+    .head_pic{
+        background-image: url("pic/accomodation/oceansweet.gif");
+        background-size: cover;
+        background-repeat: no-repeat;
+    
+    }
+    .head_info{
+        margin-top:30px;
+        display: grid;
+        grid-template-rows: 23% 67% 25%;
+        align-items: stretch;
+        justify-items: stretch;
+        
+    }
+    .head_info >div:nth-child(odd){
+        width:100%;
+        background-color: white;
+    }
+    .head_pic_info > div{
+      
+      width:100%;
+      
+    }
+    .head_info> .box1{
+        font-size:70px;
+        text-align: center;
+    }
+    .head_info> .box2{
+        font-size:30px;
+        text-align: left;
+        
+    }
+    .head_info> .box3> a{
+     box-shadow: 5px 5px 2px black;
+     margin-top: 10px;
+     font-size:30px;
+     text-decoration: none;
+      color:black;
+      display:block;
+      border:1px solid black;
+      padding:10px;
+      width:100px
+    }
+    .pic1_pic2{
+      height:450px;
+      width:1305px;;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 20px;
+    }
+    .pic1_pic2 > div{
+      
+      width:100%;
+      background-color:pink;
+    }
+    .pic1{
+        background-image: url("pic/accomodation/oceansweetbed.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .pic2{
+        background-image: url("pic/accomodation/oceansweetbed2.gif");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .text{
+       line-height:65px;
+        font-size:35px;
+        width:1305px;
+        height:450px;
+    }
+    
+    .pic_info{
+      width:100%;
+      display: grid;
+      grid-template-rows: 10% 97%;
+      
+    }
+    .pic_info> div{
+        width: 1305px;
+      
+    
+    }
+
+    .pic_detail{
+        margin-top:20px;
+        display:grid;
+        grid-template-columns: 48% 48%;
+        align-items:stretch;
+        justify-items: stretch;
+        grid-column-gap: 25px;
+        width:100%;
+
+        
+        
+    }
+    .pic_detail> div{
+        margin-top:10px;
+        margin-left:20px;
+        height:100px;
+        width:100%;
+        height:450px;
+    }
+    .pic_title> div{
+     border:1px solid black;
+     box-shadow: 5px 5px 2px black;
+     margin-top: 10px;
+     font-size:30px;
+     text-decoration: none;
+      color:black;
+      display:block;
+      padding:10px;
+      width:150px;
+      text-align: center;
+      font-size: 40px;
+    }    
+
+    .detail_pic1{
+    background-image: url("pic/accomodation/oceansweet_thumb1.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+    }
+
+    .detail_pic2{
+    background-image: url("pic/accomodation/oceansweet_thumb2.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+    }
+    .detail_pic3{
+    background-image: url("pic/accomodation/oceansweet_thumb3.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+    }
+    .detail_pic4{
+    background-image: url("pic/accomodation/oceansweet_thumb4.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+    }

@@ -17,7 +17,20 @@ public class AccInfoVO {
 	String subFilePath1;
 	String subFileName2;
 	String subFilePath2;
-	
+	String city;
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getTown() {
+		return town;
+	}
+	public void setTown(String town) {
+		this.town = town;
+	}
+	String town;
 	
 	public int getAccNo() {
 		return accNo;

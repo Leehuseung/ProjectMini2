@@ -41,6 +41,35 @@ public class AccomoWriteController extends HttpServlet{
 
 	
 	AccInfoVO board = new AccInfoVO();  
+	String city= mRequest.getParameter("city");
+	System.out.println("city: " + city);//
+	if(city.equals("1")) {
+		board.setCity("제주시");
+	}
+	if(city.equals("2")) {
+		board.setCity("서귀포시");
+	}//
+	
+	String town= mRequest.getParameter("town");
+	System.out.println("town: " + town);
+	
+	if(town.equals("3")) {
+		board.setTown("애월읍");
+	}
+	
+	if(town.equals("4")) {
+		board.setTown("한림읍");
+	}
+	if(town.equals("5")) {
+		board.setTown("우도");
+	}
+	if(town.equals("6")) {
+		board.setTown("성산읍");
+	}
+	if(town.equals("7")) {
+		board.setTown("남원읍");
+	}
+	
 	String address = mRequest.getParameter("address");
 	System.out.println("address: " + address);
 	board.setAddress(address);//
@@ -105,6 +134,15 @@ public class AccomoWriteController extends HttpServlet{
 			board.setSubFilePath2(path);
 	
 	}
+	
+				/*
+				 * if(fName.equals("album")) { String fileName =
+				 * mRequest.getFilesystemName(fName); System.out.println("앨범 사진입니다."); String
+				 * path = directory + fileName; System.out.println("파일 이름: " + fileName);
+				 * System.out.println("파일경로: " + path );
+				 * System.out.println("-------------------------");
+				 * board.setSubFileName2(fileName); board.setSubFilePath2(path); }
+				 */
 	
 	
 	
