@@ -81,17 +81,17 @@
                 <button id="modify"><a href="mytrip_modify.html">수정</a></button>
             </span>
             <span class="delete">
-                <button id="delete"><a href="javascript:aaa()">삭제</a></button>
+                <button id="delete"><a href="javascript:del();">삭제</a></button>
             </span>
         </div>  
-        
         <script>
-            function aaa() {
-                var result = confirm("삭제??");
+             function del() {
+                var result = confirm("정말 삭제하시겠습니까?");
+                var no = ${detail.boardNo};
                 if (result) {
-                    alert("삭제진행해야함...");
+                  location.href="delete.do?no="+no;
                 }
-            }
+             }
         </script>
         <!--댓글 파트-->
         
@@ -119,20 +119,45 @@
 						<th style="width: 400px;" align="left">치즈</th>
 						<th>2019.3.20</th>
 						<th id="commenttd"><input id="like" type="submit" value="♡" />
-							<a href="">신고하기</a> <a href="">수정</a> <a
-							href="javascript:aaa();">삭제</a></th>
+							<a href=''>신고하기</a> <a href=''>수정</a> 
+							<a href="javascript:aaa();">삭제</a></th>
 					</tr>
 				</table>
 					<br>
 			</div> 
         </div> 
+        <script>
+        	$(function(){
+        		getAjaxCommentList()
+        	})
+        	
+        	function getAjaxCommentList(){
+        		$.ajax({
+        			url:"comment-list.do",
+        			dataType:"json",
+        			success:function(list){
+        			for(let comment of list){
+        				html += "<table>"
+        				 +"<tr>"
+						 +"<th style='width: 400px;' align='left'>${comment.name}</th>"
+						 +"<th>${comment.writeDate}</th>"
+						 +"<th><input id='like' type='submit' value='♡' />"
+						 +"	<a href=''>신고하기</a> <a href=''>수정</a> "
+						 +"	<a href='javascript:aaa();'>삭제</a></th>"
+						 +"</tr>"
+						 +"</table>"
+        			}
+        			}
+        		});
+        	}
+        </script>
     <div id="footer"></div>
-    <script>
+  <!--   <script>
     	$("#commentWrite1").click(function(){
     		ALERT("ASD");
     	   
     	});
-    </script>
+    </script> -->
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
     <script type="text/javascript">   
         $(document).ready( function() { 

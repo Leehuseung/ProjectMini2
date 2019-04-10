@@ -69,6 +69,7 @@
                 </tr>
               
             </table> 
+            
                 <div class="contentWrite">
                     <textarea id="contentWrite1"rows="30" cols="4"   > 
  제주도 맛집 정보를 보고 맛있어 보여서 간 곳입니다. 
@@ -76,8 +77,9 @@
  또 제주도 가면 갈거에요.
  갈치조림의 맛에 감동했습니다!!!</textarea>
                 </div>
+                </div>
                 <span class="save">
-                        <button id="save" type="submit"><a href="mytrip_detail+comment.html">저장</a></button>
+                        <button id="save" type="submit"><a href="#">저장</a></button>
                 </span>
         </form>
      

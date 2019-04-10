@@ -11,12 +11,18 @@ public interface ReviewMapper {
 	
 // 리뷰 상세조회
 	public ReviewVO detailReviewNo(int no);
+	
+//	리뷰 수정
+	public void updateReview(ReviewVO r);
 
 //  조회수 증가	
 	public void updateViewCnt(int no);
 	
 //	리뷰 전체조회
 	public List<ReviewVO> selectListReview(ReviewVO r);
+	
+//	리뷰 삭제
+	public void deleteReview(int no);
 	
 //	댓글 등록
 	public void insertComment(ReviewCommentVO rc);
