@@ -115,7 +115,7 @@ BEGIN
 END;
 /
 
---DROP TRIGGER tb_review_comment_AI_TRG;
+DROP TRIGGER tb_review_comment_AI_TRG;
 /
 
 --DROP SEQUENCE tb_review_comment_SEQ;
@@ -182,7 +182,7 @@ BEGIN
 END;
 /
 
---DROP TRIGGER tb_review_file_AI_TRG;
+DROP TRIGGER tb_review_file_AI_TRG;
 /
 
 --DROP SEQUENCE tb_review_file_SEQ;

@@ -9,6 +9,15 @@ public class ReviewCommentVO {
 	private int likeCnt;
 	private String content;
 	private Date writeDate;
+	
+	private int memberNo;
+	
+	public int getMemberNo() {
+		return memberNo;
+	}
+	public void setMemberNo(int memberNo) {
+		this.memberNo = memberNo;
+	}
 	public int getCommentNo() {
 		return commentNo;
 	}

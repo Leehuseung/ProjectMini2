@@ -39,7 +39,7 @@ public class WriteController extends HttpServlet{
 		r.setContent(request.getParameter("content"));
 		
 		mapper.insertReview(r);
-		response.sendRedirect("detail2.do?no=" + r.getBoardNo());
+		response.sendRedirect("detail.do?no=" + r.getBoardNo());
 
 		
 		

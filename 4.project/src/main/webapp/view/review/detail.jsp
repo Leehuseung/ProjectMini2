@@ -105,21 +105,42 @@
                 </table>
         </div>
         <div class="commentWrite">
-            <form>
-                <span><textarea rows="3"></textarea></span>
+            <form method="post" action="comment-write.do">
+            <input type="hidden" name="no" value="${detail.boardNo}"/>
+            <input type="hidden" name="commentNo" value="${param.commentNo}"/>
+            
+                <span><textarea rows="3" name="content"></textarea></span>
                 <span ><input id="commentWrite1" type="submit" value="등록" /></span>
             </form>        
         </div>
+             <div class="commentList">
+				<table>
+					<tr>
+						<th style="width: 400px;" align="left">치즈</th>
+						<th>2019.3.20</th>
+						<th id="commenttd"><input id="like" type="submit" value="♡" />
+							<a href="">신고하기</a> <a href="">수정</a> <a
+							href="javascript:aaa();">삭제</a></th>
+					</tr>
+				</table>
+					<br>
+			</div> 
         </div> 
     <div id="footer"></div>
+    <script>
+    	$("#commentWrite1").click(function(){
+    		ALERT("ASD");
+    	   
+    	});
+    </script>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
     <script type="text/javascript">   
         $(document).ready( function() { 
 
-   		$("#headers").load("../header.html");  // 원하는 파일 경로를 삽입하면 된다
-   		$("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
-   		});
-        </script>
+   		$("#headers").load("../header.html"); // 원하는 파일 경로를 삽입하면 된다
+						$("#footer").load("../footer.html"); // 원하는 파일 경로를 삽입하면 된다
+					});
+				</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
