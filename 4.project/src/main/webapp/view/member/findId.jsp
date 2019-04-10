@@ -41,6 +41,7 @@
 					
 					if(data == 1) {    					 
                         alert("이메일로 아이디가 전송되었습니다.");
+                        window.location.href = '/jeju/view/member/loginform.do';
                         
                     } else {    
                         alert("입력한 정보를 확인하세요.");

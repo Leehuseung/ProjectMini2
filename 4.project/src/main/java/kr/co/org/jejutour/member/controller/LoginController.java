@@ -25,30 +25,40 @@ public class LoginController extends HttpServlet {
 	
 	public void service(HttpServletRequest request, HttpServletResponse response) 
 			throws IOException, ServletException {	
-		
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pass");
 		HttpSession session = request.getSession();
-		
-		MemberVO member = new MemberVO();
-		member.setId(id);
-		member.setPass(pass);
-		
-		MemberVO user = mapper.selectLogin(member);
 		PrintWriter out = response.getWriter();
 		
-		if (user == null) {
-			try {				
-                out.println(0);
-                
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else {
-	        session.setAttribute("user", user);
-	        session.setAttribute("id", user.getId());	        
-	        
-	        out.println(1);
-        } 
+		if(id == "" || pass == "") {
+			out.println(0);
+		}
+		if(id != "" && pass != "") {
+			String memberSalt = mapper.selectSaltById(id);	    
+			String newPassword = SHA256Util.getEncrypt(pass, memberSalt);
+			
+			MemberVO member = new MemberVO();
+			member.setId(id);
+			member.setPass(newPassword);
+			
+			MemberVO user = mapper.selectLogin(member);
+			
+			if (user == null) {
+				try {				
+					out.println(0);
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			} else {
+				session.setAttribute("user", user);
+				session.setAttribute("id", user.getId());	        
+				
+				out.println(1);
+			} 
+			
+		}
+		
+		
 	}
 }

@@ -44,7 +44,7 @@
             <div>${user.name}</div>
             <div>${user.email}</div>
             <div><fmt:formatDate value="${user.joinDate}" 
-					                      pattern="yyyy-MM-dd" /></div>
+				                      pattern="yyyy-MM-dd" /></div>
             <div>${user.reportCnt}회</div>            
             <div><button id="ban" class="ban" onclick="memberBan(${user.memberNo});">강퇴하기</button></div>          
             </c:forEach>           

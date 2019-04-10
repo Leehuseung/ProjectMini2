@@ -28,7 +28,7 @@
 			</div>
 			<br>
             <div id="find"><a href="/jeju/view/member/findIdform.do">아이디찾기</a>&nbsp;|
-            <a href="main_findPassword.html">비밀번호찾기</a></div>           
+            <a href="/jeju/view/member/findPassform.do">비밀번호찾기</a></div>           
             <input type="button" id="log" name="log" value="Login">
             <input type="button" id="signup" name="signup" value="Sign Up">
     </div>   
@@ -41,7 +41,7 @@
     			data : "id="+$("#id").val()+"&pass="+$("#pass").val(),
     			success : function(data) {
     				 if (data == 0) {    					 
-                         window.location.href = '#';
+    					 window.location.reload();
                          $("#id").focus();
     
                      } else {    
