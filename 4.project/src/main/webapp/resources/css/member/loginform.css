@@ -149,6 +149,10 @@ body{
 	margin-top: 10px;
 }
 
+button {
+	cursor:pointer;
+}
+
 ::-webkit-input-placeholder{
    color: white;
 }

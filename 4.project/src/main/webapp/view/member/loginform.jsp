@@ -37,7 +37,7 @@
     
     <script type="text/javascript">
 	  	var naver_id_login = new naver_id_login
-	  	("1rzkZGYIbcGygmGA5uGi", "http://localhost/jeju/view/member/main.do");
+	  	("1rzkZGYIbcGygmGA5uGi", "http://localhost/jeju/view/member/login.do");
 	  	var state = naver_id_login.getUniqState();
 	  	naver_id_login.setButton("white", 2,40);
 	  	naver_id_login.setDomain("http://localhost/jeju/view/member/loginform.do");

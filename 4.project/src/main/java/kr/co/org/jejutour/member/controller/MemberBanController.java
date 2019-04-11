@@ -29,8 +29,7 @@ public class MemberBanController extends HttpServlet {
 		if(no != null) {
 			mapper.memberBan(no);
 			out.println(1);
+			out.close();
 		}
-		
-		
 	}
 }
