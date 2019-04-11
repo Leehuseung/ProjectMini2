@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="../../resources/css/main.css" />
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
 </head>
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script> 
 <script type="text/javascript">   
     $(document).ready( function() { 
     	$("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
@@ -25,7 +25,7 @@
     <div id="headers"></div>
     <div class="body">
     <!-- enctype="multipart/form-data" -->
-    <form method="post"  action="<c:url value="/view/tourist/writeboard.do" />">
+    <form method='POST' action='/jeju/view/tourist/writeboard.do' enctype="multipart/form-data">
         <div class="sub-title">
             제주도의 관광지를 한눈에...
         </div>
@@ -60,31 +60,36 @@
                 </div>
             </div>
             <div class="picture">
-                
-                <input multiple="multiple" type="file" name="FileName[]">
-                
-                <img src="../../resources/images/tourlist/detail01_slide1.jpg"/>
+                파일첨부 : <br>
+                <input multiple="multiple" type="file" id="attach1" name = "attach1"/>
+               	<label for ="attach1" class="attach1"></label><br>
+               	<input multiple="multiple" type="file" id="attach2" name = "attach2"/>
+               	<label for ="attach2" class="attach2"></label><br>
+               	<input multiple="multiple" type="file" id="attach3" name = "attach3"/>
+               	<label for ="attach3" class="attach3"></label><br>
+               	<input multiple="multiple" type="file" id="attach4" name = "attach4"/>
+               	<label for ="attach4" class="attach4"></label><br>
             </div>
             <br>
             <ul class="detail-icon">
                 <li>
-                    <div class="iconDetail1"><img src="../../resources/images/tourlist/detail_info.png"></div>
+                    <div class="iconDetail1"><img src="../../resources/images/tourist/detail_info.png"></div>
                     <div>상세정보<br>&nbsp;</div>
                 </li>
                 <li>
-                    <div class="iconDetail2"><img src="../../resources/images/tourlist/map.png"></div>
+                    <div class="iconDetail2"><img src="../../resources/images/tourist/map.png"></div>
                     <div>지도<br>&nbsp;</div>
                 </li>
                 <li>
-                    <div class="iconDetail3"><img src="../../resources/images/tourlist/review.jpg"></div>
+                    <div class="iconDetail3"><img src="../../resources/images/tourist/review.jpg"></div>
                     <div>리뷰<br>0</div>
                 </li>
                 <li>
-                    <div class="iconDetail4"><img src="../../resources/images/tourlist/like.jpg"></div>
+                    <div class="iconDetail4"><img src="../../resources/images/tourist/like.jpg"></div>
                     <div>좋아요<br>0</div>
                 </li>
                 <li>
-                    <div class="iconDetail5"><img src="../../resources/images/tourlist/view.jpg"></div>
+                    <div class="iconDetail5"><img src="../../resources/images/tourist/view.jpg"></div>
                     <div>조회수<br>0</div>
                 </li>
             </ul>
@@ -127,6 +132,18 @@
     </form>
     </div>
     <div id="footer"></div>
+<script>
 
+	$(function(){
+		for(let i = 1; i < 5 ; i++) { 
+		    $("#attach"+i).change(function(e){       
+		        var fileName = e.target.files[0].name;  
+		        $('.attach'+i).html("파일명: " + fileName);
+		    }
+		  )
+	  }
+	});
+
+</script>
 </body>
 </html>

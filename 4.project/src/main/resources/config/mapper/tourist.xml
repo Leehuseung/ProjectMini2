@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.org.jejutour.repository.dao.TouristMapper">
-	<resultMap id="touristBoardMap" type="tourist">
+	<resultMap id="touristBoardMap" type="touristBoard">
 		<result column="member_no" property="memberNo" />
 		<result column="board_no" property="boardNo" />
 		<result column="title" property="title" />
@@ -29,7 +29,7 @@
 	<!-- 메인파트기능 시작 ============================= -->
 	
 	<!--  전체 게시물 조회 9칸씩  제일늦게 작성된글이 제일 위에 올라오도록 처리함 -->
-	<select id="selectTouristBoard" parameterType="tourist" resultMap="touristBoardMap">
+	<select id="selectTouristBoard" parameterType="touristBoard" resultMap="touristBoardMap">
 		select *
  		  from (select rownum rnum, a.*
          		  from (select *
@@ -54,7 +54,7 @@
 	
 	
 	<!-- 글등록 -->
-	<insert id="writeTouristBoard" parameterType="tourist">
+	<insert id="writeTouristBoard" parameterType="touristBoard" >
 		<selectKey keyProperty="boardNo" resultType="int"
 				   order="BEFORE">
 			select s_tourist_board_no.nextval
@@ -71,7 +71,7 @@
 	
 
 	<!-- 글수정 -->
-	<update id="updateTouristBoard" parameterType="tourist">
+	<update id="updateTouristBoard" parameterType="touristBoard">
 	update tb_tourist_board 
 	   set title = #{title}, 
 	   	   nomination = #{writer},
@@ -107,7 +107,7 @@
 	
 	
 	<!-- 댓글 파트 시작 ============================= -->	
-	<resultMap id="commentMap" type="tourist">
+	<resultMap id="commentMap" type="touristComment">
 		<result column="board_no" property="boardNo" />
 		<result column="member_no" property="memberNo" />
 		<result column="comment_no" property="commentNo" />
@@ -126,7 +126,7 @@
 	</select>	
 	
 	<!--  댓글 등록  -->
-	<insert id="insertComment" parameterType="tourist">
+	<insert id="insertComment" parameterType="touristComment">
 		insert into tb_tourist_comment(
 			comment_no, board_no, content
 		) values (
@@ -142,7 +142,7 @@
 	</delete>
 	
 	<!--  댓글 수정  -->
-	<update id="updateComment" parameterType="tourist">
+	<update id="updateComment" parameterType="touristComment">
 	    update tb_tourist_comment
 	       set content = #{content}
 	     where comment_no = #{commentNo}
@@ -152,29 +152,49 @@
 	
 	
 	<!-- 파일 등록 ================================= -->
-	<resultMap id="fileMap" type="tourist">
+	<resultMap id="fileMap" type="touristFile">
 		<result column="board_no" property="boardNo" />
 		<result column="file_no" property="fileNo" />
 		<result column="name" property="name" />
 		<result column="path" property="path" />
 	</resultMap>
 	
-	<insert id="writeTouristBoardFile" parameterType="tourist">
-		
+	<insert id="writeTouristBoardFile" parameterType="touristFile"  >
+		insert into tb_tourist_file ( 
+		    file_no, board_no, name, path
+		) values (
+		    s_tourist_file_no.nextval, (select max(board_no) from tb_tourist_board), #{name}, #{path}
+		)	
+	</insert>
+	
+	<insert id="writeTouristBoardFileNoneSe" parameterType="touristFile">
 		insert into tb_tourist_file ( 
 		    file_no, board_no, name, path
 		) values (
 		    s_tourist_file_no.nextval, #{boardNo}, #{name}, #{path}
-		)	
+		)
 	</insert>
-	
-	<!-- 파일 목록 -->
-	<select id="selectTouristFilesByNo" resultMap="fileMap" parameterType="int">
-		select *
+	<!-- 사진경로 호출 -->
+	<select id="selectTouristFilesByNo" resultType="String" parameterType="int">
+		select path
 		  from tb_tourist_file
 		 where board_no = #{boardNo}
 	</select>
 
+
+	<select id="selectTouristFile" resultMap="fileMap">
+		select *
+		  from tb_tourist_file
+		 order by board_no
+	</select> 
+	
+	
+	<select id="selectFileByNo" parameterType="touristFile" resultType="int">
+		select board_no
+		  from tb_tourist_file
+		 where name=#{name}
+	</select>
+	
 	
 </mapper>
 
@@ -183,10 +203,11 @@
 
 
 
+	 
+	
+	
 
-
-
-
+	
 
 
 

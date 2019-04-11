@@ -26,11 +26,19 @@ public class DetailBoardController extends HttpServlet {
 		
 		// 게시물 상세 정보 조회하기
 		int no = Integer.parseInt(request.getParameter("no"));
-		// 조회수 증가
 		System.out.println("no : " + no);
+		// 조회수 증가
 		mapper.updateTouristViewCnt(no);
 		System.out.println("조회수 증가");
+		
+		// 게시물 상세 정보
 		request.setAttribute("tourist", mapper.selectTouristBoardByNo(no));
+		
+		// 댓글 목록 공유
+//		request.setAttribute("commentList", mapper.selectComment(no));
+		
+		// 파일 목록 공유
+		request.setAttribute("fileList", mapper.selectTouristFilesByNo(no));
 		
 		RequestDispatcher rd = request.getRequestDispatcher("tourist-detail.jsp");
 		rd.forward(request, response);

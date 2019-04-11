@@ -238,10 +238,6 @@ COMMENT ON COLUMN tb_tourist_comment.write_date IS '댓글등록일'
 COMMENT ON COLUMN tb_tourist_comment.rating IS '평점'
 /
 
-ALTER TABLE tb_tourist_comment
-    ADD CONSTRAINT FK_tb_tourist_comment_board_no FOREIGN KEY (board_no)
-        REFERENCES tb_tourist_board (board_no) on delete cascade
-/ 
 
 
 ------------------------관광지 파일 테이블 생성
@@ -292,10 +288,7 @@ COMMENT ON COLUMN tb_tourist_file.path IS '파일경로'
 COMMENT ON COLUMN tb_tourist_file.name IS '시스템이름'
 /
 
-ALTER TABLE tb_tourist_file
-    ADD CONSTRAINT FK_tb_tourist_file_board_no_tb FOREIGN KEY (board_no)
-        REFERENCES tb_tourist_board (board_no) on delete cascade
-/
+
 commit;
 
 
