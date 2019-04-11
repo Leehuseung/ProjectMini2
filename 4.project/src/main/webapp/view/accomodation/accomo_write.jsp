@@ -79,7 +79,16 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
               <div class="box3" >연락처: <input id="phoneNumber" type:"text" name="contact"></div>
               <div class="box4" >홈페이지: <input id="website" type:"text" name="homepage"></div>
               <div class="box5" >20자 멘트: <input id="ment" type:"text" name="ment"></div>
-              <div class="box6" >숙박 명: <input id="hotelName" type:"text" name="hotelName"></div>
+              <div class="box6" >
+              숙박 종류<select name="type" id="accomoType">
+                    <option value="0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;선택</option>
+                    <option value="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;호텔</option>
+                    <option value="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;펜션</option>
+                    <option value="3">게스트 하우스</option>
+                </select>
+            	  
+            	 <span>숙소명</span> <input id="hotelName" type:"text" name="hotelName" placeholder="숙박 이름을 입력해 주세요"/>
+              </div>
           </div>
       </div>
       <div class="pic1_pic2">
@@ -254,7 +263,17 @@ var hotelName = $('#hotelName').val();
 		 $('#hotelName').focus();
 		return false;
 	}//if	
+//---------------------------------------------
+//타입 확인
+
+var type = $('#accomoType').val();
 	
+	if(type =="0"){
+		alert("숙소 종류를 선택해주세요")
+	
+		 $('#accomoType').focus();
+		return false;
+	}//if
 	  
   // 숙소 입력확인-------------------------
   
@@ -266,9 +285,18 @@ var hotelName = $('#hotelName').val();
 		  $("#intro").attr("tabindex",-1).focus();
 		return false;
 	}//if
+//---------------------------------------------	
 	
-	
-	
+	 var website = $('#website').val();
+		
+		if(intro ==""){
+			alert("홈페이지를  입력해 주세요")
+		
+			  $("#website").focus();
+			return false;
+		}//if
+
+//-------------------------------------------
 var city = $('#selectCities').val();
 	
 	if(city =="0"){
@@ -410,6 +438,7 @@ var city = $('#selectTowns').val();
 
  $("#selectCities").change(function(e){
 
+	 
 
 	 $.ajax({
 	

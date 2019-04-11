@@ -175,11 +175,28 @@
         border:1px solid black;
    font-size:20px;
     background-color: white;
-    width:450px;
+    width:220px;
     height: 40px;
-    left:79px;
+    left:82px;
     top:-5px;
     }
+    
+    .head_info > .box6 > select{
+        border:1px solid black;
+   font-size:20px;
+    background-color: white;
+    width:130px;
+    height: 40px;
+    left:74px;
+    
+    top:-5px;
+    }
+    
+ .box6 span{
+ 	left:83px;
+ 
+ }
+   
     .pic1_pic2{
       height:450px;
       width:1305px;

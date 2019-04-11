@@ -25,14 +25,16 @@ public class AccomoWriteController extends HttpServlet{
 	System.out.println("넘어왔습니다.");
 	
 	
-	
+	response.setContentType("text/html; charset=utf-8");
+	request.setCharacterEncoding("utf-8");
 	String directory = "../../resources/images/accomodation/";
 	
 	
 	
 	MultipartRequest mRequest = new MultipartRequest(
+			
 			request,
-			"c:/bit2019/bin/miniproject_2/4.project/src/main/webapp/resources/images/accomodation",
+			"c:/bit2019/tomcat-work/wtpwebapps/jeju/resources/images/accomodation",
 			1024*1024*100,
 			"utf-8",
 			new DefaultFileRenamePolicy()
@@ -68,7 +70,20 @@ public class AccomoWriteController extends HttpServlet{
 	}
 	if(town.equals("7")) {
 		board.setTown("남원읍");
+	}//
+	
+	String type = mRequest.getParameter("type");
+	System.out.println("type :" + type);
+	if(type.equals("1")) {
+		board.setType("호텔");
 	}
+	if(type.equals("2")) {
+		board.setType("펜션");
+	}
+	if(type.equals("3")) {
+		board.setType("게스트 하우스");
+	}
+	
 	
 	String memberNo = mRequest.getParameter("memberNo");
 	System.out.println(memberNo);
@@ -153,7 +168,7 @@ public class AccomoWriteController extends HttpServlet{
 	}//while
 	board.setMemberNo(1);
 	mapper.insertAccInfo(board);
-
+	response.sendRedirect("detail.do?accNo=" + board.getAccNo());
 	
 	}//service
 }//class

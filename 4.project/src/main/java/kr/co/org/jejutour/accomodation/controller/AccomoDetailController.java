@@ -17,11 +17,13 @@ import kr.co.org.jejutour.repository.vo.AccInfoVO;
 @WebServlet("/view/accomodation/detail.do")
 public class AccomoDetailController extends HttpServlet {
 	AccomodationMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(AccomodationMapper.class);
-
+	
 	@Override
 public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		AccInfoVO board = mapper.selectAccInfo(22);
+		response.setContentType("text/html; charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+	int accNo = Integer.parseInt(request.getParameter("accNo")); 	
+	AccInfoVO board = mapper.selectAccInfo(accNo);
 	request.setAttribute("board",board);
 	System.out.println(board.getHomepage());
 	RequestDispatcher rd = request.getRequestDispatcher(

@@ -3,7 +3,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.org.jejutour.repository.dao.AccomodationMapper">
 	<resultMap id="accInfoMap" type="accInfo">
-		<result column="acc_no" property="accNo" />
+		<result column="acc_no" property="accNo"/>
 		<result column="name" property="name" />
 		<result column="address" property="address" />
 		<result column="contact" property="contact" />
@@ -19,6 +19,7 @@
 		<result column="sub_file_path2" property="subFilePath2" />
 		<result column="city" property="city" />
 		<result column="town" property="town" />
+		<result column="type" property="type" />
 	</resultMap>
 	
 	
@@ -30,13 +31,18 @@
 	<result column="parent_id" property="parentId" />
 	</resultMap>
 
+
+
 	<insert id="insertAccInfo" parameterType="accInfo">
+	<selectKey keyProperty="accNo" resultType="int" order="BEFORE">
+			select s_acc_no.nextval from dual
+		</selectKey>
 		insert into tb_acc_info(
 			acc_no, name, address, contact, ment, homepage, intro, member_no,main_file_name,
-			main_file_path,sub_file_name1,sub_file_path1,sub_file_name2, sub_file_path2,city,town
+			main_file_path,sub_file_name1,sub_file_path1,sub_file_name2, sub_file_path2,city,town,type
 		) values (
-			s_acc_no.nextval, #{name}, #{address}, #{contact},#{ment},#{homepage},#{intro},#{memberNo},#{mainFileName}
-			,#{mainFilePath},#{subFileName1},#{subFilePath1},#{subFileName2},#{subFilePath2},#{city},#{town}
+			#{accNo}, #{name}, #{address}, #{contact},#{ment},#{homepage},#{intro},#{memberNo},#{mainFileName}
+			,#{mainFilePath},#{subFileName1},#{subFilePath1},#{subFileName2},#{subFilePath2},#{city},#{town},#{type}
 		) 
 	</insert>
 	
@@ -50,7 +56,6 @@
 	</select>
 	
 	<select id="selectAccInfo" parameterType="int"  resultMap="accInfoMap">
-	
 	select * 
 	from tb_acc_Info
 	where acc_no = #{accNo}

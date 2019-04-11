@@ -36,7 +36,8 @@
  <div id="headers"></div>
    <div class="edit_delete">
     <div class="edit"><a href="accomo_edit.html">글 수정</a></div>
-    <div class="delete"><a href="accomo_main.html">글 삭제</a></div>
+    <div class="delete"><a href="delete.do">글 삭제</a></div>
+    <div class="goMain"><a href="">메인이동</a></div>
    </div>
    
    <div class="info_body">
@@ -45,7 +46,7 @@
           <div class="head_info">
              <div class="box1">${board.name}</div>
              <div class="box2">기본정보<br><br>
-                                주소: ${board.city} ${board.town} ${board.address}<br><br>
+                                주소: ${board.city} ${board.town}  ${board.address}<br><br>
                                 연락처:${board.contact}<br><br>
                                 홈페이지:${board.homepage}</div>
              
@@ -83,7 +84,12 @@
 
 
 <script>
-$('.head_pic').css('background',`url('${mainFilePath}')`);
+
+$('.head_pic').css('background-image',`url("${board.mainFilePath}")`);
+$('.pic1').css('background-image',`url("${board.subFilePath1}")`);
+$('.pic2').css('background-image',`url("${board.subFilePath2}")`);
+//$('.pic_middle2').css('background','url("' + e.target.result + '")'); 
+
 </script>
 
 </body>
