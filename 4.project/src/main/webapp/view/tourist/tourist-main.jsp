@@ -57,8 +57,8 @@
                 <div></div>
                 <div></div>
                 <div class="sort_type">
-                    <button type="button" class="ico_sort"><img src="../../resources/images/tourlist/ico_sort_thumb_on.png"></button>
-                    <button type="button" class="ico_sort_list"><img src="../../resources/images/tourlist/ico_sort_list_on.png"></button>
+                    <button type="button" class="ico_sort"><img src="../../resources/images/tourist/ico_sort_thumb_on.png"></button>
+                    <button type="button" class="ico_sort_list"><img src="../../resources/images/tourist/ico_sort_list_on.png"></button>
                 </div>
                 <div>
                     <select name="list">
@@ -77,7 +77,7 @@
                 <a href="detailboard.do?no=${tourist.boardNo}">
                     <div class="container" >
                         <div class="thumbnail">
-                            <img src="../../resources/images/tourlist/detail01_thum.jpg"/>
+                            <img src="../../resources/images/tourist/detail01_thum.jpg"/>
                             <h3>${tourist.title}</h3>
                         </div>
                         <div class="info">
@@ -87,9 +87,9 @@
                             <p>${tourist.simpleIntroduce}</p>
                             <br>
                             <div class="icon">
-                                <div class="iconDetail"><img src="../../resources/images/tourlist/like.jpg"></div>
-                                <div class="iconDetail"><img src="../../resources/images/tourlist/view.jpg"></div>
-                                <div class="iconDetail"><img src="../../resources/images/tourlist/review.jpg"></div>
+                                <div class="iconDetail"><img src="../../resources/images/tourist/like.jpg"></div>
+                                <div class="iconDetail"><img src="../../resources/images/tourist/view.jpg"></div>
+                                <div class="iconDetail"><img src="../../resources/images/tourist/review.jpg"></div>
                                 <div>좋아요<br>${tourist.likeCnt}</div>
                                 <div>조회수<br>${tourist.viewCnt}</div>
                                 <div>리뷰수<br>${tourist.reviewCnt}</div>
