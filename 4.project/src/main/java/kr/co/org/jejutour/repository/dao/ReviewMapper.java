@@ -29,10 +29,10 @@ public interface ReviewMapper {
 	public int selectReviewCount();
 	
 //	리뷰 삭제
-	public void deleteReview(int no);
+	public void deleteReview(ReviewVO r);
 	
 //	댓글 전체 게시물 수
-	public int selectReviewCommentCount();
+	public int selectReviewCommentCount(int no);
 	
 //	댓글 등록
 	public void insertComment(ReviewCommentVO rc);

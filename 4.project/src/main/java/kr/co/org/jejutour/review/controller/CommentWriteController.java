@@ -24,16 +24,15 @@ public class CommentWriteController extends HttpServlet{
 	}
 	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		request.setCharacterEncoding("utf-8");
-//		HttpSession session = request.getSession();
-  //      MemberVO user = (MemberVO)session.getAttribute("user");
-
+		HttpSession session = request.getSession();
+        MemberVO user = (MemberVO)session.getAttribute("user");
+		int memberNo = user.getMemberNo();
         ReviewCommentVO rc = new ReviewCommentVO();
 		int no = Integer.parseInt((request.getParameter("no")));
-//		rc.setMemberNo(user.getMemberNo());
 		rc.setBoardNo(no);
 		rc.setContent(request.getParameter("content"));
-		rc.setMemberNo(2);//로그인 session연결해야함!
-		
+		rc.setMemberNo(memberNo);//로그인 session연결해야함!
+		mapper.selectReviewCommentCount(no);
 		mapper.insertComment(rc);
 	
 		response.sendRedirect("detail.do?no="+no);

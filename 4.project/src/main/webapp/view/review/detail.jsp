@@ -18,6 +18,7 @@
    
 
 </head>
+<jsp:include page="/view/header.jsp" />
 <body>
     <div id="headers"></div>
 
@@ -106,7 +107,7 @@
                 <table>
                     <tr>
                         <th style="width:200px">댓글</th>
-                        <td> 0개</td>
+                        <td></td>
                     </tr>
                 </table>
         </div>
@@ -140,9 +141,8 @@
     <script type="text/javascript">   
         $(document).ready( function() { 
 
-   		$("#headers").load("../header.html"); // 원하는 파일 경로를 삽입하면 된다
-						$("#footer").load("../footer.html"); // 원하는 파일 경로를 삽입하면 된다
-					});
+		$("#footer").load("../footer.html"); // 원하는 파일 경로를 삽입하면 된다
+		});
 	</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -194,7 +194,6 @@
 						 +"</table>"
 					}
 					$(".commentList").html(html);
-					
 				}
 			});
 		}

@@ -9,8 +9,15 @@ public class ReviewCommentVO {
 	private int likeCnt;
 	private String content;
 	private Date writeDate;
+	private String name;
 	
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	private int memberNo;
 	
 	public int getMemberNo() {

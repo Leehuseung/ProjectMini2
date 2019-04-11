@@ -225,15 +225,7 @@ create sequence s_review_comment_no;
 --시퀀스 확인
 select * from user_sequences; 
 
---파일 없이 등록
-<insert id="insertReview" parameterType="review">
-	insert into tb_review(
-		board_no, review_category_no, title, content, rating_category_no
-	)values (
-		s_review_no.nextval, #{reviewCategoryNo},#{title},#{content},#{ratingCategoryNo}
-	)
-</insert>
---파일과 함께 등록...??
+
 
 
 --테이블 삭제

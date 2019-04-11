@@ -2,17 +2,15 @@ package kr.co.org.jejutour.review.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.org.jejutour.common.page.TouristPageResult;
+import kr.co.org.jejutour.common.page.RestrauntPageResult;
 import kr.co.org.jejutour.db.MyAppSqlConfig;
 import kr.co.org.jejutour.repository.dao.ReviewMapper;
-import kr.co.org.jejutour.repository.vo.ReviewVO;
 import kr.co.org.jejutour.repository.vo.TouristPageVO;
 
 
@@ -37,7 +35,7 @@ public class ListController extends HttpServlet{
 		request.setAttribute("lists", mapper.selectListReview(page));
 		
 		//페이징 공유영역에 올려주기
-		request.setAttribute("page", new TouristPageResult(pageNo, mapper.selectReviewCount()));
+		request.setAttribute("page", new RestrauntPageResult(pageNo, mapper.selectReviewCount()));
 		
 		request.getRequestDispatcher("listAll.jsp").forward(request, response);
 		

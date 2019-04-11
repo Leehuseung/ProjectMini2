@@ -14,13 +14,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
 </head>
-
+<jsp:include page="/view/header.jsp" />
 <body>
     <div id="headers"></div>
 
     <div class="body">
         <form method="post" action="update.do">
-        <input type="" name="no" value="${update.boardNo}" />
+        <input type="hidden" name="no" value="${update.boardNo}" />
             <div id="img">
                 <div id="contents">
                     <div class="title-area">
@@ -92,7 +92,6 @@
     <script type="text/javascript">   
         $(document).ready( function() { 
 
-   		$("#headers").load("../header.html");  // 원하는 파일 경로를 삽입하면 된다
    		$("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
    		});
         </script>

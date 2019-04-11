@@ -90,10 +90,11 @@
 	</update>
 	
 	<!-- 글 삭제 -->
-	<delete id="deleteReview" parameterType="int">
+	<delete id="deleteReview" parameterType="review">
 		delete
 		  from tb_review
 		 where board_no=#{boardNo}
+		   and member_no = #{memberNo}
 	</delete>
 	
 	
@@ -105,7 +106,8 @@
        		(select name from tb_category where code_no = review_category_no) as review_category_no,
        		a.write_date,
        		a.view_cnt,
-       		a.like_cnt
+       		a.like_cnt,
+       		b.member_no
   	   from (select rownum rnum, c.*
                from (select *
                        from tb_review
@@ -134,7 +136,6 @@
 		 inner join tb_member b
 		    on a.member_no = b.member_no
 		 order by board_no desc
-		 
 	</select> -->
 	
 	<!--들어갔는지체크..??  -->
@@ -166,12 +167,12 @@
 	</insert>  
 	
 	<!-- 전체 댓글 수 -->
-	<select id="selectReviewCommentCount" resultType="int">
+	<select id="selectReviewCommentCount" parameterType="int" resultType="int">
 		select count(*)
 		  from tb_review_comment a
 		 inner join tb_review b
 		    on a.board_no = b.board_no
-		 where b.board_no = #{boardNo};
+		 where b.board_no = #{boardNo}
 	</select>
 	
 	<!-- 댓글 조회 -->
@@ -180,12 +181,12 @@
 			   a.board_no,
 			   a.write_date, 
 			   b.name,
-			   a.content
+			   a.content,
+			   b.member_no
 		  from tb_review_comment a
 		 inner join tb_member b
 		    on a.member_no = b.member_no
 		 where a.board_no = #{boardNo}
-		   and b.member_no = 2 
 		 order by comment_no desc
 	</select>
 </mapper>
