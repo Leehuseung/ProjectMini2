@@ -58,27 +58,11 @@
             <div id ="slider">
                 <a class="button" id="prev"><</a>
                 <a class="button" id="next">></a>
-                <c:forEach var="file" items="${fileList}">
-                	<div class="slide" id="slide1">
-                    	<img src="../../resources/images/tourist/detail01_slide1.jpg">
+                <c:forEach var="file" items="${fileList}" varStatus="status">
+                	<div class="slide" id="slide${status.count}">
+                    	<img src="${file}">
                 	</div>	
     	   		</c:forEach>		
-               
-<!--                 <div class="slide" id= "slide2"> -->
-<!--                     <img src="../../resources/images/tourist/detail01_slide2.jpg"> -->
-<!--                 </div> -->
-<!--                 <div class="slide" id= "slide3"> -->
-<!--                     <img src="../../resources/images/tourist/detail01_slide3.jpg"> -->
-<!--                 </div> -->
-<!--                 <div class="slide" id= "slide4"> -->
-<!--                     <img src="../../resources/images/tourist/detail01_slide3.jpg"> -->
-<!--                 </div> -->
-<!--                 <div class="slide" id= "slide5"> -->
-<!--                     <img src="../../resources/images/tourist/detail01_slide5.jpg"> -->
-<!--                 </div> -->
-<!--                 <div class="slide" id= "slide6"> -->
-<!--                     <img src="../../resources/images/tourist/detail01_slide6.jpg"> -->
-<!--                 </div> -->
             </div>
             <ul class="detail-icon">
                 <li>

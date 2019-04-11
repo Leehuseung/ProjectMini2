@@ -33,6 +33,8 @@ public interface TouristMapper {
 	public List<String> selectTouristFilesByNo(int no);
 	public List<TouristFileVO> selectTouristFile();
 	
+	/** 파일삭제 */
+	public void deleteTouristFile(int no);
 		
 	/** 댓글 목록 조회 */
 	public List<TouristCommentVO> selectComment(int no);

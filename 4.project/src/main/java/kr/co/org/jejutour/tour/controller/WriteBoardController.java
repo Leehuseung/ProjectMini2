@@ -41,10 +41,10 @@ public class WriteBoardController extends HttpServlet{
 		// 1. 모듈별 디렉토리 생성 저장하기
 		
 		// 루트
-		String uploadRoot = "c:/bit2019/workspace/firstProject git/4.project/src/main/webapp/resources/images/tourist";
+		String uploadRoot = "C:/bit2019/tomcat-work/wtpwebapps/jeju/resources/images/tourist";
 		
 		// 저장할 폴더 자동생성(일자별로)
-		SimpleDateFormat sdf = new SimpleDateFormat("/yyyy/MM/dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("/yyyy/MM/dd/");
 		String path = "/board" + sdf.format(new Date());
 		File file = new File(uploadRoot + path);
 		if(file.exists() == false) file.mkdirs();
@@ -101,7 +101,7 @@ public class WriteBoardController extends HttpServlet{
 	    	System.out.println(FileName);
 	    	if (FileName != null & i == 0) {
 				TouristFileVO fileVO = new TouristFileVO();
-				fileVO.setPath(uploadRoot + path + FileName);
+				fileVO.setPath("/jeju/resources/images/tourist"+ path + FileName);
 				fileVO.setName(FileName);
 				mapper.writeTouristBoardFile(fileVO);
 				
@@ -112,7 +112,7 @@ public class WriteBoardController extends HttpServlet{
 	    	} else {
 				System.out.println("else문실행됨");
 				TouristFileVO fileVO = new TouristFileVO();
-				fileVO.setPath(uploadRoot + path + FileName);
+				fileVO.setPath("/jeju/resources/images/tourist" + path + FileName);
 				fileVO.setName(FileName);
 				fileVO.setBoardNo(k);
 				System.out.println(fileVO.getBoardNo());
@@ -149,7 +149,7 @@ public class WriteBoardController extends HttpServlet{
 		response.sendRedirect("detailboard.do?no=" + t.getBoardNo());
 		
 		}catch(Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 		
 		

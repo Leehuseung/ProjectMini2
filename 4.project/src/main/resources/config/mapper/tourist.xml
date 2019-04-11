@@ -151,7 +151,7 @@
 	
 	
 	
-	<!-- 파일 등록 ================================= -->
+	<!-- 파일 ================================= -->
 	<resultMap id="fileMap" type="touristFile">
 		<result column="board_no" property="boardNo" />
 		<result column="file_no" property="fileNo" />
@@ -159,6 +159,7 @@
 		<result column="path" property="path" />
 	</resultMap>
 	
+	<!-- 파일 등록 -->
 	<insert id="writeTouristBoardFile" parameterType="touristFile"  >
 		insert into tb_tourist_file ( 
 		    file_no, board_no, name, path
@@ -174,6 +175,7 @@
 		    s_tourist_file_no.nextval, #{boardNo}, #{name}, #{path}
 		)
 	</insert>
+	
 	<!-- 사진경로 호출 -->
 	<select id="selectTouristFilesByNo" resultType="String" parameterType="int">
 		select path
@@ -195,6 +197,11 @@
 		 where name=#{name}
 	</select>
 	
+	<delete id="deleteTouristFile" parameterType="int">
+		delete 
+		  from tb_tourist_file
+		 where board_no = #{boardNo} 
+	</delete>
 	
 </mapper>
 
