@@ -2,9 +2,7 @@ package kr.co.org.jejutour.restraunt.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,8 +25,8 @@ public class RestrauntWriteController extends HttpServlet{
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
 		response.setContentType("text/html; charset=utf-8");
 		RestrauntMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(RestrauntMapper.class);
-		
-			String path = "C:/bit2019/workspace/NewMiniProject/4.project/src/main/webapp/resources/images/restraunt";
+		System.out.println("write.do실행됨");
+			String path = "C:/bit2019/tomcat-work/wtpwebapps/jeju/resources/images/restraunt";
 			
 			try {
 				MultipartRequest mRequest = new MultipartRequest(
@@ -40,6 +38,7 @@ public class RestrauntWriteController extends HttpServlet{
 						);
 				
 			
+				
 			
 			HttpSession session = request.getSession();
 			MemberVO user = (MemberVO)session.getAttribute("user");
@@ -60,6 +59,8 @@ public class RestrauntWriteController extends HttpServlet{
 			
 			String formName= "";
 			String FileName = "";
+			
+		
 
 			
 			Enumeration efiles = mRequest.getFileNames();
@@ -69,9 +70,13 @@ public class RestrauntWriteController extends HttpServlet{
 		    	formName = (String)efiles.nextElement();
 		    	FileName=mRequest.getFilesystemName(formName);
 		    	
+	    		  File f = mRequest.getFile(formName);
+		    	
+	    		  System.out.println("getparent"+f.getParent());
 //		    	System.out.println(FileName);
 		    	if (FileName != null & i == 0) {
-//					File f = mRequest.getFile(formName);
+		    		  
+		    		
 					RestrauntFileVO fileVO = new RestrauntFileVO();
 					fileVO.setPath("/jeju/resources/images/restraunt/"+FileName);
 					fileVO.setName(FileName);
@@ -90,14 +95,15 @@ public class RestrauntWriteController extends HttpServlet{
 					fileVO.setBoardNo(k);
 //					System.out.println(fileVO.getBoardNo());
 					mapper.insertFileNoneSe(fileVO);
-				}
+		    	}
 			}
 			
 		
 			}catch(Exception e) {
+				e.printStackTrace();
 			}
 			
-			response.sendRedirect("/jeju/view/restraunt/restraunt_main.do");
+			response.sendRedirect("/jeju/view/restraunt/restraunt_detail1.do?num="+mapper.selectMaxBoardNo());
 		}
 }
 

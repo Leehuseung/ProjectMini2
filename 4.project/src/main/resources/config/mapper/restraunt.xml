@@ -128,6 +128,7 @@
 		  from tb_restraunt_file
 		 where board_no = #{boardNo} 
 	</delete>
+
 	
 	<!-- 조회수 증가시키기 -->
 	<update id="updateRestrauntBoardViewCnt" parameterType="int">
@@ -150,7 +151,10 @@
 		   set like_cnt = like_cnt  -1
 		 where board_no = #{boardNo}  
 	</update>
-	
+	<select id="selectMaxBoardNo" resultType="int">
+		select max(board_no)
+ 		  from tb_restraunt_board
+	</select>
 	
 
 </mapper>

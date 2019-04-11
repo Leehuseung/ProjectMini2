@@ -27,8 +27,8 @@ public class RestrauntUpdateController extends HttpServlet{
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
 		response.setContentType("text/html; charset=utf-8");
 		RestrauntMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(RestrauntMapper.class);
-		
-			String path = "C:/bit2019/workspace/NewMiniProject/4.project/src/main/webapp/resources/images/restraunt";
+			
+			String path = "C:/bit2019/tomcat-work/wtpwebapps/jeju/resources/images/restraunt";
 			
 			try {
 				MultipartRequest mRequest = new MultipartRequest(
@@ -49,7 +49,7 @@ public class RestrauntUpdateController extends HttpServlet{
 			RestrauntBoardVO board = mapper.selectRestrauntBoardByNo(num);
 			System.out.println("num 번호"+board.getMemberNo());
 			board.setBoardNo(num);
-			board.setMemberNo(1);
+			board.setMemberNo(user.getMemberNo());
 			board.setName(mRequest.getParameter("name"));
 			board.setLocation(mRequest.getParameter("location"));
 			board.setIntro(mRequest.getParameter("intro"));
@@ -62,14 +62,12 @@ public class RestrauntUpdateController extends HttpServlet{
 			String formName= "";
 			String FileName = "";
 
-			/*
 			 
 			 
-			 
+			mapper.deleteRestrauntFile(num);
 			 
 			Enumeration efiles = mRequest.getFileNames();
 			int i = 0;
-			int k = 0;
 			while(efiles.hasMoreElements() ){
 		    	formName = (String)efiles.nextElement();
 		    	FileName=mRequest.getFilesystemName(formName);
@@ -80,27 +78,12 @@ public class RestrauntUpdateController extends HttpServlet{
 					RestrauntFileVO fileVO = new RestrauntFileVO();
 					fileVO.setPath("/jeju/resources/images/restraunt/"+FileName);
 					fileVO.setName(FileName);
-					mapper.insertFile(fileVO);
-					
-					k=mapper.selectFileByNo(fileVO.getName());
-//					System.out.println("보드의 값" + k);
-//					System.out.println("if문실행됨");
-					i++;
-		    	} else {
-//					File f = mRequest.getFile(formName);
-					System.out.println("else문실행됨");
-					RestrauntFileVO fileVO = new RestrauntFileVO();
-					fileVO.setPath("/jeju/resources/images/restraunt/"+FileName);
-					fileVO.setName(FileName);
-					fileVO.setBoardNo(k);
-//					System.out.println(fileVO.getBoardNo());
+					fileVO.setBoardNo(num);
 					mapper.insertFileNoneSe(fileVO);
 				}
+				
 			}
-			*/
-			
-			
-			
+			response.sendRedirect("/jeju/view/restraunt/restraunt_detail1.do?num="+num);
 		
 			}catch(Exception e) {
 				e.printStackTrace();
@@ -108,7 +91,6 @@ public class RestrauntUpdateController extends HttpServlet{
 			
 			
 			
-			response.sendRedirect("/jeju/view/restraunt/restraunt_main.do");
 		}
 }
 

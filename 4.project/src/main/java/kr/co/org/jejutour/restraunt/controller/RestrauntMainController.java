@@ -26,7 +26,7 @@ public class RestrauntMainController extends HttpServlet{
 		
 		RestrauntPageVO page = new RestrauntPageVO();
 		
-		//관리자만 글쓰기 가능
+		//관리자만 글쓰기 가능	
 		try {
 			HttpSession session = request.getSession();
 			MemberVO user = (MemberVO)session.getAttribute("user");

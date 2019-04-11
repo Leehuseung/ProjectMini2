@@ -24,5 +24,6 @@ public interface RestrauntMapper {
 	public void updateRestruantBoard(RestrauntBoardVO boardNo);
 	public void updateRestrauntBoardLikeCnt(int boardNo);
 	public void updateRestrauntBoardLikeCntM(int boardNo);
+	public int selectMaxBoardNo();
 	
 }
