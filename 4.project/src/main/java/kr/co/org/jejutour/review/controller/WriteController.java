@@ -29,6 +29,7 @@ public class WriteController extends HttpServlet{
 		MemberVO user = (MemberVO)session.getAttribute("user");
 		ReviewVO r = new ReviewVO();
 		r.setMemberNo(user.getMemberNo());
+		System.out.println(user.getMemberNo());
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String rating = request.getParameter("ratingCategory");

@@ -79,13 +79,31 @@
                 <button id="list1"><a href="list.do">목록보기</a></button>
             </span>
             <span class="modify">
-                <button id="modify"><a href="javascript:modify();">수정</a></button>
+            	<c:choose>
+            		<c:when test="${sessionScope.no eq detail.memberNo}">
+    		            <button id="modify"><a href="javascript:modify();">수정</a></button>
+	                </c:when>
+            		<c:otherwise>
+		                <button id="modify"><a href="javascript:fail();">수정</a></button>
+            		</c:otherwise>
+            	</c:choose>
             </span>
             <span class="delete">
-                <button id="delete"><a href="javascript:del();">삭제</a></button>
+            	<c:when test="${sessionScope.no eq detail.memberNo}">
+               		 <button id="delete"><a href="javascript:fail2();">삭제</a></button>
+	            </c:when>
+            	<c:otherwise>
+               		 <button id="delete"><a href="javascript:del();">삭제</a></button>
+            	</c:otherwise>
             </span>
         </div>  
         <script>
+        	 function fail() {
+        		 alert("작성자만 수정할 수 있습니다.");
+        	 }
+        	 function fail2() {
+        		 alert("작성자만 삭제할 수 있습니다.");
+        	 }
         	 function modify() {
         		 var result= confirm("수정하시겠어요??");
         		 if(result){
@@ -147,6 +165,8 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
+    console.log(${sessionScope.no});
+    console.log(${detail.memberNo});
     $(function() {
 
         function runLike(){

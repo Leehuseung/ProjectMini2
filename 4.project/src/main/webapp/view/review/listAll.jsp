@@ -47,10 +47,10 @@
                     		<c:when test="${empty sessionScope.user}">
                     			<button id="write"><a href="javascript:write();">글쓰기</a></button>
     						</c:when>
-    					<c:otherwise>
-	                        <button id="write"><a href="/jeju/view/review/writeform.do">글쓰기</a></button>
-    					</c:otherwise>                   
-    					</c:choose>
+    						<c:otherwise>
+	                        	<button id="write"><a href="/jeju/view/review/writeform.do">글쓰기</a></button>
+	    					</c:otherwise>                   
+	    				</c:choose>
                     </div>
                 </div>
             </div>            

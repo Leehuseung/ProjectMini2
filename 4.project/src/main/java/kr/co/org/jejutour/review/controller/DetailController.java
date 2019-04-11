@@ -26,6 +26,7 @@ public class DetailController extends HttpServlet{
 	//		System.out.println("detail1"+no);
 		mapper.updateViewCnt(no);
 		request.setAttribute("detail", mapper.detailReviewNo(no));
+		System.out.println(mapper.detailReviewNo(no).getMemberNo());
 		
 		RequestDispatcher rd = request.getRequestDispatcher("detail.jsp");
 		rd.forward(request, response);

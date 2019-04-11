@@ -11,7 +11,6 @@ public class ReviewCommentVO {
 	private Date writeDate;
 	private String name;
 	
-	
 	public String getName() {
 		return name;
 	}

@@ -60,6 +60,7 @@
 				a.title, 
 				a.content, 
 				b.name,
+				a.member_no,
 			    a.write_date, 
 			    a.like_cnt,
 			    a.view_cnt
@@ -99,7 +100,7 @@
 	
 	
 	<!-- 전체조회 -->
-	<select id="selectListReview" parameterType="review" resultMap="reviewMap">
+	<select id="selectListReview" parameterType="page" resultMap="reviewMap">
 	 select a.board_no,
       		b.name, 
        		a.title,

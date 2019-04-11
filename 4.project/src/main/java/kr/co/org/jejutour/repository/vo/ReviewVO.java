@@ -12,6 +12,7 @@ public class ReviewVO {
 	private int viewCnt;
 	private Date writeDate;
 	
+
 	private int memberNo;
 	public int getMemberNo() {
 		return memberNo;

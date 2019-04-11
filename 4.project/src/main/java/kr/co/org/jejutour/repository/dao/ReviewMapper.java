@@ -3,6 +3,7 @@ package kr.co.org.jejutour.repository.dao;
 import java.util.List;
 
 import kr.co.org.jejutour.repository.vo.ReviewCommentVO;
+import kr.co.org.jejutour.repository.vo.ReviewPageVO;
 import kr.co.org.jejutour.repository.vo.ReviewVO;
 import kr.co.org.jejutour.repository.vo.TouristPageVO;
 
@@ -23,7 +24,7 @@ public interface ReviewMapper {
 	public void updateViewCnt(int no);
 	
 //	리뷰 전체조회
-	public List<ReviewVO> selectListReview(TouristPageVO page);
+	public List<ReviewVO> selectListReview(ReviewPageVO page);
 	
 //	리뷰 전체 게시물 수
 	public int selectReviewCount();
