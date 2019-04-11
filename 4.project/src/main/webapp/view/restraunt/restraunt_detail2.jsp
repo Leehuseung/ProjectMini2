@@ -108,8 +108,8 @@ $(document).ready( function() {
                 <h1>${board.name}</h1>               
             </div>
             <div class="subMenu">
-                    <li><a href="/jeju/view/restraunt/restraunt_detail1.do" >상세보기</a></li>
-                    <li><a href="/jeju/view/restraunt/restraunt_detail2.do" >이용안내</a></li>
+                    <li><a href="/jeju/view/restraunt/restraunt_detail1.do?num=${board.boardNo}" >상세보기</a></li>
+                    <li><a href="/jeju/view/restraunt/restraunt_detail2.do?num=${board.boardNo}" >이용안내</a></li>
                     <li><a href="/jeju/view/restraunt/restraunt_detail3.do" >지도</a></li>
                     <li><a href="/jeju/view/restraunt/restraunt_detail4.do" >리뷰</a></li>
                 </ul>

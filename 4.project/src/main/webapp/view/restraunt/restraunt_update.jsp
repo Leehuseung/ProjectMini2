@@ -1,18 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-		<script>
-		$(document).ready( function() { 
-			$("#headers").load("../header.jsp");  // 원하는 파일 경로를 삽입하면 된다
-			$("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
-			}); 
-		</script>
         <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="../../resources/css/main.css" />
+         <link rel="stylesheet" type="text/css" href="../../resources/css/main.css" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+        
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +15,6 @@
     <title>Homepage</title>
     <style>
   
-
      /* 맛집 부분 */
      .container{
         width:1200px;
@@ -49,21 +43,24 @@
          width:100%;
          height:20px;
      }
+     .name{
+         text-align: center;
+     }
      button{
-        height:30px;
-        width:100px;
-        font-size:18px;
-        border-style:none;
-        background-color:orange;
-        color:white;margin:10px;
-        border-radius: 10px;
-         
+         height:40px;
+         width:100px;
+         font-size:15px;
+
      }
      .adrress{
          text-align:center;
          height:30px;
          width:100px;
          font-size:15px;
+     }
+     textarea{
+         height:100%;
+         width:100%;
      }
      .selecta{
          text-align:left;
@@ -95,10 +92,14 @@
         border:1px solid black;
         box-sizing:border-box;
     }
+    .photoDetail > div > img{
+        width:100%;
+        height:100%;
+    }
     .sub{
         margin-top:20px;
     }
-    #file{
+    .bot > button{
         height:30px;
         width:100px;
         font-size:18px;
@@ -107,78 +108,40 @@
         color:white;margin:10px;
         border-radius: 10px;
     }
-    #filediv{
-        text-align: center;
-        
-    }
+ 
     </style>
 
 
 </head>
 <!-- include -->
- 
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
+<script type="text/javascript">   
+$(document).ready( function() { 
 
-<script>
+$("#headers").load("../header.jsp");  // 원하는 파일 경로를 삽입하면 된다
+$("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
+}); 
 
 
-// 새로고침으로 페이지 write 경고창 함수
-// ({
-// 	init:function(){
-// 		var i = '<c:out value="${all}"/>';
-// 		if(i==1){
-// 			alert("내용을 입력해주세요.");
-			
-// 		}
-		
-// 	}
-// }).init();
-function check(){
-	if(!document.doSubmit.name.value){
-		alert("제목을 입력하세요");
-		document.doSubmit.name.focus();
-		return false;
-	}else if(!document.doSubmit.intro.value){
-		alert("소개를 입력하세요");
-		document.doSubmit.intro.focus();
-		return false;
-	}else if(!document.doSubmit.businessHours.value){
-		alert("이용시간을 입력하세요");
-		document.doSubmit.businessHours.focus();
-		return false;
-	}else if(!document.doSubmit.amendity.value){
-		alert("편의시설을 입력하세요");
-		document.doSubmit.amendity.focus();
-		return false;
-	}else if(!document.doSubmit.attach1.value ||
-			!document.doSubmit.attach2.value ||
-			!document.doSubmit.attach3.value ||
-			!document.doSubmit.attach.value ){
-		alert("파일을 모두 첨부해주세요")
-		return false;
-		
-	}
-} 
 </script>
-
 <body>
     <div id="headers"></div>
-    
     <div class="body">
-        <form method='POST' name="doSubmit" action='/jeju/view/restraunt/restraunt_write.do'  onsubmit="return check()" >
+        <form method='POST' action='/jeju/view/restraunt/restraunt_update.do?num=${board.boardNo}' enctype="multipart/form-data">
         <div class="container">
             <div class="subtitle">
                 <h1>글쓰기</h1>               
             </div>
             <div class="write">    
                 <div class="name">음식점 이름 </div>
-                <div><input type=text name="name"/></div>
+                <div><input type=text name="name" value="${board.name}"/></div>
                 <div class="name">음식점 소개 </div>
-                <div><input type=text name="intro"/></div>
+                <div><input type=text name="intro" value="${board.intro}"/></div>
                 <div>음식카테고리</div>
                 <div class="selecta">
 	                <span>
-	                    <select class="adrress" name="foodCategory" >
-	                        <option value='1'>한식</option>
+	                    <select class="adrress" name="foodCategory">
+	                        <option value='1' >한식</option>
 	                        <option value='2'>일식</option>
 	                        <option value='3'>양식</option>
 	                        <option value='4'>카페</option>
@@ -210,9 +173,9 @@ function check(){
             <h2 class="sub">이용안내 입력</h2>
             <div class="write">
                 <div class="name">이용시간 </div>
-                <div><input  name="businessHours" type=text /></div>
+                <div><input  name="businessHours" type=text value="${board.businessHours}"/></div>
                 <div class="name" >편의시설 </div>
-                <div><input type=text  name="amendity"/></div>
+                <div><input type=text  name="amendity" value="${board.amendity}"/></div>
             </div>
             <div class="photo">
                 <div>사진</div>
@@ -229,7 +192,7 @@ function check(){
                     	<span id=filediv><input type="file" name = "attach3"/></span>
                     	<span id=filediv><input type="file" name = "attach4"/></span>
                 	</form>
-                    <button type="submit"  >글등록</button>
+                    <button type="submit">글등록</button>
                 </div>
         </div>
         </form>
@@ -239,5 +202,4 @@ function check(){
     <div id="footer"></div>
 
 </body>
-
-</html> 
+</html>

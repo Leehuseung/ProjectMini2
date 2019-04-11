@@ -1,6 +1,6 @@
 package kr.co.org.jejutour.common.page;
 
-public class TouristPageResult {
+public class RestrauntPageResult {
 	private int pageNo;
 	private int count;
 	private int beginPage;
@@ -8,15 +8,15 @@ public class TouristPageResult {
 	private boolean prev;
 	private boolean next;
 	
-	public TouristPageResult(int pageNo, int count) {
+	public RestrauntPageResult(int pageNo, int count) {
 		this.pageNo = pageNo;
 		this.count = count;
 		setPageInfo();
 	}
 
 	private void setPageInfo() {
-		int lastPage = (count % 10 == 0) ? count / 9
-				: count / 9 + 1;	
+		int lastPage = (count % 3 == 0) ? count / 3
+				: count / 3 + 1;	
 		
 		// 요청한 페이지 번호에 해당하는 페이지 블럭 구하기
 		int tabSize = 10;
@@ -57,6 +57,4 @@ public class TouristPageResult {
 	public boolean isNext() {
 		return next;
 	}
-
-
 }

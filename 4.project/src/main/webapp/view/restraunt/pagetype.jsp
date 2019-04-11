@@ -8,7 +8,7 @@
 	</c:if>
 	<c:forEach var="i" begin="${pageResult.beginPage}" end="${pageResult.endPage}">
 		<div>
-			<a href="${param.link}?pageNo=${i}">${i}</a>
+			<a href="${param.link}pageNo=${i}">${i}</a>
 		</div>
 	</c:forEach>
 	<c:if test="${pageResult.next eq true}">

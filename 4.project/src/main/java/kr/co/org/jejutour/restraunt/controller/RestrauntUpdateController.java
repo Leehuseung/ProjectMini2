@@ -22,8 +22,8 @@ import kr.co.org.jejutour.repository.vo.MemberVO;
 import kr.co.org.jejutour.repository.vo.RestrauntBoardVO;
 import kr.co.org.jejutour.repository.vo.RestrauntFileVO;
 
-@WebServlet("/view/restraunt/restraunt_write.do")
-public class RestrauntWriteController extends HttpServlet{
+@WebServlet("/view/restraunt/restraunt_update.do")
+public class RestrauntUpdateController extends HttpServlet{
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
 		response.setContentType("text/html; charset=utf-8");
 		RestrauntMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(RestrauntMapper.class);
@@ -44,24 +44,29 @@ public class RestrauntWriteController extends HttpServlet{
 			HttpSession session = request.getSession();
 			MemberVO user = (MemberVO)session.getAttribute("user");
 			
-			RestrauntBoardVO board = new RestrauntBoardVO();
 			
-			
-			board.setMemberNo(user.getMemberNo());
+			int num = Integer.parseInt(mRequest.getParameter("num"));
+			RestrauntBoardVO board = mapper.selectRestrauntBoardByNo(num);
+			System.out.println("num 번호"+board.getMemberNo());
+			board.setBoardNo(num);
+			board.setMemberNo(1);
 			board.setName(mRequest.getParameter("name"));
 			board.setLocation(mRequest.getParameter("location"));
 			board.setIntro(mRequest.getParameter("intro"));
 			board.setBusinessHours(mRequest.getParameter("businessHours"));
 			board.setAmendity(mRequest.getParameter("amendity"));
 			board.setFoodCategory(Integer.parseInt(mRequest.getParameter("foodCategory")));
-			mapper.insertBoard(board);
-			
-			
+			System.out.println("board의 번호"+board.getMemberNo());
+			mapper.updateRestruantBoard(board);
 			
 			String formName= "";
 			String FileName = "";
 
-			
+			/*
+			 
+			 
+			 
+			 
 			Enumeration efiles = mRequest.getFileNames();
 			int i = 0;
 			int k = 0;
@@ -92,13 +97,22 @@ public class RestrauntWriteController extends HttpServlet{
 					mapper.insertFileNoneSe(fileVO);
 				}
 			}
+			*/
+			
+			
 			
 		
 			}catch(Exception e) {
+				e.printStackTrace();
 			}
+			
+			
 			
 			response.sendRedirect("/jeju/view/restraunt/restraunt_main.do");
 		}
 }
+
+
+
 
 

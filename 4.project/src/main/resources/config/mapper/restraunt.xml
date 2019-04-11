@@ -33,31 +33,19 @@
 		insert into tb_restraunt_file (
 			board_no, file_no, name, path
 		) values (
-		   s_restraunt_board_no.nextval, s_restraunt_file_no.nextval, #{name}, #{path}		
+		   s_restraunt_board_no.nextval-1, s_restraunt_file_no.nextval, #{name}, #{path}		
 		)
 	</insert> 	 
 	
- 	<select id="selectRestrauntBoard" resultMap="restrauntBoardMap">
-		select *
-		  from tb_Restraunt_board
-		 order by board_no
-	</select> 
-
+	<!-- 파일 리스트 불러오기 -->
  	<select id="selectRestrauntFile" resultMap="restrauntFileMap">
 		select *
 		  from tb_Restraunt_file
 		   order by board_no
 	</select> 
-<!--  	<select id="selectRestrauntBoard" resultMap="restrauntBoardMap">
-		select *
- 		  from (select rownum rnum, a.*
-         		  from (select *
-                 		  from tb_restruant_board
-                 	   ) a
-        		)
-		 where rnum between #{begin} and #{end}
-	</select>
-	-->
+ 	
+ 	
+ 	<!-- 시퀀스 없이 파일생성 -->
 	<insert id="insertFileNoneSe" parameterType="restrauntFile">
 		insert into tb_restraunt_file (
 			board_no, file_no, name, path
@@ -65,30 +53,20 @@
 		   #{boardNo}, s_restraunt_file_no.nextval, #{name}, #{path}		
 		)
 	</insert> 	 
+ 	<!-- 파일 이름 으로 게시글번호 가져오기 -->
 	<select id="selectFileByNo" parameterType="String" resultType="int">
 		select board_no
 		  from tb_restraunt_file
 		 where name=#{name}
 	</select>
 	
-	<!-- 사진경로 불러오기 -->
-<!-- 	<select id="selectRestrauntFileByNo" parameterType="int" resultMap="restrauntFileMap">
-	  select *
-		from tb_restraunt_file
-	   where board_no= #{boardNo}
-	</select> -->
 	
+ 	<!-- 파일 경로 가져오기 -->
 	<select id="selectRestrauntFileByNo" parameterType="int" resultType="String">
 	  select path
 		from tb_restraunt_file
 	   where board_no= #{boardNo}
-	</select>
-	
-	<!-- 지역값1 불러오기 -->
-	<select id="selectRestrauntLoacationByNo" parameterType="int" resultType="String">
-		select value_name
-		  from tb_code
-		 where groups=#{groups}
+	   order by board_no
 	</select>
 	
 	<!-- 글추가 -->
@@ -106,6 +84,72 @@
 		) 
 	</insert>
 	
+	<update id="updateRestruantBoard" parameterType="restrauntBoard">
+		update tb_restraunt_board
+		   set name=#{name}, 
+		       intro=#{intro},
+		       food_category=#{foodCategory}, 
+		       business_hours=#{businessHours},
+		       amendity=#{amendity}, 
+		       location=#{location}
+		 where board_no = #{boardNo} 
+	</update>	
+	
+	
+	<!-- 게시판 전체목록 페이징추가 -->
+	<select id="selectRestrauntBoard" resultMap="restrauntBoardMap" parameterType="hashmap">
+		select *
+ 		  from (select rownum rnum, a.*
+         		  from (select *
+                 		  from tb_restraunt_board
+                 		 where food_category=#{foodCategory}
+                 		 order by board_no
+                 	   ) a
+        		)
+		 where rnum between #{begin} and #{end}
+	</select>
+	
+	<!-- 게시판 전체목록 페이징 번호 -->
+	<select id="selectBoardListCount" resultType="int" parameterType="int">
+		select count(*)
+		  from tb_restraunt_board
+		 where food_category = #{foodCategory}
+		  
+	</select>
+	
+	<delete id="deleteRestrauntBoard" parameterType="int">
+		delete 
+		  from tb_restraunt_board
+		 where board_no = #{boardNo} 
+	</delete>
+	
+	<delete id="deleteRestrauntFile" parameterType="int">
+		delete 
+		  from tb_restraunt_file
+		 where board_no = #{boardNo} 
+	</delete>
+	
+	<!-- 조회수 증가시키기 -->
+	<update id="updateRestrauntBoardViewCnt" parameterType="int">
+		update tb_restraunt_board
+		   set view_cnt = view_cnt + 1
+		 where board_no = #{boardNo}  
+	</update>
+	
+	
+	<!-- like 증가 -->
+	<update id="updateRestrauntBoardLikeCnt" parameterType="int">
+		update tb_restraunt_board
+		   set like_cnt = like_cnt + 1
+		 where board_no = #{boardNo}  
+	</update>
+	
+	<!-- like 감소 -->
+	<update id="updateRestrauntBoardLikeCntM" parameterType="int">
+		update tb_restraunt_board
+		   set like_cnt = like_cnt  -1
+		 where board_no = #{boardNo}  
+	</update>
 	
 	
 

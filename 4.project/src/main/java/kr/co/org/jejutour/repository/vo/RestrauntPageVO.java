@@ -1,9 +1,7 @@
 package kr.co.org.jejutour.repository.vo;
 
 public class RestrauntPageVO {
-
 	private int pageNo = 1;
-	
 	public int getPageNo() {
 		return pageNo;
 	}
@@ -15,7 +13,8 @@ public class RestrauntPageVO {
 	}
 	
 	public int getEnd() {
-		return this.pageNo * 10;
+		return this.pageNo * 3;
 	}
+	
 	
 }
