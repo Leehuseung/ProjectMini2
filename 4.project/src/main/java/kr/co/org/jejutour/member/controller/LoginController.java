@@ -53,7 +53,7 @@ public class LoginController extends HttpServlet {
 			} else {
 				session.setAttribute("user", user);
 				session.setAttribute("id", user.getId());	        
-				
+				System.out.println(user.getName());
 				out.println(1);
 			} 
 			

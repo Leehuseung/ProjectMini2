@@ -36,12 +36,12 @@
     
     
     <script type="text/javascript">
-	  	var naver_id_login = new naver_id_login("1rzkZGYIbcGygmGA5uGi", "http://localhost/jeju/view/member/main.do");
+	  	var naver_id_login = new naver_id_login
+	  	("1rzkZGYIbcGygmGA5uGi", "http://localhost/jeju/view/member/main.do");
 	  	var state = naver_id_login.getUniqState();
 	  	naver_id_login.setButton("white", 2,40);
 	  	naver_id_login.setDomain("http://localhost/jeju/view/member/loginform.do");
-	  	naver_id_login.setState(state);
-	  	naver_id_login.setPopup();
+	  	naver_id_login.setState(state);  	
 	  	naver_id_login.init_naver_id_login();
      
     	$("#log").click(function () {
@@ -52,11 +52,10 @@
     				 if (data == 0) {    					 
                          window.location.href = '/jeju/view/member/loginfailform.do';
     
-                     } else {    
+                     } else {                    	 
                          window.location.href = '/jeju/view/member/main.do';    
                      }
-    			}
-    			
+    			}    			
     		});
     	});
     	

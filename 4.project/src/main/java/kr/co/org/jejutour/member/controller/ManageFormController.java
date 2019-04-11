@@ -9,11 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.org.jejutour.common.page.PageResult;
-import kr.co.org.jejutour.common.page.TouristPageResult;
 import kr.co.org.jejutour.db.MyAppSqlConfig;
 import kr.co.org.jejutour.repository.dao.MemberMapper;
 import kr.co.org.jejutour.repository.vo.MemberPageVO;
-import kr.co.org.jejutour.repository.vo.TouristPageVO;
 
 @WebServlet("/view/member/manage.do")
 public class ManageFormController extends HttpServlet {
