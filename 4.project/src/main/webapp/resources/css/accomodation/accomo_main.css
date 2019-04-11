@@ -1,0 +1,528 @@
+@charset "UTF-8";
+
+.body > .introduction {
+        background-image: url("../../images/accomodation/default/flower5.jpg");
+        
+        
+  
+       background-repeat: no-repeat;
+        background-size: 1200px 300px;
+        background-position: top left;
+        width:1200px;
+            height:300px;
+            margin: 25px auto;
+            
+    }
+    .body > .search-city{
+        background-image: url("../../images/accomodation/default/flower3.png");
+        background-repeat: no-repeat;
+        background-size:cover;
+        width:1200px;
+            height:550px;
+            margin: 25px auto;
+    }
+    
+    
+    
+    .body >.introduction >.title{
+        font-size:70px;
+        color:black;
+        font-family: 'Black Han Sans', sans-serif;
+        text-decoration: none;
+        width:60%;
+        height:80px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:3%;
+        display: block;
+    }
+    .body >.introduction >.title2{
+        color:black;
+        text-decoration: none;
+        font-size: 35px;
+        width:60%;
+        height:70px;
+        margin-left:auto;
+        margin-right:auto;
+        
+        display: block;
+        text-align: center;
+        padding-top:20px;
+        box-sizing: border-box
+    }
+    .body >.introduction >.title3{
+     
+       font-size: 20px;
+       color:black;
+        text-align: center;
+        text-decoration: none;
+        width:80%;
+        height:70px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:2%;
+        display: block;
+    }
+   
+    .search-city >form{
+        display: block;
+       
+        width:700px;
+        height: 550px;
+    }
+
+    .body >.search-city >form >.type{
+        
+        text-decoration: none;
+        width:80%;
+        height:200px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:1%;
+        display: block;
+       
+    }
+
+     input[type=radio] {
+  display: none;
+
+    }
+  
+     input[type=radio] + label {
+  display: inline;
+  background-color:orange;
+  border-color: orange;
+  color: white;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: .5em;
+  padding:1px 3px;
+  
+  font-size: 35px;
+}
+
+
+
+input[type=radio]:checked + label.type{
+  background-color: red;
+  border-color: red;
+  color:    white
+}
+
+input[type=radio]:checked + label.city{
+    background-color: red;
+  border-color: red;
+  color:    white
+}
+
+    
+    .body >.search-city >form >.type  >.subtype1{
+        
+        text-decoration: none;
+        width:60%;
+        height:70px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:1%;
+        display: block;
+        font-size: 50px;
+        text-align:center;
+        padding-top:10px;
+        box-sizing: border-box
+    }
+   
+    .body >.search-city >form >.type >.subtype2{
+    
+        
+        text-decoration: none;
+        width:77%;
+        height:70px;
+        margin-left:90px;
+        margin-right:auto;
+        margin-top:5%;
+        display: block;
+    }
+    .body >.search-city >form >.city{
+        
+        text-decoration: none;
+        width:65%;
+        height:200px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:1%;
+        display: block;
+    }
+    .body >.search-city >form >.city >.subcity1{
+        
+        text-decoration: none;
+        width:60%;
+        height:70px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:1%;
+        display: block;
+        font-size:50px;
+        text-align: center;
+    }
+    .body >.search-city >form >.city >.subcity2{
+        
+        text-decoration: none;
+        width:90%;
+        height:45px;
+        margin-left:39px;
+        margin-right:auto;
+        margin-top:2%;
+        display: block;
+    }
+    .body >.search-city >form >.city >.subcity3{
+        text-decoration: none;
+        width:90%;
+        height:70px;
+        left:33px;
+      
+        margin-top:1%;
+        display: block;
+    }
+    .body >.search-city >form >.select{
+        
+        text-decoration: none;
+        width:40%;
+        height:90px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top:5%;
+        display: block;
+        font-size:40px;
+        text-align: center;
+        padding-top:12px;
+        box-sizing: border-box;
+    }
+    ul> #button{
+        width:60%;
+        height: 100%;
+        
+        background-color:white;
+        font-size:40px;
+        color:black;
+    }
+    #button:hover{
+        border-color: orange;
+        background-color:orange;
+        color:black;
+    }
+    .thumbnail-info{
+        margin-top:100px;
+        width:1200px;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        
+        grid-column-gap: 2em;
+        grid-row-gap: 1em;
+        
+        
+    }    
+   
+     .info_block{
+        margin-top:10px;
+        background: #f3f3f3;
+        grid-row-gap: 1px;
+        display:grid;
+        width:100%;
+        
+        height:450px;
+        grid-template-rows: 10% 70% 10% 10%
+    }
+    
+    .info_block > div {
+       width:100%;
+        display:grid;
+        
+    } 
+    .info_block > .info_header1{
+    padding-top:10px;
+    font-size:30px;
+    }
+    .info_block > .info_header2{
+    padding-top:10px;
+    font-size:30px;
+    }
+    .info_block > .info_header3{
+    padding-top:10px;
+    font-size:30px;
+    }
+    .info_block > .info_header4{
+    padding-top:10px;
+    font-size:30px;
+    }
+    .info_block > .info_pic1{
+        
+       background-image: url("../../resources/images/accomodation/oceansweet.gif");
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+    }
+    .info_block > .info_pic2{
+        
+        background-image: url("../../resources/images/accomodation/pension.jpg");
+         background-repeat: no-repeat;
+         background-size: cover;
+         
+     }
+     .info_block > .info_pic3{
+        
+        
+         background-repeat: no-repeat;
+         background-size: cover;
+         
+     }
+     .info_block > .info_pic3{
+        
+        background-image: url("../../resources/images/accomodation/howardhotel.jpg");
+         background-repeat: no-repeat;
+         background-size: cover;
+         
+     }
+     .info_block > .info_pic4{
+        
+        background-image: url("../../resources/images/accomodation/gusethouse.gif");
+         background-repeat: no-repeat;
+         background-size: cover;
+         
+     }
+    
+    
+    .info_block > .info_line{
+        font-size:30px;
+        align-items: center;
+      text-align: center;
+       
+    }
+    .info_bottom{
+        border-top: 1px solid black;
+        display: grid;
+        grid-template-columns: 1fr 1fr  1fr;
+        align-items: center;
+        font-size:25px;
+    }
+
+
+
+    .bottom_detail{
+    border:1px solid black;
+    }
+    
+    .bottom_detail >a{
+    text-decoration: none;
+    color:black;
+    padding:1px;
+    }
+    
+    .bottom_detail{
+  text-align: center;
+  cursor: pointer;
+  font-size:24px;
+  margin: 0 0 0 60px;
+}
+/*Button Two*/
+.bottom_detail {
+  border-radius: 4px;
+  background-color:orange;
+  border: none;
+  padding: 15px;
+  width: 150px;
+  height:10px;
+  transition: all 0.5s;
+  top:-2px;
+  line-height: 17px;
+}
+
+
+.bottom_detail span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  
+}
+
+.bottom_detail span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.bottom_detail:hover span {
+  padding-right: 25px;
+}
+
+.bottom_detail:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+
+    .body > .select-page{
+       
+        border: 1px solid black;
+        width:600px;
+        height:70px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top: 10%;
+       text-align: center;
+       
+    }
+    .select-page > div{
+      
+        display: inline-block;
+       
+    }
+    .write_view{
+        margin-left:40px;       
+        border:1px solid black;
+        width:300px;
+        display: inline-block;
+      
+        
+    }
+    .write_view >  div{
+        display: inline-block;
+        width:100px;
+        height:30px;
+        border:1px solid black;
+        
+      
+    }
+    
+    .write_view  a{
+        text-decoration: none;
+      
+    }
+    .page_num{
+        width:20px;
+        border: 1px solid black;
+        margin:10px 10px;
+    }
+    .arrow >img{
+       top:7px;
+    }
+
+    .page {
+        box-sizing:border-box;
+        height:8%;
+        display:grid;
+        grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+        grid-column-gap: 30px;
+        padding-left: 200px;
+        padding-right:200px;
+        padding-top:20px;
+        padding-bottom:20px;
+        line-height:35px;
+    }
+    .page > div {
+        box-sizing:border-box;
+        border: 1px solid black;
+        height:100%;
+        width:100%;
+        text-align:center;
+        border-radius: 50%;
+        border: 1px solid orange;
+        box-shadow: 3px 3px  gray;
+    }
+    .page > div:hover{
+        background-color:orange;
+        color:white;
+    }
+     .orangered{
+         background:orange;
+        }
+   
+    #accomo_write a{
+        text-decoration: none;
+         font-size:30px;   
+            }
+        
+    #accomo_write{
+        margin-top:10px;
+        display: inline-block;
+        box-sizing:border-box;
+        height:45px;
+        width:120px;
+        text-align:center;
+       line-height:50px;
+        border: 1px solid orange;
+        box-shadow: 3px 3px  gray;
+      
+        left:821px;
+        top:70px;
+        font-size:20px;
+
+    }
+
+    #accomo_write:hover{
+        background-color:orange;
+        color:white;
+    }
+
+    .box1 input{
+   display:none;
+    }
+
+
+    .footer {
+    margin-top: 100px;
+    width: 1200px; height: 150px;
+    background: orange;
+    display:grid;
+    grid-template-columns:1fr 2fr ;
+    grid-column-gap: 30px;       
+}
+.phone {
+    width: 100%; height: 100%;
+    background: orange;
+    text-align: center;   
+}
+.center {
+    font-size: 20px;
+    margin-top: 57px;
+}
+.center img {
+    width: 40px; height: 40px;
+}
+.icon_f {
+    grid-template-columns:1fr 1fr 1fr ;
+    width: 100%; height: 100%;    
+    display: grid;
+}
+.icon_f img {
+    width: 50px; height: 50px;
+    margin-top: 40px;
+    margin-left: 35px;
+}
+.icon_f p {
+    margin-left: 20px;
+}
+.info1{
+    width: 100%;     
+}
+.info2 {
+    width: 100%;     
+}
+.info3 {
+    width: 100%;
+}
+.footer a {
+    text-decoration: none;
+    color: black;
+}
+.footer a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
