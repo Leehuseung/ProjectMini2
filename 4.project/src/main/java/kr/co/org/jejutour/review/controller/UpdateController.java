@@ -21,22 +21,19 @@ public class UpdateController extends HttpServlet{
 		mapper = MyAppSqlConfig.getSqlSession().getMapper(ReviewMapper.class);
 	}
 	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+		request.setCharacterEncoding("utf-8");
 		ReviewVO r = new ReviewVO();
 		
 		int no = Integer.parseInt(request.getParameter("no"));
-		request.setCharacterEncoding("utf-8");
 		r.setBoardNo(no);
 		r.setContent(request.getParameter("content"));
 		r.setTitle(request.getParameter("title"));
-		r.setTitle(request.getParameter(""));
+		r.setRatingCategoryNo(request.getParameter("ratingCategory"));
+		r.setReviewCategoryNo(request.getParameter("reviewCategory"));
 		r.setMemberNo(2);
 		
-		response.sendRedirect("detail.do");
-		
-		
-		
-		
-		
+		mapper.updateReview(r);
+		response.sendRedirect("detail.do?no="+no);
 		
 
 	}

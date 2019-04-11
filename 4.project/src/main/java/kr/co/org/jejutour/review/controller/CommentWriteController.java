@@ -36,7 +36,6 @@ public class CommentWriteController extends HttpServlet{
 		
 		mapper.insertComment(rc);
 	
-//		response.sendRedirect("comment-list.do?no="+no);
 		response.sendRedirect("detail.do?no="+no);
 		
 		

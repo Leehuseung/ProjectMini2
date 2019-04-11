@@ -10,6 +10,7 @@ public class ReviewCommentVO {
 	private String content;
 	private Date writeDate;
 	
+	
 	private int memberNo;
 	
 	public int getMemberNo() {

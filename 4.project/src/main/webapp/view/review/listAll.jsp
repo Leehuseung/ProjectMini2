@@ -81,19 +81,12 @@
         </div>
         </div>
         <!-- 페이징 -->
-        <div class="page">
-            <div class="prev"><a href="#">이전</a></div>
-            <div><a href="#">1</a></div>
-            <div><a href="#">2</a></div>
-            <div><a href="#">3</a></div>
-            <div><a href="#">4</a></div>
-            <div><a href="#">5</a></div>
-            <div><a href="#">6</a></div>
-            <div><a href="#">7</a></div>
-            <div><a href="#">8</a></div>
-            <div><a href="#">9</a></div>
-            <div><a href="#">10</a></div>
-            <div class="next"><a href="#">다음</a></div>
+     	<div class="page">
+            <c:if test="${page.count != 0}">
+			<jsp:include page="pagetype.jsp" >
+				<jsp:param name="link" value="list.do" />
+			</jsp:include>
+			</c:if>
         </div>
               
     <div id="footer"></div>

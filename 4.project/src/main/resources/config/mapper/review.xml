@@ -38,6 +38,19 @@
 		)
 	</insert>
 	
+	<!-- 글수정 -->
+	
+	<update id="updateReview" parameterType="review">
+		update tb_review
+		   set review_category_no = #{reviewCategoryNo},
+		   	   title = #{title},
+		   	   content = #{content},
+		   	   rating_category_no = #{ratingCategoryNo}
+		 where board_no = #{boardNo}
+		   and member_no = #{memberNo}
+		   	   	
+	</update>
+	
 	<!-- 등록 후 상세보기 -->
 	<select id="detailReviewNo" parameterType="int" resultMap="reviewMap">
 		select a.view_cnt,
@@ -55,6 +68,19 @@
 		     on a.member_no = b.member_no
 		  where a.board_no = #{boardNo}
 	</select>
+
+	<!-- 수정폼 보여주기  -->
+	<select id="selectFormReviewNo" parameterType="int" resultMap="reviewMap">
+		select  a.review_category_no, 
+				a.rating_category_no,
+				a.title, 
+				a.content,
+				a.board_no
+		  from  tb_review a
+		  inner join tb_member b 
+		     on a.member_no = b.member_no
+		  where a.board_no = #{boardNo}
+	</select>
 	
 	<!--조회수 증가-->
 	<update id="updateViewCnt" parameterType="int" >
@@ -62,7 +88,40 @@
 		   set view_cnt = view_cnt + 1
 		 where board_no = #{boardNo}
 	</update>
+	
+	<!-- 글 삭제 -->
+	<delete id="deleteReview" parameterType="int">
+		delete
+		  from tb_review
+		 where board_no=#{boardNo}
+	</delete>
+	
+	
 	<!-- 전체조회 -->
+	<select id="selectListReview" parameterType="review" resultMap="reviewMap">
+	 select a.board_no,
+      		b.name, 
+       		a.title,
+       		(select name from tb_category where code_no = review_category_no) as review_category_no,
+       		a.write_date,
+       		a.view_cnt,
+       		a.like_cnt
+  	   from (select rownum rnum, c.*
+               from (select *
+                       from tb_review
+                      order by board_no desc) c) a
+      inner join tb_member b
+   		 on a.member_no = b.member_no
+	  where rnum between #{begin} and #{end}
+	</select>
+	
+	<!-- 전체 게시물 수 -->
+	<select id="selectReviewCount" resultType="int">
+		select count(*)
+		  from tb_review
+	</select>
+	
+	<!-- 페이징 없을 때!
 	<select id="selectListReview" parameterType="review" resultMap="reviewMap">
 		select a.board_no,
 			   b.name, 
@@ -76,7 +135,7 @@
 		    on a.member_no = b.member_no
 		 order by board_no desc
 		 
-	</select>
+	</select> -->
 	
 	<!--들어갔는지체크..??  -->
 	<select id="writeCheck" parameterType="review" resultType="int">
@@ -106,15 +165,27 @@
 		values(s_review_comment_no.nextval,#{boardNo},#{content}, #{memberNo})
 	</insert>  
 	
+	<!-- 전체 댓글 수 -->
+	<select id="selectReviewCommentCount" resultType="int">
+		select count(*)
+		  from tb_review_comment a
+		 inner join tb_review b
+		    on a.board_no = b.board_no
+		 where b.board_no = #{boardNo};
+	</select>
+	
 	<!-- 댓글 조회 -->
 	<select id="selectListCommentByNo" parameterType="int" resultMap="commentMap">
-		select a.write_date, 
+		select a.comment_no,
+			   a.board_no,
+			   a.write_date, 
 			   b.name,
 			   a.content
 		  from tb_review_comment a
 		 inner join tb_member b
 		    on a.member_no = b.member_no
 		 where a.board_no = #{boardNo}
+		   and b.member_no = 2 
 		 order by comment_no desc
 	</select>
 </mapper>

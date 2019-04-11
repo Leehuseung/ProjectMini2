@@ -18,7 +18,7 @@
     <div id="headers"></div>
 
     <div class="body">
-        <form method="post" action="/jeju/view/review/write.do">
+        <form method="post" name="mForm" action="write.do">
             <div id="img">
                 <div id="contents">
                     <div class="title-area">
@@ -73,7 +73,7 @@
                     <textarea rows="30" cols="4" placeholder="내용을 입력하세요." name="content"></textarea>
                 </div>
                 <span class="save">
-                	<button id="save">저장</button>
+                	<button id="save" type="submit">저장</button>
                 </span>
         </form>
     </div>
@@ -89,36 +89,47 @@
    		$("#headers").load("../header.html");  // 원하는 파일 경로를 삽입하면 된다
    		$("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
    		});
+        
         </script>
         
-      <!--   <script>
-        
-  			$("#save").click(function(){
-        		$.ajax({
-        			type:"post",
-        			url:"write.do",
-        		   data:"choice1="+$("#choice1").val()
-        		   +"&choice2="+$("#choice2").val()
-        		   +"&content="+$("#content").val()
-        		   +"&contentWrite="+$(".contentWrite").val(),
-        		   dataType:"json",
-        		   success:function(data) {
-        			   if(data == 1){
-        				   window.location.href = 'jeju/view/review/detail.jsp';    
-        			   }if(data == 0){
-        				   alert("값을 입력하세요");
-        			   }
-        		   }
-        		   
-        		})
-        		
-        	}); 
-        	/* $("#save").click(function(){
-        		$("#choice1").on("change",function(){
-        			console.log($(this).find("option[value='"+$(this).val()+"']").text());
-        		})        	
-        	}); */
-        </script> -->
+    <!--    function isEmpty(ele, msg){
+        	if(ele.value ==""){
+        		alert(msg);
+        		ele.focus();
+        		return true;
+        	}
+        	return false;
+        }
+        $("#save").click(function(){
+        	var f = document.mForm;
+        	if(isEmpty(f.content,"내용을 입력하세요"))return;
+        	if(isEmpty(f.title,"제목을 입력하세요"))return;
+        	f.action="/jeju/view/review/write.do";
+        	f.submit;
+        }); -->
+       <!-- <script>
+		$("#save").click(function(){
+     		$.ajax({
+     			type:"post",
+     			url:"write.do",
+     		   data:"choice1="+$("#choice1").val()
+     		   +"&choice2="+$("#choice2").val()
+     		   +"&content="+$("#content").val()
+     		   +"&contentWrite="+$(".contentWrite").val(),
+     		   dataType:"json",
+     		   success:function(data) {
+     				   console.log(data);
+     			   if(data[0] == 1){
+     				   window.location.href = 'jeju/view/review/detail.do?no='+data[1];    
+     			   }if(data[0] == 0){
+     				   alert("값을 입력하세요");
+     			   }
+     		   }
+     		   
+     		})
+     		
+     	});  -->
+        </script> 
     </body>
 
 

@@ -21,6 +21,8 @@ public class UpdateformController extends HttpServlet{
 		mapper = MyAppSqlConfig.getSqlSession().getMapper(ReviewMapper.class);
 	}
 	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+		int no = Integer.parseInt(request.getParameter("no"));
+		request.setAttribute("update", mapper.selectFormReviewNo(no));
 		request.getRequestDispatcher("modify.jsp").forward(request, response);
 		
 		
