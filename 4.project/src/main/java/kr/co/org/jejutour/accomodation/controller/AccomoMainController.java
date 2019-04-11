@@ -16,7 +16,7 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 	String city = request.getParameter("city");
 	System.out.println("city :" + city);
 	String type = request.getParameter("type");
-	System.out.println("type" + type);
+	System.out.println("type :" + type);
 	
 }
 }
