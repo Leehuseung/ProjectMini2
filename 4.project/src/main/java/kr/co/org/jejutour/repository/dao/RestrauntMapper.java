@@ -1,5 +1,6 @@
 package kr.co.org.jejutour.repository.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import kr.co.org.jejutour.repository.vo.RestrauntBoardVO;
@@ -14,7 +15,15 @@ public interface RestrauntMapper {
 	void insertFileNoneSe(RestrauntFileVO file);
 	public void insertBoard(RestrauntBoardVO board);
 	public int selectFileByNo(String name);
-	public List<RestrauntBoardVO> selectRestrauntBoard();
+	public int selectBoardListCount(int num);
+	public List<RestrauntBoardVO> selectRestrauntBoard(HashMap<String,Object> map);
 	public List<RestrauntFileVO> selectRestrauntFile();
+	public void deleteRestrauntBoard(int boardNo);
+	public void deleteRestrauntFile(int boardNo);
+	public void updateRestrauntBoardViewCnt(int boardNo);
+	public void updateRestruantBoard(RestrauntBoardVO boardNo);
+	public void updateRestrauntBoardLikeCnt(int boardNo);
+	public void updateRestrauntBoardLikeCntM(int boardNo);
+	public int selectMaxBoardNo();
 	
 }

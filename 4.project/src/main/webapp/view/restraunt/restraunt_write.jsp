@@ -3,7 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
 <html lang="en">
-		
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script>
+		$(document).ready( function() { 
+			$("#headers").load("../header.jsp");  // 원하는 파일 경로를 삽입하면 된다
+			$("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
+			}); 
+		</script>
         <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../../resources/css/main.css" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -11,7 +17,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <title>Homepage</title>
     <style>
   
@@ -93,41 +98,74 @@
     .sub{
         margin-top:20px;
     }
-	
-    input[type='file'] {    	
-        display:none;
-    }
-    
-    .attach1,.attach2,.attach3,.attach4 {    	
-        font-size: 20px;
-        border: 4px solid orange;
-        border-radius: 5px;
+    #file{
+        height:30px;
+        width:100px;
+        font-size:18px;
+        border-style:none;
         background-color:orange;
-        color:white;
-        margin:10px;     
+        color:white;margin:10px;
+        border-radius: 10px;
     }
-	.attach1 {
-		margin-left :220px;
-	}
+    #filediv{
+        text-align: center;
+        
+    }
     </style>
 
 
 </head>
+<!-- include -->
+ 
 
 <script>
-$(document).ready( function() { 
-$("#headers").load("../header.jsp");  // 원하는 파일 경로를 삽입하면 된다
-$("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
-}); 
 
 
-
+// 새로고침으로 페이지 write 경고창 함수
+// ({
+// 	init:function(){
+// 		var i = '<c:out value="${all}"/>';
+// 		if(i==1){
+// 			alert("내용을 입력해주세요.");
+			
+// 		}
+		
+// 	}
+// }).init();
+function check(){
+	if(!document.doSubmit.name.value){
+		alert("제목을 입력하세요");
+		document.doSubmit.name.focus();
+		return false;
+	}else if(!document.doSubmit.intro.value){
+		alert("소개를 입력하세요");
+		document.doSubmit.intro.focus();
+		return false;
+	}else if(!document.doSubmit.businessHours.value){
+		alert("이용시간을 입력하세요");
+		document.doSubmit.businessHours.focus();
+		return false;
+	}else if(!document.doSubmit.amendity.value){
+		alert("편의시설을 입력하세요");
+		document.doSubmit.amendity.focus();
+		return false;
+	}else if(!document.doSubmit.attach1.value ||
+			!document.doSubmit.attach2.value ||
+			!document.doSubmit.attach3.value ||
+			!document.doSubmit.attach.value ){
+		alert("파일을 모두 첨부해주세요")
+		return false;
+	}else{
+		return true;
+	}
+}  
 </script>
 
 <body>
     <div id="headers"></div>
+    
     <div class="body">
-        <form method='POST' action='/jeju/view/restraunt/restraunt_write.do' enctype="multipart/form-data">
+        <form method='POST' name="doSubmit" action='/jeju/view/restraunt/restraunt_write.do' enctype="multipart/form-data" onsubmit="check()">
         <div class="container">
             <div class="subtitle">
                 <h1>글쓰기</h1>               
@@ -186,18 +224,13 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
                     <div></div>
                 </div>
             </div>
-                	<div>
-                    	<input type="file" id="attach1" name = "attach1"/>
-                    	<label for ="attach1" class="attach1">파일선택</label>
-                    	<input type="file" id="attach2" name = "attach2"/>
-                    	<label for ="attach2" class="attach2">파일선택</label>
-                    	<input type="file" id="attach3" name = "attach3"/>
-                    	<label for ="attach3" class="attach3">파일선택</label>
-                    	<input type="file" id="attach4" name = "attach4"/>
-                    	<label for ="attach4" class="attach4">파일선택</label>
+                <div>
+                    	<span id=filediv><input type="file" name = "attach1"/></span>
+                    	<span id=filediv><input type="file" name = "attach2"/></span>
+                    	<span id=filediv><input type="file" name = "attach3"/></span>
+                    	<span id=filediv><input type="file" name = "attach4"/></span>
                 	</form>
-                	<br><br>
-                    <button type="submit">글등록</button>
+                    <button type="submit"  >글등록</button>
                 </div>
         </div>
         </form>
@@ -205,17 +238,7 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
 
 
     <div id="footer"></div>
-<script>
-$(function(){
-	for(let i = 1; i < 5 ; i++) { 
-	    $("#attach"+i).change(function(e){       
-	        var fileName = e.target.files[0].name;  
-	        $('.attach'+i).html("파일명: " + fileName);
-	    }
-	  )
-  }
-});
 
-</script>
 </body>
+
 </html> 

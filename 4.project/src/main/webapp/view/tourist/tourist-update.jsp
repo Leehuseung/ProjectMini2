@@ -66,23 +66,23 @@
             <br>
             <ul class="detail-icon">
                 <li>
-                    <div class="iconDetail1"><img src="../../resources/images/tourlist/detail_info.png"></div>
+                    <div class="iconDetail1"><img src="../../resources/images/tourist/detail_info.png"></div>
                     <div>상세정보<br>&nbsp;</div>
                 </li>
                 <li>
-                    <div class="iconDetail2"><img src="../../resources/images/tourlist/map.png"></div>
+                    <div class="iconDetail2"><img src="../../resources/images/tourist/map.png"></div>
                     <div>지도<br>&nbsp;</div>
                 </li>
                 <li>
-                    <div class="iconDetail3"><img src="../../resources/images/tourlist/review.jpg"></div>
+                    <div class="iconDetail3"><img src="../../resources/images/tourist/review.jpg"></div>
                     <div>리뷰<br>${tourist.reviewCnt}</div>
                 </li>
                 <li>
-                    <div class="iconDetail4"><img src="../../resources/images/tourlist/like.jpg"></div>
+                    <div class="iconDetail4"><img src="../../resources/images/tourist/like.jpg"></div>
                     <div>좋아요<br>${tourist.likeCnt}</div>
                 </li>
                 <li>
-                    <div class="iconDetail5"><img src="../../resources/images/tourlist/view.jpg"></div>
+                    <div class="iconDetail5"><img src="../../resources/images/tourist/view.jpg"></div>
                     <div>조회수<br>${tourist.viewCnt}</div>
                 </li>
             </ul>

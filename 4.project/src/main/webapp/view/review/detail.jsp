@@ -18,6 +18,7 @@
    
 
 </head>
+<jsp:include page="/view/header.jsp" />
 <body>
     <div id="headers"></div>
 
@@ -78,15 +79,39 @@
                 <button id="list1"><a href="list.do">목록보기</a></button>
             </span>
             <span class="modify">
-                <button id="modify"><a href="mytrip_modify.html">수정</a></button>
+            	<c:choose>
+            		<c:when test="${sessionScope.no eq detail.memberNo}">
+    		            <button id="modify"><a href="javascript:modify();">수정</a></button>
+	                </c:when>
+            		<c:otherwise>
+		                <button id="modify"><a href="javascript:fail();">수정</a></button>
+            		</c:otherwise>
+            	</c:choose>
             </span>
             <span class="delete">
-                <button id="delete"><a href="javascript:del();">삭제</a></button>
+            	<c:when test="${sessionScope.no eq detail.memberNo}">
+               		 <button id="delete"><a href="javascript:fail2();">삭제</a></button>
+	            </c:when>
+            	<c:otherwise>
+               		 <button id="delete"><a href="javascript:del();">삭제</a></button>
+            	</c:otherwise>
             </span>
         </div>  
         <script>
+        	 function fail() {
+        		 alert("작성자만 수정할 수 있습니다.");
+        	 }
+        	 function fail2() {
+        		 alert("작성자만 삭제할 수 있습니다.");
+        	 }
+        	 function modify() {
+        		 var result= confirm("수정하시겠어요??");
+        		 if(result){
+        			 location.href="updateform.do?no="+${detail.boardNo};
+        		 }
+        	 }
              function del() {
-                var result = confirm("정말 삭제하시겠습니까?");
+                var result = confirm("정말 삭제하시겠어요??");
                 var no = ${detail.boardNo};
                 if (result) {
                   location.href="delete.do?no="+no;
@@ -100,13 +125,13 @@
                 <table>
                     <tr>
                         <th style="width:200px">댓글</th>
-                        <td> 0개</td>
+                        <td></td>
                     </tr>
                 </table>
         </div>
         <div class="commentWrite">
             <form method="post" action="comment-write.do">
-            <input type="hidden" name="no" value="${detail.boardNo}"/>
+            <input type="hidden" name="no"value="${detail.boardNo}"/>
             <input type="hidden" name="commentNo" value="${param.commentNo}"/>
             
                 <span><textarea rows="3" name="content"></textarea></span>
@@ -119,60 +144,33 @@
 						<th style="width: 400px;" align="left">치즈</th>
 						<th>2019.3.20</th>
 						<th id="commenttd"><input id="like" type="submit" value="♡" />
-							<a href=''>신고하기</a> <a href=''>수정</a> 
+							<a href=''>신고하기</a> <a href='javascript:aaa()'>수정</a> 
 							<a href="javascript:aaa();">삭제</a></th>
 					</tr>
+					<tr>
+                        <td colspan="3">잘 보고갑니다~</td>
+                    </tr>
 				</table>
 					<br>
 			</div> 
         </div> 
-        <script>
-        	$(function(){
-        		getAjaxCommentList()
-        	})
-        	
-        	function getAjaxCommentList(){
-        		$.ajax({
-        			url:"comment-list.do",
-        			dataType:"json",
-        			success:function(list){
-        			for(let comment of list){
-        				html += "<table>"
-        				 +"<tr>"
-						 +"<th style='width: 400px;' align='left'>${comment.name}</th>"
-						 +"<th>${comment.writeDate}</th>"
-						 +"<th><input id='like' type='submit' value='♡' />"
-						 +"	<a href=''>신고하기</a> <a href=''>수정</a> "
-						 +"	<a href='javascript:aaa();'>삭제</a></th>"
-						 +"</tr>"
-						 +"</table>"
-        			}
-        			}
-        		});
-        	}
-        </script>
     <div id="footer"></div>
-  <!--   <script>
-    	$("#commentWrite1").click(function(){
-    		ALERT("ASD");
-    	   
-    	});
-    </script> -->
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
     <script type="text/javascript">   
         $(document).ready( function() { 
 
-   		$("#headers").load("../header.html"); // 원하는 파일 경로를 삽입하면 된다
-						$("#footer").load("../footer.html"); // 원하는 파일 경로를 삽입하면 된다
-					});
-				</script>
+		$("#footer").load("../footer.html"); // 원하는 파일 경로를 삽입하면 된다
+		});
+	</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
+    console.log(${sessionScope.no});
+    console.log(${detail.memberNo});
     $(function() {
 
         function runLike(){
-                var rand = Math.floor((Math.random()*100)+1);
+            var rand = Math.floor((Math.random()*100)+1);
             var flows = ["flowOne", "flowTwo", "flowThree"];
             var colors = ["like-1", "like-2", "like-3", "like-4", "like-5", "like-6"];
             var timing = (Math.random()*(1.3-1.0)+1.0).toFixed(1);
@@ -184,14 +182,47 @@
             // Remove Particle
             setTimeout(function(){
                 $('.part-'+rand).remove();
-            }, timing*1000-100);
-            };
+            	}, timing*1000-100);
+        };
             
-            $('.like').on('click', function() {
-            runLike();
-            });
-        
+        $('.like').on('click', function() {
+    	    runLike();
         });
+        
+	    // 댓글 목록 가져오기			
+		function getAjaxCommentList(){
+	    	var no = ${detail.boardNo};
+			$.ajax({
+				url:"comment-list.do",
+				data:"no="+no,
+				dataType:"json",
+				success:function(list){
+					console.dir(list);
+					let html ="";
+					for(let com of list){
+						html += "<table>"
+						 +"<tr>"
+						 +"<th style='width: 400px;' align='left'>"+com.name+"</th>"
+						 +"<th>"+com.writeDate+"</th>"
+						 +"<th><input id='like' type='submit' value='♡' />"
+						 +"<a href=''>신고하기</a> <a href=''>수정</a>"
+						 +"	<a href='javascript:aaa();'>삭제</a></th>"
+						 +"</tr>"
+						 +"<tr>"
+	                     +"<td colspan='3'>"+com.content+"</td>"
+	                     +"</tr>"
+						 +"</table>"
+					}
+					$(".commentList").html(html);
+				}
+			});
+		}
+	    
+	    // 댓글 목록 호출 
+		getAjaxCommentList();
+    });
+
+	    
     </script>
 </body>
 

@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Homepage</title>
+    
    <link rel="stylesheet" type="text/css" href="../../resources/css/main.css" />
    <link rel="stylesheet" type="text/css" href="../../resources/css/page.css" />
     <link rel="stylesheet" type="text/css" href="../../resources/css/review/listAll.css" />
@@ -17,6 +18,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
 </head>
+<jsp:include page="/view/header.jsp" />
 <body>
     <div id="headers"></div>
 
@@ -41,7 +43,14 @@
                         <button id="searchButton" >검색</button>
                     </div>
                     <div class="write">
-                        <button id="write"><a href="writeform.do">글쓰기</a></button>
+                    	<c:choose>
+                    		<c:when test="${empty sessionScope.user}">
+                    			<button id="write"><a href="javascript:write();">글쓰기</a></button>
+    						</c:when>
+    						<c:otherwise>
+	                        	<button id="write"><a href="/jeju/view/review/writeform.do">글쓰기</a></button>
+	    					</c:otherwise>                   
+	    				</c:choose>
                     </div>
                 </div>
             </div>            
@@ -81,19 +90,12 @@
         </div>
         </div>
         <!-- 페이징 -->
-        <div class="page">
-            <div class="prev"><a href="#">이전</a></div>
-            <div><a href="#">1</a></div>
-            <div><a href="#">2</a></div>
-            <div><a href="#">3</a></div>
-            <div><a href="#">4</a></div>
-            <div><a href="#">5</a></div>
-            <div><a href="#">6</a></div>
-            <div><a href="#">7</a></div>
-            <div><a href="#">8</a></div>
-            <div><a href="#">9</a></div>
-            <div><a href="#">10</a></div>
-            <div class="next"><a href="#">다음</a></div>
+     	<div class="page">
+            <c:if test="${page.count != 0}">
+			<jsp:include page="pagetype.jsp" >
+				<jsp:param name="link" value="list.do" />
+			</jsp:include>
+			</c:if>
         </div>
               
     <div id="footer"></div>
@@ -101,11 +103,16 @@
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
    <script type="text/javascript">   
         $(document).ready( function() { 
-
-   		$("#headers").load("../header.html");  // 원하는 파일 경로를 삽입하면 된다
    		$("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
    		});
-        </script>
+        
+   	function write() {
+   		var result = confirm("로그인을 해야 글쓰기가 가능합니다.");
+   		if(result){
+   			location.href="${pageContext.request.contextPath}/view/member/loginform.do";
+   		}
+   	}     
+   </script>
 
    
 

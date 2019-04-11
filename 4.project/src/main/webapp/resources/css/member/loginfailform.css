@@ -153,6 +153,9 @@ body{
     margin-left: 45cpx;
     float: left;
 }
+button {
+	cursor:pointer;
+}
 ::-webkit-input-placeholder{
    color: white;
 }

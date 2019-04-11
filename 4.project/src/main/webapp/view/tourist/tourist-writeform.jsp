@@ -14,18 +14,83 @@
     <link rel="stylesheet" type="text/css" href="../../resources/css/main.css" />
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
 </head>
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script> 
 <script type="text/javascript">   
     $(document).ready( function() { 
     	$("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
     }); 
+    
+    function check(){
+    	if(!document.doSubmit.tag.value){
+    		alert("태그를 입력하세요");
+    		document.doSubmit.tag.focus();
+    		return false;
+    	}else if(!document.doSubmit.nomination.value){
+    		alert("지명을 입력하세요");
+    		document.doSubmit.nomination.focus();
+    		return false;
+    	}else if(!document.doSubmit.simpleIntroduce.value){
+    		alert("간단설명을 입력하세요");
+    		document.doSubmit.simpleIntroduce.focus();
+    		return false;
+    	}else if(!document.doSubmit.title.value){
+    		alert("제목을 입력하세요");
+    		document.doSubmit.title.focus();
+    		return false;
+    	}else if(!document.doSubmit.introduce.value){
+    		alert("소개를 입력하세요");
+    		document.doSubmit.introduce.focus();
+    		return false;
+    	}else if(!document.doSubmit.fee.value){
+    		alert("이용요금을 입력하세요");
+    		document.doSubmit.fee.focus();
+    		return false;
+    	}else if(!document.doSubmit.address.value){
+    		alert("주소를 입력하세요");
+    		document.doSubmit.address.focus();
+    		return false;
+    	}else if(!document.doSubmit.purpose.value){
+    		alert("주요목적을 입력하세요");
+    		document.doSubmit.purpose.focus();
+    		return false;
+    	}else if(!document.doSubmit.weekday.value){
+    		alert("평일 이용시간을 입력하세요");
+    		document.doSubmit.weekday.focus();
+    		return false;
+    	}else if(!document.doSubmit.weekend.value){
+    		alert("주말 이용시간을 입력하세요");
+    		document.doSubmit.weekend.focus();
+    		return false;
+    	}else if(!document.doSubmit.contact.value){
+    		alert("전화번호를 입력하세요");
+    		document.doSubmit.contact.focus();
+    		return false;
+    	}else if(!document.doSubmit.contentTitle.value){
+    		alert("상세 내용 제목을 입력하세요");
+    		document.doSubmit.contentTitle.focus();
+    		return false;
+    	}else if(!document.doSubmit.content.value){
+    		alert("상세 본문 내용을 입력하세요");
+    		document.doSubmit.content.focus();
+    		return false;
+    	}else if(!document.doSubmit.attach1.value ||
+    			!document.doSubmit.attach2.value ||
+    			!document.doSubmit.attach3.value ||
+    			!document.doSubmit.attach4.value ||
+    			!document.doSubmit.attach5.value ||
+    			!document.doSubmit.attach6.value ){
+    		alert("파일을 모두 첨부해주세요")
+    		return false;
+    		
+    	}
+    }
 </script>
 <jsp:include page="/view/header.jsp" />
 <body>
     <div id="headers"></div>
     <div class="body">
     <!-- enctype="multipart/form-data" -->
-    <form method="post"  action="<c:url value="/view/tourist/writeboard.do" />">
+    <form method='POST' action='/jeju/view/tourist/writeboard.do' enctype="multipart/form-data" name="doSubmit" onsubmit="return check()">
         <div class="sub-title">
             제주도의 관광지를 한눈에...
         </div>
@@ -59,32 +124,53 @@
                     </a>
                 </div>
             </div>
+                &nbsp;&nbsp;&nbsp;파일첨부 : <br>
             <div class="picture">
-                
-                <input multiple="multiple" type="file" name="FileName[]">
-                
-                <img src="../../resources/images/tourlist/detail01_slide1.jpg"/>
+            	<div>
+	                <input multiple="multiple" type="file" id="attach1" name = "attach1"/><br>
+	               	<div class="attach"><img id="img1" /></div><br>
+            	</div>
+            	<div>
+	               	<input multiple="multiple" type="file" id="attach2" name = "attach2"/><br>
+	               	<div class="attach"><img id="img2" /></div><br>
+            	</div>
+            	<div>
+	               	<input multiple="multiple" type="file" id="attach3" name = "attach3"/><br>
+	               	<div class="attach"><img id="img3" /></div><br>
+            	</div>
+            	<div>
+	               	<input multiple="multiple" type="file" id="attach4" name = "attach4"/><br>
+	               	<div class="attach"><img id="img4" /></div><br>
+            	</div>
+            	<div>
+	               	<input multiple="multiple" type="file" id="attach5" name = "attach5"/><br>
+	               	<div class="attach"><img id="img5" /></div><br>
+            	</div>
+            	<div>
+	               	<input multiple="multiple" type="file" id="attach6" name = "attach6"/><br>
+	               	<div class="attach"><img id="img6" /></div><br>
+            	</div>
             </div>
             <br>
             <ul class="detail-icon">
                 <li>
-                    <div class="iconDetail1"><img src="../../resources/images/tourlist/detail_info.png"></div>
+                    <div class="iconDetail1"><img src="../../resources/images/tourist/detail_info.png"></div>
                     <div>상세정보<br>&nbsp;</div>
                 </li>
                 <li>
-                    <div class="iconDetail2"><img src="../../resources/images/tourlist/map.png"></div>
+                    <div class="iconDetail2"><img src="../../resources/images/tourist/map.png"></div>
                     <div>지도<br>&nbsp;</div>
                 </li>
                 <li>
-                    <div class="iconDetail3"><img src="../../resources/images/tourlist/review.jpg"></div>
+                    <div class="iconDetail3"><img src="../../resources/images/tourist/review.jpg"></div>
                     <div>리뷰<br>0</div>
                 </li>
                 <li>
-                    <div class="iconDetail4"><img src="../../resources/images/tourlist/like.jpg"></div>
+                    <div class="iconDetail4"><img src="../../resources/images/tourist/like.jpg"></div>
                     <div>좋아요<br>0</div>
                 </li>
                 <li>
-                    <div class="iconDetail5"><img src="../../resources/images/tourlist/view.jpg"></div>
+                    <div class="iconDetail5"><img src="../../resources/images/tourist/view.jpg"></div>
                     <div>조회수<br>0</div>
                 </li>
             </ul>
@@ -127,6 +213,46 @@
     </form>
     </div>
     <div id="footer"></div>
+<script>
 
+// 	$(function(){
+// 		for(let i = 1; i < 7 ; i++) { 
+// 		    $("#attach"+i).change(function(e){       
+// 		        var fileName = e.target.files[0].name;  
+// 		        $('.attach'+i).html("파일명: " + fileName);
+// 		    }
+// 		  )
+// 	  }
+// 	});
+	var sel_file;
+	
+	for(let i = 1; i < 7 ; i++) { 
+		$(document).ready(function() {
+				$("#attach"+i).on("change", handleImgFileSelect);
+		});
+		
+		function handleImgFileSelect(e) {
+			var files = e.target.files;
+			var filesArr = Array.prototype.slice.call(files);
+			
+			filesArr.forEach(function(f) {
+				if(!f.type.match("image.*")) {
+					alert("확장자는 이미지 확장자만 가능합니다.");
+					return;
+				}
+				
+				sel_file = f;
+				
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$("#img" + i).attr("src", e.target.result);
+				}
+				reader.readAsDataURL(f);
+			});
+		}
+	}
+
+
+</script>
 </body>
 </html>

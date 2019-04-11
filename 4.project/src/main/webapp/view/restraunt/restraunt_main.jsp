@@ -5,6 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
         <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
              <link rel="stylesheet" type="text/css" href="../../resources/css/main.css" />
              <link rel="stylesheet" type="text/css" href="../../resources/css/page.css" />
@@ -131,6 +132,7 @@
         height: 50%;
     } */
     .ex{
+    	cursor:pointer;
         box-sizing:border-box;
         border: 1px solid white;
         height:50%;
@@ -168,7 +170,7 @@
     .information_1 > div{
         box-sizing:border-box;
         grid-template-rows: 1fr 1fr;
-        height:50%;
+        height:300px;
         width:100%;
 
     }
@@ -177,7 +179,10 @@
         width:100%;
     }
     .page{  
-    margin-top:50px;
+    margin-top:100px;
+    }
+    #doUrl{
+    	cursor:pointer;
     }
    
 
@@ -185,14 +190,12 @@
 </head>
 
 <!-- include -->
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script> 
 <script type="text/javascript">   
 $(document).ready( function() { 
 
 $("#headers").load("../header.jsp");  // 원하는 파일 경로를 삽입하면 된다
 $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
 }); 
-
 
 
 
@@ -211,10 +214,10 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
 
 
             <div class="subMenu">
-                    <li class=han><a href="#" >한 식</a></li>
-                    <li class=il><a href="#" >일 식</a></li>
-                    <li class=yang><a href="#" >양 식</a></li>
-                    <li class=cafe><a href="#" >카 페</a></li>
+                    <li class=han><a href="/jeju/view/restraunt/restraunt_main.do?num=1" >한 식</a></li>
+                    <li class=il><a href="/jeju/view/restraunt/restraunt_main.do?num=2" >일 식</a></li>
+                    <li class=yang><a href="/jeju/view/restraunt/restraunt_main.do?num=3" >양 식</a></li>
+                    <li class=cafe><a href="/jeju/view/restraunt/restraunt_main.do?num=4" >카 페</a></li>
                 </ul>
             </div>
 
@@ -229,24 +232,29 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
                     </select>
                 </div>
                 <div class="write">
-                    <button type="button" id="doUrl">글등록</button>                
+                <c:choose> 
+                <c:when test="${idAdmin eq 'admin'}">
+	                <button type="button" id="doUrl" >글등록</button>  
+	            </c:when>
+                </c:choose>
+                
+                                
                 </div>
             </div>
 			
 			
             <div class="information">
-				<c:forEach var="board" items="${boardList}" begin="1" end="3" varStatus="status">
+				
+				
+				<c:forEach var="board" items="${boardList}"  varStatus="status">
 				  <c:set var="file" value="${imgFile[status.index]}" />
-
-					              
 
 
 	                <div class="information_1">
 	                
 	                    <div onclick="listFunc(${board.boardNo})">
-		                    	<img src="${file}">
+		                    	<img src="${file}" style="cursor:pointer">
 	                    </div>
-	                
 	                
 	                    <div>
 	                        <div class="ex" onclick="listFunc(${board.boardNo})">
@@ -254,11 +262,13 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
 	                                 <h4>${board.location}</h4>
 	                            </div>
 	                        </div>
+
 	                        <div class="icon">
-	                            <div class="iconDetail"><img src="/jeju/resources/images/restraunt/like.jpg"></div>
+	                            <div class="iconDetail" id="like${board.boardNo}" style="cursor:pointer" 	onclick="likeFunc(${board.boardNo})">
+	                            <img src="/jeju/resources/images/restraunt/like.jpg"/></div>
 	                            <div class="iconDetail"></div>
 	                            <div class="iconDetail"><img src="/jeju/resources/images/restraunt/review.jpg"></div>
-	                            <div >좋아요<br>${board.likeCnt}</div>
+	                            <div id="likeCnt${board.boardNo}" >좋아요<br>${board.likeCnt}</div>
 	                            <div></div>
 	                            <div>리뷰<br>리뷰카운트</div>
 	                        </div>
@@ -267,41 +277,55 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
     	   		</c:forEach>	
             </div>
            
-                   <div class="page">
-                <div class="prev"><a href="#">이전</a></div>
-                <div><a href="#">1</a></div>
-                <div><a href="#">2</a></div>
-                <div><a href="#">3</a></div>
-                <div><a href="#">4</a></div>
-                <div><a href="#">5</a></div>
-                <div><a href="#">6</a></div>
-                <div><a href="#">7</a></div>
-                <div><a href="#">8</a></div>
-                <div><a href="#">9</a></div>
-                <div><a href="#">10</a></div>
-                <div class="next"><a href="#">다음</a></div>
-          		  </div> 
-          		
+           
+	           
+            <div class="page">
+    	 
+                <c:if test="${pageResult.count != 0}">
+					<jsp:include page="pagetype.jsp" >			
+						<jsp:param name="link" value="restraunt_main.do?num=${category}&" />
+					</jsp:include>
+				</c:if>
+            </div>
             </div>
         </div>
-    </div>
-
-
-
-
-
 
 
 
             <div id="footer"></div>
           <script>
+          
           $("#doUrl").click(function (){ 
         		window.location.href='/jeju/view/restraunt/restraunt_writeForm.do';
         	});
           function listFunc(num){
         	  window.location.href="/jeju/view/restraunt/restraunt_detail1.do?num="+num;
-        	  
           }
+          var i=0;
+          function likeFunc(num){
+        	  	if(i==0){
+	        		$("#like"+num).html("<img src='/jeju/resources/images/restraunt/likeo.jpg'>")
+					i++; 
+	        		$.ajax({
+	   	   				url : "/jeju/view/restraunt/restraunt_ajax.do",	
+	   	   				data : "num="+num,
+	   	   				success : function(data){
+	   	   					$("#likeCnt"+num).html("좋아요<br>"+data)
+	   	   				}
+	   	   			})
+	        		
+        	  	}else if(i==1){
+	        		$("#like"+num).html("<img src='/jeju/resources/images/restraunt/like.jpg'>")
+        	  		i--;
+	        		$.ajax({
+	   	   				url : "/jeju/view/restraunt/restraunt_ajax.do",	
+	   	   				data : "num="+num+"&minus=true",
+	   	   				success : function(data){
+	   	   					$("#likeCnt"+num).html("좋아요<br>"+data)
+	   	   				}
+	   	   			})
+        	  	}
+        	}
           </script>  
 </body>
 </html>

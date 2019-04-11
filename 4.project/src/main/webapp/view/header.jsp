@@ -34,7 +34,7 @@
                 <li><a href="/jeju/view/tourist/touristlist.do" >관광지</a></li>
                 <li><a href="/jeju/view/restraunt/restraunt_main.do" >맛집</a></li>
                 <li><a href="accomo_main.html" >숙소</a></li>
-                <li><a href="mytrip_listAll.html" >나의여행</a></li>
+                <li><a href="/jeju/view/review/list.do" >나의여행</a></li>
                 <c:choose>
                 <c:when test="${empty sessionScope.user}">
                 	<li><a href="/jeju/view/member/loginform.do">마이페이지</a></li>

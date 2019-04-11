@@ -10,6 +10,7 @@
 </head>
 <body>
     <div class="body"></div>
+    
         <div class="grad"></div>
         <br>
         <div class="header">
@@ -53,7 +54,7 @@
        			if(isEmpty(f.id,"아이디를 입력하세요"))  return;
                 if(isEmpty(f.pass1,"패스워드를 입력하세요"))  return;            
                 if(isEmpty(f.pass2,"패스워드확인을 입력하세요"))  return;     
-                if(isEmpty(f.pass2,"이메일을 입력하세요"))  return;     
+                if(isEmpty(f.email,"이메일을 입력하세요"))  return;     
                 f.action = "/jeju/view/member/signup.do";
                 f.submit;
        		});

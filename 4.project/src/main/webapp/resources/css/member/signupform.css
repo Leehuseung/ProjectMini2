@@ -9,6 +9,10 @@ body{
     font-size: 13px;
 }
 
+button {
+	cursor:pointer;
+}
+
 .body{
     position: absolute;
     top: -20px;

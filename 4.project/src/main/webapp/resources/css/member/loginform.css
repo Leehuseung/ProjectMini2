@@ -143,6 +143,16 @@ body{
     font-weight: bold;
     color: orange;
 }
+
+#naver_id_login {	
+	margin-left : 70px;
+	margin-top: 10px;
+}
+
+button {
+	cursor:pointer;
+}
+
 ::-webkit-input-placeholder{
    color: white;
 }

@@ -17,7 +17,7 @@ public interface MemberMapper {
 	
 	// 로그인
 	public MemberVO selectLogin(MemberVO member);
-	
+
 	// 암호화된 비밀번호 찾기
 	public String selectSaltById(String id);
 	

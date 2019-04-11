@@ -99,6 +99,7 @@
  		  from (select rownum rnum, a.*
          		  from (select *
                  		  from tb_member
+                 		 order by member_no
                  	   ) a
         		)
 		 where rnum between #{begin} and #{end}

@@ -119,7 +119,9 @@
         color:white;margin:10px;
         border-radius:10px;
     }
- 
+ 	.but{
+ 	 	cursor:pointer;
+ 	}
     
    
     </style>
@@ -150,8 +152,8 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
                 <h1>${board.name}</h1>               
             </div>
             <div class="subMenu">
-                    <li><a href="/jeju/view/restraunt/restraunt_detail1.do" >상세보기</a></li>
-                    <li><a href="/jeju/view/restraunt/restraunt_detail2.do" >이용안내</a></li>
+                    <li><a href="/jeju/view/restraunt/restraunt_detail1.do?num=${board.boardNo}" >상세보기</a></li>
+                    <li><a href="/jeju/view/restraunt/restraunt_detail2.do?num=${board.boardNo}" >이용안내</a></li>
                     <li><a href="/jeju/view/restraunt/restraunt_detail3.do" >지도</a></li>
                     <li><a href="/jeju/view/restraunt/restraunt_detail4.do" >리뷰</a></li>
                 </ul>
@@ -177,12 +179,25 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
             <div class="ex">
                 <p>${board.intro}</p>
                    <div>
-                    <button onclick="location.href='food_update.html'">글수정</button><button >글삭제</button>
+                   <c:choose> 
+                <c:when test="${idAdmin eq 'admin'}">
+                    <button onclick="updateFunc(${board.boardNo})" class="but">글수정</button><button class="but" onclick="deleteFunc(${board.boardNo})">글삭제</button>
+	            </c:when>
+                </c:choose>
                    </div>
             </div>
         </div>
     </div>
 
     <div id="footer"></div>
+    
+      <script>
+      function deleteFunc(num){
+    	  window.location.href="/jeju/view/restraunt/restraunt_delete.do?num="+num;
+      }
+      function updateFunc(num){
+    	  window.location.href="/jeju/view/restraunt/restraunt_updateForm.do?num="+num;
+      }
+      </script>
 </body>
 </html>

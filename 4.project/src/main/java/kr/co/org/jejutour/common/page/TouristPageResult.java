@@ -15,7 +15,7 @@ public class TouristPageResult {
 	}
 
 	private void setPageInfo() {
-		int lastPage = (count % 10 == 0) ? count / 9
+		int lastPage = (count % 9 == 0) ? count / 9
 				: count / 9 + 1;	
 		
 		// 요청한 페이지 번호에 해당하는 페이지 블럭 구하기
@@ -57,6 +57,4 @@ public class TouristPageResult {
 	public boolean isNext() {
 		return next;
 	}
-
-
 }

@@ -58,44 +58,31 @@
             <div id ="slider">
                 <a class="button" id="prev"><</a>
                 <a class="button" id="next">></a>
-                <div class="slide" id="slide1">
-                    <img src="../../resources/images/tourlist/detail01_slide1.jpg">
-                </div>
-                <div class="slide" id= "slide2">
-                    <img src="../../resources/images/tourlist/detail01_slide2.jpg">
-                </div>
-                <div class="slide" id= "slide3">
-                    <img src="../../resources/images/tourlist/detail01_slide3.jpg">
-                </div>
-                <div class="slide" id= "slide4">
-                    <img src="../../resources/images/tourlist/detail01_slide3.jpg">
-                </div>
-                <div class="slide" id= "slide5">
-                    <img src="../../resources/images/tourlist/detail01_slide5.jpg">
-                </div>
-                <div class="slide" id= "slide6">
-                    <img src="../../resources/images/tourlist/detail01_slide6.jpg">
-                </div>
+                <c:forEach var="file" items="${fileList}" varStatus="status">
+                	<div class="slide" id="slide${status.count}">
+                    	<img src="${file}">
+                	</div>	
+    	   		</c:forEach>		
             </div>
             <ul class="detail-icon">
                 <li>
-                    <div class="iconDetail1"><a href="tourist-detail.html"><img src="../../resources/images/tourlist/detail_info.png"></a></div>
+                    <div class="iconDetail1"><a href="tourist-detail.html"><img src="../../resources/images/tourist/detail_info.png"></a></div>
                     <div>상세정보<br>&nbsp;</div>
                 </li>
                 <li>
-                    <div class="iconDetail2"><a href="tourist-detail-map.html"><img src="../../resources/images/tourlist/map.png"></a></div>
+                    <div class="iconDetail2"><a href="tourist-detail-map.html"><img src="../../resources/images/tourist/map.png"></a></div>
                     <div>지도<br>&nbsp;</div>
                 </li>
                 <li>
-                    <div class="iconDetail3"><a href="tourist-detail-review.html"><img src="../../resources/images/tourlist/review.jpg"></a></div>
+                    <div class="iconDetail3"><a href="tourist-detail-review.html"><img src="../../resources/images/tourist/review.jpg"></a></div>
                     <div>리뷰<br>${tourist.reviewCnt}</div>
                 </li>
                 <li>
-                    <div class="iconDetail4"><img src="../../resources/images/tourlist/like.jpg"></div>
+                    <div class="iconDetail4"><img src="../../resources/images/tourist/like.jpg"></div>
                     <div>좋아요<br>${tourist.likeCnt}</div>
                 </li>
                 <li>
-                    <div class="iconDetail5"><img src="../../resources/images/tourlist/view.jpg"></div>
+                    <div class="iconDetail5"><img src="../../resources/images/tourist/view.jpg"></div>
                     <div>조회수<br>${tourist.viewCnt}</div>
                 </li>
             </ul>

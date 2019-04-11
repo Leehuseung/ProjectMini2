@@ -15,28 +15,8 @@ CREATE TABLE tb_member
 );
 
 ALTER TABLE tb_member MODIFY(report_cnt number default 0);
-
-/
-
-CREATE SEQUENCE tb_member_SEQ
-START WITH 1
-INCREMENT BY 1;
-/
-
-CREATE OR REPLACE TRIGGER tb_member_AI_TRG
-BEFORE INSERT ON tb_member 
-REFERENCING NEW AS NEW FOR EACH ROW 
-BEGIN 
-    SELECT tb_member_SEQ.NEXTVAL
-    INTO: NEW.member_no
-    FROM DUAL;
-END;
-/
-
---DROP TRIGGER tb_member_AI_TRG;
-/
-
---DROP SEQUENCE tb_member_SEQ;
+alter table tb_member add salt varchar2(100);
+ALTER TABLE tb_member MODIFY (pass VARCHAR2(500));
 /
 
 COMMENT ON TABLE tb_member IS '회원'

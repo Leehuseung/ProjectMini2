@@ -10,9 +10,12 @@
 	<typeAliases>
 		<typeAlias alias="member" type="kr.co.org.jejutour.repository.vo.MemberVO" />
 		<typeAlias alias="review" type="kr.co.org.jejutour.repository.vo.ReviewVO" />
-		<typeAlias alias="tourist" type="kr.co.org.jejutour.repository.vo.TouristVO" />
+		<typeAlias alias="touristBoard" type="kr.co.org.jejutour.repository.vo.TouristVO" />
+		<typeAlias alias="touristFile" type="kr.co.org.jejutour.repository.vo.TouristFileVO" />
 		<typeAlias alias="touristPage" type="kr.co.org.jejutour.repository.vo.TouristPageVO" />
+		<typeAlias alias="touristComment" type="kr.co.org.jejutour.repository.vo.TouristCommentVO" />
 		<typeAlias alias="accInfo" type="kr.co.org.jejutour.repository.vo.AccInfoVO" />
+		<typeAlias alias="page" type="kr.co.org.jejutour.repository.vo.RestrauntPageVO" />
 		<typeAlias type="kr.co.org.jejutour.repository.vo.RestrauntBoardVO" alias="restrauntBoard"/>
 		<typeAlias type="kr.co.org.jejutour.repository.vo.RestrauntFileVO" alias="restrauntFile"/>
 		<typeAlias type="kr.co.org.jejutour.repository.vo.RestrauntLocationVO" alias="restrauntLocation"/>
@@ -33,7 +36,7 @@
 
 	<mappers>
 		<mapper resource="config/mapper/member.xml"/>
-		<mapper resource="config/mapper/review.xml"/>
+	<!-- 	<mapper resource="config/mapper/review.xml"/> -->
 		<mapper resource="config/mapper/tourist.xml"/>
 		<mapper resource="config/mapper/restraunt.xml"/>
 
