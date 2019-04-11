@@ -127,7 +127,7 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
 <body>
     <div id="headers"></div>
     <div class="body">
-        <form method='POST' action='/jeju/view/restraunt/restraunt_update.do?num=${board.boardNo}' enctype="multipart/form-data">
+        <form method='post' action='/jeju/view/restraunt/restraunt_update.do?num=${board.boardNo}' enctype="multipart/form-data">
         <div class="container">
             <div class="subtitle">
                 <h1>글쓰기</h1>               
