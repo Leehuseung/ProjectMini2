@@ -60,7 +60,7 @@
       
        
     </p> </div>
-        <div class="pic_info"> 
+        <!-- <div class="pic_info"> 
           <div class="pic_title">
           <div>사진첩</div>
             </div>
@@ -72,7 +72,7 @@
                 
             </div>
            
-        </div>
+        </div> -->
    
    
    

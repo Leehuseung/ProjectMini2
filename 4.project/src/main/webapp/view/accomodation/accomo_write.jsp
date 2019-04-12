@@ -130,7 +130,7 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
             <textarea id="intro" name="intro" rows="20" cols="70" placeholder="숙소에 대해 소개해주세요"></textarea>
         </div>
       </div>
-        <div class="pic_info"> 
+       <!--  <div class="pic_info"> 
               <div class="pic_title">
                     <div>사진첩</div>
                     <div class="select_pic" id="select_pic2"><input type="file" id="pic_info_attach1"  name="pic_info_attach" />
@@ -175,7 +175,8 @@ $("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면
                     
                     
             </div>
-        </div>
+        </div> -->
+        
         <div id="complete_button"><button>등록</button></div>
    </div>
 </form>

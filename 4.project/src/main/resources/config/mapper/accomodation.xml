@@ -85,7 +85,7 @@
 	</select>
 	
 	
-	<select id="selectBoard" parameterType="page" resultMap="accInfoMap">
+	<select id="selectBoard" parameterType="accPage" resultMap="accInfoMap">
 		select*
 		from(
 		select rownum rnum,a.*
