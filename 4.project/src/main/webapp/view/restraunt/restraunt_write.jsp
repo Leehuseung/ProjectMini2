@@ -165,7 +165,7 @@ function check(){
     <div id="headers"></div>
     
     <div class="body">
-        <form method='POST' name="doSubmit" action='/jeju/view/restraunt/restraunt_write.do' enctype="multipart/form-data" onsubmit="check()">
+        <form method='POST' name="doSubmit" action='/jeju/view/restraunt/restraunt_write.do' enctype="multipart/form-data" onsubmit="return check()">
         <div class="container">
             <div class="subtitle">
                 <h1>글쓰기</h1>               
