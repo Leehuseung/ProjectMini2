@@ -191,18 +191,22 @@
     	
     	//댓글 삭제 : 삭제하려는회원==로그인한 회원, 댓글 == 댓글을 작성한 회원번호  
         $(document).on("click", ".dodel", function(){
+     		let commentNo = $("#commentNo").attr("value");
+ 	    	console.log("commentNo", commentNo);
+     		
  		    	var result = confirm("삭제하시겠습니까?");
  		    	if(result) {
  		    		$.ajax({
  		    			url:"comment-delete.do",
  		    		   data:"commentNo="+commentNo,
  		    		   success:function(list) {
- 		    			  $(this).remove();
  		    			  getAjaxCommentList();
- 		    			   return;
+ 		    			 
  	    				}
  					});	    					    	
  	    		}	 
+ 		    
+ 	    	
  	  		 });
     	
     	
@@ -236,22 +240,19 @@
 				success:function(list){
 					console.dir(list);
 					let html ="";
-					var com;
 				
-					for(com=0;com<list.length;com++){
+					for(let com=0;com<list.length;com++){
 						html += "<table>"
 						 +"<tr>"
-						 +"<input type='hidden' name='commentNo' id='commentNo' value='"+list[com].commentNo+"'>"
+						 +"<input type='hidden' value='"+list[com].commentNo+"' id='commentNo'>"
 						 +"<th style='width: 400px;' align='left'>"+list[com].name+"</th>"
 						 +"<th>"+list[com].writeDate+"</th>"
 						 +"<th><input id='like' type='submit' value='♡' />"
-						 +"<button id=''>신고하기</button>";
-						 
-						 if ("${sessionScope.no}" == list[com].memberNo) {
-							 html +="<button>수정</button><button>삭제</button>";
+						 +"<button>신고하기</button>";
+						 if("${sessionScope.no}" == list[com].memberNo){
+							html +="<button >수정</button><button class='dodel'>삭제</button>";
 						 }
-						 
-						html += "</th></tr>"
+						 html+="</th></tr>"
 						 +"<tr>"
 	                     +"<td colspan='3'>"+list[com].content+"</td>"
 	                     +"</tr>"

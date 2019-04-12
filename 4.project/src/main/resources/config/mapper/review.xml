@@ -192,7 +192,7 @@
 		 order by comment_no desc
 	</select> 
 	
-	<delete id="deleteComment" parameterType="rcomment">
+	<delete id="deleteComment" parameterType="int">
 		delete
 		  from tb_review_comment
 		 where comment_no=#{commentNo}

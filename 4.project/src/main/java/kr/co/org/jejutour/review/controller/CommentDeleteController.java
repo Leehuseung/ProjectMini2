@@ -27,20 +27,22 @@ public class CommentDeleteController extends HttpServlet{
 		mapper = MyAppSqlConfig.getSqlSession().getMapper(ReviewMapper.class);
 	}
 	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
-		HttpSession session = request.getSession();
-		MemberVO user = (MemberVO)session.getAttribute("user");
+//		HttpSession session = request.getSession();
+//		MemberVO user = (MemberVO)session.getAttribute("user");
+//		response.setCharacterEncoding("text/html; charset=utf-8;");
+//		request.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 
-		ReviewCommentVO rc = new ReviewCommentVO();
-		rc.setCommentNo(Integer.parseInt(request.getParameter("commentNo")));
+		
+		int no = Integer.parseInt(request.getParameter("commentNo"));
 //		rc.setMemberNo(Integer.parseInt(request.getParameter("memberNo")));
-		rc.setMemberNo(user.getMemberNo());
-		mapper.deleteComment(rc);
+//		rc.setMemberNo(user.getMemberNo());
+		mapper.deleteComment(no);
 		System.out.println("삭제할 댓글 주인 : "+request.getParameter("memberNo"));
-		System.out.println("삭제할 댓글 주인 : "+user.getMemberNo());
-		out.println(rc);
+//		System.out.println("삭제할 댓글 주인 : "+user.getMemberNo());
+		out.println(new Gson().toJson(no));
 		out.close();
-			
+//			
 		
 
 	}

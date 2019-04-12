@@ -42,7 +42,7 @@ public interface ReviewMapper {
 	public List<ReviewCommentVO> selectListCommentByNo(int no);
 	
 //	댓글 삭제
-	public void deleteComment(ReviewCommentVO rc);
+	public void deleteComment(int no);
 
 	//리뷰 내용 작성 확인
  	public int writeCheck(ReviewVO r);
