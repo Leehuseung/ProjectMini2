@@ -25,8 +25,12 @@ public class DeleteController extends HttpServlet{
 		HttpSession session = request.getSession();
 		ReviewVO r = new ReviewVO();
 		MemberVO user = (MemberVO)session.getAttribute("user");
-//		request.getParameter("user.getMemberNo()");
+		request.getParameter("user.getMemberNo()");
 		int no = Integer.parseInt(request.getParameter("no"));
+		r.setMemberNo(user.getMemberNo());
+		r.setBoardNo(no);
+//		System.out.println(user.getMemberNo());
+//		System.out.println(no);
 		
 		mapper.deleteReview(r);
 		response.sendRedirect("list.do");

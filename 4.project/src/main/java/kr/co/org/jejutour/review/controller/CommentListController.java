@@ -13,10 +13,12 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
+import kr.co.org.jejutour.common.page.ReviewPageResult;
 import kr.co.org.jejutour.db.MyAppSqlConfig;
 import kr.co.org.jejutour.repository.dao.ReviewMapper;
 import kr.co.org.jejutour.repository.vo.MemberVO;
 import kr.co.org.jejutour.repository.vo.ReviewCommentVO;
+import kr.co.org.jejutour.repository.vo.ReviewPageVO;
 
 
 @WebServlet("/view/review/comment-list.do")
@@ -28,6 +30,19 @@ public class CommentListController extends HttpServlet{
 	}
 	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		response.setContentType("text/html; charset=utf-8");
+//		ReviewPageVO page = new ReviewPageVO();
+//		
+//		int pageNo = 1;
+//		try {
+//			pageNo = Integer.parseInt(request.getParameter("pageNo"));
+//			page.setPageNo(pageNo);
+//		} catch (Exception e) {
+//			
+//		}
+		
+
+		//페이지 공유영역에 넘기기
+//		request.setAttribute("page", new ReviewPageResult(pageNo, mapper.selectReviewCount()));
 		HttpSession session = request.getSession();
 		MemberVO user = (MemberVO)session.getAttribute("user");
 //		int num = user.getMemberNo();

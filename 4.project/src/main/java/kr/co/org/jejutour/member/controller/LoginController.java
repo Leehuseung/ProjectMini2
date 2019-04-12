@@ -54,6 +54,7 @@ public class LoginController extends HttpServlet {
 			} else {
 				session.setAttribute("user", user);
 				session.setAttribute("id", user.getId());	
+				session.setAttribute("no", user.getMemberNo());	
 				out.println(1);
 			} 
 			
