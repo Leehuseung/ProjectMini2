@@ -35,18 +35,18 @@ public class UpdateController extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8");
 		
 		// 루트
-		String uploadRoot = "C:/bit2019/tomcat-work/wtpwebapps/jeju/resources/images/tourist";
+		String path = "C:/bit2019/tomcat-work/wtpwebapps/jeju/resources/images/tourist";
 		
-		// 저장할 폴더 자동생성(일자별로)
-		SimpleDateFormat sdf = new SimpleDateFormat("/yyyy/MM/dd/");
-		String path = "/board" + sdf.format(new Date());
-		File file = new File(uploadRoot + path);
-		if(file.exists() == false) file.mkdirs();
+//		// 저장할 폴더 자동생성(일자별로)
+//		SimpleDateFormat sdf = new SimpleDateFormat("/yyyy/MM/dd/");
+//		String path = "/board" + sdf.format(new Date());
+//		File file = new File(uploadRoot + path);
+//		if(file.exists() == false) file.mkdirs();
 		
 		try {
 		MultipartRequest mRequest = new MultipartRequest(
 				request,
-				uploadRoot + path, // 경로
+				path, // 경로
 				1024 * 1024 * 100,   // 최대사이즈  1kb  1mb  100mb
 				"utf-8",             // 파라미터 인코딩(한글처리)
 				new DefaultFileRenamePolicy()  // 중복이름 넘버링
@@ -106,7 +106,7 @@ public class UpdateController extends HttpServlet {
 	    	System.out.println("파일이름은 : "+FileName);
 	    	System.out.println("");
 	    	TouristFileVO fileVO = new TouristFileVO();
-			fileVO.setPath("/jeju/resources/images/tourist"+ path + FileName);
+			fileVO.setPath("/jeju/resources/images/tourist/"+ FileName);
 			fileVO.setName(FileName);
 			fileVO.setBoardNo(no);
 			mapper.writeTouristBoardFileNoneSe(fileVO);

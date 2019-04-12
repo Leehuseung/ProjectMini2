@@ -181,6 +181,7 @@
 		select path
 		  from tb_tourist_file
 		 where board_no = #{boardNo}
+		 order by board_no
 	</select>
 
 

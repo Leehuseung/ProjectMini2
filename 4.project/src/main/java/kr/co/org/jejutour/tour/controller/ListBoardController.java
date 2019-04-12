@@ -50,15 +50,16 @@ public class ListBoardController extends HttpServlet {
 			
 		}
 
-		List<TouristVO> tourList = new ArrayList<>();
+		List<TouristVO> touristList = mapper.selectTouristBoard(page);
+		
 		//파일첨부
 		List<String> imgFile = new ArrayList<>();
 
-		for(int i = 0; i<tourList.size() ; i++) {
-			TouristVO board = tourList.get(i);
+		for(int i = 0; i<touristList.size() ; i++) {
+			TouristVO tourist = touristList.get(i);
 			
 			//filePath의 보드 하위 파일 경로 4가지를 불러옴
-			List<String> filePath = mapper.selectTouristFilesByNo(board.getBoardNo());
+			List<String> filePath = mapper.selectTouristFilesByNo(tourist.getBoardNo());
 //					System.out.println("파일패쓰 사이즈00"+filePath.size());
 			//main 사진만 한개만 imgFile 배열로 올려줌
 			for(int k = 0; k < 1 ; k ++) {
@@ -70,9 +71,9 @@ public class ListBoardController extends HttpServlet {
 		
 		request.setAttribute("imgFile", imgFile);
 		
-		// 게시물 목록 가져오기
-		request.setAttribute("list", mapper.selectTouristBoard(page));
 		
+		// 게시물 목록 가져오기
+		request.setAttribute("list", touristList);
 		// 페이징 부분
 		request.setAttribute("pageResult", new TouristPageResult(pageNo, mapper.selectTouristBoardCount()));
 		
