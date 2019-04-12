@@ -95,12 +95,12 @@
 		delete
 		  from tb_review
 		 where board_no=#{boardNo}
-		   and member_no = #{memberNo}
+		   and member_no =#{memberNo}
 	</delete>
 	
 	
 	<!-- 전체조회 -->
-	<select id="selectListReview" parameterType="page" resultMap="reviewMap">
+	<select id="selectListReview" parameterType="rpage" resultMap="reviewMap">
 	 select a.board_no,
       		b.name, 
        		a.title,
@@ -176,7 +176,8 @@
 		 where b.board_no = #{boardNo}
 	</select>
 	
-	<!-- 댓글 조회 -->
+
+	<!-- 댓글조회 -->	
 	<select id="selectListCommentByNo" parameterType="int" resultMap="commentMap">
 		select a.comment_no,
 			   a.board_no,
@@ -189,7 +190,13 @@
 		    on a.member_no = b.member_no
 		 where a.board_no = #{boardNo}
 		 order by comment_no desc
-	</select>
+	</select> 
+	
+	<delete id="deleteComment" parameterType="int">
+		delete
+		  from tb_review_comment
+		 where comment_no=#{commentNo}
+	</delete>
 </mapper>
 
 

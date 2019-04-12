@@ -21,6 +21,6 @@ public class DeleteBoardController extends HttpServlet {
 		mapper.deleteTouristFile(no);
 		
 		
-		response.sendRedirect("/jeju/view/restraunt/restraunt_main.do");
+		response.sendRedirect("/jeju/view/tourist/touristlist.do");
 	}
 }

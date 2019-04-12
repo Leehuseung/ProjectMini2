@@ -26,12 +26,12 @@ public class CommentWriteController extends HttpServlet{
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
         MemberVO user = (MemberVO)session.getAttribute("user");
-		int memberNo = user.getMemberNo();
         ReviewCommentVO rc = new ReviewCommentVO();
 		int no = Integer.parseInt((request.getParameter("no")));
 		rc.setBoardNo(no);
 		rc.setContent(request.getParameter("content"));
-		rc.setMemberNo(memberNo);//로그인 session연결해야함!
+		rc.setMemberNo(user.getMemberNo());
+		System.out.println(user.getMemberNo());
 		mapper.selectReviewCommentCount(no);
 		mapper.insertComment(rc);
 	

@@ -128,12 +128,16 @@
 }
 
 .picture {
-    height: 400px;
+    height: 420px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 200px;
+    grid-gap: 3em;
 }
 
-.picture > img {
-    width: 100%;
-    height: 100%;
+.picture > div > div > img {
+	width: 250px;
+	height: 180px;
 }
 
 .detail-icon > div {

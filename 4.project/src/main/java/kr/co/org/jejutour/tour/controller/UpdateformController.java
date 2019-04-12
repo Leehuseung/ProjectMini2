@@ -1,6 +1,7 @@
 package kr.co.org.jejutour.tour.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.co.org.jejutour.db.MyAppSqlConfig;
 import kr.co.org.jejutour.repository.dao.TouristMapper;
+import kr.co.org.jejutour.repository.vo.TouristVO;
 
 @WebServlet("/view/tourist/updateboardform.do")
 public class UpdateformController extends HttpServlet {
@@ -26,11 +28,11 @@ public class UpdateformController extends HttpServlet {
 		int no = Integer.parseInt(request.getParameter("no"));
 		System.out.println("no : " + no);
 		
-		request.setAttribute(
-			"tourist", mapper.selectTouristBoardByNo(
-				Integer.parseInt(request.getParameter("no"))
-			)	
-		);
+		TouristVO board = mapper.selectTouristBoardByNo(no);
+		List<String> files = mapper.selectTouristFilesByNo(no);
+		
+		request.setAttribute("tourist", board);
+		request.setAttribute("files", files);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("tourist-update.jsp");
 		rd.forward(request, response);

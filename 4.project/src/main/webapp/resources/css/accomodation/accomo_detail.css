@@ -76,6 +76,8 @@
     .head_info> .box1{
         font-size:70px;
         text-align: center;
+        top:-35px;
+        marign-bottom:10px;
     }
     .head_info> .box2{
         font-size:30px;

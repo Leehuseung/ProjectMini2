@@ -19,11 +19,77 @@
     $(document).ready( function() { 
     	$("#footer").load("../footer.html");  // 원하는 파일 경로를 삽입하면 된다
     }); 
+    
+    function check(){
+    	if(!document.doSubmit.tag.value){
+    		alert("태그를 입력하세요");
+    		document.doSubmit.tag.focus();
+    		return false;
+    	}else if(!document.doSubmit.nomination.value){
+    		alert("지명을 입력하세요");
+    		document.doSubmit.nomination.focus();
+    		return false;
+    	}else if(!document.doSubmit.simpleIntroduce.value){
+    		alert("간단설명을 입력하세요");
+    		document.doSubmit.simpleIntroduce.focus();
+    		return false;
+    	}else if(!document.doSubmit.title.value){
+    		alert("제목을 입력하세요");
+    		document.doSubmit.title.focus();
+    		return false;
+    	}else if(!document.doSubmit.introduce.value){
+    		alert("소개를 입력하세요");
+    		document.doSubmit.introduce.focus();
+    		return false;
+    	}else if(!document.doSubmit.fee.value){
+    		alert("이용요금을 입력하세요");
+    		document.doSubmit.fee.focus();
+    		return false;
+    	}else if(!document.doSubmit.address.value){
+    		alert("주소를 입력하세요");
+    		document.doSubmit.address.focus();
+    		return false;
+    	}else if(!document.doSubmit.purpose.value){
+    		alert("주요목적을 입력하세요");
+    		document.doSubmit.purpose.focus();
+    		return false;
+    	}else if(!document.doSubmit.weekday.value){
+    		alert("평일 이용시간을 입력하세요");
+    		document.doSubmit.weekday.focus();
+    		return false;
+    	}else if(!document.doSubmit.weekend.value){
+    		alert("주말 이용시간을 입력하세요");
+    		document.doSubmit.weekend.focus();
+    		return false;
+    	}else if(!document.doSubmit.contact.value){
+    		alert("전화번호를 입력하세요");
+    		document.doSubmit.contact.focus();
+    		return false;
+    	}else if(!document.doSubmit.contentTitle.value){
+    		alert("상세 내용 제목을 입력하세요");
+    		document.doSubmit.contentTitle.focus();
+    		return false;
+    	}else if(!document.doSubmit.content.value){
+    		alert("상세 본문 내용을 입력하세요");
+    		document.doSubmit.content.focus();
+    		return false;
+    	}else if(!document.doSubmit.attach1.value ||
+    			!document.doSubmit.attach2.value ||
+    			!document.doSubmit.attach3.value ||
+    			!document.doSubmit.attach4.value ||
+    			!document.doSubmit.attach5.value ||
+    			!document.doSubmit.attach6.value ){
+    		alert("파일을 모두 첨부해주세요")
+    		return false;
+    		
+    	}
+    }
 </script>
 <jsp:include page="/view/header.jsp" />
 <body>
     <div id="headers"></div>
     <div class="body">
+    <form method='POST' action='/jeju/view/tourist/updateboard.do?no=${tourist.boardNo}' enctype="multipart/form-data" name="doSubmit" onsubmit="return check()">
         <div class="sub-title">
             제주도의 관광지를 한눈에...
         </div>
@@ -57,11 +123,32 @@
                     </a>
                 </div>
             </div>
+                &nbsp;&nbsp;&nbsp;파일첨부 : <br>
             <div class="picture">
-                <form action="" method="post" enctype="multipart/form-data" name="">
-                    <input multiple="multiple" type="file" name="FileName[]">
-                </form>
-                <img src="pic/tourist-img/detail01_slide1.jpg"/>
+            	<div>
+	                <input multiple="multiple" type="file" id="attach1" name = "attach1"/><br>
+	               	<div class="attach"><img id="img1" /></div><br>
+            	</div>
+            	<div>
+	               	<input multiple="multiple" type="file" id="attach2" name = "attach2"/><br>
+	               	<div class="attach"><img id="img2" /></div><br>
+            	</div>
+            	<div>
+	               	<input multiple="multiple" type="file" id="attach3" name = "attach3"/><br>
+	               	<div class="attach"><img id="img3" /></div><br>
+            	</div>
+            	<div>
+	               	<input multiple="multiple" type="file" id="attach4" name = "attach4"/><br>
+	               	<div class="attach"><img id="img4" /></div><br>
+            	</div>
+            	<div>
+	               	<input multiple="multiple" type="file" id="attach5" name = "attach5"/><br>
+	               	<div class="attach"><img id="img5" /></div><br>
+            	</div>
+            	<div>
+	               	<input multiple="multiple" type="file" id="attach6" name = "attach6"/><br>
+	               	<div class="attach"><img id="img6" /></div><br>
+            	</div>
             </div>
             <br>
             <ul class="detail-icon">
@@ -125,8 +212,45 @@
                 </div>
             </div>
         </div>
+    </form>
     </div>
     <div id="footer"></div>
 
 </body>
+<script>
+
+	
+
+
+
+	var sel_file;
+	
+	for(let i = 1; i < 7 ; i++) { 
+		$(document).ready(function() {
+				$("#attach"+i).on("change", handleImgFileSelect);
+		});
+		
+		function handleImgFileSelect(e) {
+			var files = e.target.files;
+			var filesArr = Array.prototype.slice.call(files);
+			
+			filesArr.forEach(function(f) {
+				if(!f.type.match("image.*")) {
+					alert("확장자는 이미지 확장자만 가능합니다.");
+					return;
+				}
+				
+				sel_file = f;
+				
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$("#img" + i).attr("src", e.target.result);
+				}
+				reader.readAsDataURL(f);
+			});
+		}
+	}
+
+
+</script>
 </html>

@@ -256,14 +256,13 @@ input[type=radio]:checked + label.city{
     }
     .info_block > .info_pic1{
         
-       background-image: url("../../resources/images/accomodation/oceansweet.gif");
         background-repeat: no-repeat;
         background-size: cover;
         
     }
     .info_block > .info_pic2{
         
-        background-image: url("../../resources/images/accomodation/pension.jpg");
+       
          background-repeat: no-repeat;
          background-size: cover;
          
@@ -277,14 +276,12 @@ input[type=radio]:checked + label.city{
      }
      .info_block > .info_pic3{
         
-        background-image: url("../../resources/images/accomodation/howardhotel.jpg");
          background-repeat: no-repeat;
          background-size: cover;
          
      }
      .info_block > .info_pic4{
         
-        background-image: url("../../resources/images/accomodation/gusethouse.gif");
          background-repeat: no-repeat;
          background-size: cover;
          
