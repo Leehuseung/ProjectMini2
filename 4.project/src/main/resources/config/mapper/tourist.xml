@@ -74,7 +74,7 @@
 	<update id="updateTouristBoard" parameterType="touristBoard">
 	update tb_tourist_board 
 	   set title = #{title}, 
-	   	   nomination = #{writer},
+	   	   nomination = #{nomination},
 	       tag = #{tag},
 	       simple_introduce = #{simpleIntroduce},
 	       introduce = #{introduce},

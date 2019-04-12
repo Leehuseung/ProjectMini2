@@ -109,12 +109,18 @@
                 </div>
             </div>
             <div class="up-del">
-                <a href="updateboardform.do?no=${tourist.boardNo}" >
-                    <button>글수정</button>
-                </a>
-                <a href="deleteboard.do?no=${tourist.boardNo}">
-                    <button>글삭제</button>
-                </a>
+<%--                 <a href="updateboardform.do?no=${tourist.boardNo}" > --%>
+<!--                     <button>글수정</button> -->
+<!--                 </a> -->
+<%--                 <a href="deleteboard.do?no=${tourist.boardNo}"> --%>
+<!--                     <button>글삭제</button> -->
+<!--                 </a> -->
+			<a>
+                <button onclick="updateFunc(${tourist.boardNo})" class="but">글수정</button>
+			</a>
+			<a>
+                <button class="but" onclick="deleteFunc(${tourist.boardNo})">글삭제</button>
+			</a>
             </div>
             <div class="detail-info">
                 <p class="info-title">
@@ -131,6 +137,14 @@
     </div>
     <div id="footer"></div>
     <script>
+	    function deleteFunc(no){
+			  window.location.href="/jeju/view/tourist/deleteboard.do?no="+no;
+		}
+		function updateFunc(no){
+			  window.location.href="/jeju/view/tourist/updateboardform.do?no="+no;
+		}
+    
+    
         var slides = document.getElementsByClassName('slide');
         var i = 0;
         var slideCount = slides.length;

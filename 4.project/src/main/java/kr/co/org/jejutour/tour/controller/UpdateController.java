@@ -66,7 +66,6 @@ public class UpdateController extends HttpServlet {
 		TouristVO t = mapper.selectTouristBoardByNo(no);
 		
 		t.setBoardNo(no);
-		t.setMemberNo(user.getMemberNo());
 		t.setTitle(mRequest.getParameter("title"));
 		t.setNomination(mRequest.getParameter("nomination"));
 		t.setTag(mRequest.getParameter("tag"));

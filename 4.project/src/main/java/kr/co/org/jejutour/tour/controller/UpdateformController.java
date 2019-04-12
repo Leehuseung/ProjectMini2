@@ -31,7 +31,7 @@ public class UpdateformController extends HttpServlet {
 		TouristVO board = mapper.selectTouristBoardByNo(no);
 		List<String> files = mapper.selectTouristFilesByNo(no);
 		
-		request.setAttribute("board", board);
+		request.setAttribute("tourist", board);
 		request.setAttribute("files", files);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("tourist-update.jsp");

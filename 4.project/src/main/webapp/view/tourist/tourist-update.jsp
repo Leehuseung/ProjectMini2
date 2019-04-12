@@ -218,6 +218,11 @@
 
 </body>
 <script>
+
+	
+
+
+
 	var sel_file;
 	
 	for(let i = 1; i < 7 ; i++) { 
