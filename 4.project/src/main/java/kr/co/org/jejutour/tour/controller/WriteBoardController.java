@@ -149,7 +149,7 @@ public class WriteBoardController extends HttpServlet{
 		response.sendRedirect("detailboard.do?no=" + t.getBoardNo());
 		
 		}catch(Exception e) {
-//			e.printStackTrace();
+			e.printStackTrace();
 		}
 		
 		

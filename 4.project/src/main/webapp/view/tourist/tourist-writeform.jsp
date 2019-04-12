@@ -204,8 +204,8 @@
                     <a>
                         <button type="submit">등록하기</button>
                     </a>
-                    <a href="touristlist.do">
-                        <button>취소</button>         
+                    <a>
+                        <button onClick="history.back()">취소</button>   
                     </a>
                 </div>
             </div>

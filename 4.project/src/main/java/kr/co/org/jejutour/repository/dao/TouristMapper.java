@@ -2,7 +2,6 @@ package kr.co.org.jejutour.repository.dao;
 
 import java.util.List;
 
-import kr.co.org.jejutour.repository.vo.RestrauntFileVO;
 import kr.co.org.jejutour.repository.vo.TouristCommentVO;
 import kr.co.org.jejutour.repository.vo.TouristFileVO;
 import kr.co.org.jejutour.repository.vo.TouristPageVO;
@@ -36,6 +35,7 @@ public interface TouristMapper {
 	/** 파일삭제 */
 	public void deleteTouristFile(int no);
 		
+	
 	/** 댓글 목록 조회 */
 	public List<TouristCommentVO> selectComment(int no);
 	public void writeComment(TouristCommentVO comment);
