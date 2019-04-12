@@ -73,11 +73,12 @@
                 </div>
             </div>
             <div class="content">
-            	<c:forEach var="tourist" items="${list}" >
+            	<c:forEach var="tourist" items="${list}" varStatus="status">
+            	<c:set var="file" value="${imgFile[status.index]}" />
                 <a href="detailboard.do?no=${tourist.boardNo}">
                     <div class="container" >
                         <div class="thumbnail">
-                            <img src="../../resources/images/tourist/detail01_thum.jpg"/>
+                            <img src="${file}"/>
                             <h3>${tourist.title}</h3>
                         </div>
                         <div class="info">

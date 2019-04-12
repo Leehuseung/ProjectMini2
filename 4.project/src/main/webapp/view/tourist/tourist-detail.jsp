@@ -112,7 +112,7 @@
                 <a href="updateboardform.do?no=${tourist.boardNo}" >
                     <button>글수정</button>
                 </a>
-                <a href="deleteboard.do">
+                <a href="deleteboard.do?no=${tourist.boardNo}">
                     <button>글삭제</button>
                 </a>
             </div>

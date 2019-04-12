@@ -86,21 +86,21 @@
 	       contact = #{contact},
 	       content_title = #{contentTitle},
 	       content = #{content}
-	 where board_no = #{no}
+	 where board_no = #{boardNo}
 	</update>
 	
 	<!-- 글삭제 -->
 	<delete id="deleteTouristBoard" parameterType="int">
 	delete 
 	  from tb_tourist_board 
-	 where board_no = #{no}
+	 where board_no = #{boardNo}
 	</delete>
 	
 	<!-- 조회수증가 -->
 	<update id="updateTouristViewCnt" parameterType="int">
 	update tb_tourist_board
 	   set view_cnt = view_cnt + 1
-	 where board_no = #{no}
+	 where board_no = #{boardNo}
 	</update>
 	
 	
