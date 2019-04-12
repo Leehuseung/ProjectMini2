@@ -137,7 +137,7 @@ k++;
     <div class="page">
            <c:if test="${pageResult.count != 0}">
 				<jsp:include page="accomo_page.jsp">
-					<jsp:param name="link" value="main.do"/>
+					<jsp:param name="link" value="accomo_main.do"/>
 				</jsp:include>
 			</c:if>
 

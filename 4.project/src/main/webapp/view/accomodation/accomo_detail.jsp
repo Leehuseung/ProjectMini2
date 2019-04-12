@@ -37,7 +37,7 @@
    <div class="edit_delete">
     <div class="edit"><a href="accomo_edit.html">글 수정</a></div>
     <div class="delete"><a href="delete.do">글 삭제</a></div>
-    <div class="goMain"><a href="main.do">메인이동</a></div>
+    <div class="goMain"><a href="accomo_main.do">메인이동</a></div>
    </div>
    
    <div class="info_body">

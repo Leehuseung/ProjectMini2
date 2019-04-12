@@ -14,7 +14,7 @@ import kr.co.org.jejutour.db.MyAppSqlConfig;
 import kr.co.org.jejutour.repository.dao.AccomodationMapper;
 import kr.co.org.jejutour.repository.vo.AccomoPageVO;
 
-@WebServlet("/view/accomodation/main.do")
+@WebServlet("/view/accomodation/accomo_main.do")
 public class AccomoMainController extends HttpServlet {
 
 private AccomodationMapper mapper;
