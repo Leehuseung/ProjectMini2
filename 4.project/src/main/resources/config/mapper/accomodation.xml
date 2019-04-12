@@ -66,24 +66,40 @@
 	from tb_acc_Info
 	</select>
 	
-	<select id="selectOnlyCity" parameterType="String" resultMap="accInfoMap">
-	select * 
-	from tb_acc_Info
-	where city =#{city}
-	</select>
-	
 	<select id="selectOnlyTown" parameterType="String" resultMap="accInfoMap">
 	select * 
 	from tb_acc_Info
 	where town =#{town}
 	</select>
 	
+	<select id="selectOnlyType" parameterType="String" resultMap="accInfoMap">
+	select * 
+	from tb_acc_Info
+	where type =#{type}
+	</select>
+	
 	<select id="selectEach" parameterType="String" resultMap="accInfoMap">
 	select * 
 	from tb_acc_Info
-	where town =#{town} and city =#{city}
+	where type = #{type} and town = #{town}
 	</select>
 	
+	
+	<select id="selectBoard" parameterType="page" resultMap="accInfoMap">
+		select*
+		from(
+		select rownum rnum,a.*
+		from (select*
+		from tb_acc_info
+		order by acc_no desc)a
+		)
+		where rnum between #{begin} and #{end}
+	</select>
+
+	<select id="selectBoardCount" resultType="int">
+		select count(*)
+		from tb_acc_info
+	</select>
 	
 	
 	

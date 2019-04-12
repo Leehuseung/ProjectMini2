@@ -359,7 +359,7 @@ var city = $('#selectTowns').val();
 			  console.dir(this.files[0]);
 			  var reader = new FileReader();
 			  reader.onload = function(e){
-				 $('.pic_middle1').css('background','url("' + e.target.result + '")'); 
+				 $('.pic_middle1').css('background-image','url("' + e.target.result + '")'); 
 			  }//onload
 			  reader.readAsDataURL(this.files[0]);
 		  }//if
@@ -453,7 +453,7 @@ var city = $('#selectTowns').val();
 				console.log(board.name);
 				}//for	
 				$("#selectTowns").html(option);
-				alert("시 선택 성공");
+				
 				
 			}//function
 			
