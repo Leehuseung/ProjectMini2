@@ -35,14 +35,14 @@ public class WriteController extends HttpServlet{
 		String rating = request.getParameter("ratingCategory");
 		String review = request.getParameter("reviewCategory");
 //		if(title!="" && content!="" && rating!="" && review!="");
-		r.setTitle(title);
 		//request.getParameter("ratingCategory")
 		//form태그에서 넘어올때는 name으로 넘어오니까 일치시켜야함.
 		
 		//jsp파일로 r이라는 reviewVO를 넘겨주는 거니까 jsp에는 vo에 정의되어 있는 변수명이랑 일치시켜야 함.
+		r.setTitle(title);
 		r.setRatingCategoryNo(rating);
 //		System.out.println(request.getParameter("reviewCategory"));
-		r.setReviewCategoryNo(request.getParameter("reviewCategory"));
+		r.setReviewCategoryNo(review);
 		r.setContent(content);
 		
 		

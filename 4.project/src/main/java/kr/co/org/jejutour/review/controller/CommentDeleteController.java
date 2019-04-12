@@ -1,6 +1,7 @@
 package kr.co.org.jejutour.review.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,36 +10,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+
 import kr.co.org.jejutour.db.MyAppSqlConfig;
 import kr.co.org.jejutour.repository.dao.ReviewMapper;
 import kr.co.org.jejutour.repository.vo.MemberVO;
 import kr.co.org.jejutour.repository.vo.ReviewCommentVO;
+import kr.co.org.jejutour.repository.vo.ReviewVO;
 
 
-@WebServlet("/view/review/comment-write.do")
-public class CommentWriteController extends HttpServlet{
+@WebServlet("/view/review/comment-delete.do")
+public class CommentDeleteController extends HttpServlet{
 	public ReviewMapper mapper;
 	
-	public CommentWriteController() {
+	public CommentDeleteController() {
 		mapper = MyAppSqlConfig.getSqlSession().getMapper(ReviewMapper.class);
 	}
 	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
-		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
-        MemberVO user = (MemberVO)session.getAttribute("user");
-        ReviewCommentVO rc = new ReviewCommentVO();
-		int no = Integer.parseInt((request.getParameter("no")));
-		rc.setBoardNo(no);
-		rc.setContent(request.getParameter("content"));
+		MemberVO user = (MemberVO)session.getAttribute("user");
+		PrintWriter out = response.getWriter();
+
+		ReviewCommentVO rc = new ReviewCommentVO();
+		rc.setCommentNo(Integer.parseInt(request.getParameter("commentNo")));
+//		rc.setMemberNo(Integer.parseInt(request.getParameter("memberNo")));
 		rc.setMemberNo(user.getMemberNo());
-		System.out.println(user.getMemberNo());
-		mapper.selectReviewCommentCount(no);
-		mapper.insertComment(rc);
-	
-		response.sendRedirect("detail.do?no="+no);
-		
-		
-		
+		mapper.deleteComment(rc);
+		System.out.println("삭제할 댓글 주인 : "+request.getParameter("memberNo"));
+		System.out.println("삭제할 댓글 주인 : "+user.getMemberNo());
+		out.println(rc);
+		out.close();
+			
 		
 
 	}

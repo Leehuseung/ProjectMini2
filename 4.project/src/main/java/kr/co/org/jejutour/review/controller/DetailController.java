@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.org.jejutour.common.page.ReviewPageResult;
 import kr.co.org.jejutour.db.MyAppSqlConfig;
 import kr.co.org.jejutour.repository.dao.ReviewMapper;
+import kr.co.org.jejutour.repository.vo.ReviewPageVO;
 import kr.co.org.jejutour.repository.vo.ReviewVO;
 
 @WebServlet("/view/review/detail.do")
@@ -21,12 +23,13 @@ public class DetailController extends HttpServlet{
 	}
 	
 	public void service(HttpServletRequest request, HttpServletResponse response)throws IOException, ServletException {
-
+	
 		int no = Integer.parseInt(request.getParameter("no"));
 	//		System.out.println("detail1"+no);
 		mapper.updateViewCnt(no);
 		request.setAttribute("detail", mapper.detailReviewNo(no));
-		System.out.println(mapper.detailReviewNo(no).getMemberNo());
+//		System.out.println(mapper.detailReviewNo(no).getMemberNo());
+		
 		
 		RequestDispatcher rd = request.getRequestDispatcher("detail.jsp");
 		rd.forward(request, response);
